@@ -1,0 +1,5 @@
+﻿<Application Logo="ExpressAppLogo">
+	<Options Skin="Office 2016 Colorful" UIType="TabbedMDI" FormStyle="Ribbon">
+	  <RibbonOptions RibbonControlStyle="Office2013" />
+	</Options>
+</Application>
