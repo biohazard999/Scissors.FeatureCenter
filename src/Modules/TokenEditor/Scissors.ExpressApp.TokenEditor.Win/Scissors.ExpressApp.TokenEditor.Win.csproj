@@ -5,12 +5,6 @@
     <AssemblySearchPaths>$(AssemblySearchPaths);{GAC}</AssemblySearchPaths>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="2.3.0-beta1" />
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="2.4.0" />
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.3.0-beta1" />
-    <PackageReference Include="Microsoft.DotNet.Analyzers.Compatibility" Version="0.1.2-alpha" />
-  </ItemGroup>
-  <ItemGroup>
     <Reference Include="DevExpress.ExpressApp.Win.v17.2">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
