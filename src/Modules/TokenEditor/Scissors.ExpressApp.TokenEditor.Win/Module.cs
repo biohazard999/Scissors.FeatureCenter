@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using DevExpress.ExpressApp;
@@ -7,7 +7,7 @@ using DevExpress.ExpressApp.SystemModule;
 using DevExpress.ExpressApp.Updating;
 using DevExpress.ExpressApp.Win.SystemModule;
 
-namespace Scissors.TokenEditor.Win
+namespace Scissors.ExpressApp.TokenEditor.Win
 {
     public class TokenEditorWindowsFormsModule : ModuleBase
     {
@@ -31,7 +31,6 @@ namespace Scissors.TokenEditor.Win
         
         protected override void RegisterEditorDescriptors(EditorDescriptorsFactory editorDescriptorsFactory)
         {
-            base.RegisterEditorDescriptors(editorDescriptorsFactory);
         }
     }
 }

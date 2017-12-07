@@ -21,4 +21,7 @@
       <SpecificVersion>False</SpecificVersion>
     </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Editors\" />
+  </ItemGroup>
 </Project>
