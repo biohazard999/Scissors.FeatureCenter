@@ -1,31 +1,38 @@
 ﻿using System;
-using System.Linq;
-using System.Text;
-using System.ComponentModel;
-using DevExpress.ExpressApp;
-using DevExpress.ExpressApp.DC;
 using System.Collections.Generic;
-using DevExpress.ExpressApp.Model;
+using System.ComponentModel;
+using System.Linq;
+using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Editors;
-using DevExpress.ExpressApp.Actions;
+using DevExpress.ExpressApp.SystemModule;
 using DevExpress.ExpressApp.Updating;
-using DevExpress.ExpressApp.Model.Core;
-using DevExpress.ExpressApp.Model.DomainLogics;
-using DevExpress.ExpressApp.Model.NodeGenerators;
+using DevExpress.ExpressApp.Win.SystemModule;
 
-namespace Scissors.FeatureCenter.Module.Win {
+namespace Scissors.FeatureCenter.Module.Win
+{
     [ToolboxItemFilter("Xaf.Platform.Win")]
-    // For more typical usage scenarios, be sure to check out https://documentation.devexpress.com/eXpressAppFramework/clsDevExpressExpressAppModuleBasetopic.aspx.
-    public sealed partial class FeatureCenterWindowsFormsModule : ModuleBase {
-        public FeatureCenterWindowsFormsModule() {
-            InitializeComponent();
-        }
-        public override IEnumerable<ModuleUpdater> GetModuleUpdaters(IObjectSpace objectSpace, Version versionFromDB) {
-            return ModuleUpdater.EmptyModuleUpdaters;
-        }
-        public override void Setup(XafApplication application) {
-            base.Setup(application);
-            // Manage various aspects of the application UI and behavior at the module level.
+    public sealed partial class FeatureCenterWindowsFormsModule : ModuleBase
+    {
+        public override IEnumerable<ModuleUpdater> GetModuleUpdaters(IObjectSpace objectSpace, Version versionFromDB)
+            => ModuleUpdater.EmptyModuleUpdaters;
+
+        protected override IEnumerable<Type> GetDeclaredControllerTypes()
+            => Type.EmptyTypes;
+
+        protected override IEnumerable<Type> GetDeclaredExportedTypes()
+            => Type.EmptyTypes;
+
+        protected override IEnumerable<Type> GetRegularTypes()
+            => Type.EmptyTypes;
+
+        protected override ModuleTypeList GetRequiredModuleTypesCore()
+            => new ModuleTypeList(
+                typeof(SystemModule),
+                typeof(SystemWindowsFormsModule)
+            );
+
+        protected override void RegisterEditorDescriptors(EditorDescriptorsFactory editorDescriptorsFactory)
+        {
         }
     }
 }
