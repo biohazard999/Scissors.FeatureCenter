@@ -176,7 +176,7 @@ csharp_style_conditional_delegate_call = true:error
 csharp_style_expression_bodied_accessors = true:error
 
 # http://kent-boogaart.com/blog/editorconfig-reference-for-c-developers#csharp_style_expression_bodied_constructors
-csharp_style_expression_bodied_constructors = false:error
+csharp_style_expression_bodied_constructors = true:error
 
 # http://kent-boogaart.com/blog/editorconfig-reference-for-c-developers#csharp_style_expression_bodied_indexers
 csharp_style_expression_bodied_indexers = true:error
