@@ -5,6 +5,6 @@
     <AssemblySearchPaths>$(AssemblySearchPaths);{GAC}</AssemblySearchPaths>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="DevExpress.ExpressApp.Win" Version="17.2.3" />
+    <PackageReference Include="DevExpress.ExpressApp.Win" Version="17.2.*" />
   </ItemGroup>
 </Project>

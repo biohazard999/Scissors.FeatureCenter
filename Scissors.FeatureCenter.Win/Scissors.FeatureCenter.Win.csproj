@@ -1,4 +1,4 @@
-﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -134,10 +134,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="DevExpress.ExpressApp.Win">
-      <Version>17.2.3</Version>
+      <Version>17.2.*</Version>
     </PackageReference>
     <PackageReference Include="DevExpress.ExpressApp.Xpo">
-      <Version>17.2.3</Version>
+      <Version>17.2.*</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
