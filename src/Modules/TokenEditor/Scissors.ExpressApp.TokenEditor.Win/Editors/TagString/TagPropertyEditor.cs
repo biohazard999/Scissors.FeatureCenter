@@ -10,7 +10,8 @@ namespace Scissors.ExpressApp.TokenEditor.Win
 {
     public class TagStringPropertyEditor : DXPropertyEditor
     {
-        protected TagStringPropertyEditor(Type objectType, IModelMemberViewItem model) : base(objectType, model)
+        public TagStringPropertyEditor(Type objectType, IModelMemberViewItem model)
+            : base(objectType, model)
         {
         }
 

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27128.1
+VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.FeatureCenter.Module", "Scissors.FeatureCenter.Module\Scissors.FeatureCenter.Module.csproj", "{5F15837D-D1E5-44DC-92F0-4F2EBE9C3F8D}"
 EndProject
@@ -19,12 +19,33 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".config", ".config", "{768E
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
-		src\GlobalSuppressionsForTests.cs = src\GlobalSuppressionsForTests.cs
+		.global\Global.csproj = .global\Global.csproj
+		.global\GlobalSuppressionsForTests.cs = .global\GlobalSuppressionsForTests.cs
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.ExpressApp", "src\Scissors.ExpressApp\Scissors.ExpressApp.csproj", "{2CE62FF7-23D7-4C81-99A6-19D8E5889668}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.ExpressApp", "src\Scissors.ExpressApp\Scissors.ExpressApp.csproj", "{2CE62FF7-23D7-4C81-99A6-19D8E5889668}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.ExpressApp.Win", "src\Scissors.ExpressApp.Win\Scissors.ExpressApp.Win.csproj", "{DD958DAD-2A51-4DC1-8472-AE925AC1C4A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.ExpressApp.Win", "src\Scissors.ExpressApp.Win\Scissors.ExpressApp.Win.csproj", "{DD958DAD-2A51-4DC1-8472-AE925AC1C4A2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.Xpo", "src\Scissors.Xpo\Scissors.Xpo.csproj", "{794EB192-295B-4EDD-8956-399437FA4A5C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LabelEditor", "LabelEditor", "{1B3151BE-D295-4740-831A-B26CB2AD8712}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.ExpressApp.LabelEditor.Win", "src\Modules\LabelEditor\Scissors.ExpressApp.LabelEditor.Win\Scissors.ExpressApp.LabelEditor.Win.csproj", "{E00A8595-853F-4E60-B03C-FFAA4F58D77C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.ExpressApp.LabelEditor.Contracts", "src\Modules\LabelEditor\Scissors.ExpressApp.LabelEditor.Contracts\Scissors.ExpressApp.LabelEditor.Contracts.csproj", "{3E7D1836-290E-4689-9F68-6DA46B89E6FD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{01CD28D2-04F3-40AF-A112-797CDCC42E98}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{34B94D5E-64F0-4FD7-802C-C2D05928895C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LabelEditorDemos", "LabelEditorDemos", "{3B70C971-B7FD-498B-A4B8-A0EC50BBDC45}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.FeatureCenter.Modules.LabelEditorDemos.BusinessObjects", "demos\FeatureCenter\src\Modules\LabelEditorDemos\BusinessObjects\Scissors.FeatureCenter.Modules.LabelEditorDemos.BusinessObjects.csproj", "{1F9CE801-C633-4B28-A089-AC5536D1B047}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.FeatureCenter.Modules.LabelEditorDemos", "demos\FeatureCenter\src\Modules\LabelEditorDemos\Common\Scissors.FeatureCenter.Modules.LabelEditorDemos.csproj", "{FE0C4487-711A-4D8D-94E6-C3391EAECA3C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.FeatureCenter.Modules.LabelEditorDemos.Win", "demos\FeatureCenter\src\Modules\LabelEditorDemos\Win\Scissors.FeatureCenter.Modules.LabelEditorDemos.Win.csproj", "{324BA4B1-0C4B-48FB-A33C-FB1554A7A744}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +90,42 @@ Global
 		{DD958DAD-2A51-4DC1-8472-AE925AC1C4A2}.EasyTest|Any CPU.Build.0 = Debug|Any CPU
 		{DD958DAD-2A51-4DC1-8472-AE925AC1C4A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD958DAD-2A51-4DC1-8472-AE925AC1C4A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{794EB192-295B-4EDD-8956-399437FA4A5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{794EB192-295B-4EDD-8956-399437FA4A5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{794EB192-295B-4EDD-8956-399437FA4A5C}.EasyTest|Any CPU.ActiveCfg = Debug|Any CPU
+		{794EB192-295B-4EDD-8956-399437FA4A5C}.EasyTest|Any CPU.Build.0 = Debug|Any CPU
+		{794EB192-295B-4EDD-8956-399437FA4A5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{794EB192-295B-4EDD-8956-399437FA4A5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E00A8595-853F-4E60-B03C-FFAA4F58D77C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E00A8595-853F-4E60-B03C-FFAA4F58D77C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E00A8595-853F-4E60-B03C-FFAA4F58D77C}.EasyTest|Any CPU.ActiveCfg = Debug|Any CPU
+		{E00A8595-853F-4E60-B03C-FFAA4F58D77C}.EasyTest|Any CPU.Build.0 = Debug|Any CPU
+		{E00A8595-853F-4E60-B03C-FFAA4F58D77C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E00A8595-853F-4E60-B03C-FFAA4F58D77C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E7D1836-290E-4689-9F68-6DA46B89E6FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E7D1836-290E-4689-9F68-6DA46B89E6FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E7D1836-290E-4689-9F68-6DA46B89E6FD}.EasyTest|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E7D1836-290E-4689-9F68-6DA46B89E6FD}.EasyTest|Any CPU.Build.0 = Debug|Any CPU
+		{3E7D1836-290E-4689-9F68-6DA46B89E6FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E7D1836-290E-4689-9F68-6DA46B89E6FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F9CE801-C633-4B28-A089-AC5536D1B047}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F9CE801-C633-4B28-A089-AC5536D1B047}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F9CE801-C633-4B28-A089-AC5536D1B047}.EasyTest|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F9CE801-C633-4B28-A089-AC5536D1B047}.EasyTest|Any CPU.Build.0 = Debug|Any CPU
+		{1F9CE801-C633-4B28-A089-AC5536D1B047}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F9CE801-C633-4B28-A089-AC5536D1B047}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE0C4487-711A-4D8D-94E6-C3391EAECA3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE0C4487-711A-4D8D-94E6-C3391EAECA3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE0C4487-711A-4D8D-94E6-C3391EAECA3C}.EasyTest|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE0C4487-711A-4D8D-94E6-C3391EAECA3C}.EasyTest|Any CPU.Build.0 = Debug|Any CPU
+		{FE0C4487-711A-4D8D-94E6-C3391EAECA3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE0C4487-711A-4D8D-94E6-C3391EAECA3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{324BA4B1-0C4B-48FB-A33C-FB1554A7A744}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{324BA4B1-0C4B-48FB-A33C-FB1554A7A744}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{324BA4B1-0C4B-48FB-A33C-FB1554A7A744}.EasyTest|Any CPU.ActiveCfg = Debug|Any CPU
+		{324BA4B1-0C4B-48FB-A33C-FB1554A7A744}.EasyTest|Any CPU.Build.0 = Debug|Any CPU
+		{324BA4B1-0C4B-48FB-A33C-FB1554A7A744}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{324BA4B1-0C4B-48FB-A33C-FB1554A7A744}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -78,6 +135,15 @@ Global
 		{9836DC04-4525-49AF-B261-154895A07906} = {B726B99E-9BC2-43F5-92A1-82F40CF0FCB5}
 		{2CE62FF7-23D7-4C81-99A6-19D8E5889668} = {1D7734E8-0F8A-4BEE-813D-05D4453A4783}
 		{DD958DAD-2A51-4DC1-8472-AE925AC1C4A2} = {1D7734E8-0F8A-4BEE-813D-05D4453A4783}
+		{794EB192-295B-4EDD-8956-399437FA4A5C} = {1D7734E8-0F8A-4BEE-813D-05D4453A4783}
+		{1B3151BE-D295-4740-831A-B26CB2AD8712} = {1D7734E8-0F8A-4BEE-813D-05D4453A4783}
+		{E00A8595-853F-4E60-B03C-FFAA4F58D77C} = {1B3151BE-D295-4740-831A-B26CB2AD8712}
+		{3E7D1836-290E-4689-9F68-6DA46B89E6FD} = {1B3151BE-D295-4740-831A-B26CB2AD8712}
+		{34B94D5E-64F0-4FD7-802C-C2D05928895C} = {01CD28D2-04F3-40AF-A112-797CDCC42E98}
+		{3B70C971-B7FD-498B-A4B8-A0EC50BBDC45} = {34B94D5E-64F0-4FD7-802C-C2D05928895C}
+		{1F9CE801-C633-4B28-A089-AC5536D1B047} = {3B70C971-B7FD-498B-A4B8-A0EC50BBDC45}
+		{FE0C4487-711A-4D8D-94E6-C3391EAECA3C} = {3B70C971-B7FD-498B-A4B8-A0EC50BBDC45}
+		{324BA4B1-0C4B-48FB-A33C-FB1554A7A744} = {3B70C971-B7FD-498B-A4B8-A0EC50BBDC45}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {469CE51B-ECDA-486F-AFCD-E4CB6A371CFE}

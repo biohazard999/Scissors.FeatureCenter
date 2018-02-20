@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net462</TargetFramework>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="DevExpress.ExpressApp.Win" Version="17.2.*" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\..\src\Scissors.ExpressApp.Win\Scissors.ExpressApp.Win.csproj" />
+    <ProjectReference Include="..\Common\Scissors.FeatureCenter.Modules.LabelEditorDemos.csproj" />
+  </ItemGroup>
+
+</Project>

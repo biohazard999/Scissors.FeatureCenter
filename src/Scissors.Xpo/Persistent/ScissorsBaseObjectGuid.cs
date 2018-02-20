@@ -11,7 +11,7 @@ namespace Scissors.Xpo.Persistent
 
         [Key(AutoGenerate = true)]
         [Persistent(nameof(Oid))]
-        private Guid _Oid;
+        private Guid _Oid = default;
         [PersistentAlias(nameof(_Oid))]
         public Guid Oid => _Oid;
     }

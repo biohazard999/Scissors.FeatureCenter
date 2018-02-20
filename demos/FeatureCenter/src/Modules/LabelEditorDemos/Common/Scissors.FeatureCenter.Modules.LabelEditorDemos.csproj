@@ -3,10 +3,14 @@
   <PropertyGroup>
     <TargetFramework>net462</TargetFramework>
   </PropertyGroup>
-
+  
+  <ItemGroup>
+    <PackageReference Include="DevExpress.ExpressApp" Version="17.2.*" />
+  </ItemGroup>
+  
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\..\..\src\Scissors.ExpressApp\Scissors.ExpressApp.csproj" />
-    <ProjectReference Include="..\Scissors.FeatureCenter.Modules.LabelEditorDemos.BusinessObjects\Scissors.FeatureCenter.Modules.LabelEditorDemos.BusinessObjects.csproj" />
+    <ProjectReference Include="..\BusinessObjects\Scissors.FeatureCenter.Modules.LabelEditorDemos.BusinessObjects.csproj" />
   </ItemGroup>
 
 </Project>
