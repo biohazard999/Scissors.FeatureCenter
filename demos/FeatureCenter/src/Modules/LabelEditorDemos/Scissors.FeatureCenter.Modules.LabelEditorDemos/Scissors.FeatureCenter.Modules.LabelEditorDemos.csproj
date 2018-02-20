@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net462</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\..\src\Scissors.ExpressApp\Scissors.ExpressApp.csproj" />
+    <ProjectReference Include="..\Scissors.FeatureCenter.Modules.LabelEditorDemos.BusinessObjects\Scissors.FeatureCenter.Modules.LabelEditorDemos.BusinessObjects.csproj" />
+  </ItemGroup>
+
+</Project>
