@@ -8,6 +8,6 @@
     <PackageReference Include="DevExpress.ExpressApp.Xpo" Version="17.2.*" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BOModel\Labels\" />
+    <ProjectReference Include="..\src\Scissors.ExpressApp\Scissors.ExpressApp.csproj" />
   </ItemGroup>
 </Project>

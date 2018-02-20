@@ -7,4 +7,9 @@
   <ItemGroup>
     <PackageReference Include="DevExpress.ExpressApp.Win" Version="17.2.*" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Scissors.FeatureCenter.Module\Scissors.FeatureCenter.Module.csproj" />
+    <ProjectReference Include="..\src\Scissors.ExpressApp.Win\Scissors.ExpressApp.Win.csproj" />
+    <ProjectReference Include="..\src\Scissors.ExpressApp\Scissors.ExpressApp.csproj" />
+  </ItemGroup>
 </Project>

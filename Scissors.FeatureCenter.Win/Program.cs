@@ -4,7 +4,6 @@ using System.Windows.Forms;
 
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Security;
-using DevExpress.ExpressApp.Win;
 using DevExpress.Persistent.Base;
 
 namespace Scissors.FeatureCenter.Win

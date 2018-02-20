@@ -1,4 +1,4 @@
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -113,6 +113,14 @@
     <ProjectReference Include="..\Scissors.FeatureCenter.Module\Scissors.FeatureCenter.Module.csproj">
       <Project>{5F15837D-D1E5-44DC-92F0-4F2EBE9C3F8D}</Project>
       <Name>Scissors.FeatureCenter.Module</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\src\Scissors.ExpressApp.Win\Scissors.ExpressApp.Win.csproj">
+      <Project>{dd958dad-2a51-4dc1-8472-ae925ac1c4a2}</Project>
+      <Name>Scissors.ExpressApp.Win</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\src\Scissors.ExpressApp\Scissors.ExpressApp.csproj">
+      <Project>{2ce62ff7-23d7-4c81-99a6-19d8e5889668}</Project>
+      <Name>Scissors.ExpressApp</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
