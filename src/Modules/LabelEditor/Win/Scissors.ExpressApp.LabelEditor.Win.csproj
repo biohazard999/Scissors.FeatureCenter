@@ -11,7 +11,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\Scissors.ExpressApp.Win\Scissors.ExpressApp.Win.csproj" />
     <ProjectReference Include="..\..\..\Scissors.ExpressApp\Scissors.ExpressApp.csproj" />
-    <ProjectReference Include="..\Scissors.ExpressApp.LabelEditor.Contracts\Scissors.ExpressApp.LabelEditor.Contracts.csproj" />
+    <ProjectReference Include="..\Contracts\Scissors.ExpressApp.LabelEditor.Contracts.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Windows.Forms" />
