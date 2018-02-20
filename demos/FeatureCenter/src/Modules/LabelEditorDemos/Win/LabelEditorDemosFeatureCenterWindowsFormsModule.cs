@@ -1,15 +1,14 @@
 using System;
-using System.Collections.Generic;
+using DevExpress.ExpressApp;
 using Scissors.ExpressApp;
 using Scissors.ExpressApp.Win;
 
 namespace Scissors.FeatureCenter.Modules.LabelEditorDemos
 {
-    //public sealed class LabelEditorDemosFeatureCenterWindowsFormsModule : ScissorsBaseModuleWin
-    //{
-    //    protected override global::DevExpress.ExpressApp.ModuleTypeList GetRequiredModuleTypesCore()
-    //    {
-    //        return base.GetRequiredModuleTypesCore();
-    //    }
-    //}
+    public sealed class LabelEditorDemosFeatureCenterWindowsFormsModule : ScissorsBaseModuleWin
+    {
+        protected override ModuleTypeList GetRequiredModuleTypesCore()
+            => base.GetRequiredModuleTypesCore()
+                .AndModuleTypes(typeof(LabelEditorDemosFeatureCenterModule));
+    }
 }
