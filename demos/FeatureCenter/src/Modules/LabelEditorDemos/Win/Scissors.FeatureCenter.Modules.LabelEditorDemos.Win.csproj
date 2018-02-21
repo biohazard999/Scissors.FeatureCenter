@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\..\src\Modules\LabelEditor\Win\Scissors.ExpressApp.LabelEditor.Win.csproj" />
     <ProjectReference Include="..\..\..\..\..\..\src\Scissors.ExpressApp.Win\Scissors.ExpressApp.Win.csproj" />
     <ProjectReference Include="..\Common\Scissors.FeatureCenter.Modules.LabelEditorDemos.csproj" />
   </ItemGroup>

@@ -17,5 +17,18 @@ namespace Scissors.FeatureCenter.Modules.LabelEditorDemos.BusinessObjects
             get => _Text;
             set => SetPropertyValue(ref _Text, value);
         }
+
+        string _Html;
+        public string Html
+        {
+            get => _Html;
+            set
+            {
+                if(SetPropertyValue(ref _Html, value))
+                {
+                    Text = _Html;
+                }
+            }
+        }
     }
 }

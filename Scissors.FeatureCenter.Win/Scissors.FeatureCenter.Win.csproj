@@ -59,6 +59,26 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Scissors.ExpressApp.LabelEditor.Contracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\src\Modules\LabelEditor\Contracts\bin\Debug\netstandard2.0\Scissors.ExpressApp.LabelEditor.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Scissors.ExpressApp.LabelEditor.Win, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\src\Modules\LabelEditor\Win\bin\Debug\net462\Scissors.ExpressApp.LabelEditor.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="Scissors.FeatureCenter.Modules.LabelEditorDemos, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\demos\FeatureCenter\src\Modules\LabelEditorDemos\Common\bin\Debug\net462\Scissors.FeatureCenter.Modules.LabelEditorDemos.dll</HintPath>
+    </Reference>
+    <Reference Include="Scissors.FeatureCenter.Modules.LabelEditorDemos.BusinessObjects, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\demos\FeatureCenter\src\Modules\LabelEditorDemos\BusinessObjects\bin\Debug\net462\Scissors.FeatureCenter.Modules.LabelEditorDemos.BusinessObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="Scissors.FeatureCenter.Modules.LabelEditorDemos.Win, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\demos\FeatureCenter\src\Modules\LabelEditorDemos\Win\bin\Debug\net462\Scissors.FeatureCenter.Modules.LabelEditorDemos.Win.dll</HintPath>
+    </Reference>
     <Reference Include="System">
       <Name>System</Name>
       <Private>False</Private>
@@ -91,6 +111,7 @@
     <Compile Include="WinApplication.Designer.cs">
       <DependentUpon>WinApplication.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="WinApplication.resx">
       <DependentUpon>WinApplication.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -148,9 +169,7 @@
       <Version>17.2.*</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

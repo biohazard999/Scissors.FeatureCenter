@@ -5,7 +5,7 @@ using DevExpress.ExpressApp.Win.Editors;
 using DevExpress.Utils;
 using DevExpress.XtraEditors;
 
-namespace Scissors.ExpressApp.TokenEditor.Win
+namespace Scissors.ExpressApp.LabelEditor.Win.Editors
 {
     public class LabelStringPropertyEditor : WinPropertyEditor
     {
@@ -24,7 +24,7 @@ namespace Scissors.ExpressApp.TokenEditor.Win
 
             return control;
         }
-
+        
         public new LabelControl Control => (LabelControl)base.Control;
     }
 }

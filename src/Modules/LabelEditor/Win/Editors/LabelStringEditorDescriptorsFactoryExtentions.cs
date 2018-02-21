@@ -1,13 +1,9 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DevExpress.ExpressApp.Editors;
 using Scissors.ExpressApp.LabelEditor.Contracts;
-using Scissors.ExpressApp.TokenEditor.Win;
 
-namespace Scissors.ExpressApp.LabelEditor.Win
+namespace Scissors.ExpressApp.LabelEditor.Win.Editors
 {
     public static class LabelStringEditorDescriptorsFactoryExtentions
     {
@@ -16,6 +12,11 @@ namespace Scissors.ExpressApp.LabelEditor.Win
 
         public static EditorDescriptorsFactory RegisterLabelStringPropertyEditor(this EditorDescriptorsFactory editorDescriptorsFactory)
         {
+            editorDescriptorsFactory.RegisterPropertyEditorAlias(
+                EditorAliasesLabelEditor.LabelStringEditor,
+                typeof(string),
+                true);
+
             editorDescriptorsFactory
                 .RegisterPropertyEditor(EditorAliasesLabelEditor.LabelStringEditor,
                 typeof(string),

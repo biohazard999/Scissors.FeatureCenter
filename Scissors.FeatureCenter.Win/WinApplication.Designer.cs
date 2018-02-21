@@ -1,4 +1,4 @@
-﻿namespace Scissors.FeatureCenter.Win {
+namespace Scissors.FeatureCenter.Win {
     partial class FeatureCenterWindowsFormsApplication {
         /// <summary> 
         /// Required designer variable.

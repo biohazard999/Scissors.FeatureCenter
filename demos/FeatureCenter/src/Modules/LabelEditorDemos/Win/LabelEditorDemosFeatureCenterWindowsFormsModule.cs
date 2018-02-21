@@ -1,6 +1,7 @@
 using System;
 using DevExpress.ExpressApp;
 using Scissors.ExpressApp;
+using Scissors.ExpressApp.LabelEditor.Win;
 using Scissors.ExpressApp.Win;
 
 namespace Scissors.FeatureCenter.Modules.LabelEditorDemos
@@ -9,6 +10,8 @@ namespace Scissors.FeatureCenter.Modules.LabelEditorDemos
     {
         protected override ModuleTypeList GetRequiredModuleTypesCore()
             => base.GetRequiredModuleTypesCore()
-                .AndModuleTypes(typeof(LabelEditorDemosFeatureCenterModule));
+                .AndModuleTypes(
+                    typeof(LabelEditorDemosFeatureCenterModule),
+                    typeof(LabelEditorWindowsFormsModule));
     }
 }
