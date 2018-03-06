@@ -111,7 +111,6 @@
     <Compile Include="WinApplication.Designer.cs">
       <DependentUpon>WinApplication.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="WinApplication.resx">
       <DependentUpon>WinApplication.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -163,13 +162,15 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="DevExpress.ExpressApp.Win">
-      <Version>17.2.*</Version>
+      <Version>17.2.6</Version>
     </PackageReference>
     <PackageReference Include="DevExpress.ExpressApp.Xpo">
-      <Version>17.2.*</Version>
+      <Version>17.2.6</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
