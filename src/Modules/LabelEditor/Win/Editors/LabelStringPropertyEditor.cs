@@ -18,6 +18,7 @@ namespace Scissors.ExpressApp.LabelEditor.Win.Editors
             var control = new LabelControl
             {
                 AllowHtmlString = true,
+                AutoSizeMode = LabelAutoSizeMode.None,
             };
 
             control.Appearance.TextOptions.WordWrap = WordWrap.Wrap;

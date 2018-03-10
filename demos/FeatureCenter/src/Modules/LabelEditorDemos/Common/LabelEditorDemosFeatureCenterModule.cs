@@ -9,5 +9,8 @@ namespace Scissors.FeatureCenter.Modules.LabelEditorDemos
     {
         protected override IEnumerable<Type> GetDeclaredExportedTypes()
             => LabelEditorDemosBusinessObjects.Types;
+
+        protected override IEnumerable<Type> GetDeclaredControllerTypes()
+            => LabelEditorDemosControllers.Types;
     }
 }
