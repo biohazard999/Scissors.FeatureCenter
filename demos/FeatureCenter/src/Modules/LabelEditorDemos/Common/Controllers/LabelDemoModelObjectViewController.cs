@@ -9,8 +9,6 @@ using DevExpress.Persistent.Base;
 using Scissors.ExpressApp;
 using Scissors.FeatureCenter.Modules.LabelEditorDemos.BusinessObjects;
 
-#pragma warning disable IDE0021
-
 namespace Scissors.FeatureCenter.Modules.LabelEditorDemos.Controllers
 {
     public class LabelDemoModelObjectViewController : BusinessObjectViewController<LabelDemoModel>
