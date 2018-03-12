@@ -8,4 +8,8 @@
     <PackageReference Include="DevExpress.Xpo" Version="17.2.6" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Utils\Utils\Scissors.Utils\Scissors.Utils.csproj" />
+  </ItemGroup>
+
 </Project>

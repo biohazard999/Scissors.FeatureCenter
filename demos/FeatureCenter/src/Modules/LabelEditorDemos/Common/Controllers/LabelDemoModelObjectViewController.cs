@@ -8,6 +8,7 @@ using DevExpress.ExpressApp.Templates;
 using DevExpress.Persistent.Base;
 using Scissors.ExpressApp;
 using Scissors.FeatureCenter.Modules.LabelEditorDemos.BusinessObjects;
+using Scissors.FeatureCenter.Modules.LabelEditorDemos.Contracts;
 
 namespace Scissors.FeatureCenter.Modules.LabelEditorDemos.Controllers
 {
@@ -31,6 +32,8 @@ namespace Scissors.FeatureCenter.Modules.LabelEditorDemos.Controllers
                 var txt = LoremIpsum(10, 10, 10, 10, 5);
                 CurrentObject.Text = txt;
             };
+
+            TargetViewId = ViewIds.LabelDemoModel.DetailView;
         }
 
         static string LoremIpsum(
