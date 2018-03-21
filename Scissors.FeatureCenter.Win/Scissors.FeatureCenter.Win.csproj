@@ -161,6 +161,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="DevExpress.ExpressApp.Images">
+      <Version>17.2.6</Version>
+    </PackageReference>
     <PackageReference Include="DevExpress.ExpressApp.Win">
       <Version>17.2.6</Version>
     </PackageReference>
