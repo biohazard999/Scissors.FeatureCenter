@@ -162,13 +162,13 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="DevExpress.ExpressApp.Images">
-      <Version>17.2.6</Version>
+      <Version>17.2.7</Version>
     </PackageReference>
     <PackageReference Include="DevExpress.ExpressApp.Win">
-      <Version>17.2.6</Version>
+      <Version>17.2.7</Version>
     </PackageReference>
     <PackageReference Include="DevExpress.ExpressApp.Xpo">
-      <Version>17.2.6</Version>
+      <Version>17.2.7</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

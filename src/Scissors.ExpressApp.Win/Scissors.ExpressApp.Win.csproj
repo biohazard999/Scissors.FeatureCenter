@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DevExpress.ExpressApp.Win" Version="17.2.6" />
+    <PackageReference Include="DevExpress.ExpressApp.Win" Version="17.2.7" />
   </ItemGroup>
 
   <ItemGroup>
