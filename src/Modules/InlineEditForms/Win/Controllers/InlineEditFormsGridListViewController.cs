@@ -36,8 +36,13 @@ namespace Scissors.ExpressApp.InlineEditForms.Win.Controllers
                     frame.SetView(dv, true, Frame);
                     dv.CreateControls();
 
+                    ((System.Windows.Forms.Control)dv.Control).Dock = System.Windows.Forms.DockStyle.Fill;
+                    ((System.Windows.Forms.Control)dv.Control).Size = new System.Drawing.Size(100, 50);
+
                     var userControl = new ObjectSpaceEditFormUserControl(ObjectSpace, frame, dv)
                     {
+                        Width = ((System.Windows.Forms.Control)dv.Control).PreferredSize.Width,
+                        Height = ((System.Windows.Forms.Control)dv.Control).PreferredSize.Height,
                         Controls =
                         {
                             (System.Windows.Forms.Control)dv.Control

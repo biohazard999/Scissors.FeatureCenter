@@ -27,6 +27,9 @@ namespace Scissors.FeatureCenter.Win {
             this.module2 = new DevExpress.ExpressApp.Win.SystemModule.SystemWindowsFormsModule();
             this.module3 = new Scissors.FeatureCenter.Module.FeatureCenterModule();
             this.module4 = new Scissors.FeatureCenter.Module.Win.FeatureCenterWindowsFormsModule();
+            this.labelEditorDemosFeatureCenterModule1 = new Scissors.FeatureCenter.Modules.LabelEditorDemos.LabelEditorDemosFeatureCenterModule();
+            this.labelEditorWindowsFormsModule1 = new Scissors.ExpressApp.LabelEditor.Win.LabelEditorWindowsFormsModule();
+            this.labelEditorDemosFeatureCenterWindowsFormsModule1 = new Scissors.FeatureCenter.Modules.LabelEditorDemos.LabelEditorDemosFeatureCenterWindowsFormsModule();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // FeatureCenterWindowsFormsApplication
@@ -36,11 +39,13 @@ namespace Scissors.FeatureCenter.Win {
             this.Modules.Add(this.module1);
             this.Modules.Add(this.module2);
             this.Modules.Add(this.module3);
+            this.Modules.Add(this.labelEditorDemosFeatureCenterModule1);
+            this.Modules.Add(this.labelEditorWindowsFormsModule1);
+            this.Modules.Add(this.labelEditorDemosFeatureCenterWindowsFormsModule1);
             this.Modules.Add(this.module4);
             this.UseOldTemplates = false;
             this.DatabaseVersionMismatch += new System.EventHandler<DevExpress.ExpressApp.DatabaseVersionMismatchEventArgs>(this.FeatureCenterWindowsFormsApplication_DatabaseVersionMismatch);
             this.CustomizeLanguagesList += new System.EventHandler<DevExpress.ExpressApp.CustomizeLanguagesListEventArgs>(this.FeatureCenterWindowsFormsApplication_CustomizeLanguagesList);
-
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -51,5 +56,8 @@ namespace Scissors.FeatureCenter.Win {
         private DevExpress.ExpressApp.Win.SystemModule.SystemWindowsFormsModule module2;
         private Scissors.FeatureCenter.Module.FeatureCenterModule module3;
         private Scissors.FeatureCenter.Module.Win.FeatureCenterWindowsFormsModule module4;
+        private Modules.LabelEditorDemos.LabelEditorDemosFeatureCenterModule labelEditorDemosFeatureCenterModule1;
+        private ExpressApp.LabelEditor.Win.LabelEditorWindowsFormsModule labelEditorWindowsFormsModule1;
+        private Modules.LabelEditorDemos.LabelEditorDemosFeatureCenterWindowsFormsModule labelEditorDemosFeatureCenterWindowsFormsModule1;
     }
 }

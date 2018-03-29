@@ -29,7 +29,18 @@ namespace Scissors.ExpressApp.InlineEditForms.Win.Controllers
             var method = controller.GetType().GetMethods(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic).FirstOrDefault(m => m.Name == "FocusDefaultItemControl");
             method?.Invoke(controller, null);
 
-            var pnl = Parent.Parent.Controls.OfType<PanelControl>().First();
+            if(Parent == null)
+            {
+                return;
+            }
+
+            var pnl = Parent?.Parent?.Controls?.OfType<PanelControl>().FirstOrDefault();
+
+            if(pnl == null)
+            {
+                return;
+            }
+                    
             var cancelText = GridLocalizer.Active.GetLocalizedString(GridStringId.EditFormCancelButton);
             var okText = GridLocalizer.Active.GetLocalizedString(GridStringId.EditFormUpdateButton);
             var cancelBtn = pnl.Controls.OfType<SimpleButton>().Where(b => b.Text == cancelText).First();

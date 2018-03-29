@@ -69,6 +69,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.ExpressApp.InlineE
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.ExpressApp.InlineEditForms.Win", "src\Modules\InlineEditForms\Win\Scissors.ExpressApp.InlineEditForms.Win.csproj", "{230DACB5-9303-4196-86E3-65203D773D9B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.ExpressApp.InlineEditForms.UITests", "src\Modules\InlineEditForms\UITests\Scissors.ExpressApp.InlineEditForms.UITests.csproj", "{3EF9D53A-4859-45A9-8804-B2A0264A7757}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -190,6 +192,12 @@ Global
 		{230DACB5-9303-4196-86E3-65203D773D9B}.EasyTest|Any CPU.Build.0 = Debug|Any CPU
 		{230DACB5-9303-4196-86E3-65203D773D9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{230DACB5-9303-4196-86E3-65203D773D9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EF9D53A-4859-45A9-8804-B2A0264A7757}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EF9D53A-4859-45A9-8804-B2A0264A7757}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EF9D53A-4859-45A9-8804-B2A0264A7757}.EasyTest|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EF9D53A-4859-45A9-8804-B2A0264A7757}.EasyTest|Any CPU.Build.0 = Debug|Any CPU
+		{3EF9D53A-4859-45A9-8804-B2A0264A7757}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EF9D53A-4859-45A9-8804-B2A0264A7757}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -218,6 +226,7 @@ Global
 		{D1DABA5F-5EA4-45AF-B8A2-650629CD1E15} = {1D7734E8-0F8A-4BEE-813D-05D4453A4783}
 		{73B03CB5-5C34-4BF3-A27E-E4D76A76F635} = {D1DABA5F-5EA4-45AF-B8A2-650629CD1E15}
 		{230DACB5-9303-4196-86E3-65203D773D9B} = {D1DABA5F-5EA4-45AF-B8A2-650629CD1E15}
+		{3EF9D53A-4859-45A9-8804-B2A0264A7757} = {D1DABA5F-5EA4-45AF-B8A2-650629CD1E15}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {469CE51B-ECDA-486F-AFCD-E4CB6A371CFE}
