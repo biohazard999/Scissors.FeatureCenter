@@ -53,9 +53,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utils", "Utils", "{C4841573
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utils", "Utils", "{1AC9CD9A-51DA-4EF0-997C-71470BADF9FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.Utils", "src\Utils\Utils\Scissors.Utils\Scissors.Utils.csproj", "{361D4522-DE69-45FB-AA4B-0AE88A081983}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.Utils", "src\Utils\Utils\Scissors.Utils\Scissors.Utils.csproj", "{361D4522-DE69-45FB-AA4B-0AE88A081983}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.Utils.Tests", "src\Utils\Utils\Scissors.Utils.Tests\Scissors.Utils.Tests.csproj", "{200C1578-C34F-45AB-A9A1-CA4B1FB1EC43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.Utils.Tests", "src\Utils\Utils\Scissors.Utils.Tests\Scissors.Utils.Tests.csproj", "{200C1578-C34F-45AB-A9A1-CA4B1FB1EC43}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SquirrelUpdating", "SquirrelUpdating", "{40392B6D-0E9B-4AD4-AA7B-91EE995C9416}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.ExpressApp.SquirrelUpdating.Contracts", "src\Modules\SquirrelUpdating\Contracts\Scissors.ExpressApp.SquirrelUpdating.Contracts.csproj", "{5CC4D735-160D-41E7-BBDB-BD2097E585CB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.ExpressApp.SquirrelUpdating.Win", "src\Modules\SquirrelUpdating\Win\Scissors.ExpressApp.SquirrelUpdating.Win.csproj", "{F308DAF8-A79B-4EC8-9CA2-EC74D6FB0B3D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "InlineEditForms", "InlineEditForms", "{D1DABA5F-5EA4-45AF-B8A2-650629CD1E15}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.ExpressApp.InlineEditForms.Contracts", "src\Modules\InlineEditForms\Contracts\Scissors.ExpressApp.InlineEditForms.Contracts.csproj", "{73B03CB5-5C34-4BF3-A27E-E4D76A76F635}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.ExpressApp.InlineEditForms.Win", "src\Modules\InlineEditForms\Win\Scissors.ExpressApp.InlineEditForms.Win.csproj", "{230DACB5-9303-4196-86E3-65203D773D9B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -154,6 +166,30 @@ Global
 		{200C1578-C34F-45AB-A9A1-CA4B1FB1EC43}.EasyTest|Any CPU.Build.0 = Debug|Any CPU
 		{200C1578-C34F-45AB-A9A1-CA4B1FB1EC43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{200C1578-C34F-45AB-A9A1-CA4B1FB1EC43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CC4D735-160D-41E7-BBDB-BD2097E585CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CC4D735-160D-41E7-BBDB-BD2097E585CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CC4D735-160D-41E7-BBDB-BD2097E585CB}.EasyTest|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CC4D735-160D-41E7-BBDB-BD2097E585CB}.EasyTest|Any CPU.Build.0 = Debug|Any CPU
+		{5CC4D735-160D-41E7-BBDB-BD2097E585CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CC4D735-160D-41E7-BBDB-BD2097E585CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F308DAF8-A79B-4EC8-9CA2-EC74D6FB0B3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F308DAF8-A79B-4EC8-9CA2-EC74D6FB0B3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F308DAF8-A79B-4EC8-9CA2-EC74D6FB0B3D}.EasyTest|Any CPU.ActiveCfg = Debug|Any CPU
+		{F308DAF8-A79B-4EC8-9CA2-EC74D6FB0B3D}.EasyTest|Any CPU.Build.0 = Debug|Any CPU
+		{F308DAF8-A79B-4EC8-9CA2-EC74D6FB0B3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F308DAF8-A79B-4EC8-9CA2-EC74D6FB0B3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73B03CB5-5C34-4BF3-A27E-E4D76A76F635}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73B03CB5-5C34-4BF3-A27E-E4D76A76F635}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73B03CB5-5C34-4BF3-A27E-E4D76A76F635}.EasyTest|Any CPU.ActiveCfg = Debug|Any CPU
+		{73B03CB5-5C34-4BF3-A27E-E4D76A76F635}.EasyTest|Any CPU.Build.0 = Debug|Any CPU
+		{73B03CB5-5C34-4BF3-A27E-E4D76A76F635}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73B03CB5-5C34-4BF3-A27E-E4D76A76F635}.Release|Any CPU.Build.0 = Release|Any CPU
+		{230DACB5-9303-4196-86E3-65203D773D9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{230DACB5-9303-4196-86E3-65203D773D9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{230DACB5-9303-4196-86E3-65203D773D9B}.EasyTest|Any CPU.ActiveCfg = Debug|Any CPU
+		{230DACB5-9303-4196-86E3-65203D773D9B}.EasyTest|Any CPU.Build.0 = Debug|Any CPU
+		{230DACB5-9303-4196-86E3-65203D773D9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{230DACB5-9303-4196-86E3-65203D773D9B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -176,6 +212,12 @@ Global
 		{1AC9CD9A-51DA-4EF0-997C-71470BADF9FA} = {C4841573-FA09-445D-8236-092D812A5542}
 		{361D4522-DE69-45FB-AA4B-0AE88A081983} = {1AC9CD9A-51DA-4EF0-997C-71470BADF9FA}
 		{200C1578-C34F-45AB-A9A1-CA4B1FB1EC43} = {1AC9CD9A-51DA-4EF0-997C-71470BADF9FA}
+		{40392B6D-0E9B-4AD4-AA7B-91EE995C9416} = {1D7734E8-0F8A-4BEE-813D-05D4453A4783}
+		{5CC4D735-160D-41E7-BBDB-BD2097E585CB} = {40392B6D-0E9B-4AD4-AA7B-91EE995C9416}
+		{F308DAF8-A79B-4EC8-9CA2-EC74D6FB0B3D} = {40392B6D-0E9B-4AD4-AA7B-91EE995C9416}
+		{D1DABA5F-5EA4-45AF-B8A2-650629CD1E15} = {1D7734E8-0F8A-4BEE-813D-05D4453A4783}
+		{73B03CB5-5C34-4BF3-A27E-E4D76A76F635} = {D1DABA5F-5EA4-45AF-B8A2-650629CD1E15}
+		{230DACB5-9303-4196-86E3-65203D773D9B} = {D1DABA5F-5EA4-45AF-B8A2-650629CD1E15}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {469CE51B-ECDA-486F-AFCD-E4CB6A371CFE}

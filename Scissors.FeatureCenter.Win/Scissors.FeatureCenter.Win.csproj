@@ -32,6 +32,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -111,6 +112,7 @@
     <Compile Include="WinApplication.Designer.cs">
       <DependentUpon>WinApplication.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="WinApplication.resx">
       <DependentUpon>WinApplication.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -120,9 +122,7 @@
     <Content Include="Model.xafml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\ReadMe.txt" />
+    <None Include="Scissors.FeatureCenter.Win.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Scissors.FeatureCenter.Module.Win\Scissors.FeatureCenter.Module.Win.csproj">
@@ -132,6 +132,10 @@
     <ProjectReference Include="..\Scissors.FeatureCenter.Module\Scissors.FeatureCenter.Module.csproj">
       <Project>{5F15837D-D1E5-44DC-92F0-4F2EBE9C3F8D}</Project>
       <Name>Scissors.FeatureCenter.Module</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\src\Modules\InlineEditForms\Win\Scissors.ExpressApp.InlineEditForms.Win.csproj">
+      <Project>{230DACB5-9303-4196-86E3-65203D773D9B}</Project>
+      <Name>Scissors.ExpressApp.InlineEditForms.Win</Name>
     </ProjectReference>
     <ProjectReference Include="..\src\Scissors.ExpressApp.Win\Scissors.ExpressApp.Win.csproj">
       <Project>{dd958dad-2a51-4dc1-8472-ae925ac1c4a2}</Project>
@@ -160,26 +164,21 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DevExpress.ExpressApp.Images">
+    <PackageReference Include="DevExpress.ExpressApp.Images" Version="17.2.7" />
+    <PackageReference Include="DevExpress.ExpressApp.Validation.Win">
       <Version>17.2.7</Version>
     </PackageReference>
-    <PackageReference Include="DevExpress.ExpressApp.Win">
-      <Version>17.2.7</Version>
-    </PackageReference>
-    <PackageReference Include="DevExpress.ExpressApp.Xpo">
-      <Version>17.2.7</Version>
-    </PackageReference>
+    <PackageReference Include="DevExpress.ExpressApp.Win" Version="17.2.7" />
+    <PackageReference Include="DevExpress.ExpressApp.Xpo" Version="17.2.7" />
+    <PackageReference Include="DevExpress.ExpressApp.Images" Version="17.2.7" />
+    <PackageReference Include="DevExpress.XtraReports" Version="17.2.7" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="ILMerge" Version="2.14.1208" />
+    <PackageReference Include="Squirrel.Windows" Version="1.7.9" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Properties\" />
+    <Folder Include="Images\" />
   </ItemGroup>
-  <Target Name="ILMerge">
-    <!-- the ILMergePath property points to the location of ILMerge.exe console application -->
-    <Exec Command="$(ILMergeConsolePath)" />
-  </Target>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

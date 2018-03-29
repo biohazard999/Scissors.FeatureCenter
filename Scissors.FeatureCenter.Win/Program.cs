@@ -1,10 +1,16 @@
 using System;
 using System.Configuration;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Security;
+using DevExpress.ExpressApp.Utils.CodeGeneration;
+using DevExpress.ExpressApp.Validation;
+using DevExpress.ExpressApp.Validation.Win;
 using DevExpress.Persistent.Base;
+using Scissors.ExpressApp.InlineEditForms.Win;
+using Squirrel;
 
 namespace Scissors.FeatureCenter.Win
 {
@@ -16,11 +22,13 @@ namespace Scissors.FeatureCenter.Win
         [STAThread]
         static void Main()
         {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
 #if EASYTEST
             DevExpress.ExpressApp.Win.EasyTest.EasyTestRemotingRegistration.Register();
 #endif
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+
             EditModelPermission.AlwaysGranted = System.Diagnostics.Debugger.IsAttached;
             if(Tracing.GetFileLocationFromSettings() == DevExpress.Persistent.Base.FileLocation.CurrentUserApplicationDataFolder)
             {
@@ -47,6 +55,9 @@ namespace Scissors.FeatureCenter.Win
 #endif
             try
             {
+                winApplication.Modules.Add(new ValidationModule());
+                winApplication.Modules.Add(new ValidationWindowsFormsModule());
+                winApplication.Modules.Add(new InlineEditFormsWindowsFormsModule());
                 winApplication.Setup();
                 winApplication.Start();
             }
@@ -57,3 +68,4 @@ namespace Scissors.FeatureCenter.Win
         }
     }
 }
+
