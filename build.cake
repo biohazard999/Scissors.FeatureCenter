@@ -2,7 +2,7 @@
 #addin Cake.Squirrel
 #tool "nuget:?package=xunit.runner.console"
 
-var target = Argument("target", "Default");
+var target = string.IsNullOrEmpty(Argument("target", "Default")) ? "Default" : Argument("target", "Default");
 var version = Argument("packageversion", "1.0.0");
 
 void Build(string configuration = "Debug")
