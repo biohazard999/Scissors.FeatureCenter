@@ -6,6 +6,6 @@
 
 using System.Diagnostics.CodeAnalysis;
 
-[assembly: SuppressMessage("Design", "CA1034:Nested types should not be visible", Justification = "Okay for Test Classes")]
-[assembly: SuppressMessage("Style", "IDE0022:Use expression body for methods", Justification = "Ok for Test Classes")]
+[assembly: SuppressMessage("Design", "CA1034:Nested types should not be visible", Justification = "Okay for test classes")]
+[assembly: SuppressMessage("Style", "IDE0022:Use expression body for methods", Justification = "Okay for test classes")]
 

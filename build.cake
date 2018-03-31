@@ -38,7 +38,7 @@ Task("Test")
         XUnit2(testAssemblies, new XUnit2Settings 
         {
             ReportName = "TestResults",
-            Parallelism = ParallelismOption.All,
+            Parallelism = ParallelismOption.Collections,
             HtmlReport = true,
             XmlReport = true,
             OutputDirectory = "./build",
@@ -55,7 +55,7 @@ Task("UITest")
         XUnit2(testAssemblies, new XUnit2Settings 
         {
             ReportName = "TestResults_UITests",
-            Parallelism = ParallelismOption.None,
+            Parallelism = ParallelismOption.Collections,
             HtmlReport = true,
             XmlReport = true,
             OutputDirectory = "./build",
