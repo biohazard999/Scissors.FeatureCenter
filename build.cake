@@ -16,14 +16,18 @@ void Build(string configuration = "Debug")
     });
 }
 
-Task("Build")
+Task("Restore")
+    .Does(() => NuGetRestore("./Scissors.FeatureCenter.sln"));
+
+Task("Build")    
+    .IsDependentOn("Restore")
     .Does(() =>
     {
         Build();
     });
 
-
 Task("Release")
+    .IsDependentOn("Restore")
     .Does(() =>
     {
         Build("Release");
