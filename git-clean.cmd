@@ -1,1 +1,1 @@
-git clean -ffxd 
+git clean -fXd --exclude="!*.pfx"
