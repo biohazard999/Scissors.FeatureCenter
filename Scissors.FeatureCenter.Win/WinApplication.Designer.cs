@@ -56,8 +56,8 @@ namespace Scissors.FeatureCenter.Win {
         private DevExpress.ExpressApp.Win.SystemModule.SystemWindowsFormsModule module2;
         private Scissors.FeatureCenter.Module.FeatureCenterModule module3;
         private Scissors.FeatureCenter.Module.Win.FeatureCenterWindowsFormsModule module4;
-        private Modules.LabelEditorDemos.LabelEditorDemosFeatureCenterModule labelEditorDemosFeatureCenterModule1;
-        private ExpressApp.LabelEditor.Win.LabelEditorWindowsFormsModule labelEditorWindowsFormsModule1;
+        private Scissors.FeatureCenter.Modules.LabelEditorDemos.LabelEditorDemosFeatureCenterModule labelEditorDemosFeatureCenterModule1;
+        private Scissors.ExpressApp.LabelEditor.Win.LabelEditorWindowsFormsModule labelEditorWindowsFormsModule1;
         private Modules.LabelEditorDemos.LabelEditorDemosFeatureCenterWindowsFormsModule labelEditorDemosFeatureCenterWindowsFormsModule1;
     }
 }

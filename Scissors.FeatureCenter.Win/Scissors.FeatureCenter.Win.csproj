@@ -60,26 +60,6 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Scissors.ExpressApp.LabelEditor.Contracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\src\Modules\LabelEditor\Contracts\bin\Debug\netstandard2.0\Scissors.ExpressApp.LabelEditor.Contracts.dll</HintPath>
-    </Reference>
-    <Reference Include="Scissors.ExpressApp.LabelEditor.Win, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\src\Modules\LabelEditor\Win\bin\Debug\net462\Scissors.ExpressApp.LabelEditor.Win.dll</HintPath>
-    </Reference>
-    <Reference Include="Scissors.FeatureCenter.Modules.LabelEditorDemos, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\demos\FeatureCenter\src\Modules\LabelEditorDemos\Common\bin\Debug\net462\Scissors.FeatureCenter.Modules.LabelEditorDemos.dll</HintPath>
-    </Reference>
-    <Reference Include="Scissors.FeatureCenter.Modules.LabelEditorDemos.BusinessObjects, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\demos\FeatureCenter\src\Modules\LabelEditorDemos\BusinessObjects\bin\Debug\net462\Scissors.FeatureCenter.Modules.LabelEditorDemos.BusinessObjects.dll</HintPath>
-    </Reference>
-    <Reference Include="Scissors.FeatureCenter.Modules.LabelEditorDemos.Win, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\demos\FeatureCenter\src\Modules\LabelEditorDemos\Win\bin\Debug\net462\Scissors.FeatureCenter.Modules.LabelEditorDemos.Win.dll</HintPath>
-    </Reference>
     <Reference Include="System">
       <Name>System</Name>
       <Private>False</Private>
@@ -125,6 +105,22 @@
     <None Include="Scissors.FeatureCenter.Win.nuspec" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\demos\FeatureCenter\src\Modules\LabelEditorDemos\BusinessObjects\Scissors.FeatureCenter.Modules.LabelEditorDemos.BusinessObjects.csproj">
+      <Project>{1f9ce801-c633-4b28-a089-ac5536d1b047}</Project>
+      <Name>Scissors.FeatureCenter.Modules.LabelEditorDemos.BusinessObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\demos\FeatureCenter\src\Modules\LabelEditorDemos\Common\Scissors.FeatureCenter.Modules.LabelEditorDemos.csproj">
+      <Project>{fe0c4487-711a-4d8d-94e6-c3391eaeca3c}</Project>
+      <Name>Scissors.FeatureCenter.Modules.LabelEditorDemos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\demos\FeatureCenter\src\Modules\LabelEditorDemos\Contracts\Scissors.FeatureCenter.Modules.LabelEditorDemos.Contracts.csproj">
+      <Project>{d643979d-0e7c-416b-9251-3350314da37a}</Project>
+      <Name>Scissors.FeatureCenter.Modules.LabelEditorDemos.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\demos\FeatureCenter\src\Modules\LabelEditorDemos\Win\Scissors.FeatureCenter.Modules.LabelEditorDemos.Win.csproj">
+      <Project>{324ba4b1-0c4b-48fb-a33c-fb1554a7a744}</Project>
+      <Name>Scissors.FeatureCenter.Modules.LabelEditorDemos.Win</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Scissors.FeatureCenter.Module.Win\Scissors.FeatureCenter.Module.Win.csproj">
       <Project>{7964F87D-BC5D-4C4E-8B2F-71E89739AA97}</Project>
       <Name>Scissors.FeatureCenter.Module.Win</Name>
@@ -136,6 +132,14 @@
     <ProjectReference Include="..\src\Modules\InlineEditForms\Win\Scissors.ExpressApp.InlineEditForms.Win.csproj">
       <Project>{230DACB5-9303-4196-86E3-65203D773D9B}</Project>
       <Name>Scissors.ExpressApp.InlineEditForms.Win</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\src\Modules\LabelEditor\Contracts\Scissors.ExpressApp.LabelEditor.Contracts.csproj">
+      <Project>{d707bf95-6819-475e-aaae-b89eb7be0a5e}</Project>
+      <Name>Scissors.ExpressApp.LabelEditor.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\src\Modules\LabelEditor\Win\Scissors.ExpressApp.LabelEditor.Win.csproj">
+      <Project>{2e3e1bd8-2eaf-49e1-9d61-17d5cc3a207b}</Project>
+      <Name>Scissors.ExpressApp.LabelEditor.Win</Name>
     </ProjectReference>
     <ProjectReference Include="..\src\Scissors.ExpressApp.Win\Scissors.ExpressApp.Win.csproj">
       <Project>{dd958dad-2a51-4dc1-8472-ae925ac1c4a2}</Project>
