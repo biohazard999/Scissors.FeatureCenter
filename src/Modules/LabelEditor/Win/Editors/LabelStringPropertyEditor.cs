@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Linq;
 using DevExpress.ExpressApp.Model;
 using DevExpress.ExpressApp.Win.Editors;
@@ -21,15 +22,28 @@ namespace Scissors.ExpressApp.LabelEditor.Win.Editors
                 AllowHtmlString = true,
                 AutoSizeMode = LabelAutoSizeMode.None,
             };
+            control.HyperlinkClick += Control_HyperlinkClick;
 
             control.Appearance.TextOptions.WordWrap = WordWrap.Wrap;
 
             return control;
         }
 
+        private void Control_HyperlinkClick(object sender, HyperlinkClickEventArgs e)
+            => Process.Start(e.Link);
+        
+        public override void BreakLinksToControl(bool unwireEventsOnly)
+        {
+            if(Control != null)
+            {
+                Control.HyperlinkClick -= Control_HyperlinkClick;
+            }
+
+            base.BreakLinksToControl(unwireEventsOnly);
+        }
         public RepositoryItem CreateRepositoryItem()
             => new RepositoryItemHypertextLabel();
-        
+
         public new HyperlinkLabelControl Control => (HyperlinkLabelControl)base.Control;
     }
 }
