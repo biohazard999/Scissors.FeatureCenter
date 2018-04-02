@@ -34,13 +34,10 @@ namespace Scissors.FeatureCenter.Win
 #endif
 
             EditModelPermission.AlwaysGranted = System.Diagnostics.Debugger.IsAttached;
-            if(Tracing.GetFileLocationFromSettings() == DevExpress.Persistent.Base.FileLocation.CurrentUserApplicationDataFolder)
-            {
-                Tracing.LocalUserAppDataPath = Application.LocalUserAppDataPath;
-            }
+
+            Tracing.LocalUserAppDataPath = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, FeatureCenterWindowsFormsApplication.APP_NAME);
+
             Tracing.Initialize();
-            DevExpress.ExpressApp.ModelCacheManager.UseMultithreadedLoading = true;
-            DevExpress.ExpressApp.ModelCacheManager.SkipEmptyNodes = true;
 
             var winApplication = new FeatureCenterWindowsFormsApplication();
 
