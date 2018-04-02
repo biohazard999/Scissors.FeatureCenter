@@ -32,7 +32,7 @@ namespace Scissors.ExpressApp.LabelEditor.Win.Editors
 
         private void Control_HyperlinkClick(object sender, HyperlinkClickEventArgs e)
             => Process.Start(e.Link);
-        
+
         public override void BreakLinksToControl(bool unwireEventsOnly)
         {
             if(Control != null)
@@ -42,6 +42,7 @@ namespace Scissors.ExpressApp.LabelEditor.Win.Editors
 
             base.BreakLinksToControl(unwireEventsOnly);
         }
+
         public RepositoryItem CreateRepositoryItem()
             => new RepositoryItemHypertextLabel();
 
