@@ -180,12 +180,6 @@
     <PackageReference Include="DevExpress.ExpressApp.Xpo" Version="17.2.7" />
     <PackageReference Include="DevExpress.ExpressApp.Images" Version="17.2.7" />
     <PackageReference Include="DevExpress.XtraReports" Version="17.2.7" />
-    <PackageReference Include="System.Data.SQLite.Core">
-      <Version>1.0.108</Version>
-    </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Squirrel.Windows" Version="1.7.9" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />
