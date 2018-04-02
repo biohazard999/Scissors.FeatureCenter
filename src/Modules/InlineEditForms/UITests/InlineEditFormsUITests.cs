@@ -29,7 +29,7 @@ namespace Scissors.ExpressApp.InlineEditForms.UITests
             
             var currentWindowHandle = Session.CurrentWindowHandle;
 
-            // Wait for 2 minutes seconds or however long it is needed for the right window to appear 
+            // Wait for 5 seconds or however long it is needed for the right window to appear 
             // and for the splash screen to be dismissed. You can replace this with a more intelligent way to
             // determine if the new main window finally appears.
             Thread.Sleep(5000);
@@ -84,7 +84,7 @@ namespace Scissors.ExpressApp.InlineEditForms.UITests
                 .FirstOrDefault(m => m.TagName == "ControlType.ToolBar").Click();
 
             _Fixture.Session.FindElementByAccessibilityId("Html(5)")
-                .SendKeys("<b>FETT<");
+                .SendKeys("<b>BOLD<");
 
             new Actions(_Fixture.Session)
                 .KeyDown(Keys.Shift)
@@ -125,7 +125,7 @@ namespace Scissors.ExpressApp.InlineEditForms.UITests
         public void Success()
         {
             _Fixture.Session.FindElementByName("Text row 0")
-                .Text.ShouldBe("FETT");
+                .Text.ShouldBe("BOLD");
 
             _Fixture.Session.FindElementByName("Text row 0")
                 .Click();
@@ -153,7 +153,7 @@ namespace Scissors.ExpressApp.InlineEditForms.UITests
         public void Cancel()
         {
             _Fixture.Session.FindElementByName("Text row 0")
-                .Text.ShouldBe("FETT");
+                .Text.ShouldBe("BOLD");
 
             _Fixture.Session.FindElementByName("Text row 0")
                 .Click();
@@ -174,7 +174,7 @@ namespace Scissors.ExpressApp.InlineEditForms.UITests
                 .SendKeys(Keys.Escape);
 
             _Fixture.Session.FindElementByName("Text row 0")
-                .Text.ShouldBe("FETT");
+                .Text.ShouldBe("BOLD");
         }
     }
 }

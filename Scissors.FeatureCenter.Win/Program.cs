@@ -1,5 +1,7 @@
 using System;
 using System.Configuration;
+using System.IO;
+using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -8,7 +10,9 @@ using DevExpress.ExpressApp.Security;
 using DevExpress.ExpressApp.Utils.CodeGeneration;
 using DevExpress.ExpressApp.Validation;
 using DevExpress.ExpressApp.Validation.Win;
+using DevExpress.ExpressApp.Xpo;
 using DevExpress.Persistent.Base;
+using DevExpress.Xpo.DB;
 using Scissors.ExpressApp.InlineEditForms.Win;
 using Squirrel;
 
@@ -35,18 +39,14 @@ namespace Scissors.FeatureCenter.Win
                 Tracing.LocalUserAppDataPath = Application.LocalUserAppDataPath;
             }
             Tracing.Initialize();
+            DevExpress.ExpressApp.ModelCacheManager.UseMultithreadedLoading = true;
+            DevExpress.ExpressApp.ModelCacheManager.SkipEmptyNodes = true;
+
             var winApplication = new FeatureCenterWindowsFormsApplication();
-            // Refer to the https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112680.aspx help article for more details on how to provide a custom splash form.
-            //winApplication.SplashScreen = new DevExpress.ExpressApp.Win.Utils.DXSplashScreen("YourSplashImage.png");
-            if(ConfigurationManager.ConnectionStrings["ConnectionString"] != null)
-            {
-                winApplication.ConnectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-            }
-#if EASYTEST
-            if(ConfigurationManager.ConnectionStrings["EasyTestConnectionString"] != null) {
-                winApplication.ConnectionString = ConfigurationManager.ConnectionStrings["EasyTestConnectionString"].ConnectionString;
-            }
-#endif
+
+            InMemoryDataStoreProvider.Register();
+            winApplication.ConnectionString = InMemoryDataStoreProvider.ConnectionString;
+
 #if DEBUG
             if(System.Diagnostics.Debugger.IsAttached && winApplication.CheckCompatibilityType == CheckCompatibilityType.DatabaseSchema)
             {

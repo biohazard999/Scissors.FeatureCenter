@@ -1,12 +1,29 @@
 using DevExpress.ExpressApp;
+using DevExpress.ExpressApp.Utils;
 using DevExpress.ExpressApp.Win;
 using DevExpress.ExpressApp.Xpo;
 using System;
+using System.IO;
 
 namespace Scissors.FeatureCenter.Win
 {
     public partial class FeatureCenterWindowsFormsApplication : WinApplication
     {
+        protected override string GetDcAssemblyFilePath()
+            => Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, ApplicationName, DcAssemblyFileName);
+
+        protected override string GetModelAssemblyFilePath()
+            => Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, ApplicationName, ModelAssemblyFileName);
+
+        protected override string GetModulesVersionInfoFilePath()
+           => Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, ApplicationName, ModulesVersionInfoFileName);
+
+        //protected override void OnCustomGetUserModelDifferencesPath(CustomGetUserModelDifferencesPathEventArgs args)
+        //    => args.Path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, ApplicationName, "Model.User.xafml");
+
+        protected override string GetModelCacheFileLocationPath()
+            => Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, ApplicationName);
+
         static FeatureCenterWindowsFormsApplication()
         {
             DevExpress.Persistent.Base.PasswordCryptographer.EnableRfc2898 = true;
@@ -15,9 +32,12 @@ namespace Scissors.FeatureCenter.Win
 
         private void InitializeDefaults()
         {
+            UserModelDifferenceFilePath = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, ApplicationName);
+
             LinkNewObjectToParentImmediately = false;
             OptimizedControllersCreation = true;
             UseLightStyle = true;
+            EnableModelCache = true;
         }
 
         public FeatureCenterWindowsFormsApplication()
@@ -43,31 +63,8 @@ namespace Scissors.FeatureCenter.Win
 
         private void FeatureCenterWindowsFormsApplication_DatabaseVersionMismatch(object sender, DevExpress.ExpressApp.DatabaseVersionMismatchEventArgs e)
         {
-#if EASYTEST
             e.Updater.Update();
             e.Handled = true;
-#else
-            if(System.Diagnostics.Debugger.IsAttached)
-            {
-                e.Updater.Update();
-                e.Handled = true;
-            }
-            else
-            {
-                var message = "The application cannot connect to the specified database, " +
-                    "because the database doesn't exist, its version is older " +
-                    "than that of the application or its schema does not match " +
-                    "the ORM data model structure. To avoid this error, use one " +
-                    "of the solutions from the https://www.devexpress.com/kb=T367835 KB Article.";
-
-                if(e.CompatibilityError != null && e.CompatibilityError.Exception != null)
-                {
-                    message += "\r\n\r\nInner exception: " + e.CompatibilityError.Exception.Message;
-                }
-
-                throw new InvalidOperationException(message);
-            }
-#endif
         }
     }
 }
