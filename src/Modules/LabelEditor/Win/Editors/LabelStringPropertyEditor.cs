@@ -22,6 +22,7 @@ namespace Scissors.ExpressApp.LabelEditor.Win.Editors
                 AllowHtmlString = true,
                 AutoSizeMode = LabelAutoSizeMode.None,
             };
+
             control.HyperlinkClick += Control_HyperlinkClick;
 
             control.Appearance.TextOptions.WordWrap = WordWrap.Wrap;
