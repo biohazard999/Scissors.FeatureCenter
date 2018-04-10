@@ -14,7 +14,6 @@ using DevExpress.ExpressApp.Xpo;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo.DB;
 using Scissors.ExpressApp.InlineEditForms.Win;
-using Squirrel;
 
 namespace Scissors.FeatureCenter.Win
 {
