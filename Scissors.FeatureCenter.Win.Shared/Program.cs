@@ -1,20 +1,13 @@
-using System;
-using System.Configuration;
-using System.IO;
-using System.Reflection;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Security;
-using DevExpress.ExpressApp.Utils.CodeGeneration;
 using DevExpress.ExpressApp.Validation;
 using DevExpress.ExpressApp.Validation.Win;
 using DevExpress.ExpressApp.Xpo;
 using DevExpress.Persistent.Base;
-using DevExpress.Xpo.DB;
 using Scissors.ExpressApp.InlineEditForms.Win;
-using Squirrel;
+using System;
+using System.IO;
+using System.Windows.Forms;
 
 namespace Scissors.FeatureCenter.Win
 {
@@ -34,8 +27,9 @@ namespace Scissors.FeatureCenter.Win
 #endif
 
             EditModelPermission.AlwaysGranted = System.Diagnostics.Debugger.IsAttached;
-
-            Tracing.LocalUserAppDataPath = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, FeatureCenterWindowsFormsApplication.APP_NAME);
+#if WIN10
+            Tracing.LocalUserAppDataPath = Path.Combine(Application.UserAppDataPath, FeatureCenterWindowsFormsApplication.APP_NAME);
+#endif
 
             Tracing.Initialize();
 

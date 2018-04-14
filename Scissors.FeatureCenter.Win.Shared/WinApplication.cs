@@ -11,8 +11,9 @@ namespace Scissors.FeatureCenter.Win
     {
         public const string APP_NAME = "Scissors.FeatureCenter";
 
+#if WIN10
         protected override string GetDcAssemblyFilePath()
-            => Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, ApplicationName, DcAssemblyFileName);
+         => Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, ApplicationName, DcAssemblyFileName);
 
         protected override string GetModelAssemblyFilePath()
             => Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, ApplicationName, ModelAssemblyFileName);
@@ -22,12 +23,17 @@ namespace Scissors.FeatureCenter.Win
 
         protected override string GetModelCacheFileLocationPath()
             => Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, ApplicationName);
+#endif
 
         private void InitializeDefaults()
         {
+            var cache = GetModelCacheFileLocationPath();
+
             ApplicationName = APP_NAME;
 
-            UserModelDifferenceFilePath = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, ApplicationName);
+#if WIN10
+            UserModelDifferenceFilePath = Path.Combine(System.Windows.Forms.Application.LocalUserAppDataPath, ApplicationName);
+#endif
 
             LinkNewObjectToParentImmediately = false;
             OptimizedControllersCreation = true;
