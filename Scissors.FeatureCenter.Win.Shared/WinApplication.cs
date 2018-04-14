@@ -11,35 +11,19 @@ namespace Scissors.FeatureCenter.Win
     {
         public const string APP_NAME = "Scissors.FeatureCenter";
 
-#if WIN10
-        protected override string GetDcAssemblyFilePath()
-         => Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, ApplicationName, DcAssemblyFileName);
-
-        protected override string GetModelAssemblyFilePath()
-            => Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, ApplicationName, ModelAssemblyFileName);
-
-        protected override string GetModulesVersionInfoFilePath()
-           => Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, ApplicationName, ModulesVersionInfoFileName);
-
-        protected override string GetModelCacheFileLocationPath()
-            => Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, ApplicationName);
-#endif
-
         private void InitializeDefaults()
         {
-            var cache = GetModelCacheFileLocationPath();
-
             ApplicationName = APP_NAME;
 
-#if WIN10
-            UserModelDifferenceFilePath = Path.Combine(System.Windows.Forms.Application.LocalUserAppDataPath, ApplicationName);
-#endif
+            InitUserModelDifferences();
 
             LinkNewObjectToParentImmediately = false;
             OptimizedControllersCreation = true;
             UseLightStyle = true;
             EnableModelCache = true;
         }
+
+        partial void InitUserModelDifferences();
 
         static FeatureCenterWindowsFormsApplication()
         {

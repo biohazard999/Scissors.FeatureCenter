@@ -6,7 +6,7 @@
     <SharedGUID>ff730fa6-7a19-4fbf-911f-28b004fcb08d</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>Scissors.FeatureCenter.Win.Shared</Import_RootNamespace>
+    <Import_RootNamespace>Scissors.FeatureCenter.Win</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Images\" />
