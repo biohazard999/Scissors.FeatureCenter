@@ -69,7 +69,7 @@ Task("Pack")
     .IsDependentOn("Restore")
     .Does(() => Build(configure: settings => settings
                                                 .WithProperty("AppxBundle", "Always")
-                                                .WithProperty("UapAppxPackageBuildMode", "CI")));
+                                                .WithProperty("UapAppxPackageBuildMode", "StoreUpload")));
 
 Task("Rerelease")
     .IsDependentOn("Clean")
