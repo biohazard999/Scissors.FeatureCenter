@@ -7,26 +7,30 @@ var target = string.IsNullOrEmpty(Argument("target", "Default")) ? "Default" : A
 var version = Argument("packageversion", "1.0.0");
 var sln = "./Scissors.FeatureCenter.sln";
 
-void Build(string configuration = "Debug")
+void Build(string configuration = "Debug", Action<MSBuildSettings> configure = null)
 {
     var gitVersion = GitVersion(new GitVersionSettings
     {
-        UpdateAssemblyInfo = true,
+        UpdateAssemblyInfo = false,
+    });
+
+    XmlPoke("./Scissors.FeatureCenter.Package/Package.appxmanifest", "/Package:Package/Package:Identity/@Version", gitVersion.AssemblySemVer, new XmlPokeSettings 
+    {
+        Namespaces = new Dictionary<string, string> {{ "Package", "http://schemas.microsoft.com/appx/manifest/foundation/windows10" }}
     });
 
     MSBuild(sln, settings =>
     {
         settings.MaxCpuCount = 8;
-        settings.Verbosity = Verbosity.Normal;
+        settings.Verbosity = Verbosity.Minimal;
         settings.Configuration = configuration;
         settings.PlatformTarget = PlatformTarget.MSIL;
         settings
             .WithProperty("AssemblyVersion", gitVersion.AssemblySemVer)
-            .WithProperty("AppxVersion", gitVersion.AssemblySemVer)
+            .WithProperty("AppxBundlePlatforms", "Neutral")
             ;
-        if(configuration == "Debug"){
-            settings.WithProperty("AppxBundle", "Never");
-        }
+
+        configure?.Invoke(settings);
     });
 }
 
@@ -58,7 +62,14 @@ Task("Rebuild")
 
 Task("Build")
     .IsDependentOn("Restore")
-    .Does(() => Build());
+    .Does(() => Build(configure: settings => settings
+                                                .WithProperty("AppxBundle", "Never")
+                                                .WithProperty("UapAppxPackageBuildMode", "CI")));
+Task("Pack")
+    .IsDependentOn("Restore")
+    .Does(() => Build(configure: settings => settings
+                                                .WithProperty("AppxBundle", "Always")
+                                                .WithProperty("UapAppxPackageBuildMode", "CI")));
 
 Task("Rerelease")
     .IsDependentOn("Clean")
@@ -66,7 +77,9 @@ Task("Rerelease")
 
 Task("Release")
     .IsDependentOn("Restore")
-    .Does(() => Build("Release"));
+    .Does(() => Build("Release", configure: settings => settings
+                                                            .WithProperty("AppxBundle", "Always")
+                                                            .WithProperty("UapAppxPackageBuildMode", "StoreUpload")));
 
 Task("Test")
     .IsDependentOn("Build")
@@ -101,24 +114,24 @@ Task("UITest")
         }.IncludeTrait("Category", "UITest"));
     });
 
-Task("Pack")
-    .IsDependentOn("Test")
-    .IsDependentOn("UITest")
-    .Does(() =>
-    {
-        NuGetPack("./Scissors.FeatureCenter.Win/Scissors.FeatureCenter.Win.nuspec", new NuGetPackSettings
-        {
-            Version = version,
-            OutputDirectory = "./bin",
-            BasePath = "./Scissors.FeatureCenter.Win/bin/Release",
-        });
+// Task("Pack")
+//     .IsDependentOn("Test")
+//     .IsDependentOn("UITest")
+//     .Does(() =>
+//     {
+//         NuGetPack("./Scissors.FeatureCenter.Win/Scissors.FeatureCenter.Win.nuspec", new NuGetPackSettings
+//         {
+//             Version = version,
+//             OutputDirectory = "./bin",
+//             BasePath = "./Scissors.FeatureCenter.Win/bin/Release",
+//         });
 
-        var settings = new SquirrelSettings();
-        settings.NoMsi = true;
-        settings.Silent = true;
+//         var settings = new SquirrelSettings();
+//         settings.NoMsi = true;
+//         settings.Silent = true;
 
-        Squirrel(File($"./bin/Scissors.FeatureCenter.Win.{version}.nupkg"), settings);
-    });
+//         Squirrel(File($"./bin/Scissors.FeatureCenter.Win.{version}.nupkg"), settings);
+//     });
 
 Task("Default")
     .IsDependentOn("Build");
