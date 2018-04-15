@@ -15,9 +15,6 @@
     <None Include="$(MSBuildThisFileDirectory)App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="$(MSBuildThisFileDirectory)Model.xafml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="$(MSBuildThisFileDirectory)Scissors.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -28,6 +25,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)WinApplication.Designer.cs">
       <DependentUpon>WinApplication.cs</DependentUpon>
     </Compile>
+    <None Remove="$(MSBuildThisFileDirectory)Model.xafml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)WinApplication.resx">

@@ -90,6 +90,10 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <Content Include="..\Scissors.FeatureCenter.Win.Shared\Model.xafml">
+      <Link>Model.xafml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Scissors.FeatureCenter.Win.nuspec" />
   </ItemGroup>
   <ItemGroup>
