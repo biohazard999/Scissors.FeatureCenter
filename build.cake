@@ -19,7 +19,28 @@ void Build(string configuration = "Debug")
 Task("Restore")
     .Does(() => NuGetRestore("./Scissors.FeatureCenter.sln"));
 
-Task("Build")    
+Task("Clean")
+    .Does(() =>
+    {
+        MSBuild("./Scissors.FeatureCenter.sln", settings =>
+        {
+            settings.MaxCpuCount = 8;
+            settings.Verbosity = Verbosity.Normal;
+            settings.Configuration = "Debug";
+            settings.PlatformTarget = PlatformTarget.MSIL;
+            settings.WithTarget("Clean");
+        });
+        MSBuild("./Scissors.FeatureCenter.sln", settings =>
+        {
+            settings.MaxCpuCount = 8;
+            settings.Verbosity = Verbosity.Normal;
+            settings.Configuration = "Release";
+            settings.PlatformTarget = PlatformTarget.MSIL;
+            settings.WithTarget("Clean");
+        });
+    });
+
+Task("Build")
     .IsDependentOn("Restore")
     .Does(() =>
     {

@@ -154,7 +154,8 @@
     <ProjectReference Include="..\Scissors.FeatureCenter.Cli\Scissors.FeatureCenter.Cli.csproj">
       <Project>{9211115d-eec8-4273-8f51-8650110fa7b6}</Project>
       <Name>Scissors.FeatureCenter.Cli</Name>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly> 
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <Targets>Build;DebugSymbolsProjectOutputGroup</Targets>
     </ProjectReference>
     <Content Include="..\Scissors.FeatureCenter.Cli\bin\$(Configuration)\PreCompile\Model.Cache.xafml">
       <Link>Model.Cache.xafml</Link>
