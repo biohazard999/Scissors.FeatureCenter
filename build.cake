@@ -14,9 +14,10 @@ void Build(string configuration = "Debug", Action<MSBuildSettings> configure = n
     MSBuild(sln, settings =>
     {
         settings.MaxCpuCount = 8;
-        settings.Verbosity = Verbosity.Minimal;
+        settings.Verbosity = Verbosity.Normal;
         settings.Configuration = configuration;
         settings.PlatformTarget = PlatformTarget.MSIL;
+
         settings
             .WithProperty("AssemblyVersion", gitVersion.AssemblySemVer)
             .WithProperty("AppxBundlePlatforms", "Neutral")
