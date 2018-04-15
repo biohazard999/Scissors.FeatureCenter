@@ -149,6 +149,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Scissors.FeatureCenter.Cli\Scissors.FeatureCenter.Cli.csproj">
+      <Project>{9211115d-eec8-4273-8f51-8650110fa7b6}</Project>
+      <Name>Scissors.FeatureCenter.Cli</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly> 
+    </ProjectReference>
     <Content Include="..\Scissors.FeatureCenter.Cli\bin\$(Configuration)\PreCompile\Model.Cache.xafml">
       <Link>Model.Cache.xafml</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

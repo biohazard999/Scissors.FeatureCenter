@@ -9,8 +9,8 @@ void Build(string configuration = "Debug")
 {
     MSBuild("./Scissors.FeatureCenter.sln", settings =>
     {
-        settings.MaxCpuCount = 8;
-        settings.Verbosity = Verbosity.Normal;
+        //settings.MaxCpuCount = 8;
+        settings.Verbosity = Verbosity.Minimal;
         settings.Configuration = configuration;
         settings.PlatformTarget = PlatformTarget.MSIL;
     });
