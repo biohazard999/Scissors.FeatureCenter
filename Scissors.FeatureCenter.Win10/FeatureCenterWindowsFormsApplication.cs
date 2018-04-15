@@ -1,9 +1,6 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DevExpress.ExpressApp.Win;
 
 namespace Scissors.FeatureCenter.Win
@@ -16,14 +13,13 @@ namespace Scissors.FeatureCenter.Win
         protected override string GetModelAssemblyFilePath()
             => Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, ApplicationName, ModelAssemblyFileName);
 
-        protected override string GetModulesVersionInfoFilePath()
-           => Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, ApplicationName, ModulesVersionInfoFileName);
-
         protected override string GetModelCacheFileLocationPath()
             => Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, ApplicationName);
 
-        partial void InitUserModelDifferences()
-            => UserModelDifferenceFilePath = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, ApplicationName);
+        protected override string GetModulesVersionInfoFilePath()
+           => Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, ApplicationName, ModulesVersionInfoFileName);
 
+        protected override void OnCustomGetUserModelDifferencesPath(CustomGetUserModelDifferencesPathEventArgs args)
+            => args.Path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, ApplicationName);
     }
 }

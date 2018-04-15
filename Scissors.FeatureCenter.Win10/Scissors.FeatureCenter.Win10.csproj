@@ -54,6 +54,10 @@
       <Name>System.Drawing</Name>
       <Private>False</Private>
     </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System.Runtime.InteropServices.WindowsRuntime" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Runtime.WindowsRuntime, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -63,10 +67,6 @@
     <Reference Include="System.Runtime.WindowsRuntime.UI.Xaml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5\System.Runtime.WindowsRuntime.UI.Xaml.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Windows.Forms">
-      <Name>System.Windows.Forms</Name>
-      <Private>False</Private>
     </Reference>
     <Reference Include="Windows, Version=255.255.255.255, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -132,6 +132,7 @@
     <Compile Include="FeatureCenterWindowsFormsApplication.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -155,9 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="DevExpress.ExpressApp.Images" Version="17.2.7" />
-    <PackageReference Include="DevExpress.ExpressApp.Validation.Win">
-      <Version>17.2.7</Version>
-    </PackageReference>
+    <PackageReference Include="DevExpress.ExpressApp.Validation.Win" Version="17.2.7" />
     <PackageReference Include="DevExpress.ExpressApp.Win" Version="17.2.7" />
     <PackageReference Include="DevExpress.ExpressApp.Xpo" Version="17.2.7" />
     <PackageReference Include="DevExpress.ExpressApp.Images" Version="17.2.7" />

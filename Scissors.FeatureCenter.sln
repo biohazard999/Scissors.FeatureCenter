@@ -71,9 +71,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.FeatureCenter.Win1
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Scissors.FeatureCenter.Win.Shared", "Scissors.FeatureCenter.Win.Shared\Scissors.FeatureCenter.Win.Shared.shproj", "{FF730FA6-7A19-4FBF-911F-28B004FCB08D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.FeatureCenter.Cli", "Scissors.FeatureCenter.Cli\Scissors.FeatureCenter.Cli.csproj", "{9211115D-EEC8-4273-8F51-8650110FA7B6}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Scissors.FeatureCenter.Win.Shared\Scissors.FeatureCenter.Win.Shared.projitems*{199c4a09-1369-4c80-a334-5a225fa8c780}*SharedItemsImports = 4
+		Scissors.FeatureCenter.Win.Shared\Scissors.FeatureCenter.Win.Shared.projitems*{9211115d-eec8-4273-8f51-8650110fa7b6}*SharedItemsImports = 4
 		Scissors.FeatureCenter.Win.Shared\Scissors.FeatureCenter.Win.Shared.projitems*{d05d93df-312d-4d4e-b980-726871ec7833}*SharedItemsImports = 4
 		Scissors.FeatureCenter.Win.Shared\Scissors.FeatureCenter.Win.Shared.projitems*{ff730fa6-7a19-4fbf-911f-28b004fcb08d}*SharedItemsImports = 13
 	EndGlobalSection
@@ -164,6 +167,10 @@ Global
 		{199C4A09-1369-4C80-A334-5A225FA8C780}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{199C4A09-1369-4C80-A334-5A225FA8C780}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{199C4A09-1369-4C80-A334-5A225FA8C780}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9211115D-EEC8-4273-8F51-8650110FA7B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9211115D-EEC8-4273-8F51-8650110FA7B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9211115D-EEC8-4273-8F51-8650110FA7B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9211115D-EEC8-4273-8F51-8650110FA7B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

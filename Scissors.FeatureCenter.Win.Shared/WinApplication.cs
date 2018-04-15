@@ -10,13 +10,9 @@ namespace Scissors.FeatureCenter.Win
     public partial class FeatureCenterWindowsFormsApplication : WinApplication
     {
         public const string APP_NAME = "Scissors.FeatureCenter";
-
         private void InitializeDefaults()
         {
             ApplicationName = APP_NAME;
-
-            InitUserModelDifferences();
-
             LinkNewObjectToParentImmediately = false;
             OptimizedControllersCreation = true;
             UseLightStyle = true;

@@ -1,17 +1,15 @@
+using System;
+using System.Windows.Forms;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Security;
 using DevExpress.ExpressApp.Validation;
 using DevExpress.ExpressApp.Validation.Win;
 using DevExpress.ExpressApp.Xpo;
-using DevExpress.Persistent.Base;
 using Scissors.ExpressApp.InlineEditForms.Win;
-using System;
-using System.IO;
-using System.Windows.Forms;
 
 namespace Scissors.FeatureCenter.Win
 {
-    static class Program
+    static partial class Program
     {
         /// <summary>
         /// The main entry point for the application.
@@ -27,12 +25,9 @@ namespace Scissors.FeatureCenter.Win
 #endif
 
             EditModelPermission.AlwaysGranted = System.Diagnostics.Debugger.IsAttached;
-#if WIN10
-            Tracing.LocalUserAppDataPath = Path.Combine(Application.UserAppDataPath, FeatureCenterWindowsFormsApplication.APP_NAME);
-#endif
 
-            Tracing.Initialize();
-
+            InitializeTracing();
+            
             var winApplication = new FeatureCenterWindowsFormsApplication();
 
             InMemoryDataStoreProvider.Register();
@@ -57,6 +52,7 @@ namespace Scissors.FeatureCenter.Win
                 winApplication.HandleException(e);
             }
         }
+
+        static partial void InitializeTracing();
     }
 }
-
