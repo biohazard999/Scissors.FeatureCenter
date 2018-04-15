@@ -17,13 +17,12 @@ void Build(string configuration = "Debug")
     MSBuild(sln, settings =>
     {
         settings.MaxCpuCount = 8;
-        settings.Verbosity = Verbosity.Minimal;
+        settings.Verbosity = Verbosity.Normal;
         settings.Configuration = configuration;
         settings.PlatformTarget = PlatformTarget.MSIL;
         settings
             .WithProperty("AssemblyVersion", gitVersion.AssemblySemVer)
-            .WithProperty("AppxVersion", gitVersion.AssemblySemVer)            
-            // .WithProperty("Identity.Version", new []{ gitVersion.AssemblySemVer })
+            .WithProperty("AppxVersion", gitVersion.AssemblySemVer)
             ;
         if(configuration == "Debug"){
             settings.WithProperty("AppxBundle", "Never");
