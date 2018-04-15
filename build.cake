@@ -21,8 +21,13 @@ void Build(string configuration = "Debug")
         settings.Configuration = configuration;
         settings.PlatformTarget = PlatformTarget.MSIL;
         settings
-            .WithProperty("AssemblyVersion", new []{ gitVersion.AssemblySemVer })
-            .WithProperty("Identity.Version", new []{ gitVersion.AssemblySemVer });
+            .WithProperty("AssemblyVersion", gitVersion.AssemblySemVer)
+            .WithProperty("AppxVersion", gitVersion.AssemblySemVer)            
+            // .WithProperty("Identity.Version", new []{ gitVersion.AssemblySemVer })
+            ;
+        if(configuration == "Debug"){
+            settings.WithProperty("AppxBundle", "Never");
+        }
     });
 }
 
