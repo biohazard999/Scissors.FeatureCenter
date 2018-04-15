@@ -4,15 +4,28 @@
 
 var target = string.IsNullOrEmpty(Argument("target", "Default")) ? "Default" : Argument("target", "Default");
 var version = Argument("packageversion", "1.0.0");
+var sln = "./Scissors.FeatureCenter.sln";
 
 void Build(string configuration = "Debug")
 {
-    MSBuild("./Scissors.FeatureCenter.sln", settings =>
+    MSBuild(sln, settings =>
     {
-        //settings.MaxCpuCount = 8;
+        settings.MaxCpuCount = 8;
         settings.Verbosity = Verbosity.Minimal;
         settings.Configuration = configuration;
         settings.PlatformTarget = PlatformTarget.MSIL;
+    });
+}
+
+void Clean(string configuration = "Debug")
+{
+    MSBuild(sln, settings =>
+    {
+        settings.MaxCpuCount = 8;
+        settings.Verbosity = Verbosity.Minimal;
+        settings.Configuration = "Debug";
+        settings.PlatformTarget = PlatformTarget.MSIL;
+        settings.WithTarget("Clean");
     });
 }
 
@@ -22,37 +35,25 @@ Task("Restore")
 Task("Clean")
     .Does(() =>
     {
-        MSBuild("./Scissors.FeatureCenter.sln", settings =>
-        {
-            settings.MaxCpuCount = 8;
-            settings.Verbosity = Verbosity.Normal;
-            settings.Configuration = "Debug";
-            settings.PlatformTarget = PlatformTarget.MSIL;
-            settings.WithTarget("Clean");
-        });
-        MSBuild("./Scissors.FeatureCenter.sln", settings =>
-        {
-            settings.MaxCpuCount = 8;
-            settings.Verbosity = Verbosity.Normal;
-            settings.Configuration = "Release";
-            settings.PlatformTarget = PlatformTarget.MSIL;
-            settings.WithTarget("Clean");
-        });
+        Clean();
+        Clean("Release");
     });
+
+Task("Rebuild")
+    .IsDependentOn("Clean")
+    .IsDependentOn("Build");
 
 Task("Build")
     .IsDependentOn("Restore")
-    .Does(() =>
-    {
-        Build();
-    });
+    .Does(() => Build());
+
+Task("Rerelease")
+    .IsDependentOn("Clean")
+    .IsDependentOn("Release");
 
 Task("Release")
     .IsDependentOn("Restore")
-    .Does(() =>
-    {
-        Build("Release");
-    });
+    .Does(() => Build("Release"));
 
 Task("Test")
     .IsDependentOn("Build")
