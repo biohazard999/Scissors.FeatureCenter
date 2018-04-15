@@ -4,7 +4,7 @@
 #tool "nuget:?package=GitVersion.CommandLine"
 
 var target = string.IsNullOrEmpty(Argument("target", "Default")) ? "Default" : Argument("target", "Default");
-var version = Argument("packageversion", "1.0.0.0");
+var version = Argument("packageversion", "0.0.0.0");
 var sln = "./Scissors.FeatureCenter.sln";
 GitVersion gitVersion = null;
 
@@ -57,12 +57,14 @@ Task("UpdateVersion")
             UpdateAssemblyInfo = false,
         });
 
-        XmlPoke("./Scissors.FeatureCenter.Package/Package.appxmanifest", "/Package:Package/Package:Identity/@Version", gitVersion.AssemblySemVer, new XmlPokeSettings 
+        version = gitVersion.MajorMinorPatch + "." + gitVersion.CommitsSinceVersionSource;
+
+        XmlPoke("./Scissors.FeatureCenter.Package/Package.appxmanifest", "/Package:Package/Package:Identity/@Version", version, new XmlPokeSettings 
         {
             Namespaces = new Dictionary<string, string> {{ "Package", "http://schemas.microsoft.com/appx/manifest/foundation/windows10" }}
         });
 
-        Information($"##vso[task.setvariable variable=AssemblySemVer]{gitVersion.AssemblySemVer}");
+        Information($"##vso[task.setvariable variable=AssemblySemVer]{version}");
     });
 
 Task("Rebuild")

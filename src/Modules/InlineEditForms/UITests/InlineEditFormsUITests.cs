@@ -15,15 +15,15 @@ namespace Scissors.ExpressApp.InlineEditForms.UITests
 {
     public class InlineEditFormsFixture : IDisposable
     {
-        public const string windowsApplicationDriverUrl = "http://127.0.0.1:4723";
+        private const string windowsApplicationDriverUrl = "http://127.0.0.1:4723";
         private const string featureCenterPath = @"C:\F\git\Scissors.FeatureCenter\Scissors.FeatureCenter.Win\bin\Release\Scissors.FeatureCenter.Win.exe";
-        public const string featureCenterAppId = "Scissors.FeatureCenter.Win_ncze720tdpmp2!App";
+        private const string featureCenterAppId = "Scissors.FeatureCenter.Win_ncze720tdpmp2!App";
 
         public WindowsDriver<WindowsElement> Session { get; private set; }
         public InlineEditFormsFixture()
         {
             var appCapabilities = new DesiredCapabilities();
-            appCapabilities.SetCapability("app", featureCenterAppId);
+            appCapabilities.SetCapability("app", featureCenterPath);
             Session = new WindowsDriver<WindowsElement>(new Uri(windowsApplicationDriverUrl), appCapabilities);
             Session.ShouldNotBeNull();
             Session.SessionId.ShouldNotBeNull();
@@ -60,50 +60,8 @@ namespace Scissors.ExpressApp.InlineEditForms.UITests
     [CollectionDefinition(nameof(InlineEditorFormsCollection))]
     public class InlineEditorFormsCollection : ICollectionFixture<InlineEditFormsFixture>
     {
-
     }
-
-    public class TestTest : IDisposable
-    {
-        public WindowsDriver<WindowsElement> Session { get; private set; }
-        [Fact]
-        public void TryToAccess()
-        {
-            var appCapabilities = new DesiredCapabilities();
-            appCapabilities.SetCapability("app", InlineEditFormsFixture.featureCenterAppId);
-            Session = new WindowsDriver<WindowsElement>(new Uri(InlineEditFormsFixture.windowsApplicationDriverUrl), appCapabilities);
-            Session.ShouldNotBeNull();
-            Session.SessionId.ShouldNotBeNull();
-
-            var currentWindowHandle = Session.CurrentWindowHandle;
-
-            // Wait for 5 seconds or however long it is needed for the right window to appear 
-            // and for the splash screen to be dismissed. You can replace this with a more intelligent way to
-            // determine if the new main window finally appears.
-            Thread.Sleep(2000);
-
-            // Return all window handles associated with this process/application.
-            // At this point hopefully you have one to pick from. Otherwise you can
-            // simply iterate through them to identify the one you want.
-            var allWindowHandles = Session.WindowHandles;
-
-            // Assuming you only have only one window entry in allWindowHandles and it is in fact the correct one,
-            // switch the session to that window as follows. You can repeat this logic with any top window with the
-            // same process id (any entry of allWindowHandles)
-            Session.SwitchTo().Window(allWindowHandles[0]);
-        }
-
-        public void Dispose()
-        {
-            Session?.Close();
-
-            Session?.Quit();
-
-            Session?.Dispose();
-            Session = null;
-        }
-    }
-
+    
     [Collection(nameof(InlineEditorFormsCollection))]
     public class InlineEditFormsUITests : IDisposable
     {
