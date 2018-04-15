@@ -144,6 +144,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Content Include="..\Scissors.FeatureCenter.Cli\bin\Release\PreCompile\Model.Cache.xafml">
+      <Link>Model.Cache.xafml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Scissors.FeatureCenter.Cli\bin\Release\PreCompile\ModulesVersionInfo">
+      <Link>ModulesVersionInfo</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -161,6 +169,12 @@
     <PackageReference Include="DevExpress.ExpressApp.Xpo" Version="17.2.7" />
     <PackageReference Include="DevExpress.ExpressApp.Images" Version="17.2.7" />
     <PackageReference Include="DevExpress.XtraReports" Version="17.2.7" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\Scissors.FeatureCenter.Cli\bin\Release\PreCompile\ModelAssembly.dll">
+      <Link>ModelAssembly.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="..\Scissors.FeatureCenter.Win.Shared\Scissors.FeatureCenter.Win.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
