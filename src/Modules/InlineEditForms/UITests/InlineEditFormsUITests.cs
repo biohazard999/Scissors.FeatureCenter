@@ -32,7 +32,7 @@ namespace Scissors.ExpressApp.InlineEditForms.UITests
             // Wait for 5 seconds or however long it is needed for the right window to appear 
             // and for the splash screen to be dismissed. You can replace this with a more intelligent way to
             // determine if the new main window finally appears.
-            Thread.Sleep(5000);
+            Thread.Sleep(1000);
 
             // Return all window handles associated with this process/application.
             // At this point hopefully you have one to pick from. Otherwise you can

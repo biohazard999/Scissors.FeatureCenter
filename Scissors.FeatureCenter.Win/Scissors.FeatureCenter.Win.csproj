@@ -89,11 +89,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Properties\licenses.licx" />
-    <Content Include="..\Scissors.FeatureCenter.Win.Shared\Model.xafml">
-      <Link>Model.xafml</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <None Include="Scissors.FeatureCenter.Win.nuspec" />
   </ItemGroup>
   <ItemGroup>
@@ -160,17 +155,44 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Scissors.FeatureCenter.Cli\Scissors.FeatureCenter.Cli.csproj">
+      <Project>{9211115d-eec8-4273-8f51-8650110fa7b6}</Project>
+      <Name>Scissors.FeatureCenter.Cli</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <Content Include="..\Scissors.FeatureCenter.Cli\bin\$(Configuration)\PreCompile\Model.Cache.xafml">
+      <Link>Model.Cache.xafml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Scissors.FeatureCenter.Cli\bin\$(Configuration)\PreCompile\ModulesVersionInfo">
+      <Link>ModulesVersionInfo</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Scissors.FeatureCenter.Cli\bin\$(Configuration)\PreCompile\ModelAssembly.dll">
+      <Link>ModelAssembly.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Scissors.FeatureCenter.Win.Shared\Model.xafml">
+      <Link>Model.xafml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="DevExpress.ExpressApp.Images" Version="17.2.7" />
-    <PackageReference Include="DevExpress.ExpressApp.Validation.Win">
-      <Version>17.2.7</Version>
-    </PackageReference>
+    <PackageReference Include="DevExpress.ExpressApp.Validation.Win" Version="17.2.7" />
     <PackageReference Include="DevExpress.ExpressApp.Win" Version="17.2.7" />
     <PackageReference Include="DevExpress.ExpressApp.Xpo" Version="17.2.7" />
     <PackageReference Include="DevExpress.ExpressApp.Images" Version="17.2.7" />
     <PackageReference Include="DevExpress.XtraReports" Version="17.2.7" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FeatureCenterWindowsFormsApplication.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="..\Scissors.FeatureCenter.Win.Shared\Scissors.FeatureCenter.Win.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
