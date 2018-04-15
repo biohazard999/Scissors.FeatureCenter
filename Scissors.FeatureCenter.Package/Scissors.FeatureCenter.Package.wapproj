@@ -36,7 +36,7 @@
   <PropertyGroup>
     <ProjectGuid>3f762a44-57b6-4789-be1c-1cfbf2838ce1</ProjectGuid>
     <TargetPlatformVersion>10.0.16299.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.14393.0</TargetPlatformMinVersion>
+    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
     <DefaultLanguage>en-US</DefaultLanguage>
     <PackageCertificateKeyFile>Scissors.FeatureCenter.Package_TemporaryKey.pfx</PackageCertificateKeyFile>
     <EntryPointProjectUniqueName>..\Scissors.FeatureCenter.Win10\Scissors.FeatureCenter.Win10.csproj</EntryPointProjectUniqueName>
