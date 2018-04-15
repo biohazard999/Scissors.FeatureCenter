@@ -9,18 +9,6 @@ namespace Scissors.FeatureCenter.Win
     public partial class FeatureCenterWindowsFormsApplication : WinApplication
     {
 #if DEBUG
-        protected override string GetDcAssemblyFilePath()
-            => null;
-
-        protected override string GetModelAssemblyFilePath()
-            => null;
-
-        protected override string GetModelCacheFileLocationPath()
-            => null;
-
-        protected override string GetModulesVersionInfoFilePath()
-           => null;
-#else
         string OutputDirectory => Path.GetDirectoryName(GetType().Assembly.Location);
 
         protected override string GetDcAssemblyFilePath()
@@ -34,8 +22,13 @@ namespace Scissors.FeatureCenter.Win
 
         protected override string GetModulesVersionInfoFilePath()
            => Path.Combine(OutputDirectory, ModulesVersionInfoFileName);
-#endif
+
+        protected override void OnCustomGetUserModelDifferencesPath(CustomGetUserModelDifferencesPathEventArgs args)
+            => args.Path = null;
+#else
         protected override void OnCustomGetUserModelDifferencesPath(CustomGetUserModelDifferencesPathEventArgs args)
             => args.Path = Path.Combine(Application.UserAppDataPath, ApplicationName);
+#endif
+
     }
 }
