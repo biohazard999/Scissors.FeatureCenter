@@ -1,6 +1,7 @@
 #tool "Squirrel.Windows" 
 #addin Cake.Squirrel
 #tool "nuget:?package=xunit.runner.console"
+#tool "nuget:?package=GitVersion.CommandLine"
 
 var target = string.IsNullOrEmpty(Argument("target", "Default")) ? "Default" : Argument("target", "Default");
 var version = Argument("packageversion", "1.0.0");
@@ -8,12 +9,20 @@ var sln = "./Scissors.FeatureCenter.sln";
 
 void Build(string configuration = "Debug")
 {
+    var gitVersion = GitVersion(new GitVersionSettings
+    {
+        UpdateAssemblyInfo = true,
+    });
+
     MSBuild(sln, settings =>
     {
         settings.MaxCpuCount = 8;
         settings.Verbosity = Verbosity.Minimal;
         settings.Configuration = configuration;
         settings.PlatformTarget = PlatformTarget.MSIL;
+        settings
+            .WithProperty("AssemblyVersion", new []{ gitVersion.AssemblySemVer })
+            .WithProperty("Identity.Version", new []{ gitVersion.AssemblySemVer });
     });
 }
 
