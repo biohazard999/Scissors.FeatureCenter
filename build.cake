@@ -4,21 +4,13 @@
 #tool "nuget:?package=GitVersion.CommandLine"
 
 var target = string.IsNullOrEmpty(Argument("target", "Default")) ? "Default" : Argument("target", "Default");
-var version = Argument("packageversion", "1.0.0");
+var version = Argument("packageversion", "1.0.0.0");
 var sln = "./Scissors.FeatureCenter.sln";
+GitVersion gitVersion = null;
+
 
 void Build(string configuration = "Debug", Action<MSBuildSettings> configure = null)
 {
-    var gitVersion = GitVersion(new GitVersionSettings
-    {
-        UpdateAssemblyInfo = false,
-    });
-
-    XmlPoke("./Scissors.FeatureCenter.Package/Package.appxmanifest", "/Package:Package/Package:Identity/@Version", gitVersion.AssemblySemVer, new XmlPokeSettings 
-    {
-        Namespaces = new Dictionary<string, string> {{ "Package", "http://schemas.microsoft.com/appx/manifest/foundation/windows10" }}
-    });
-
     MSBuild(sln, settings =>
     {
         settings.MaxCpuCount = 8;
@@ -56,17 +48,35 @@ Task("Clean")
         Clean("Release");
     });
 
+Task("UpdateVersion")
+    .Does(() => 
+    {
+        gitVersion = GitVersion(new GitVersionSettings
+        {
+            UpdateAssemblyInfo = false,
+        });
+
+        XmlPoke("./Scissors.FeatureCenter.Package/Package.appxmanifest", "/Package:Package/Package:Identity/@Version", gitVersion.AssemblySemVer, new XmlPokeSettings 
+        {
+            Namespaces = new Dictionary<string, string> {{ "Package", "http://schemas.microsoft.com/appx/manifest/foundation/windows10" }}
+        });
+
+        Information($"##vso[task.setvariable variable=AssemblySemVer]{gitVersion.AssemblySemVer}");
+    });
+
 Task("Rebuild")
     .IsDependentOn("Clean")
     .IsDependentOn("Build");
 
 Task("Build")
     .IsDependentOn("Restore")
+    .IsDependentOn("UpdateVersion")
     .Does(() => Build(configure: settings => settings
                                                 .WithProperty("AppxBundle", "Never")
                                                 .WithProperty("UapAppxPackageBuildMode", "CI")));
 Task("Pack")
     .IsDependentOn("Restore")
+    .IsDependentOn("UpdateVersion")
     .Does(() => Build(configure: settings => settings
                                                 .WithProperty("AppxBundle", "Always")
                                                 .WithProperty("UapAppxPackageBuildMode", "StoreUpload")));
@@ -77,6 +87,7 @@ Task("Rerelease")
 
 Task("Release")
     .IsDependentOn("Restore")
+    .IsDependentOn("UpdateVersion")
     .Does(() => Build("Release", configure: settings => settings
                                                             .WithProperty("AppxBundle", "Always")
                                                             .WithProperty("UapAppxPackageBuildMode", "StoreUpload")));
