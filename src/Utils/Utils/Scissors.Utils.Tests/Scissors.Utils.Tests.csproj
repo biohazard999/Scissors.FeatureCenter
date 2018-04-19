@@ -4,9 +4,17 @@
   <PropertyGroup>
     <TargetFramework>net462</TargetFramework>
   </PropertyGroup>
+  
+  <ItemGroup>
+    <None Remove="TestResources\TestEmbeddedResource.txt" />
+  </ItemGroup>
 
   <ItemGroup>
     <Compile Include="..\..\..\..\.global\GlobalSuppressionsForTests.cs" Link="Properties\GlobalSuppressionsForTests.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="TestResources\TestEmbeddedResource.txt" />
   </ItemGroup>
 
   <ItemGroup>

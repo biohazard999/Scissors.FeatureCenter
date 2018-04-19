@@ -12,6 +12,7 @@ namespace Scissors.Utils
             {
                 return (MemberExpression)expression;
             }
+
             if(expression is LambdaExpression)
             {
                 var lambdaExpression = expression as LambdaExpression;
@@ -24,6 +25,7 @@ namespace Scissors.Utils
                     return ((MemberExpression)((UnaryExpression)lambdaExpression.Body).Operand);
                 }
             }
+
             return null;
         }
 
