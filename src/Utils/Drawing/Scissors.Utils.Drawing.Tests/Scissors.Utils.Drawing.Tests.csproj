@@ -4,9 +4,19 @@
   <PropertyGroup>
     <TargetFramework>net462</TargetFramework>
   </PropertyGroup>
+  
+  <ItemGroup>
+    <None Remove="TestData\ImageDiff\TestImage1.png" />
+    <None Remove="TestData\ImageDiff\TestImage2.png" />
+  </ItemGroup>
 
   <ItemGroup>
     <Compile Include="..\..\..\..\.global\GlobalSuppressionsForTests.cs" Link="Properties\GlobalSuppressionsForTests.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="TestData\ImageDiff\TestImage1.png" />
+    <EmbeddedResource Include="TestData\ImageDiff\TestImage2.png" />
   </ItemGroup>
   
   <ItemGroup>
@@ -18,6 +28,12 @@
   
   <ItemGroup>
     <Folder Include="Properties\" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\..\Testing\Scissors.Utils.Testing.XUnit\Scissors.Utils.Testing.XUnit.csproj" />
+    <ProjectReference Include="..\..\Utils\Scissors.Utils\Scissors.Utils.csproj" />
+    <ProjectReference Include="..\Scissors.Utils.Drawing\Scissors.Utils.Drawing.csproj" />
   </ItemGroup>
 
 </Project>
