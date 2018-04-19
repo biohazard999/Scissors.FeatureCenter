@@ -20,7 +20,14 @@ namespace Scissors.FeatureCenter.Win
                 {
                     if(Directory.Exists(winApplication.PreCompileOutputDirectory))
                     {
-                        Directory.Delete(winApplication.PreCompileOutputDirectory, true);
+                        try
+                        {
+                            Directory.Delete(winApplication.PreCompileOutputDirectory, true);
+                        }
+                        catch(Exception ex)
+                        {
+                            LogException(ex);
+                        }
                     }
 
                     Directory.CreateDirectory(winApplication.PreCompileOutputDirectory);
@@ -37,23 +44,28 @@ namespace Scissors.FeatureCenter.Win
                 }
                 catch(Exception e)
                 {
-                    var color = Console.ForegroundColor;
-                    try
-                    {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("Error:");
-                        Console.WriteLine(new string('=', Console.BufferWidth));
-                        Console.WriteLine(e.ToString());
-                        return 1;
-                    }
-                    finally
-                    {
-                        Console.ForegroundColor = color;
-                    }
+                    LogException(e);
+                    return 1;
                 }
                 Console.WriteLine($"Caches created at '{winApplication.PreCompileOutputDirectory}'");
                 Console.WriteLine("Caches completed");
                 return 0;
+            }
+        }
+
+        private static void LogException(Exception e)
+        {
+            var color = Console.ForegroundColor;
+            try
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Error:");
+                Console.WriteLine(new string('=', 10));
+                Console.WriteLine(e.ToString());
+            }
+            finally
+            {
+                Console.ForegroundColor = color;
             }
         }
     }
