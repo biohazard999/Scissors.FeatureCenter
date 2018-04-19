@@ -16,7 +16,12 @@ namespace Scissors.ExpressApp.InlineEditForms.UITests
     public class InlineEditFormsFixture : IDisposable
     {
         private const string windowsApplicationDriverUrl = "http://127.0.0.1:4723";
+
+#if DEBUG
+        private const string featureCenterPath = @"C:\F\git\Scissors.FeatureCenter\Scissors.FeatureCenter.Win\bin\Debug\Scissors.FeatureCenter.Win.exe";
+#else
         private const string featureCenterPath = @"C:\F\git\Scissors.FeatureCenter\Scissors.FeatureCenter.Win\bin\Release\Scissors.FeatureCenter.Win.exe";
+#endif
         private const string featureCenterAppId = "Scissors.FeatureCenter.Win_ncze720tdpmp2!App";
 
         public WindowsDriver<WindowsElement> Session { get; private set; }
