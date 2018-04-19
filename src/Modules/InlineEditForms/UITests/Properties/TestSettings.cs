@@ -1,4 +1,5 @@
+using Scissors.Utils.Testing.XUnit;
 using Xunit;
 
-[assembly: AssemblyTrait("Category", "UITest")]
+[assembly: UITest]
 [assembly: CollectionBehavior(CollectionBehavior.CollectionPerAssembly, DisableTestParallelization = true)]
