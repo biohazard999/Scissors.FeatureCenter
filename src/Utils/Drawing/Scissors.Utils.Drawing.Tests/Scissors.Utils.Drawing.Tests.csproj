@@ -6,7 +6,8 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <None Remove="TestResources\TestEmbeddedResource.txt" />
+    <None Remove="TestData\ImageDiff\TestImage1.png" />
+    <None Remove="TestData\ImageDiff\TestImage2.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -14,22 +15,25 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="TestResources\TestEmbeddedResource.txt" />
+    <EmbeddedResource Include="TestData\ImageDiff\TestImage1.png" />
+    <EmbeddedResource Include="TestData\ImageDiff\TestImage2.png" />
   </ItemGroup>
-
+  
   <ItemGroup>
     <PackageReference Include="Shouldly" Version="3.0.0" />
     <PackageReference Include="xunit" Version="2.3.1" />
     <PackageReference Include="xunit.analyzers" Version="0.8.0" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
   </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Scissors.Utils\Scissors.Utils.csproj" />
-  </ItemGroup>
-
+  
   <ItemGroup>
     <Folder Include="Properties\" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\..\Testing\Scissors.Utils.Testing.XUnit\Scissors.Utils.Testing.XUnit.csproj" />
+    <ProjectReference Include="..\..\Utils\Scissors.Utils\Scissors.Utils.csproj" />
+    <ProjectReference Include="..\Scissors.Utils.Drawing\Scissors.Utils.Drawing.csproj" />
   </ItemGroup>
 
 </Project>

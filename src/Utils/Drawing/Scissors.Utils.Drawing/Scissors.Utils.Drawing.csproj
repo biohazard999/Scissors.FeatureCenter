@@ -4,5 +4,9 @@
   <PropertyGroup>
     <TargetFramework>net462</TargetFramework>
   </PropertyGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\..\Utils\Scissors.Utils\Scissors.Utils.csproj" />
+  </ItemGroup>
 
 </Project>
