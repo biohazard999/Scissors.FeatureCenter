@@ -77,13 +77,6 @@ Task("Build")
     .Does(() => Build(configure: settings => settings
                                                 .WithProperty("AppxBundle", "Never")
                                                 .WithProperty("UapAppxPackageBuildMode", "CI")));
-Task("Pack")
-    .IsDependentOn("Restore")
-    .IsDependentOn("UpdateVersion")
-    .Does(() => Build(configure: settings => settings
-                                                .WithProperty("AppxBundle", "Always")
-                                                .WithProperty("UapAppxPackageBuildMode", "StoreUpload")));
-
 Task("Rerelease")
     .IsDependentOn("Clean")
     .IsDependentOn("Release");
@@ -94,8 +87,12 @@ Task("Release")
     .Does(() => Build("Release", configure: settings => settings
                                                             .WithProperty("AppxBundle", "Always")
                                                             .WithProperty("UapAppxPackageBuildMode", "StoreUpload")));
-
 Task("Test")
+    .IsDependentOn("Test.Unit")
+    .IsDependentOn("Test.Integration")
+    .IsDependentOn("Test.UI");
+
+Task("Test.Unit")
     .IsDependentOn("Build")
     .Does(() =>
     {
@@ -108,11 +105,32 @@ Task("Test")
             HtmlReport = true,
             XmlReport = true,
             OutputDirectory = "./build",
-        }.ExcludeTrait("Category", "UITest"));
+        }
+        .ExcludeTrait("Category", "UITest")
+        .ExcludeTrait("Category", "Integration"));
     });
 
-Task("UITest")
-    .IsDependentOn("Test")
+Task("Test.Integration")
+    .IsDependentOn("Test.Unit")
+    .IsDependentOn("Build")
+    .Does(() =>
+    {
+        var testAssemblies = GetFiles("./src/**/bin/**/*.*Tests*.dll");
+
+        XUnit2(testAssemblies, new XUnit2Settings 
+        {
+            ReportName = "TestResults",
+            Parallelism = ParallelismOption.Collections,
+            HtmlReport = true,
+            XmlReport = true,
+            OutputDirectory = "./build",
+        }
+        .IncludeTrait("Category", "Integration"));
+    });
+
+Task("Test.UI")
+    .IsDependentOn("Test.Unit")
+    .IsDependentOn("Test.Integration")
     .IsDependentOn("Release")
     .Does(() =>
     {
@@ -128,24 +146,38 @@ Task("UITest")
         }.IncludeTrait("Category", "UITest"));
     });
 
-// Task("Pack")
-//     .IsDependentOn("Test")
-//     .IsDependentOn("UITest")
-//     .Does(() =>
-//     {
-//         NuGetPack("./Scissors.FeatureCenter.Win/Scissors.FeatureCenter.Win.nuspec", new NuGetPackSettings
-//         {
-//             Version = version,
-//             OutputDirectory = "./bin",
-//             BasePath = "./Scissors.FeatureCenter.Win/bin/Release",
-//         });
+Task("Pack")
+    .IsDependentOn("Pack.NuGet")
+    .IsDependentOn("Pack.Store")
+    ;
 
-//         var settings = new SquirrelSettings();
-//         settings.NoMsi = true;
-//         settings.Silent = true;
+Task("Pack.Store")
+    .IsDependentOn("Restore")
+    .IsDependentOn("UpdateVersion")
+    .IsDependentOn("Test")
+    .Does(() => Build(configure: settings => settings
+                                                .WithProperty("AppxBundle", "Always")
+                                                .WithProperty("UapAppxPackageBuildMode", "StoreUpload")));
 
-//         Squirrel(File($"./bin/Scissors.FeatureCenter.Win.{version}.nupkg"), settings);
-//     });
+Task("Pack.NuGet")
+    .IsDependentOn("Restore")
+    .IsDependentOn("UpdateVersion")
+    .IsDependentOn("Test")
+    .Does(() =>
+    {
+        NuGetPack("./Scissors.FeatureCenter.Win/Scissors.FeatureCenter.Win.nuspec", new NuGetPackSettings
+        {
+            Version = version,
+            OutputDirectory = "./bin",
+            BasePath = "./Scissors.FeatureCenter.Win/bin/Release",
+        });
+
+        var settings = new SquirrelSettings();
+        settings.NoMsi = true;
+        settings.Silent = true;
+
+        Squirrel(File($"./bin/Scissors.FeatureCenter.Win.{version}.nupkg"), settings);
+    });
 
 Task("Default")
     .IsDependentOn("Build");

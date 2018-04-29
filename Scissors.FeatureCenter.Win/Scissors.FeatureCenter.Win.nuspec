@@ -7,6 +7,9 @@
     <authors>m.grundner</authors>
     <owners>m.grundner</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>http://blog.delegate.at/licence/</licenseUrl>
+    <projectUrl>https://github.com/biohazard999/Scissors.FeatureCenter</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/biohazard999/Scissors.FeatureCenter/master/Scissors.FeatureCenter.Win.Shared/Scissors.ico</iconUrl>
     <description>FeatureCenter of the Scissors XAF Extentions</description>
     <copyright>Copyright 2018</copyright>
   </metadata>
