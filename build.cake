@@ -2,6 +2,8 @@
 #addin Cake.Squirrel
 #tool "nuget:?package=xunit.runner.console"
 #tool "nuget:?package=GitVersion.CommandLine"
+#addin nuget:?package=Cake.Json
+#addin nuget:?package=Newtonsoft.Json&version=9.0.1
 
 var target = string.IsNullOrEmpty(Argument("target", "Default")) ? "Default" : Argument("target", "Default");
 var version = Argument("packageversion", "0.0.0.0");
@@ -129,6 +131,7 @@ Task("Test.Integration")
     });
 
 Task("Test.UI")
+    .WithCriteria(!TFBuild.IsRunningOnVSTS)
     .IsDependentOn("Test.Unit")
     .IsDependentOn("Test.Integration")
     .IsDependentOn("Release")
@@ -162,12 +165,14 @@ Task("Pack.Store")
 Task("Pack.NuGet")
     .IsDependentOn("Restore")
     .IsDependentOn("UpdateVersion")
-    .IsDependentOn("Test")
+    //.IsDependentOn("Test")
     .Does(() =>
     {
+        Information(SerializeJsonPretty(gitVersion));
+
         NuGetPack("./Scissors.FeatureCenter.Win/Scissors.FeatureCenter.Win.nuspec", new NuGetPackSettings
         {
-            Version = version,
+            Version = gitVersion.SemVer,
             OutputDirectory = "./bin",
             BasePath = "./Scissors.FeatureCenter.Win/bin/Release",
         });
@@ -176,7 +181,7 @@ Task("Pack.NuGet")
         settings.NoMsi = true;
         settings.Silent = true;
 
-        Squirrel(File($"./bin/Scissors.FeatureCenter.Win.{version}.nupkg"), settings);
+        Squirrel(File($"./bin/Scissors.FeatureCenter.Win.{gitVersion.SemVer}.nupkg"), settings);
     });
 
 Task("Default")
