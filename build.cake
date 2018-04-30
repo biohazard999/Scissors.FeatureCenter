@@ -1,4 +1,4 @@
-#tool "Squirrel.Windows" 
+#tool "Squirrel.Windows"
 #addin Cake.Squirrel
 #tool "nuget:?package=xunit.runner.console"
 #tool "nuget:?package=GitVersion.CommandLine"
@@ -52,16 +52,16 @@ Task("Clean")
     });
 
 Task("UpdateVersion")
-    .Does(() => 
+    .Does(() =>
     {
         gitVersion = GitVersion(new GitVersionSettings
         {
-            UpdateAssemblyInfo = false,
+            UpdateAssemblyInfo = true,
         });
 
         version = gitVersion.MajorMinorPatch + "." + gitVersion.CommitsSinceVersionSource;
 
-        XmlPoke("./Scissors.FeatureCenter.Package/Package.appxmanifest", "/Package:Package/Package:Identity/@Version", version, new XmlPokeSettings 
+        XmlPoke("./Scissors.FeatureCenter.Package/Package.appxmanifest", "/Package:Package/Package:Identity/@Version", version, new XmlPokeSettings
         {
             Namespaces = new Dictionary<string, string> {{ "Package", "http://schemas.microsoft.com/appx/manifest/foundation/windows10" }}
         });
@@ -77,6 +77,7 @@ Task("Build")
     .IsDependentOn("Restore")
     .IsDependentOn("UpdateVersion")
     .Does(() => Build(configure: settings => settings
+												.WithProperty("Version",  gitVersion.AssemblySemVer)
                                                 .WithProperty("AppxBundle", "Never")
                                                 .WithProperty("UapAppxPackageBuildMode", "CI")));
 Task("Rerelease")
@@ -87,6 +88,7 @@ Task("Release")
     .IsDependentOn("Restore")
     .IsDependentOn("UpdateVersion")
     .Does(() => Build("Release", configure: settings => settings
+															.WithProperty("Version",  gitVersion.AssemblySemVer)
                                                             .WithProperty("AppxBundle", "Always")
                                                             .WithProperty("UapAppxPackageBuildMode", "StoreUpload")));
 Task("Test")
@@ -100,7 +102,7 @@ Task("Test.Unit")
     {
         var testAssemblies = GetFiles("./src/**/bin/**/*.*Tests*.dll");
 
-        XUnit2(testAssemblies, new XUnit2Settings 
+        XUnit2(testAssemblies, new XUnit2Settings
         {
             ReportName = "TestResults",
             Parallelism = ParallelismOption.Collections,
@@ -119,7 +121,7 @@ Task("Test.Integration")
     {
         var testAssemblies = GetFiles("./src/**/bin/**/*.*Tests*.dll");
 
-        XUnit2(testAssemblies, new XUnit2Settings 
+        XUnit2(testAssemblies, new XUnit2Settings
         {
             ReportName = "TestResults",
             Parallelism = ParallelismOption.Collections,
@@ -139,7 +141,7 @@ Task("Test.UI")
     {
         var testAssemblies = GetFiles("./src/**/bin/Release/**/*.*Tests*.dll");
 
-        XUnit2(testAssemblies, new XUnit2Settings 
+        XUnit2(testAssemblies, new XUnit2Settings
         {
             ReportName = "TestResults_UITests",
             Parallelism = ParallelismOption.Collections,
@@ -165,14 +167,14 @@ Task("Pack.Store")
 Task("Pack.NuGet")
     .IsDependentOn("Restore")
     .IsDependentOn("UpdateVersion")
-    //.IsDependentOn("Test")
+    .IsDependentOn("Release")
     .Does(() =>
     {
         Information(SerializeJsonPretty(gitVersion));
 
         NuGetPack("./Scissors.FeatureCenter.Win/Scissors.FeatureCenter.Win.nuspec", new NuGetPackSettings
         {
-            Version = gitVersion.SemVer,
+            Version = gitVersion.NuGetVersion,
             OutputDirectory = "./bin",
             BasePath = "./Scissors.FeatureCenter.Win/bin/Release",
         });
@@ -181,7 +183,7 @@ Task("Pack.NuGet")
         settings.NoMsi = true;
         settings.Silent = true;
 
-        Squirrel(File($"./bin/Scissors.FeatureCenter.Win.{gitVersion.SemVer}.nupkg"), settings);
+        Squirrel(File($"./bin/Scissors.FeatureCenter.Win.{gitVersion.NuGetVersion}.nupkg"), settings);
     });
 
 Task("Default")
