@@ -7,6 +7,9 @@
 
 var target = string.IsNullOrEmpty(Argument("target", "Default")) ? "Default" : Argument("target", "Default");
 string nugetFeed = EnvironmentVariable("NUGET_FEED") ?? null;
+
+Information("Nuget Feed: {0}", nugetFeed);
+
 var version = Argument("packageversion", "0.0.0.0");
 GitVersion gitVersion = null;
 
