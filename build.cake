@@ -5,51 +5,44 @@
 #addin nuget:?package=Cake.Json
 #addin nuget:?package=Newtonsoft.Json&version=9.0.1
 
+#l "build.helpers.cake"
+
 var target = string.IsNullOrEmpty(Argument("target", "Default")) ? "Default" : Argument("target", "Default");
+string nugetFeed = EnvironmentVariable("NUGET_FEED") ?? null;
 var version = Argument("packageversion", "0.0.0.0");
-var sln = "./Scissors.FeatureCenter.sln";
 GitVersion gitVersion = null;
 
-
-void Build(string configuration = "Debug", Action<MSBuildSettings> configure = null)
+public class Bld
 {
-    MSBuild(sln, settings =>
-    {
-        settings.MaxCpuCount = 8;
-        settings.Verbosity = Verbosity.Normal;
-        settings.Configuration = configuration;
-        settings.PlatformTarget = PlatformTarget.MSIL;
+	public string Sln { get; set; } = "./Scissors.FeatureCenter.sln";
+	public string Configuration { get; set; } = "Debug";
+	public string Version { get; set; }
+	public string AssemblySemVer { get; set; }
+	public Verbosity Verbosity { get; set; } = Verbosity.Normal;
+	public int MaxCpuCount { get; set; } = 8;
+	public PlatformTarget PlatformTarget { get; set; } = PlatformTarget.MSIL;
 
-        settings
-            .WithProperty("AssemblyVersion", gitVersion.AssemblySemVer)
-            .WithProperty("AppxBundlePlatforms", "Neutral")
-            ;
-
-        configure?.Invoke(settings);
-    });
+	public string OutputDirectory { get; set; } = "build";
+	public string TestOutputDirectory { get; set; } = "build/testresults";
 }
 
-void Clean(string configuration = "Debug")
+var bld = new Bld
 {
-    MSBuild(sln, settings =>
-    {
-        settings.MaxCpuCount = 8;
-        settings.Verbosity = Verbosity.Minimal;
-        settings.Configuration = "Debug";
-        settings.PlatformTarget = PlatformTarget.MSIL;
-        settings.WithTarget("Clean");
-    });
-}
+	Version = version
+};
 
 Task("Restore")
-    .Does(() => NuGetRestore("./Scissors.FeatureCenter.sln"));
+    .Does(() => NuGetRestore(bld.Sln, new NuGetRestoreSettings
+	{
+		Source = nugetFeed == null ? new string[]{} : new [] { nugetFeed }
+	}));
 
 Task("Clean")
     .Does(() =>
-    {
-        Clean();
-        Clean("Release");
-    });
+	{
+		CleanDirectory(bld.OutputDirectory);
+		Clean(bld.Sln, bld.Configuration);
+	});
 
 Task("UpdateVersion")
     .Does(() =>
@@ -69,34 +62,34 @@ Task("UpdateVersion")
         Information($"##vso[task.setvariable variable=AssemblySemVer]{version}");
     });
 
-Task("Rebuild")
-    .IsDependentOn("Clean")
-    .IsDependentOn("Build");
-
-Task("Build")
+Task("Build:Debug")
     .IsDependentOn("Restore")
     .IsDependentOn("UpdateVersion")
-    .Does(() => Build(configure: settings => settings
+    .Does(() => Build(bld.Sln, "Debug", configure: settings => settings
 												.WithProperty("Version",  gitVersion.AssemblySemVer)
                                                 .WithProperty("AppxBundle", "Never")
+												.WithProperty("AppxBundlePlatforms", "Neutral")
                                                 .WithProperty("UapAppxPackageBuildMode", "CI")));
-Task("Rerelease")
-    .IsDependentOn("Clean")
-    .IsDependentOn("Release");
 
-Task("Release")
+Task("Build:D")
+	.IsDependentOn("Build:Debug");
+
+Task("Build:Release")
     .IsDependentOn("Restore")
     .IsDependentOn("UpdateVersion")
-    .Does(() => Build("Release", configure: settings => settings
+    .Does(() => Build(bld.Sln, "Release", configure: settings => settings
 															.WithProperty("Version",  gitVersion.AssemblySemVer)
+															.WithProperty("AssemblyVersion", gitVersion.AssemblySemVer)
                                                             .WithProperty("AppxBundle", "Always")
                                                             .WithProperty("UapAppxPackageBuildMode", "StoreUpload")));
-Task("Test")
-    .IsDependentOn("Test.Unit")
-    .IsDependentOn("Test.Integration")
-    .IsDependentOn("Test.UI");
+Task("Build:R")
+	.IsDependentOn("Build:Release");
 
-Task("Test.Unit")
+Task("Build")
+	.IsDependentOn("Build:Debug")
+	.IsDependentOn("Build:Release");
+
+Task("Test:Unit")
     .IsDependentOn("Build")
     .Does(() =>
     {
@@ -104,18 +97,21 @@ Task("Test.Unit")
 
         XUnit2(testAssemblies, new XUnit2Settings
         {
-            ReportName = "TestResults",
+            ReportName = "TestResults_Unit",
             Parallelism = ParallelismOption.Collections,
             HtmlReport = true,
             XmlReport = true,
-            OutputDirectory = "./build",
+            OutputDirectory = bld.TestOutputDirectory,
         }
         .ExcludeTrait("Category", "UITest")
         .ExcludeTrait("Category", "Integration"));
     });
 
-Task("Test.Integration")
-    .IsDependentOn("Test.Unit")
+Task("Test:U")
+	.IsDependentOn("Test:Unit");
+
+Task("Test:Integration")
+    .IsDependentOn("Test:Unit")
     .IsDependentOn("Build")
     .Does(() =>
     {
@@ -123,20 +119,23 @@ Task("Test.Integration")
 
         XUnit2(testAssemblies, new XUnit2Settings
         {
-            ReportName = "TestResults",
+            ReportName = "TestResults_Integration",
             Parallelism = ParallelismOption.Collections,
             HtmlReport = true,
             XmlReport = true,
-            OutputDirectory = "./build",
+            OutputDirectory = bld.TestOutputDirectory,
         }
         .IncludeTrait("Category", "Integration"));
     });
 
-Task("Test.UI")
+Task("Test:I")
+	.IsDependentOn("Test:Integration");
+
+Task("Test:UI")
     .WithCriteria(!TFBuild.IsRunningOnVSTS)
-    .IsDependentOn("Test.Unit")
-    .IsDependentOn("Test.Integration")
-    .IsDependentOn("Release")
+    .IsDependentOn("Test:Unit")
+    .IsDependentOn("Test:Integration")
+    .IsDependentOn("Build")
     .Does(() =>
     {
         var testAssemblies = GetFiles("./src/**/bin/Release/**/*.*Tests*.dll");
@@ -147,44 +146,49 @@ Task("Test.UI")
             Parallelism = ParallelismOption.Collections,
             HtmlReport = true,
             XmlReport = true,
-            OutputDirectory = "./build",
+            OutputDirectory = bld.TestOutputDirectory,
         }.IncludeTrait("Category", "UITest"));
     });
 
-Task("Pack")
-    .IsDependentOn("Pack.NuGet")
-    .IsDependentOn("Pack.Store")
-    ;
+Task("Test")
+    .IsDependentOn("Test:Unit")
+    .IsDependentOn("Test:Integration")
+    .IsDependentOn("Test:UI");
+
+// Task("Pack")
+//     .IsDependentOn("Pack.NuGet")
+//     .IsDependentOn("Pack.Store")
+//     ;
 
 Task("Pack.Store")
     .IsDependentOn("Restore")
     .IsDependentOn("UpdateVersion")
     .IsDependentOn("Test")
-    .Does(() => Build(configure: settings => settings
+    .Does(() => Build(bld.Sln, "Release", configure: settings => settings
                                                 .WithProperty("AppxBundle", "Always")
                                                 .WithProperty("UapAppxPackageBuildMode", "StoreUpload")));
 
-Task("Pack.NuGet")
-    .IsDependentOn("Restore")
-    .IsDependentOn("UpdateVersion")
-    .IsDependentOn("Release")
-    .Does(() =>
-    {
-        Information(SerializeJsonPretty(gitVersion));
+// Task("Pack.NuGet")
+//     .IsDependentOn("Restore")
+//     .IsDependentOn("UpdateVersion")
+//     .IsDependentOn("Release")
+//     .Does(() =>
+//     {
+//         Information(SerializeJsonPretty(gitVersion));
 
-        NuGetPack("./Scissors.FeatureCenter.Win/Scissors.FeatureCenter.Win.nuspec", new NuGetPackSettings
-        {
-            Version = gitVersion.NuGetVersion,
-            OutputDirectory = "./bin",
-            BasePath = "./Scissors.FeatureCenter.Win/bin/Release",
-        });
+//         NuGetPack("./Scissors.FeatureCenter.Win/Scissors.FeatureCenter.Win.nuspec", new NuGetPackSettings
+//         {
+//             Version = gitVersion.NuGetVersion,
+//             OutputDirectory = "./bin",
+//             BasePath = "./Scissors.FeatureCenter.Win/bin/Release",
+//         });
 
-        var settings = new SquirrelSettings();
-        settings.NoMsi = true;
-        settings.Silent = true;
+//         var settings = new SquirrelSettings();
+//         settings.NoMsi = true;
+//         settings.Silent = true;
 
-        Squirrel(File($"./bin/Scissors.FeatureCenter.Win.{gitVersion.NuGetVersion}.nupkg"), settings);
-    });
+//         Squirrel(File($"./bin/Scissors.FeatureCenter.Win.{gitVersion.NuGetVersion}.nupkg"), settings);
+//     });
 
 Task("Default")
     .IsDependentOn("Build");
