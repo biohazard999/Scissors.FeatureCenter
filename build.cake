@@ -1,5 +1,3 @@
-#tool "Squirrel.Windows"
-#addin Cake.Squirrel
 #tool "nuget:?package=xunit.runner.console"
 #tool "nuget:?package=GitVersion.CommandLine"
 #addin nuget:?package=Cake.Json
@@ -132,7 +130,7 @@ Task("Test:I")
 	.IsDependentOn("Test:Integration");
 
 Task("Test:UI")
-    .WithCriteria(!TFBuild.IsRunningOnVSTS)
+    .WithCriteria(!TFBuild.IsRunningOnAzurePipelinesHosted)
     .IsDependentOn("Test:Unit")
     .IsDependentOn("Test:Integration")
     .IsDependentOn("Build")
