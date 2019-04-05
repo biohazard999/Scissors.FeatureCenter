@@ -35,15 +35,22 @@ var bld = new Bld
 Task("Restore")
     .Does(() => NuGetRestore(bld.Sln, new NuGetRestoreSettings
 	{
-		Source = nugetFeed == null ? new string[]{} : new [] { nugetFeed }
+        FallbackSource = nugetFeed == null ? new string[]{} : new [] { nugetFeed }
 	}));
 
 Task("Clean")
+    .WithCriteria(TFBuild.IsRunningOnAzurePipelinesHosted)
+    .IsDependentOn("Clean:Force");
+
+Task("Clean:Force")
     .Does(() =>
 	{
 		CleanDirectory(bld.OutputDirectory);
 		Clean(bld.Sln, bld.Configuration);
 	});
+
+Task("Clean:F")
+    .IsDependentOn("Clean:Force");
 
 Task("UpdateVersion")
     .Does(() =>
@@ -91,6 +98,7 @@ Task("Build")
 	.IsDependentOn("Build:Release");
 
 Task("Test:Unit")
+    .IsDependentOn("Clean")
     .IsDependentOn("Build")
     .Does(() =>
     {
@@ -112,6 +120,7 @@ Task("Test:U")
 	.IsDependentOn("Test:Unit");
 
 Task("Test:Integration")
+    .IsDependentOn("Clean")
     .IsDependentOn("Test:Unit")
     .IsDependentOn("Build")
     .Does(() =>
@@ -134,6 +143,7 @@ Task("Test:I")
 
 Task("Test:UI")
     .WithCriteria(!TFBuild.IsRunningOnAzurePipelinesHosted)
+    .IsDependentOn("Clean")
     .IsDependentOn("Test:Unit")
     .IsDependentOn("Test:Integration")
     .IsDependentOn("Build")
