@@ -35,7 +35,11 @@ var bld = new Bld
 Task("Restore")
     .Does(() => NuGetRestore(bld.Sln, new NuGetRestoreSettings
 	{
-        FallbackSource = nugetFeed == null ? new string[]{} : new [] { nugetFeed }
+        Source = nugetFeed == null ? new string[]{} : new []
+		{
+			"https://api.nuget.org/v3/index.json",
+			nugetFeed
+		}
 	}));
 
 Task("Clean")
