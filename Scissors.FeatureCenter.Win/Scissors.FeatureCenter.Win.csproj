@@ -14,7 +14,7 @@
     <RootNamespace>Scissors.FeatureCenter.Win</RootNamespace>
     <AssemblyName>Scissors.FeatureCenter.Win</AssemblyName>
     <ApplicationIcon>..\Scissors.FeatureCenter.Win.Shared\Scissors.ico</ApplicationIcon>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -89,6 +89,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="Scissors.FeatureCenter.Win.nuspec" />
   </ItemGroup>
   <ItemGroup>
