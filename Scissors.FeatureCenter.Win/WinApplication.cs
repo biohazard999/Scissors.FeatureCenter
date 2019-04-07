@@ -1,7 +1,10 @@
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Utils;
+using DevExpress.ExpressApp.Validation;
+using DevExpress.ExpressApp.Validation.Win;
 using DevExpress.ExpressApp.Win;
 using DevExpress.ExpressApp.Xpo;
+using Scissors.ExpressApp.InlineEditForms.Win;
 using System;
 using System.IO;
 
@@ -33,6 +36,9 @@ namespace Scissors.FeatureCenter.Win
         {
             InitializeComponent();
             InitializeDefaults();
+            Modules.Add(new ValidationModule());
+            Modules.Add(new ValidationWindowsFormsModule());
+            Modules.Add(new InlineEditFormsWindowsFormsModule());
         }
 
         protected override void CreateDefaultObjectSpaceProvider(CreateCustomObjectSpaceProviderEventArgs args)

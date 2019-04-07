@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28729.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.FeatureCenter.Module", "Scissors.FeatureCenter.Module\Scissors.FeatureCenter.Module.csproj", "{5F15837D-D1E5-44DC-92F0-4F2EBE9C3F8D}"
 EndProject
@@ -68,13 +68,6 @@ EndProject
 Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "Scissors.FeatureCenter.Package", "Scissors.FeatureCenter.Package\Scissors.FeatureCenter.Package.wapproj", "{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.FeatureCenter.Win10", "Scissors.FeatureCenter.Win10\Scissors.FeatureCenter.Win10.csproj", "{199C4A09-1369-4C80-A334-5A225FA8C780}"
-	ProjectSection(ProjectDependencies) = postProject
-		{9211115D-EEC8-4273-8F51-8650110FA7B6} = {9211115D-EEC8-4273-8F51-8650110FA7B6}
-	EndProjectSection
-EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Scissors.FeatureCenter.Win.Shared", "Scissors.FeatureCenter.Win.Shared\Scissors.FeatureCenter.Win.Shared.shproj", "{FF730FA6-7A19-4FBF-911F-28B004FCB08D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.FeatureCenter.Cli", "Scissors.FeatureCenter.Cli\Scissors.FeatureCenter.Cli.csproj", "{9211115D-EEC8-4273-8F51-8650110FA7B6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Drawing", "Drawing", "{8311EC5C-8125-42C1-B15E-029CAAC1E77A}"
 EndProject
@@ -84,15 +77,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.Utils.Drawing.Test
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{CD7A5B70-30C3-4B16-AE63-83A467671B7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.Utils.Testing.XUnit", "src\Utils\Testing\Scissors.Utils.Testing.XUnit\Scissors.Utils.Testing.XUnit.csproj", "{96807A44-E42A-42A2-9238-F17CE57404E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.Utils.Testing.XUnit", "src\Utils\Testing\Scissors.Utils.Testing.XUnit\Scissors.Utils.Testing.XUnit.csproj", "{96807A44-E42A-42A2-9238-F17CE57404E4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{74C0E76B-38B1-4185-BA73-F016B337BC78}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Generators", "Generators", "{53013E00-7286-4BBC-B9A6-3BDE599C2D64}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.Xaf.CacheWarmup.Attributes", "src\Generators\Scissors.Xaf.CacheWarmup.Attributes\Scissors.Xaf.CacheWarmup.Attributes.csproj", "{EE63A3E8-83EF-45F3-BA2F-EA955B255C16}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.Xaf.CacheWarmup.Generators", "src\Generators\Scissors.Xaf.CacheWarmup.Generators\Scissors.Xaf.CacheWarmup.Generators.csproj", "{E4D9621F-519A-4F94-97C9-EBBC0917E8BE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.Xaf.CacheWarmup.Generators.Cli", "src\Generators\Scissors.Xaf.CacheWarmup.Generators.Cli\Scissors.Xaf.CacheWarmup.Generators.Cli.csproj", "{AAD889BB-B0BC-4F2C-9B7B-8D1A8CC4E43D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.Xaf.CacheWarmup.Generators.MsBuild", "src\Generators\Scissors.Xaf.CacheWarmup.Generators.MsBuild\Scissors.Xaf.CacheWarmup.Generators.MsBuild.csproj", "{FC29F3B6-7360-483D-AFA7-A3175B50C2CB}"
 EndProject
 Global
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		Scissors.FeatureCenter.Win.Shared\Scissors.FeatureCenter.Win.Shared.projitems*{199c4a09-1369-4c80-a334-5a225fa8c780}*SharedItemsImports = 4
-		Scissors.FeatureCenter.Win.Shared\Scissors.FeatureCenter.Win.Shared.projitems*{9211115d-eec8-4273-8f51-8650110fa7b6}*SharedItemsImports = 4
-		Scissors.FeatureCenter.Win.Shared\Scissors.FeatureCenter.Win.Shared.projitems*{d05d93df-312d-4d4e-b980-726871ec7833}*SharedItemsImports = 4
-		Scissors.FeatureCenter.Win.Shared\Scissors.FeatureCenter.Win.Shared.projitems*{ff730fa6-7a19-4fbf-911f-28b004fcb08d}*SharedItemsImports = 13
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -180,10 +179,6 @@ Global
 		{199C4A09-1369-4C80-A334-5A225FA8C780}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{199C4A09-1369-4C80-A334-5A225FA8C780}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{199C4A09-1369-4C80-A334-5A225FA8C780}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9211115D-EEC8-4273-8F51-8650110FA7B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9211115D-EEC8-4273-8F51-8650110FA7B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9211115D-EEC8-4273-8F51-8650110FA7B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9211115D-EEC8-4273-8F51-8650110FA7B6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{88C85084-CFBD-479F-BC44-46DF7248BF9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{88C85084-CFBD-479F-BC44-46DF7248BF9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88C85084-CFBD-479F-BC44-46DF7248BF9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -196,6 +191,22 @@ Global
 		{96807A44-E42A-42A2-9238-F17CE57404E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96807A44-E42A-42A2-9238-F17CE57404E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96807A44-E42A-42A2-9238-F17CE57404E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE63A3E8-83EF-45F3-BA2F-EA955B255C16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE63A3E8-83EF-45F3-BA2F-EA955B255C16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE63A3E8-83EF-45F3-BA2F-EA955B255C16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE63A3E8-83EF-45F3-BA2F-EA955B255C16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4D9621F-519A-4F94-97C9-EBBC0917E8BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4D9621F-519A-4F94-97C9-EBBC0917E8BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4D9621F-519A-4F94-97C9-EBBC0917E8BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4D9621F-519A-4F94-97C9-EBBC0917E8BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAD889BB-B0BC-4F2C-9B7B-8D1A8CC4E43D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAD889BB-B0BC-4F2C-9B7B-8D1A8CC4E43D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAD889BB-B0BC-4F2C-9B7B-8D1A8CC4E43D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAD889BB-B0BC-4F2C-9B7B-8D1A8CC4E43D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC29F3B6-7360-483D-AFA7-A3175B50C2CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC29F3B6-7360-483D-AFA7-A3175B50C2CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC29F3B6-7360-483D-AFA7-A3175B50C2CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC29F3B6-7360-483D-AFA7-A3175B50C2CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -227,6 +238,11 @@ Global
 		{AF1B9747-DDE3-4E00-8A18-5E374CF3FD77} = {8311EC5C-8125-42C1-B15E-029CAAC1E77A}
 		{CD7A5B70-30C3-4B16-AE63-83A467671B7A} = {C4841573-FA09-445D-8236-092D812A5542}
 		{96807A44-E42A-42A2-9238-F17CE57404E4} = {CD7A5B70-30C3-4B16-AE63-83A467671B7A}
+		{53013E00-7286-4BBC-B9A6-3BDE599C2D64} = {74C0E76B-38B1-4185-BA73-F016B337BC78}
+		{EE63A3E8-83EF-45F3-BA2F-EA955B255C16} = {53013E00-7286-4BBC-B9A6-3BDE599C2D64}
+		{E4D9621F-519A-4F94-97C9-EBBC0917E8BE} = {53013E00-7286-4BBC-B9A6-3BDE599C2D64}
+		{AAD889BB-B0BC-4F2C-9B7B-8D1A8CC4E43D} = {53013E00-7286-4BBC-B9A6-3BDE599C2D64}
+		{FC29F3B6-7360-483D-AFA7-A3175B50C2CB} = {53013E00-7286-4BBC-B9A6-3BDE599C2D64}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {469CE51B-ECDA-486F-AFCD-E4CB6A371CFE}
