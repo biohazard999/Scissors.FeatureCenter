@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>propxafOne</Title>
+      <Shortcut>propxafOne</Shortcut>
+      <Description>Insert a property with a One to Many relationship in XPO</Description>
+      <Author>Llamachant Technology Ltd.</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>type</ID>
+          <ToolTip>Property Type</ToolTip>
+          <Default>DomainObject</Default>
+        </Literal>
+        <Literal>
+          <ID>property</ID>
+          <ToolTip>Property Name</ToolTip>
+          <Default>MyProperty</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp">
+	   <![CDATA[
+		private $type$ _$property$;
+		[Association]
+        public $type$ $property$ 
+        { 
+          get { return _$property$;} 
+          set { SetPropertyValue(ref _$property$, value); } 
+        }
+
+			$end$]]>       
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
