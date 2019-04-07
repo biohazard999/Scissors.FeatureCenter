@@ -14,7 +14,7 @@
     <RootNamespace>Scissors.FeatureCenter.Win</RootNamespace>
     <AssemblyName>Scissors.FeatureCenter.Win</AssemblyName>
     <ApplicationIcon>..\Scissors.FeatureCenter.Win.Shared\Scissors.ico</ApplicationIcon>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -89,6 +89,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="Scissors.FeatureCenter.Win.nuspec" />
   </ItemGroup>
   <ItemGroup>
@@ -178,12 +179,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DevExpress.ExpressApp.Images" Version="17.2.7" />
-    <PackageReference Include="DevExpress.ExpressApp.Validation.Win" Version="17.2.7" />
-    <PackageReference Include="DevExpress.ExpressApp.Win" Version="17.2.7" />
-    <PackageReference Include="DevExpress.ExpressApp.Xpo" Version="17.2.7" />
-    <PackageReference Include="DevExpress.ExpressApp.Images" Version="17.2.7" />
-    <PackageReference Include="DevExpress.XtraReports" Version="17.2.7" />
+    <PackageReference Include="DevExpress.ExpressApp.Validation.Win" Version="18.2.7" />
+    <PackageReference Include="DevExpress.ExpressApp.Win" Version="18.2.7" />
+    <PackageReference Include="DevExpress.ExpressApp.Xpo" Version="18.2.7" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FeatureCenterWindowsFormsApplication.cs">

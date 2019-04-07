@@ -5,6 +5,7 @@
 !tools/packages.config
 /bin
 /build
+build.ps1
 
 # User-specific files
 *.suo

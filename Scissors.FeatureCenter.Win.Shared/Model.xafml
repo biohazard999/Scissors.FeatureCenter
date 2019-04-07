@@ -20,8 +20,8 @@
     <RibbonOptions RibbonControlStyle="Office2013" />
   </Options>
   <SchemaModules>
-    <SchemaModule Name="SystemModule" Version="17.2.7.0" IsNewNode="True" />
-    <SchemaModule Name="SystemWindowsFormsModule" Version="17.2.7.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="18.2.7.0" IsNewNode="True" />
+    <SchemaModule Name="SystemWindowsFormsModule" Version="18.2.7.0" IsNewNode="True" />
   </SchemaModules>
   <Views>
     <DetailView Id="LabelDemoModel_DetailView" DefaultFocusedItem="Html">
