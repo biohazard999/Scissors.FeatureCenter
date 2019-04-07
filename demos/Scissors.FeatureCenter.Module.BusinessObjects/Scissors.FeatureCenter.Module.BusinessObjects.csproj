@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net462</TargetFramework>
+    <AssemblyTitle>Scissors.FeatureCenter.Module.BusinessObjects</AssemblyTitle>
+    <Product>Scissors.FeatureCenter</Product>
+    <Copyright>Copyright © Manuel Grundner 2019</Copyright>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Scissors.Xpo\Scissors.Xpo.csproj" />
+  </ItemGroup>
+</Project>

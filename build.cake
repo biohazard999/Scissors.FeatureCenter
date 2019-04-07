@@ -66,7 +66,7 @@ Task("UpdateVersion")
 
         version = gitVersion.MajorMinorPatch + "." + gitVersion.CommitsSinceVersionSource;
 
-        XmlPoke("./Scissors.FeatureCenter.Package/Package.appxmanifest", "/Package:Package/Package:Identity/@Version", version, new XmlPokeSettings
+        XmlPoke("./demos/Scissors.FeatureCenter.Package/Package.appxmanifest", "/Package:Package/Package:Identity/@Version", version, new XmlPokeSettings
         {
             Namespaces = new Dictionary<string, string> {{ "Package", "http://schemas.microsoft.com/appx/manifest/foundation/windows10" }}
         });

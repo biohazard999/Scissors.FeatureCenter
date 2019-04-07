@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net462</TargetFramework>
+    <AssemblyTitle>Scissors.FeatureCenter.Module</AssemblyTitle>
+    <Product>Scissors.FeatureCenter</Product>
+    <Copyright>Copyright © Manuel Grundner 2019</Copyright>
+    <Features>IOperation</Features>
+    <AssemblySearchPaths>$(AssemblySearchPaths);{GAC}</AssemblySearchPaths>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Scissors.ExpressApp\Scissors.ExpressApp.csproj" />
+    <ProjectReference Include="..\Scissors.FeatureCenter.Module.BusinessObjects\Scissors.FeatureCenter.Module.BusinessObjects.csproj" />
+    <ProjectReference Include="..\Scissors.FeatureCenter.Module.Contracts\Scissors.FeatureCenter.Module.Contracts.csproj" />
+  </ItemGroup>
+</Project>
