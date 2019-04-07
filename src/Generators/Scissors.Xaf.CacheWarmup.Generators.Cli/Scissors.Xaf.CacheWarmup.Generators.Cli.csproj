@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net452</TargetFramework>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <AssemblyTitle>Scissors.Xaf.CacheWarmup.Generators.Cli</AssemblyTitle>
+    <Product>Scissors.Xaf.CacheWarmup.Generators.Cli</Product>
+    <Copyright>Copyright © Manuel Grundner 2019</Copyright>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Scissors.Xaf.CacheWarmup.Attributes\Scissors.Xaf.CacheWarmup.Attributes.csproj" />
+    <ProjectReference Include="..\Scissors.Xaf.CacheWarmup.Generators\Scissors.Xaf.CacheWarmup.Generators.csproj" />
+  </ItemGroup>
+</Project>

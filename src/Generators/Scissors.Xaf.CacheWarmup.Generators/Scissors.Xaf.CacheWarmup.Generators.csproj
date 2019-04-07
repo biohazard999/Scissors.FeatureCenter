@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net452</TargetFramework>
+    <AssemblyTitle>Scissors.Xaf.CacheWarmup.Generators</AssemblyTitle>
+    <Product>Scissors.Xaf.CacheWarmup.Generators</Product>
+    <Copyright>Copyright © Manuel Grundner 2019</Copyright>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Scissors.Xaf.CacheWarmup.Attributes\Scissors.Xaf.CacheWarmup.Attributes.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AppDomainToolkit" Version="1.0.4.3" />
+    <PackageReference Include="fasterflect" Version="2.1.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+</Project>

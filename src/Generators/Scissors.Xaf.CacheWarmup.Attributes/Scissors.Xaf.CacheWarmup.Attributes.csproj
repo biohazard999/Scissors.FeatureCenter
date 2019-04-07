@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net452</TargetFramework>
+    <AssemblyTitle>Scissors.Xaf.CacheWarmup.Attributes</AssemblyTitle>
+    <Product>Scissors.Xaf.CacheWarmup.Attributes</Product>
+    <Copyright>Copyright © Manuel Grundner 2019</Copyright>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+</Project>

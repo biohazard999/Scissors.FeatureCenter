@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Scissors.FeatureCenter.Win</RootNamespace>
     <AssemblyName>Scissors.FeatureCenter.Win</AssemblyName>
-    <ApplicationIcon>..\Scissors.FeatureCenter.Win.Shared\Scissors.ico</ApplicationIcon>
+    <ApplicationIcon>Scissors.ico</ApplicationIcon>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -90,6 +90,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <Content Include="Model.xafml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Scissors.FeatureCenter.Win.nuspec" />
   </ItemGroup>
   <ItemGroup>
@@ -116,6 +119,14 @@
     <ProjectReference Include="..\Scissors.FeatureCenter.Module\Scissors.FeatureCenter.Module.csproj">
       <Project>{5F15837D-D1E5-44DC-92F0-4F2EBE9C3F8D}</Project>
       <Name>Scissors.FeatureCenter.Module</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\src\Generators\Scissors.Xaf.CacheWarmup.Attributes\Scissors.Xaf.CacheWarmup.Attributes.csproj">
+      <Project>{ee63a3e8-83ef-45f3-ba2f-ea955b255c16}</Project>
+      <Name>Scissors.Xaf.CacheWarmup.Attributes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\src\Generators\Scissors.Xaf.CacheWarmup.Generators.MsBuild\Scissors.Xaf.CacheWarmup.Generators.MsBuild.csproj">
+      <Project>{fc29f3b6-7360-483d-afa7-a3175b50c2cb}</Project>
+      <Name>Scissors.Xaf.CacheWarmup.Generators.MsBuild</Name>
     </ProjectReference>
     <ProjectReference Include="..\src\Modules\InlineEditForms\Win\Scissors.ExpressApp.InlineEditForms.Win.csproj">
       <Project>{230DACB5-9303-4196-86E3-65203D773D9B}</Project>
@@ -156,29 +167,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Scissors.FeatureCenter.Cli\Scissors.FeatureCenter.Cli.csproj">
-      <Project>{9211115d-eec8-4273-8f51-8650110fa7b6}</Project>
-      <Name>Scissors.FeatureCenter.Cli</Name>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
-    <Content Include="..\Scissors.FeatureCenter.Cli\bin\$(Configuration)\PreCompile\Model.Cache.xafml">
-      <Link>Model.Cache.xafml</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Scissors.FeatureCenter.Cli\bin\$(Configuration)\PreCompile\ModulesVersionInfo">
-      <Link>ModulesVersionInfo</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Scissors.FeatureCenter.Cli\bin\$(Configuration)\PreCompile\ModelAssembly.dll">
-      <Link>ModelAssembly.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Scissors.FeatureCenter.Win.Shared\Model.xafml">
-      <Link>Model.xafml</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="DevExpress.ExpressApp.Validation.Win" Version="18.2.7" />
     <PackageReference Include="DevExpress.ExpressApp.Win" Version="18.2.7" />
     <PackageReference Include="DevExpress.ExpressApp.Xpo" Version="18.2.7" />
@@ -188,17 +176,33 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="Properties\Assembly.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WinApplication.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinApplication.Designer.cs">
+      <DependentUpon>WinApplication.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="WinApplication.resx">
+      <DependentUpon>WinApplication.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Properties\" />
+    <Content Include="Scissors.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
-  <Import Project="..\Scissors.FeatureCenter.Win.Shared\Scissors.FeatureCenter.Win.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
+  <PropertyGroup>
+    <XafPreCacheGenerator>$(OutputPath)Scissors.Xaf.CacheWarmup.Generators.MsBuild.dll</XafPreCacheGenerator>
+    <XafApplicationPath>$(MSBuildThisFileDirectory)$(OutputPath)$(AssemblyName).exe</XafApplicationPath>
+  </PropertyGroup>
+  <UsingTask TaskName="Scissors.Xaf.CacheWarmup.Generators.MsBuild.XafCacheWarmupTask" AssemblyFile="$(XafPreCacheGenerator)" />
   <Target Name="AfterBuild">
+    <XafCacheWarmupTask ApplicationPath="$(XafApplicationPath)" />
   </Target>
-  -->
 </Project>

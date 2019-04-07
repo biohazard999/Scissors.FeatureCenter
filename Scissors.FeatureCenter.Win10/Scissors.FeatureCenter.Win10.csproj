@@ -38,7 +38,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>..\Scissors.FeatureCenter.Win.Shared\Scissors.ico</ApplicationIcon>
+    <ApplicationIcon>..\Scissors.FeatureCenter.Win\Scissors.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System">
@@ -103,6 +103,10 @@
       <Project>{5F15837D-D1E5-44DC-92F0-4F2EBE9C3F8D}</Project>
       <Name>Scissors.FeatureCenter.Module</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Scissors.FeatureCenter.Win\Scissors.FeatureCenter.Win.csproj">
+      <Project>{d05d93df-312d-4d4e-b980-726871ec7833}</Project>
+      <Name>Scissors.FeatureCenter.Win</Name>
+    </ProjectReference>
     <ProjectReference Include="..\src\Modules\InlineEditForms\Win\Scissors.ExpressApp.InlineEditForms.Win.csproj">
       <Project>{230DACB5-9303-4196-86E3-65203D773D9B}</Project>
       <Name>Scissors.ExpressApp.InlineEditForms.Win</Name>
@@ -131,47 +135,19 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\Assembly.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="app.config" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Scissors.FeatureCenter.Cli\Scissors.FeatureCenter.Cli.csproj">
-      <Project>{9211115d-eec8-4273-8f51-8650110fa7b6}</Project>
-      <Name>Scissors.FeatureCenter.Cli</Name>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
-    <Content Include="..\Scissors.FeatureCenter.Cli\bin\$(Configuration)\PreCompile\Model.Cache.xafml">
+    <Content Include="..\Scissors.FeatureCenter.Win\bin\Debug\Model.Cache.xafml">
       <Link>Model.Cache.xafml</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Scissors.FeatureCenter.Cli\bin\$(Configuration)\PreCompile\ModulesVersionInfo">
+    <Content Include="..\Scissors.FeatureCenter.Win\bin\Debug\ModulesVersionInfo">
       <Link>ModulesVersionInfo</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Scissors.FeatureCenter.Cli\bin\$(Configuration)\PreCompile\ModelAssembly.dll">
+    <Content Include="..\Scissors.FeatureCenter.Win\bin\Debug\ModelAssembly.dll">
       <Link>ModelAssembly.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Scissors.FeatureCenter.Win.Shared\Model.xafml">
-      <Link>Model.xafml</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -180,6 +156,5 @@
     <PackageReference Include="DevExpress.ExpressApp.Win" Version="18.2.7" />
     <PackageReference Include="DevExpress.ExpressApp.Xpo" Version="18.2.7" />
   </ItemGroup>
-  <Import Project="..\Scissors.FeatureCenter.Win.Shared\Scissors.FeatureCenter.Win.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
