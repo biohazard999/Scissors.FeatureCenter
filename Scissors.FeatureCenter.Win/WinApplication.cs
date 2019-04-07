@@ -6,6 +6,7 @@ using DevExpress.ExpressApp.Win;
 using DevExpress.ExpressApp.Xpo;
 using Scissors.ExpressApp.InlineEditForms.Win;
 using System;
+using System.Diagnostics;
 using System.IO;
 
 namespace Scissors.FeatureCenter.Win
@@ -20,6 +21,7 @@ namespace Scissors.FeatureCenter.Win
             OptimizedControllersCreation = true;
             UseLightStyle = true;
             EnableModelCache = true;
+            ExecuteStartupLogicBeforeClosingLogonWindow = true;
         }
 
         partial void InitUserModelDifferences();
@@ -30,6 +32,7 @@ namespace Scissors.FeatureCenter.Win
             DevExpress.ExpressApp.ModelCacheManager.SkipEmptyNodes = true;
             DevExpress.Persistent.Base.PasswordCryptographer.EnableRfc2898 = true;
             DevExpress.Persistent.Base.PasswordCryptographer.SupportLegacySha512 = false;
+            DevExpress.ExpressApp.Utils.ImageLoader.Instance.UseSvgImages = true;
         }
 
         public FeatureCenterWindowsFormsApplication()
@@ -60,6 +63,16 @@ namespace Scissors.FeatureCenter.Win
         {
             e.Updater.Update();
             e.Handled = true;
+        }
+
+        protected override void LoadUserDifferences()
+        {
+            if(Debugger.IsAttached)
+            {
+                return;
+            }
+
+            base.LoadUserDifferences();
         }
     }
 }

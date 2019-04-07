@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>propxafCollectionAggregated</Title>
+      <Shortcut>propxafCollectionAggregated</Shortcut>
+      <Description>Insert an aggregated collection (No link/unlink) in XPO</Description>
+      <Author>Llamachant Technology Ltd.</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>type</ID>
+          <ToolTip>Remote Property Type</ToolTip>
+          <Default>DomainObject</Default>
+        </Literal>
+        <Literal>
+          <ID>property</ID>
+          <ToolTip>Collection Property Name</ToolTip>
+          <Default>CollectionName</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp">
+        <![CDATA[
+        [DevExpress.Xpo.Aggregated, Association]
+        public XPCollection<$type$> $property$ {
+          get { return GetCollection<$type$>(); }
+        }
+			$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

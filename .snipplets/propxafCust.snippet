@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>propxafCust</Title>
+      <Shortcut>propxafCust</Shortcut>
+      <Description>Insert a custom object with default Name property</Description>
+      <Author>Llamachant Technology Ltd.</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>class</ID>
+          <ToolTip>Class Name</ToolTip>
+          <Default>CustomObject</Default>
+        </Literal>
+		<Literal>
+		  <ID>classtype</ID>
+		  <ToolTip>XPO Base Object Type (BaseObject, XPCustomObject, XPLiteObject, etc.)</ToolTip>
+		  <Default>BaseObject</Default>
+		</Literal>
+      </Declarations>
+      <Code Language="csharp">
+        <![CDATA[
+		[DefaultProperty("Name")]
+		public class $class$ : $classtype$
+		{
+			public $class$(Session session) : base(session) { }
+			private string _Name;
+			public string Name
+			{
+				get { return _Name; }
+				set { SetPropertyValue<string>("Name", ref _Name, value); }
+			}
+		}
+
+			$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
