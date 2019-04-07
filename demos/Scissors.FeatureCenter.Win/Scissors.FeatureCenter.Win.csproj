@@ -8,7 +8,7 @@
     <AssemblyVersion>0.1.16.0</AssemblyVersion>
     <FileVersion>0.1.16.0</FileVersion>
     <OutputPath>bin\$(Configuration)\</OutputPath>
-    <BuildDependsOn>$(BuildDependsOn);AfterBuildMigrated</BuildDependsOn>
+    <BuildDependsOn>$(BuildDependsOn);AfterBuild</BuildDependsOn>
     <Authors>m.grundner</Authors>
     <PackageIconUrl>https://raw.githubusercontent.com/biohazard999/Scissors.FeatureCenter/master/Scissors.FeatureCenter.Win.Shared/Scissors.ico</PackageIconUrl>
     <PackageId>Scissors.FeatureCenter.Win</PackageId>
@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\Generators\Scissors.Xaf.CacheWarmup.Attributes\Scissors.Xaf.CacheWarmup.Attributes.csproj" />
+    <ProjectReference Include="..\..\src\Generators\Scissors.Xaf.CacheWarmup.Generators.MsBuild\Scissors.Xaf.CacheWarmup.Generators.MsBuild.csproj" />
     <ProjectReference Include="..\..\src\Modules\InlineEditForms\Win\Scissors.ExpressApp.InlineEditForms.Win.csproj" />
     <ProjectReference Include="..\..\src\Scissors.ExpressApp.Win\Scissors.ExpressApp.Win.csproj" />
     <ProjectReference Include="..\..\src\Scissors.ExpressApp\Scissors.ExpressApp.csproj" />

@@ -73,15 +73,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.FeatureCenter.Modu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.FeatureCenter.Module.Win", "demos\Scissors.FeatureCenter.Module.Win\Scissors.FeatureCenter.Module.Win.csproj", "{5238823C-67CD-41F6-BB81-B351F9DCD45F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.FeatureCenter.Win", "demos\Scissors.FeatureCenter.Win\Scissors.FeatureCenter.Win.csproj", "{D05D93DF-312D-4D4E-B980-726871EC7833}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.FeatureCenter.Win", "demos\Scissors.FeatureCenter.Win\Scissors.FeatureCenter.Win.csproj", "{D05D93DF-312D-4D4E-B980-726871EC7833}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.FeatureCenter.Win10", "demos\Scissors.FeatureCenter.Win10\Scissors.FeatureCenter.Win10.csproj", "{199C4A09-1369-4C80-A334-5A225FA8C780}"
 EndProject
 Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "Scissors.FeatureCenter.Package", "demos\Scissors.FeatureCenter.Package\Scissors.FeatureCenter.Package.wapproj", "{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.FeatureCenter.Module.BusinessObjects", "demos\Scissors.FeatureCenter.Module.BusinessObjects\Scissors.FeatureCenter.Module.BusinessObjects.csproj", "{CA22E6AE-9925-4306-84CB-5806302B7DCE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.FeatureCenter.Module.BusinessObjects", "demos\Scissors.FeatureCenter.Module.BusinessObjects\Scissors.FeatureCenter.Module.BusinessObjects.csproj", "{CA22E6AE-9925-4306-84CB-5806302B7DCE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.FeatureCenter.Module.Contracts", "demos\Scissors.FeatureCenter.Module.Contracts\Scissors.FeatureCenter.Module.Contracts.csproj", "{9F5C928A-1B97-41E3-8ACF-7F7245C6B055}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.FeatureCenter.Module.Contracts", "demos\Scissors.FeatureCenter.Module.Contracts\Scissors.FeatureCenter.Module.Contracts.csproj", "{9F5C928A-1B97-41E3-8ACF-7F7245C6B055}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -462,12 +462,12 @@ Global
 		{D05D93DF-312D-4D4E-B980-726871EC7833}.Debug|x64.Build.0 = Debug|Any CPU
 		{D05D93DF-312D-4D4E-B980-726871EC7833}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{D05D93DF-312D-4D4E-B980-726871EC7833}.Debug|x86.Build.0 = Debug|Any CPU
-		{D05D93DF-312D-4D4E-B980-726871EC7833}.EasyTest|Any CPU.ActiveCfg = EasyTest|Any CPU
-		{D05D93DF-312D-4D4E-B980-726871EC7833}.EasyTest|Any CPU.Build.0 = EasyTest|Any CPU
-		{D05D93DF-312D-4D4E-B980-726871EC7833}.EasyTest|x64.ActiveCfg = EasyTest|Any CPU
-		{D05D93DF-312D-4D4E-B980-726871EC7833}.EasyTest|x64.Build.0 = EasyTest|Any CPU
-		{D05D93DF-312D-4D4E-B980-726871EC7833}.EasyTest|x86.ActiveCfg = EasyTest|Any CPU
-		{D05D93DF-312D-4D4E-B980-726871EC7833}.EasyTest|x86.Build.0 = EasyTest|Any CPU
+		{D05D93DF-312D-4D4E-B980-726871EC7833}.EasyTest|Any CPU.ActiveCfg = Release|Any CPU
+		{D05D93DF-312D-4D4E-B980-726871EC7833}.EasyTest|Any CPU.Build.0 = Release|Any CPU
+		{D05D93DF-312D-4D4E-B980-726871EC7833}.EasyTest|x64.ActiveCfg = Release|Any CPU
+		{D05D93DF-312D-4D4E-B980-726871EC7833}.EasyTest|x64.Build.0 = Release|Any CPU
+		{D05D93DF-312D-4D4E-B980-726871EC7833}.EasyTest|x86.ActiveCfg = Release|Any CPU
+		{D05D93DF-312D-4D4E-B980-726871EC7833}.EasyTest|x86.Build.0 = Release|Any CPU
 		{D05D93DF-312D-4D4E-B980-726871EC7833}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D05D93DF-312D-4D4E-B980-726871EC7833}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D05D93DF-312D-4D4E-B980-726871EC7833}.Release|x64.ActiveCfg = Release|Any CPU
