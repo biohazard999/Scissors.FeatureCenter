@@ -1,43 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <LangVersion>latest</LangVersion>
-    <DefineConstants>WIN10</DefineConstants>
-    <Description>FeatureCenter of the Scissors XAF Extentions</Description>
-    <Copyright>Copyright 2018</Copyright>
-    <Version>0.0.0</Version>
-    <AssemblyVersion>0.1.16.0</AssemblyVersion>
-    <FileVersion>0.1.16.0</FileVersion>
-    <OutputPath>bin\$(Configuration)\</OutputPath>
-    <BuildDependsOn>$(BuildDependsOn);AfterBuild</BuildDependsOn>
-    <Authors>m.grundner</Authors>
-    <PackageIconUrl>https://raw.githubusercontent.com/biohazard999/Scissors.FeatureCenter/master/Scissors.FeatureCenter.Win.Shared/Scissors.ico</PackageIconUrl>
-    <PackageId>Scissors.FeatureCenter.Win</PackageId>
-    <PackageLicenseUrl>http://blog.delegate.at/licence/</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/biohazard999/Scissors.FeatureCenter</PackageProjectUrl>
-    <PackageTags>Library</PackageTags>
-  </PropertyGroup>
-  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
     <OutputType>WinExe</OutputType>
     <ApplicationIcon>Scissors.ico</ApplicationIcon>
-    <TargetFramework>net472</TargetFramework>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugType>full</DebugType>
-    <DefineConstants>TRACE;DEBUG</DefineConstants>
-    <Prefer32Bit>true</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>false</Optimize>
-    <DefineConstants>TRACE</DefineConstants>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'EasyTest|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DefineConstants>TRACE;DEBUG;EASYTEST</DefineConstants>
-    <DebugType>full</DebugType>
+    <LangVersion>latest</LangVersion>
+    <Description>FeatureCenter of the Scissors XAF Extentions</Description>
+    <Copyright>Copyright 2018</Copyright>
+    <BuildDependsOn>$(BuildDependsOn);WarmupXafCaches</BuildDependsOn>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System.configuration">
+    <Reference Include="System.Configuration">
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Windows.Forms">
@@ -85,11 +57,15 @@
     </Content>
   </ItemGroup>
 	<PropertyGroup>
-    <XafPreCacheGenerator>$(OutputPath)Scissors.Xaf.CacheWarmup.Generators.MsBuild.dll</XafPreCacheGenerator>
-    <XafApplicationPath>$(MSBuildThisFileDirectory)$(OutputPath)$(AssemblyName).exe</XafApplicationPath>
+			<_MyPath>$(TargetDir)Scissors.Xaf.CacheWarmup.Generators.MsBuild.dll</_MyPath>
+      <_FullPath>$([System.IO.Path]::GetFullPath($(TargetDir)))</_FullPath>
+    <XafApplicationPath>$(TargetDir)$(AssemblyName).exe</XafApplicationPath>
   </PropertyGroup>
-  <UsingTask TaskName="Scissors.Xaf.CacheWarmup.Generators.MsBuild.XafCacheWarmupTask" AssemblyFile="$(XafPreCacheGenerator)" />
-  <Target Name="AfterBuild">
+  <UsingTask TaskName="Scissors.Xaf.CacheWarmup.Generators.MsBuild.XafCacheWarmupTask" AssemblyFile="$(_FullPath)" />
+  <Target Name="WarmupXafCaches" AfterTargets="AfterBuild">
+    <Message Importance="high" Text="FOOOOOOOOOOOOOOOOOO _MyPath $(_MyPath)"/>
+    <Message Importance="high" Text="FOOOOOOOOOOOOOOOOOO _FullPath $(_FullPath)"/>
+    <Message Importance="high" Text="FOOOOOOOOOOOOOOOOOO AssemblyName $(AssemblyName)"/>
     <XafCacheWarmupTask ApplicationPath="$(XafApplicationPath)" />
   </Target>
 </Project>
