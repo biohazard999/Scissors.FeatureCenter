@@ -2,4 +2,4 @@
 
 [assembly: AssemblyVersion("0.1.16.0")]
 [assembly: AssemblyFileVersion("0.1.16.0")]
-[assembly: AssemblyInformationalVersion("0.1.16-topic-refactor-structure.4+Branch.topic/refactor-structure.Sha.8bb0195b7b6b0a63a691fd9ede4949145d1c0f1c")]
+[assembly: AssemblyInformationalVersion("0.1.16-topic-refactor-structure.5+Branch.topic/refactor-structure.Sha.5fbec74e9aa7318dcbfcfa803b7f3b59d07a5510")]

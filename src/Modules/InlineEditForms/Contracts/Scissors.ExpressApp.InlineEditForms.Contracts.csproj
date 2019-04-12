@@ -1,6 +1,4 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="..\..\..\..\.global\Global.csproj" />
   <PropertyGroup>
-    <TargetFramework>net462</TargetFramework>
   </PropertyGroup>
 </Project>

@@ -1,0 +1,9 @@
+<Project>
+	<PropertyGroup>
+	  <Product>Scissors</Product>
+    <Copyright>Copyright © Manuel Grundner 2019</Copyright>
+    <TargetFramework>net462</TargetFramework>
+    <LangVersion>latest</LangVersion>
+		<DxVersion>18.2.7</DxVersion>
+	</PropertyGroup>
+</Project>

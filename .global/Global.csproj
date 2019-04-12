@@ -1,6 +1,5 @@
-<Project>  
+<Project>
   <PropertyGroup>
 		<TargetFramework>net462</TargetFramework>
-    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 </Project>

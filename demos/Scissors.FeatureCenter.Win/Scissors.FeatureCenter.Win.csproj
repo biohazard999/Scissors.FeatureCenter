@@ -56,7 +56,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-	<PropertyGroup>
+	<!-- <PropertyGroup>
 			<_MyPath>$(TargetDir)Scissors.Xaf.CacheWarmup.Generators.MsBuild.dll</_MyPath>
       <_FullPath>$([System.IO.Path]::GetFullPath($(TargetDir)))</_FullPath>
     <XafApplicationPath>$(TargetDir)$(AssemblyName).exe</XafApplicationPath>
@@ -67,5 +67,5 @@
     <Message Importance="high" Text="FOOOOOOOOOOOOOOOOOO _FullPath $(_FullPath)"/>
     <Message Importance="high" Text="FOOOOOOOOOOOOOOOOOO AssemblyName $(AssemblyName)"/>
     <XafCacheWarmupTask ApplicationPath="$(XafApplicationPath)" />
-  </Target>
+  </Target> -->
 </Project>
