@@ -1,12 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <!-- Suppresses the warnings about the package not having assemblies in lib/*/.dll.-->
-    <NoPackageAnalysis>true</NoPackageAnalysis>
     <!-- Change the default location where NuGet will put the build output -->
-    <BuildOutputTargetFolder>tasks</BuildOutputTargetFolder>
+    <BuildOutputTargetFolder>tools</BuildOutputTargetFolder>
+		<DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
   </PropertyGroup>
   <ItemGroup>
-	  <Content Include="build\*" PackagePath="build\" />
+	  <Content Include="build\**\*" PackagePath="build\" />
     <ProjectReference Include="..\Scissors.Xaf.CacheWarmup.Generators\Scissors.Xaf.CacheWarmup.Generators.csproj" />
   </ItemGroup>
   <ItemGroup>

@@ -6,7 +6,7 @@
     <Copyright>Copyright © Manuel Grundner 2019</Copyright>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Scissors.Xpo" Version="1.0.0" />
+    <PackageReference Include="Scissors.Xpo" Version="0.1.0-*" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Data.DataSetExtensions" />

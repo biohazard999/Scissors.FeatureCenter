@@ -8,8 +8,7 @@
     <AssemblySearchPaths>$(AssemblySearchPaths);{GAC}</AssemblySearchPaths>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="DevExpress.ExpressApp.Win" Version="18.2.7" />
-    <PackageReference Include="Scissors.ExpressApp.Win" Version="1.0.0" />
+    <PackageReference Include="Scissors.ExpressApp.Win" Version="0.1.0-*" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Scissors.FeatureCenter.Module\Scissors.FeatureCenter.Module.csproj" />
