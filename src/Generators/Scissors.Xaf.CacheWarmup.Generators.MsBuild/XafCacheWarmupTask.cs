@@ -20,32 +20,41 @@ namespace Scissors.Xaf.CacheWarmup.Generators.MsBuild
 
         public override bool Execute()
         {
-            Console.WriteLine($"ApplicationPath: {ApplicationPath}");
-
-            var finder = new AttributeFinder();
-            var assemblyPath = ApplicationPath;
-            var foundType = finder.FindAttribute(assemblyPath);
-
-            Console.WriteLine(foundType);
-
-            if (foundType != null)
+            Log.LogMessage($"ApplicationPath: {ApplicationPath}");
+            try
             {
-                var cacheGenerator = new CacheWarmupGenerator();
 
-                var cacheResult = cacheGenerator.WarmupCache(assemblyPath, foundType.ApplicationType, foundType.FactoryType);
-                if (cacheResult != null)
+
+                var finder = new AttributeFinder();
+                var assemblyPath = ApplicationPath;
+                var foundType = finder.FindAttribute(assemblyPath);
+
+                Console.WriteLine(foundType);
+
+                if (foundType != null)
                 {
-                    DcAssembly = cacheResult.DcAssemblyFilePath;
-                    ModelAssembly = cacheResult.ModelAssemblyFilePath;
-                    ModelCache = cacheResult.ModelCacheFilePath;
-                    ModulesVersionInfo = cacheResult.ModulesVersionInfoFilePath;
+                    var cacheGenerator = new CacheWarmupGenerator();
 
-                    Console.WriteLine("Done");
-                    return true;
+                    var cacheResult = cacheGenerator.WarmupCache(assemblyPath, foundType.ApplicationType, foundType.FactoryType);
+                    if (cacheResult != null)
+                    {
+                        DcAssembly = cacheResult.DcAssemblyFilePath;
+                        ModelAssembly = cacheResult.ModelAssemblyFilePath;
+                        ModelCache = cacheResult.ModelCacheFilePath;
+                        ModulesVersionInfo = cacheResult.ModulesVersionInfoFilePath;
+
+                        Log.LogMessage("Done");
+                        return true;
+                    }
                 }
-            }
 
-            return false;
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Log.LogError(ex.Message);
+                return false;
+            }
         }
     }
 }
