@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
     <OutputType>WinExe</OutputType>
@@ -22,18 +22,16 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Generators\Scissors.Xaf.CacheWarmup.Attributes\Scissors.Xaf.CacheWarmup.Attributes.csproj" />
-    <ProjectReference Include="..\..\src\Generators\Scissors.Xaf.CacheWarmup.Generators.MsBuild\Scissors.Xaf.CacheWarmup.Generators.MsBuild.csproj" />
-    <ProjectReference Include="..\..\src\Modules\InlineEditForms\Win\Scissors.ExpressApp.InlineEditForms.Win.csproj" />
-    <ProjectReference Include="..\..\src\Scissors.ExpressApp.Win\Scissors.ExpressApp.Win.csproj" />
-    <ProjectReference Include="..\..\src\Scissors.ExpressApp\Scissors.ExpressApp.csproj" />
-    <ProjectReference Include="..\Scissors.FeatureCenter.Module.Win\Scissors.FeatureCenter.Module.Win.csproj" />
-    <ProjectReference Include="..\Scissors.FeatureCenter.Module\Scissors.FeatureCenter.Module.csproj" />
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="DevExpress.ExpressApp.Validation.Win" Version="18.2.7" />
     <PackageReference Include="DevExpress.ExpressApp.Win" Version="18.2.7" />
     <PackageReference Include="DevExpress.ExpressApp.Xpo" Version="18.2.7" />
+    <PackageReference Include="Scissors.ExpressApp" Version="1.0.0" />
+    <PackageReference Include="Scissors.ExpressApp.InlineEditForms.Win" Version="1.0.0" />
+    <PackageReference Include="Scissors.ExpressApp.LabelEditor.Win" Version="1.0.0" />
+    <PackageReference Include="Scissors.ExpressApp.TokenEditor.Win" Version="1.0.0" />
+    <PackageReference Include="Scissors.ExpressApp.Win" Version="1.0.0" />
+    <PackageReference Include="Scissors.Xaf.CacheWarmup.Generators.MsBuild" Version="1.0.0" />
+    <PackageReference Include="Scissors.Xpo" Version="1.0.0" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="FeatureCenterWindowsFormsApplication.cs">
@@ -56,16 +54,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-	<!-- <PropertyGroup>
-			<_MyPath>$(TargetDir)Scissors.Xaf.CacheWarmup.Generators.MsBuild.dll</_MyPath>
-      <_FullPath>$([System.IO.Path]::GetFullPath($(TargetDir)))</_FullPath>
-    <XafApplicationPath>$(TargetDir)$(AssemblyName).exe</XafApplicationPath>
+  <ItemGroup>
+    <ProjectReference Include="..\Scissors.FeatureCenter.Module.Win\Scissors.FeatureCenter.Module.Win.csproj" />
+    <ProjectReference Include="..\Scissors.FeatureCenter.Module\Scissors.FeatureCenter.Module.csproj" />
+  </ItemGroup>
+	<PropertyGroup>
+	  <XafApplicationPath>$(TargetDir)$(AssemblyName).exe</XafApplicationPath>
   </PropertyGroup>
-  <UsingTask TaskName="Scissors.Xaf.CacheWarmup.Generators.MsBuild.XafCacheWarmupTask" AssemblyFile="$(_FullPath)" />
   <Target Name="WarmupXafCaches" AfterTargets="AfterBuild">
-    <Message Importance="high" Text="FOOOOOOOOOOOOOOOOOO _MyPath $(_MyPath)"/>
-    <Message Importance="high" Text="FOOOOOOOOOOOOOOOOOO _FullPath $(_FullPath)"/>
-    <Message Importance="high" Text="FOOOOOOOOOOOOOOOOOO AssemblyName $(AssemblyName)"/>
     <XafCacheWarmupTask ApplicationPath="$(XafApplicationPath)" />
-  </Target> -->
+  </Target>
 </Project>

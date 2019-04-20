@@ -1,0 +1,12 @@
+<!--
+  This file is automatically imported by NuGet into a user's project
+  when it targets a single framework, or in classic (pre 2017) csproj projects.
+-->
+<Project TreatAsLocalProperty="TaskFolder;TaskAssembly">
+  <PropertyGroup>
+    <TaskFolder>net462</TaskFolder>
+    <TaskAssembly>$(MSBuildThisFileDirectory)..\tasks\$(TaskFolder)\Scissors.Xaf.CacheWarmup.Generators.MsBuild.dll</TaskAssembly>
+  </PropertyGroup>
+
+  <UsingTask TaskName="Scissors.Xaf.CacheWarmup.Generators.MsBuild.XafCacheWarmupTask" AssemblyFile="$(TaskAssembly)" />
+</Project>

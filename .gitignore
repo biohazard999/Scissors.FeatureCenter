@@ -6,6 +6,7 @@
 /bin
 /build
 build.ps1
+artifacts/
 
 # User-specific files
 *.suo

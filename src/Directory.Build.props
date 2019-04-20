@@ -5,5 +5,6 @@
     <TargetFramework>net462</TargetFramework>
     <LangVersion>latest</LangVersion>
 		<DxVersion>18.2.7</DxVersion>
+		<PackageOutputPath>$(MSBuildThisFileDirectory)..\artifacts\</PackageOutputPath>
 	</PropertyGroup>
 </Project>

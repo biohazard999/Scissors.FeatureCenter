@@ -6,12 +6,12 @@
     <Copyright>Copyright © Manuel Grundner 2019</Copyright>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="DevExpress.ExpressApp" Version="18.2.7" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Net.Http" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="DevExpress.ExpressApp" Version="18.2.7" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Scissors.FeatureCenter.Module.BusinessObjects\Scissors.FeatureCenter.Module.BusinessObjects.csproj" />
