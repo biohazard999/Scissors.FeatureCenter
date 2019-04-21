@@ -8,7 +8,6 @@
 
   <!-- This will automatically produce a zip file will all contents of the publish directory. -->
   <Target Name="WarmupXafCaches" AfterTargets="Build">
-	  <Message Text="I WAS RUN" />
-    <XafCacheWarmupTask ApplicationPath="$(MSBuildProjectDirectory)\$(MSBuildProjectName).exe" />
+    <XafCacheWarmupTask ApplicationPath="$(MSBuildProjectDirectory)\$(MSBuildProjectName).exe" Mode="OutOfProcess" />
   </Target>
 </Project>

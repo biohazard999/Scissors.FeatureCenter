@@ -1,4 +1,5 @@
 using Scissors.Xaf.CacheWarmup.Attributes;
+using Scissors.Xaf.CacheWarmup.Generators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,8 +13,9 @@ namespace Scissors.Xaf.CacheWarmup.Generators.Cli
         static void Main(string[] args)
         {
             var finder = new AttributeFinder();
-            var assemblyPath = @"C:\F\github\how-to-precache-an-xaf-winforms-application\src\PreCacheDemo.Win\bin\Debug\PreCacheDemo.Win.exe";
-            var foundType = finder.FindAttribute(assemblyPath);
+            var assemblyPath = args[0];
+            var mode = Mode.OutOfProcess;
+            var foundType = finder.FindAttribute(assemblyPath, mode);
 
             Console.WriteLine(foundType);
 
@@ -21,7 +23,7 @@ namespace Scissors.Xaf.CacheWarmup.Generators.Cli
             {
                 var cacheGenerator = new CacheWarmupGenerator();
 
-                var cacheResult = cacheGenerator.WarmupCache(assemblyPath, foundType.ApplicationType, foundType.FactoryType);
+                var cacheResult = cacheGenerator.WarmupCache(assemblyPath, foundType.ApplicationType, foundType.FactoryType, mode);
                 if(cacheResult != null)
                 {
 
@@ -29,7 +31,6 @@ namespace Scissors.Xaf.CacheWarmup.Generators.Cli
             }
 
             Console.WriteLine("Done");
-            Console.ReadLine();
         }
     }
 }

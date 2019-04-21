@@ -1,6 +1,8 @@
 using Microsoft.Build.Framework;
 using Microsoft.Build.Utilities;
 using System;
+using System.Diagnostics;
+using System.IO;
 
 namespace Scissors.Xaf.CacheWarmup.Generators.MsBuild
 {
@@ -8,6 +10,10 @@ namespace Scissors.Xaf.CacheWarmup.Generators.MsBuild
     {
         [Required]
         public string ApplicationPath { get; set; }
+
+        public string CliPath { get; set; }
+
+        public string Mode { get; set; } = "InProcess";
 
         [Output]
         public string DcAssembly { get; set; }
@@ -21,10 +27,10 @@ namespace Scissors.Xaf.CacheWarmup.Generators.MsBuild
         public override bool Execute()
         {
             Log.LogMessage($"ApplicationPath: {ApplicationPath}");
-            try
+            Log.LogMessage($"Mode: {Mode}");
+
+            if (Mode == "InProcess")
             {
-
-
                 var finder = new AttributeFinder();
                 var assemblyPath = ApplicationPath;
                 var foundType = finder.FindAttribute(assemblyPath);
@@ -43,18 +49,39 @@ namespace Scissors.Xaf.CacheWarmup.Generators.MsBuild
                         ModelCache = cacheResult.ModelCacheFilePath;
                         ModulesVersionInfo = cacheResult.ModulesVersionInfoFilePath;
 
-                        Log.LogMessage("Done");
+                        Console.WriteLine("Done");
                         return true;
                     }
                 }
+            }
 
-                return false;
-            }
-            catch (Exception ex)
+            if (Mode == "OutOfProcess")
             {
-                Log.LogError(ex.Message);
-                return false;
+                if (string.IsNullOrEmpty(CliPath))
+                {
+                    CliPath = Path.Combine(Path.GetDirectoryName(ApplicationPath), "Scissors.Xaf.CacheWarmup.Generators.Cli");
+                }
+
+                using (var process = new Process())
+                {
+                    process.StartInfo = new ProcessStartInfo(CliPath, ApplicationPath)
+                    {
+                        RedirectStandardOutput = true,
+                        WindowStyle = ProcessWindowStyle.Hidden,
+                        CreateNoWindow = true,
+                        UseShellExecute = false,
+                        WorkingDirectory = Path.GetDirectoryName(ApplicationPath)
+                    };
+                    process.OutputDataReceived += (s, e) => Log.LogMessage(e.Data);
+                    if (process.Start())
+                    {
+                        process.WaitForExit(10000);
+                        return true;
+                    }
+                }
             }
+
+            return false;
         }
     }
 }

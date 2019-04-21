@@ -29,8 +29,8 @@
     <PackageReference Include="Scissors.ExpressApp.LabelEditor.Win" Version="0.1.0-*" />
     <PackageReference Include="Scissors.ExpressApp.TokenEditor.Win" Version="0.1.0-*" />
     <PackageReference Include="Scissors.ExpressApp.Win" Version="0.1.0-*" />
-    <PackageReference Include="Scissors.Xaf.CacheWarmup.Generators.MsBuild" Version="0.1.0-*" />
     <PackageReference Include="Scissors.Xpo" Version="0.1.0-*" />
+    <PackageReference Include="Scissors.Xaf.CacheWarmup.Generators.MsBuild" Version="0.1.0-*" PrivateAssets="All" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="FeatureCenterWindowsFormsApplication.cs">
