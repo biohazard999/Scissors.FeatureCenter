@@ -7,6 +7,6 @@
 		<DxVersion>18.2.7</DxVersion>
 		<PackageOutputPath>$(MSBuildThisFileDirectory)..\artifacts\</PackageOutputPath>
 		<VersionPrefix>0.1.0</VersionPrefix>
-		<VersionSuffix>pre-500</VersionSuffix>
+		<VersionSuffix>pre-700</VersionSuffix>
 	</PropertyGroup>
 </Project>
