@@ -23,13 +23,12 @@ namespace Scissors.FeatureCenter.Win
             EnableModelCache = true;
             ExecuteStartupLogicBeforeClosingLogonWindow = true;
         }
-
-        partial void InitUserModelDifferences();
-
+        
         static FeatureCenterWindowsFormsApplication()
         {
             DevExpress.ExpressApp.ModelCacheManager.UseMultithreadedLoading = true;
             DevExpress.ExpressApp.ModelCacheManager.SkipEmptyNodes = true;
+            DevExpress.ExpressApp.ModelCacheManager.UseCacheWhenDebuggerIsAttached = true;
             DevExpress.Persistent.Base.PasswordCryptographer.EnableRfc2898 = true;
             DevExpress.Persistent.Base.PasswordCryptographer.SupportLegacySha512 = false;
             DevExpress.ExpressApp.Utils.ImageLoader.Instance.UseSvgImages = true;
@@ -39,9 +38,6 @@ namespace Scissors.FeatureCenter.Win
         {
             InitializeComponent();
             InitializeDefaults();
-            Modules.Add(new ValidationModule());
-            Modules.Add(new ValidationWindowsFormsModule());
-            Modules.Add(new InlineEditFormsWindowsFormsModule());
         }
 
         protected override void CreateDefaultObjectSpaceProvider(CreateCustomObjectSpaceProviderEventArgs args)

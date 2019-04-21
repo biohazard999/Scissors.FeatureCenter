@@ -56,7 +56,7 @@ namespace Scissors.Xaf.CacheWarmup.Generators
                     {
                         DcAssemblyFilePath = dcAssemblyFilePath,
                         ModelAssemblyFilePath = modelAssemblyFilePath,
-                        ModelCacheFilePath = modelCacheFileLocationPath,
+                        ModelCacheFilePath = Path.Combine(modelCacheFileLocationPath, "Model.Cache.xafml"),
                         ModulesVersionInfoFilePath = modulesVersionInfoFilePath
                     };
 

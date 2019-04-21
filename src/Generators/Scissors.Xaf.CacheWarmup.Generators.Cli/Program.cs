@@ -16,18 +16,19 @@ namespace Scissors.Xaf.CacheWarmup.Generators.Cli
         {
             var assemblyPath = args[0];
             Console.WriteLine($"ARGUMENTS: '{assemblyPath}'");
+            var assemblyDirectory = Path.GetDirectoryName(assemblyPath);
+            Console.WriteLine($"AssemblyDirectory: '{assemblyDirectory}'");
 
             AppDomain.CurrentDomain.AssemblyResolve += (object sender, ResolveEventArgs e) =>
             {
                 Console.WriteLine($"AssemblyResolve: {e.Name}");
                 var assemblyName = e.Name.Split(',').First();
-                var directory = Path.GetDirectoryName(assemblyPath);
-                var aPath = Path.Combine(directory, assemblyName + ".dll");
+                var aPath = Path.Combine(assemblyDirectory, assemblyName + ".dll");
                 Console.WriteLine($"New AssemblyPath: '{aPath}'");
-                if(File.Exists(aPath))
+                if (File.Exists(aPath))
                 {
                     Console.WriteLine($"New AssemblyPath exists!: '{aPath}'");
-                    var loadedAssembly =  Assembly.LoadFile(aPath);
+                    var loadedAssembly = Assembly.LoadFile(aPath);
                     Console.WriteLine($"New Assembly?: '{loadedAssembly}'");
                     return loadedAssembly;
                 }
@@ -50,11 +51,36 @@ namespace Scissors.Xaf.CacheWarmup.Generators.Cli
                 var cacheResult = cacheGenerator.WarmupCache(assembly, foundType.ApplicationType, foundType.FactoryType);
                 if (cacheResult != null)
                 {
-
+                    CopyFile(cacheResult.DcAssemblyFilePath, assemblyDirectory);
+                    CopyFile(cacheResult.ModelAssemblyFilePath, assemblyDirectory);
+                    CopyFile(cacheResult.ModelCacheFilePath, assemblyDirectory);
+                    CopyFile(cacheResult.ModulesVersionInfoFilePath, assemblyDirectory);
                 }
             }
 
             Console.WriteLine("Done");
+        }
+        private static void CopyFile(string sourceFile, string destFolder)
+        {
+            Console.WriteLine($"Copy from {sourceFile} to directory: {destFolder}");
+            if (File.Exists(sourceFile))
+            {
+                Console.WriteLine($"Copy from {sourceFile} to directory: {destFolder} exists.");
+                var newFile = Path.Combine(destFolder, Path.GetFileName(sourceFile));
+                Console.WriteLine($"Should copy from {sourceFile} to destination: {newFile}");
+                if (File.Exists(newFile))
+                {
+                    Console.WriteLine($"Destination exists. Deleting: {newFile}");
+                    File.Delete(newFile);
+                }
+                Console.WriteLine($"Try to copy from {sourceFile} to destination: {newFile}");
+                File.Copy(sourceFile, newFile);
+                Console.WriteLine($"Copied from {sourceFile} to destination: {newFile}.");
+            }
+            else
+            {
+                Console.WriteLine($"Copy from {sourceFile} to directory: {destFolder} does not exist.");
+            }
         }
     }
 }
