@@ -29,31 +29,31 @@ namespace Scissors.Xaf.CacheWarmup.Generators.MsBuild
             Log.LogMessage($"ApplicationPath: {ApplicationPath}");
             Log.LogMessage($"Mode: {Mode}");
 
-            if (Mode == "InProcess")
-            {
-                var finder = new AttributeFinder();
-                var assemblyPath = ApplicationPath;
-                var foundType = finder.FindAttribute(assemblyPath);
+            // if (Mode == "InProcess")
+            // {
+            //     var finder = new AttributeFinder();
+            //     var assemblyPath = ApplicationPath;
+            //     var foundType = finder.FindAttribute(assemblyPath);
 
-                Console.WriteLine(foundType);
+            //     Console.WriteLine(foundType);
 
-                if (foundType != null)
-                {
-                    var cacheGenerator = new CacheWarmupGenerator();
+            //     if (foundType != null)
+            //     {
+            //         var cacheGenerator = new CacheWarmupGenerator();
 
-                    var cacheResult = cacheGenerator.WarmupCache(assemblyPath, foundType.ApplicationType, foundType.FactoryType);
-                    if (cacheResult != null)
-                    {
-                        DcAssembly = cacheResult.DcAssemblyFilePath;
-                        ModelAssembly = cacheResult.ModelAssemblyFilePath;
-                        ModelCache = cacheResult.ModelCacheFilePath;
-                        ModulesVersionInfo = cacheResult.ModulesVersionInfoFilePath;
+            //         var cacheResult = cacheGenerator.WarmupCache(assemblyPath, foundType.ApplicationType, foundType.FactoryType);
+            //         if (cacheResult != null)
+            //         {
+            //             DcAssembly = cacheResult.DcAssemblyFilePath;
+            //             ModelAssembly = cacheResult.ModelAssemblyFilePath;
+            //             ModelCache = cacheResult.ModelCacheFilePath;
+            //             ModulesVersionInfo = cacheResult.ModulesVersionInfoFilePath;
 
-                        Console.WriteLine("Done");
-                        return true;
-                    }
-                }
-            }
+            //             Console.WriteLine("Done");
+            //             return true;
+            //         }
+            //     }
+            // }
 
             if (Mode == "OutOfProcess")
             {
@@ -67,7 +67,6 @@ namespace Scissors.Xaf.CacheWarmup.Generators.MsBuild
                     process.StartInfo = new ProcessStartInfo(CliPath, ApplicationPath)
                     {
                         RedirectStandardOutput = true,
-                        WindowStyle = ProcessWindowStyle.Hidden,
                         CreateNoWindow = true,
                         UseShellExecute = false,
                         WorkingDirectory = Path.GetDirectoryName(ApplicationPath)

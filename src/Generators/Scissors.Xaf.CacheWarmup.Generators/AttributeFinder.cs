@@ -5,7 +5,6 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using AppDomainToolkit;
 using Scissors.Xaf.CacheWarmup.Attributes;
 using static System.Console;
 
@@ -19,53 +18,25 @@ namespace Scissors.Xaf.CacheWarmup.Generators
 
     public class AttributeFinder
     {
-        public AttributeFinderResponse FindAttribute(string assemblyPath, Mode mode = Mode.InProcess)
+        public AttributeFinderResponse FindAttribute(Assembly assembly)
         {
-            if(mode == Mode.InProcess)
+            foreach(var attr in assembly.GetCustomAttributes())
             {
-                using (var context = AppDomainContext.Create(new AppDomainSetup
-                {
-                    ApplicationBase = Path.GetDirectoryName(typeof(AttributeFinder).Assembly.Location),
-                    PrivateBinPath = Path.GetDirectoryName(assemblyPath),
-                }))
-                {
-                    context.LoadAssemblyWithReferences(LoadMethod.LoadFile, assemblyPath);
-                    return RemoteFunc.Invoke(context.Domain, new AttributeFinderRequest { AssemblyPath = assemblyPath, AttributeType = typeof(XafCacheWarmupAttribute) }, (args) =>
-                    {
-                        WriteLine($"Try to find {nameof(XafCacheWarmupAttribute)} in {args.AssemblyPath}");
-                        var assembly = AppDomain.CurrentDomain.GetAssemblies().First(b => b.Location == args.AssemblyPath);
-
-                        var attribute = assembly.GetCustomAttributes(false).OfType<XafCacheWarmupAttribute>().FirstOrDefault();
-                        if (attribute != null)
-                        {
-                            WriteLine($"Found {nameof(XafCacheWarmupAttribute)} with '{attribute.XafApplicationType.FullName}'");
-
-                            return new AttributeFinderResponse
-                            {
-                                ApplicationType = attribute.XafApplicationType.FullName,
-                                FactoryType = attribute.XafApplicationFactoryType?.FullName
-                            };
-                        }
-                        return null;
-                    });
-                }
+                Console.WriteLine($"Attribute in Assembly {assembly.Location}: {attr.GetType()}");
             }
-            else
+
+            var attribute = assembly.GetCustomAttributes().Where(a => a.GetType() == typeof(XafCacheWarmupAttribute)).OfType<XafCacheWarmupAttribute>().FirstOrDefault();
+            if (attribute != null)
             {
-                var assembly = Assembly.LoadFile(assemblyPath);
+                WriteLine($"Found {nameof(XafCacheWarmupAttribute)} with '{attribute.XafApplicationType.FullName}'");
 
-                var attribute = assembly.GetCustomAttributes(false).OfType<XafCacheWarmupAttribute>().FirstOrDefault();
-                if (attribute != null)
+                return new AttributeFinderResponse
                 {
-                    WriteLine($"Found {nameof(XafCacheWarmupAttribute)} with '{attribute.XafApplicationType.FullName}'");
-
-                    return new AttributeFinderResponse
-                    {
-                        ApplicationType = attribute.XafApplicationType.FullName,
-                        FactoryType = attribute.XafApplicationFactoryType?.FullName
-                    };
-                }
+                    ApplicationType = attribute.XafApplicationType.FullName,
+                    FactoryType = attribute.XafApplicationFactoryType?.FullName
+                };
             }
+
             return null;
         }
 

@@ -4,7 +4,7 @@
 -->
 <Project>
   <PropertyGroup>
-    <_TaskTfm>net46</_TaskTfm>
+		<_TaskTfm>netstandard1.3</_TaskTfm>
     <_TaskAssembly>$(MSBuildThisFileDirectory)..\tools\$(_TaskTfm)\Scissors.Xaf.CacheWarmup.Generators.MsBuild.dll</_TaskAssembly>
   </PropertyGroup>
 

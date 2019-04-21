@@ -1,11 +1,22 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-		<TargetFramework>net46</TargetFramework>
+		<TargetFrameworks>net462</TargetFrameworks>
     <OutputType>Exe</OutputType>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+		<BuildOutputTargetFolder>tools</BuildOutputTargetFolder>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Scissors.Xaf.CacheWarmup.Attributes\Scissors.Xaf.CacheWarmup.Attributes.csproj" />
-    <ProjectReference Include="..\Scissors.Xaf.CacheWarmup.Generators\Scissors.Xaf.CacheWarmup.Generators.csproj" />
+    <ProjectReference Include="..\Scissors.Xaf.CacheWarmup.Attributes\Scissors.Xaf.CacheWarmup.Attributes.csproj">
+			<PrivateAssets>All</PrivateAssets>
+		</ProjectReference>
+    <ProjectReference Include="..\Scissors.Xaf.CacheWarmup.Generators\Scissors.Xaf.CacheWarmup.Generators.csproj">
+			<PrivateAssets>All</PrivateAssets>
+		</ProjectReference>
   </ItemGroup>
+	<ItemGroup>
+    <Content Include="build\**\*" PackagePath="build\" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="ILMerge.Fody" Version="1.4.0" PrivateAssets="All" />
+	</ItemGroup>
 </Project>

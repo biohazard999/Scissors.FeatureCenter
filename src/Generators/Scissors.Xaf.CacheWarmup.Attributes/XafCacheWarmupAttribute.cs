@@ -6,7 +6,6 @@ namespace Scissors.Xaf.CacheWarmup.Attributes
     /// Marks an xaf application type to be caches to be warmed up.
     /// Use on assembly level.
     /// </summary>
-    [Serializable]
     [AttributeUsage(AttributeTargets.Assembly, AllowMultiple = false, Inherited = false)]
     public class XafCacheWarmupAttribute : Attribute
     {

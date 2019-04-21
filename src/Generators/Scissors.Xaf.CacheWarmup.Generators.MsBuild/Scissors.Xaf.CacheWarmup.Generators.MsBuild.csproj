@@ -1,20 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-		<TargetFramework>net46</TargetFramework>
+		<TargetFramework>netstandard1.3</TargetFramework>
     <!-- Change the default location where NuGet will put the build output -->
     <BuildOutputTargetFolder>tools</BuildOutputTargetFolder>
     <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
+		<!-- <TargetFrameworks Condition="'$(OS)' != 'Windows_NT'">netstandard1.6</TargetFrameworks> -->
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="build\**\*" PackagePath="build\" />
-    <ProjectReference Include="..\Scissors.Xaf.CacheWarmup.Generators\Scissors.Xaf.CacheWarmup.Generators.csproj" />
-    <ProjectReference Include="..\Scissors.Xaf.CacheWarmup.Generators.Cli\Scissors.Xaf.CacheWarmup.Generators.Cli.csproj" />
+    <!-- <ProjectReference Include="..\Scissors.Xaf.CacheWarmup.Generators\Scissors.Xaf.CacheWarmup.Generators.csproj" /> -->
+    <!-- <ProjectReference Include="..\Scissors.Xaf.CacheWarmup.Generators.Cli\Scissors.Xaf.CacheWarmup.Generators.Cli.csproj" ReferenceOutputAssembly="False" /> -->
   </ItemGroup>
   <ItemGroup>
     <!-- <PackageReference Include="ILMerge.Fody" Version="1.4.0" /> -->
+		<PackageReference Include="Scissors.Xaf.CacheWarmup.Generators.Cli" Version="0.1.0-*" />
 		<PackageReference Include="NETStandard.Library" Version="1.6.1" PrivateAssets="All" />
     <PackageReference Include="Microsoft.Build.Framework" Version="15.1.548" PrivateAssets="All" />
     <PackageReference Include="Microsoft.Build.Tasks.Core" Version="15.1.548" PrivateAssets="All" />
     <PackageReference Include="Microsoft.Build.Utilities.Core" Version="15.1.548" PrivateAssets="All" />
   </ItemGroup>
+	<ItemGroup>
+    <Content Include="build\**\*" PackagePath="build\" />
+	</ItemGroup>
 </Project>
