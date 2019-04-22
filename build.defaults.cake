@@ -24,6 +24,14 @@ public class Bld
 	{
 		"https://api.nuget.org/v3/index.json"
 	};
+
+	public string ConfigurationDebug = "Debug";
+	public string ConfigurationRelease = "Release";
+	public string[] Configurations => new []
+	{
+		ConfigurationDebug,
+		ConfigurationRelease
+	};
 }
 
 var bld = new Bld();

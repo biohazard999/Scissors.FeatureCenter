@@ -2,6 +2,7 @@
 #tool "nuget:?package=GitVersion.CommandLine&version=4.0.0"
 
 #l "./build.defaults.cake"
+#l "./build.helpers.cake"
 
 var target = string.IsNullOrEmpty(Argument("target", "Default")) ? "Default" : Argument("target", "Default");
 
@@ -18,6 +19,8 @@ Task("Clean")
 				Force = true,
 				Recursive = true
 			});
+
+		DoClean(bld.SrcSln, bld.Configurations);
 	});
 
 Task("Restore")
@@ -32,7 +35,8 @@ Task("Restore")
 	});
 
 Task("Build")
-	.IsDependentOn("Restore");
+	.IsDependentOn("Restore")
+	.Does(() => DoBuild(bld.SrcSln, bld.Configurations));
 
 Task("Pack")
 	.IsDependentOn("Build");
