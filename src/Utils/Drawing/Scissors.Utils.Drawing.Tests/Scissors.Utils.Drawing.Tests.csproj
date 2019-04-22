@@ -9,10 +9,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="..\..\..\..\.global\GlobalSuppressionsForTests.cs" Link="Properties\GlobalSuppressionsForTests.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <EmbeddedResource Include="TestData\ImageDiff\TestImage1.png" />
     <EmbeddedResource Include="TestData\ImageDiff\TestImage2.png" />
   </ItemGroup>

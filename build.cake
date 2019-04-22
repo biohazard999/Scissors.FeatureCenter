@@ -27,10 +27,14 @@ Task("Restore")
 	.IsDependentOn("Clean")
 	.Does(() =>
 	{
+		NuGetRestore(bld.SrcSln, new NuGetRestoreSettings
+		{
 
+		});
 	});
 
 Task("Build")
+
 	.IsDependentOn("Restore");
 
 Task("Pack")
