@@ -1,12 +1,13 @@
 <Project>
 	<PropertyGroup>
 	  <Product>Scissors</Product>
-    <Copyright>Copyright © Manuel Grundner 2019</Copyright>
+    <Copyright>Copyright © Manuel Grundner $([System.DateTime]::Today.ToString('yyyy'))</Copyright>
     <TargetFramework>net462</TargetFramework>
     <LangVersion>latest</LangVersion>
-		<DxVersion>18.2.7</DxVersion>
+		<DxVersion>18.2.*</DxVersion>
 		<PackageOutputPath>$(MSBuildThisFileDirectory)..\artifacts\</PackageOutputPath>
-		<VersionPrefix>0.1.0</VersionPrefix>
+		<VersionPrefix>18.2.0</VersionPrefix>
 		<VersionSuffix>pre-20000</VersionSuffix>
+		<AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
 	</PropertyGroup>
 </Project>
