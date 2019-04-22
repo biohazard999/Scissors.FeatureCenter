@@ -1,4 +1,3 @@
-#tool "nuget:?package=xunit.runner.console&version=2.4.1"
 #tool "nuget:?package=GitVersion.CommandLine&version=4.0.0"
 
 #l "./build.defaults.cake"
@@ -38,8 +37,17 @@ Task("Build:src")
 	.IsDependentOn("Restore")
 	.Does(() => DoBuild(bld.SrcSln, bld.Configurations));
 
+Task("Test:src:Unit")
+	.IsDependentOn("Build:src")
+	.Does(() => DoTest(bld.SrcTestFilter, "Unit", bld.ArtifactsTestResultsFolder, (settings) => settings
+		.ExcludeTrait("Category", "UITest")
+        .ExcludeTrait("Category", "Integration")));
+
+Task("Test:src")
+	.IsDependentOn("Test:src:Unit");
+
 Task("Pack:src")
-	.IsDependentOn("Build:src");
+	.IsDependentOn("Test:src");
 
 Task("Default")
 	.IsDependentOn("Pack:src");

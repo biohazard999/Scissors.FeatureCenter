@@ -8,6 +8,7 @@ public class Bld
 	public string ArtifactsFolder = "./artifacts";
 	public string ArtifactsNugetFolder => $"{ArtifactsFolder}/nuget";
 	public string ArtifactsDemosFolder => $"{ArtifactsFolder}/demos";
+	public string ArtifactsTestResultsFolder => $"{ArtifactsFolder}/test-results";
 
 	public string[] CleanFilters => new []
 	{
@@ -32,6 +33,8 @@ public class Bld
 		ConfigurationDebug,
 		ConfigurationRelease
 	};
+
+	public string SrcTestFilter => $"{SrcFolder}/**/bin/**/*.*Tests*.dll";
 }
 
 var bld = new Bld();
