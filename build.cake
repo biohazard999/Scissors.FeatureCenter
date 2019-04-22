@@ -4,9 +4,6 @@
 #l "./build.defaults.cake"
 
 var target = string.IsNullOrEmpty(Argument("target", "Default")) ? "Default" : Argument("target", "Default");
-string nugetFeed = EnvironmentVariable("NUGET_FEED") ?? null;
-
-var bld = new Bld();
 
 Task("Clean")
 	.Description("Cleans all build artifacts")
@@ -29,7 +26,8 @@ Task("Restore")
 	{
 		NuGetRestore(bld.SrcSln, new NuGetRestoreSettings
 		{
-
+			Source = bld.NugetDefaultSources,
+			NoCache = true,
 		});
 	});
 

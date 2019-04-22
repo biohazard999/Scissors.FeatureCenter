@@ -1,3 +1,4 @@
+string nugetFeed = EnvironmentVariable("NUGET_FEED") ?? null;
 
 public class Bld
 {
@@ -18,4 +19,16 @@ public class Bld
 
 	public string SrcSln => "./Scissors.FeatureCenter.src.sln";
 	public string DemosSln => "./Scissors.FeatureCenter.demos.sln";
+
+	public IList<string> NugetDefaultSources => new List<string>
+	{
+		"https://api.nuget.org/v3/index.json"
+	};
 }
+
+var bld = new Bld();
+if(!string.IsNullOrEmpty(nugetFeed))
+{
+	bld.NugetDefaultSources.Add(nugetFeed);
+}
+bld.NugetDefaultSources.Add(bld.ArtifactsNugetFolder);
