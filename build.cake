@@ -1,7 +1,5 @@
 #tool "nuget:?package=xunit.runner.console"
 #tool "nuget:?package=GitVersion.CommandLine"
-#addin nuget:?package=Cake.Json
-#addin nuget:?package=Newtonsoft.Json&version=9.0.1
 
 #l "build.helpers.cake"
 
@@ -10,27 +8,17 @@ string nugetFeed = EnvironmentVariable("NUGET_FEED") ?? null;
 
 Information("Nuget Feed: {0}", nugetFeed);
 
-var version = Argument("packageversion", "0.0.0.0");
-GitVersion gitVersion = null;
-
 public class Bld
 {
 	public string Sln { get; set; } = "./Scissors.FeatureCenter.sln";
 	public string Configuration { get; set; } = "Debug";
 	public string Version { get; set; }
 	public string AssemblySemVer { get; set; }
-	public Verbosity Verbosity { get; set; } = Verbosity.Normal;
-	public int MaxCpuCount { get; set; } = 8;
-	public PlatformTarget PlatformTarget { get; set; } = PlatformTarget.MSIL;
-
 	public string OutputDirectory { get; set; } = "build";
 	public string TestOutputDirectory { get; set; } = "build/testresults";
 }
 
-var bld = new Bld
-{
-	Version = version
-};
+var bld = new Bld();
 
 Task("Restore")
     .Does(() => NuGetRestore(bld.Sln, new NuGetRestoreSettings
