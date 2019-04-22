@@ -5,7 +5,7 @@
     <TargetFramework>net462</TargetFramework>
     <LangVersion>latest</LangVersion>
 		<DxVersion>18.2.*</DxVersion>
-		<PackageOutputPath>$(MSBuildThisFileDirectory)..\artifacts\</PackageOutputPath>
+		<PackageOutputPath>$(MSBuildThisFileDirectory)..\artifacts\nuget</PackageOutputPath>
 		<VersionPrefix>18.2.0</VersionPrefix>
 		<VersionSuffix>pre-20000</VersionSuffix>
 		<AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
