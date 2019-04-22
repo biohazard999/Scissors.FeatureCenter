@@ -34,14 +34,14 @@ Task("Restore")
 		});
 	});
 
-Task("Build")
+Task("Build:src")
 	.IsDependentOn("Restore")
 	.Does(() => DoBuild(bld.SrcSln, bld.Configurations));
 
-Task("Pack")
-	.IsDependentOn("Build");
+Task("Pack:src")
+	.IsDependentOn("Build:src");
 
 Task("Default")
-	.IsDependentOn("Pack");
+	.IsDependentOn("Pack:src");
 
 RunTarget("Default");
