@@ -38,11 +38,14 @@
     <TargetPlatformVersion>10.0.16299.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
     <DefaultLanguage>en-US</DefaultLanguage>
-    <PackageCertificateKeyFile>Scissors.FeatureCenter.Package_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>Scissors.FeatureCenter.Package_StoreKey.pfx</PackageCertificateKeyFile>
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
     <AppxBundlePlatforms>neutral</AppxBundlePlatforms>
-    <PackageCertificateThumbprint>41FF4F3C2AA3D4F470DF131090CB365739DD5F83</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>53B091FB5CA59F4FAD2E212DA51631CF92E676AA</PackageCertificateThumbprint>
     <EntryPointProjectUniqueName>..\Scissors.FeatureCenter.Win10\Scissors.FeatureCenter.Win10.csproj</EntryPointProjectUniqueName>
+    <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
+    <AppInstallerUpdateFrequency>1</AppInstallerUpdateFrequency>
+    <AppInstallerCheckForUpdateFrequency>OnApplicationRun</AppInstallerCheckForUpdateFrequency>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
     <AppxBundle>Always</AppxBundle>
@@ -114,6 +117,8 @@
     <Content Include="Assets\Wide310x150Logo.scale-150.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <None Include="Scissors.FeatureCenter.Package_StoreKey.pfx" />
+    <None Include="Package.StoreAssociation.xml" />
     <None Include="Scissors.FeatureCenter.Package_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
