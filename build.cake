@@ -43,8 +43,14 @@ Task("Test:src:Unit")
 		.ExcludeTrait("Category", "UITest")
         .ExcludeTrait("Category", "Integration")));
 
+Task("Test:src:Integration")
+	.IsDependentOn("Build:src")
+	.Does(() => DoTest(bld.SrcTestFilter, "Integration", bld.ArtifactsTestResultsFolder, (settings) => settings
+        .IncludeTrait("Category", "Integration")));
+
 Task("Test:src")
-	.IsDependentOn("Test:src:Unit");
+	.IsDependentOn("Test:src:Unit")
+	.IsDependentOn("Test:src:Integration");
 
 Task("Pack:src")
 	.IsDependentOn("Test:src");
