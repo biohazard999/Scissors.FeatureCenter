@@ -4,6 +4,20 @@
 #l "./build.helpers.cake"
 
 var target = string.IsNullOrEmpty(Argument("target", "Default")) ? "Default" : Argument("target", "Default");
+GitVersion version = null;
+
+Task("Version:Git")
+	.Does(() =>
+	{
+		var gitVersionResult = GitVersion(new GitVersionSettings
+		{
+			UpdateAssemblyInfo = false,
+		});
+		version = gitVersionResult;
+	});
+
+Task("Version")
+	.IsDependentOn("Version:Git");
 
 Task("Clean")
 	.Description("Cleans all build artifacts")
@@ -24,18 +38,15 @@ Task("Clean")
 
 Task("Restore")
 	.IsDependentOn("Clean")
-	.Does(() =>
-	{
-		NuGetRestore(bld.SrcSln, new NuGetRestoreSettings
-		{
-			Source = bld.NugetDefaultSources,
-			NoCache = true,
-		});
-	});
+	.IsDependentOn("Version");
 
 Task("Build:src")
 	.IsDependentOn("Restore")
-	.Does(() => DoBuild(bld.SrcSln, bld.Configurations));
+	.Does(() => DoBuild(bld.SrcSln, bld.Configurations, settings =>
+	{
+		settings.Restore = true;
+		settings.WithProperty("DxVersion", $"{version.Major}.{version.Minor}.*");
+	}));
 
 Task("Test:src:Unit")
 	.IsDependentOn("Build:src")
