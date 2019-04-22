@@ -105,7 +105,7 @@
     <PackageReference Include="DevExpress.ExpressApp.Validation.Win" Version="18.2.7" />
     <PackageReference Include="DevExpress.ExpressApp.Win" Version="18.2.7" />
     <PackageReference Include="DevExpress.ExpressApp.Xpo" Version="18.2.7" />
-    <PackageReference Include="Scissors.ExpressApp.Win" Version="0.1.0-*" />
+    <PackageReference Include="Scissors.ExpressApp.Win" Version="0.1.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Scissors.FeatureCenter.Win\Scissors.FeatureCenter.Win.csproj">

@@ -34,7 +34,6 @@ Task("Restore")
 	});
 
 Task("Build")
-
 	.IsDependentOn("Restore");
 
 Task("Pack")

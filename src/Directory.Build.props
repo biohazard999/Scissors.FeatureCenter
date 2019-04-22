@@ -4,7 +4,7 @@
     <Copyright>Copyright © Manuel Grundner $([System.DateTime]::Today.ToString('yyyy'))</Copyright>
     <TargetFramework>net462</TargetFramework>
     <LangVersion>latest</LangVersion>
-		<DxVersion>18.2.*</DxVersion>
+		<DxVersion>18.2.7</DxVersion>
 		<PackageOutputPath>$(MSBuildThisFileDirectory)..\artifacts\nuget</PackageOutputPath>
 		<VersionPrefix>18.2.0</VersionPrefix>
 		<VersionSuffix>pre-20000</VersionSuffix>

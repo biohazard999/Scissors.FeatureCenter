@@ -6,7 +6,7 @@
     <Copyright>Copyright © Manuel Grundner 2019</Copyright>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Scissors.ExpressApp" Version="0.1.0-*" />
+    <PackageReference Include="Scissors.ExpressApp" Version="0.1.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Scissors.FeatureCenter.Module.BusinessObjects\Scissors.FeatureCenter.Module.BusinessObjects.csproj" />

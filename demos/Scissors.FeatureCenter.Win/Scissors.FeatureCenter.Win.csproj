@@ -25,13 +25,13 @@
     <PackageReference Include="DevExpress.ExpressApp.Validation.Win" Version="18.2.7" />
     <PackageReference Include="DevExpress.ExpressApp.Win" Version="18.2.7" />
     <PackageReference Include="DevExpress.ExpressApp.Xpo" Version="18.2.7" />
-    <PackageReference Include="Scissors.ExpressApp.InlineEditForms.Win" Version="0.1.0-*" />
-    <PackageReference Include="Scissors.ExpressApp.LabelEditor.Win" Version="0.1.0-*" />
-    <PackageReference Include="Scissors.ExpressApp.TokenEditor.Win" Version="0.1.0-*" />
-    <PackageReference Include="Scissors.ExpressApp.Win" Version="0.1.0-*" />
-    <PackageReference Include="Scissors.Xpo" Version="0.1.0-*" />
-    <PackageReference Include="Scissors.Xaf.CacheWarmup.Attributes" Version="0.1.0-*" />
-    <PackageReference Include="Scissors.Xaf.CacheWarmup.Generators.Cli" Version="0.1.0-*" PrivateAssets="All" />
+    <PackageReference Include="Scissors.ExpressApp.InlineEditForms.Win" Version="0.1.0" />
+    <PackageReference Include="Scissors.ExpressApp.LabelEditor.Win" Version="0.1.0" />
+    <PackageReference Include="Scissors.ExpressApp.TokenEditor.Win" Version="0.1.0" />
+    <PackageReference Include="Scissors.ExpressApp.Win" Version="0.1.0" />
+    <PackageReference Include="Scissors.Xpo" Version="0.1.0" />
+    <PackageReference Include="Scissors.Xaf.CacheWarmup.Attributes" Version="0.1.0" />
+    <PackageReference Include="Scissors.Xaf.CacheWarmup.Generators.Cli" Version="0.1.0" PrivateAssets="All" />
     <!-- <PackageReference Include="Scissors.Xaf.CacheWarmup.Generators" Version="0.1.0-*" PrivateAssets="All" /> -->
   </ItemGroup>
   <ItemGroup>
