@@ -72,19 +72,20 @@ Task("Test:src")
 	.IsDependentOn("Test:src:Integration");
 
 Task("Pack:src")
-	.IsDependentOn("Test:src")
+	.IsDependentOn("Build:src")
 	.Does(() => DoPack(bld.SrcSln, bld.ConfigurationRelease, (settings) => settings
 		.WithProperty("NoBuild", "True")
 		.WithProperty("PackageVersion", bld.SrcNugetVersion)
+		.WithProperty("PackageOutputPath", bld.ArtifactsPackagesAbsolute)
 		.WithProperty("PackageVersionPrefix", "")
 		.WithProperty("PackageVersionSuffix", "")
 		));
 
 Task("Build:demos")
-	.IsDependentOn("Pack:src")
+	.IsDependentOn("Test:src")
 	.Does(() => DoBuild(bld.DemosSln, bld.Configurations, settings =>
 		settings
-			.WithProperty("RestoreSources", $"{string.Join(";", bld.NugetDefaultSources)};{bld.ArtifactsPackages};{nugetFeed}")
+			.WithProperty("RestoreSources", $"{string.Join(";", bld.NugetDefaultSources)};{bld.ArtifactsPackagesAbsolute};{nugetFeed}")
 			.WithProperty("DxVersion", bld.DxVersion)
 			.WithProperty("ScissorsVersion", bld.SrcNugetVersion)
 			.WithProperty("Version", bld.SrcAssemblyVersion)

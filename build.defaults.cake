@@ -11,6 +11,7 @@ public class Bld
 	public string ArtifactsNugetFolder => $"{ArtifactsFolder}/nuget";
 	public string ArtifactsDemosFolder => $"{ArtifactsFolder}/demos";
 	public string ArtifactsPackages => $"{ArtifactsFolder}/packages";
+	public string ArtifactsPackagesAbsolute => Directory(bld.ArtifactsPackages).Path.MakeAbsolute(Context.Environment).ToString().Replace("/", @"\");
 	public string ArtifactsTestResultsFolder => $"{ArtifactsFolder}/test-results";
 
 	public string[] CleanFilters => new []
