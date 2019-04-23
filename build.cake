@@ -59,9 +59,6 @@ Task("Version:src")
 		Information($"DxVersion: {bld.DxVersion}");
 	});
 
-
-Error(bld.NugetSources);
-
 Task("Build:src")
 	.IsDependentOn("Clean")
 	.IsDependentOn("Version:src")

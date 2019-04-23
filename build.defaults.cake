@@ -57,4 +57,3 @@ if(!string.IsNullOrEmpty(nugetFeed))
 	bld.NugetDefaultSources.Add(nugetFeed);
 }
 bld.ArtifactsNugetFolderAbsolute = Directory(bld.ArtifactsNugetFolder).Path.MakeAbsolute(Context.Environment).ToString().Replace("/", @"\");
-Error(bld.NugetSources);
