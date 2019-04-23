@@ -25,7 +25,7 @@ public class Bld
 	public string SrcSln => "./Scissors.FeatureCenter.src.sln";
 	public string DemosSln => "./Scissors.FeatureCenter.demos.sln";
 
-	public IList<string> NugetDefaultSources => new List<string>
+	public IList<string> NugetDefaultSources { get; } = new List<string>
 	{
 		"https://api.nuget.org/v3/index.json"
 	};
@@ -47,6 +47,8 @@ public class Bld
 	public string DxVersion { get; set; }
 
 	public string DemosPackageSource => $"{DemosFolder}/win10/Scissors.FeatureCenter.Package/AppPackages";
+
+	public string NugetSources => String.Join(";", NugetDefaultSources) + ";";
 }
 
 var bld = new Bld();
@@ -55,3 +57,4 @@ if(!string.IsNullOrEmpty(nugetFeed))
 	bld.NugetDefaultSources.Add(nugetFeed);
 }
 bld.ArtifactsNugetFolderAbsolute = Directory(bld.ArtifactsNugetFolder).Path.MakeAbsolute(Context.Environment).ToString().Replace("/", @"\");
+Error(bld.NugetSources);
