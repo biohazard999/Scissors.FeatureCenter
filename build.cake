@@ -64,7 +64,7 @@ Task("Build:src")
 	.IsDependentOn("Version:src")
 	.Does(() => DoBuild(bld.SrcSln, bld.Configurations, settings =>
 		settings
-			.WithProperty("RestoreSources", $"{string.Join(";", bld.NugetDefaultSources)};{nugetFeed};")
+			.WithProperty("RestoreSources", $"{string.Join(";", bld.NugetDefaultSources)};")
 			.WithProperty("DxVersion", bld.DxVersion)
 			.WithProperty("Version", bld.SrcAssemblyVersion)
 			.WithProperty("FileVersion", bld.SrcAssemblyFileVersion)
@@ -99,7 +99,7 @@ Task("Build:demos")
 	.IsDependentOn("Pack:src")
 	.Does(() => DoBuild(bld.DemosSln, bld.Configurations, settings =>
 		settings
-			.WithProperty("RestoreSources", $"{string.Join(";", bld.NugetDefaultSources)};{bld.ArtifactsNugetFolderAbsolute}")
+			.WithProperty("RestoreSources", $"{string.Join(";", bld.NugetDefaultSources)};{bld.ArtifactsNugetFolderAbsolute};")
 			.WithProperty("DxVersion", bld.DxVersion)
 			.WithProperty("ScissorsVersion", bld.SrcNugetVersion)
 			.WithProperty("Version", bld.SrcAssemblyVersion)
