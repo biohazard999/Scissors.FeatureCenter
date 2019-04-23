@@ -1,6 +1,6 @@
 string nugetFeed = EnvironmentVariable("NUGET_FEED") ?? null;
 
-Information($"NUGET_FEED: {0}", nugetFeed);
+Information("Nuget Feed: {0}", nugetFeed);
 
 public class Bld
 {
