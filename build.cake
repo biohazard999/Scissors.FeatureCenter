@@ -72,7 +72,7 @@ Task("Test:src")
 	.IsDependentOn("Test:src:Integration");
 
 Task("Pack:src")
-	.IsDependentOn("Build:src")
+	.IsDependentOn("Test:src")
 	.Does(() => DoPack(bld.SrcSln, bld.ConfigurationRelease, (settings) => settings
 		.WithProperty("NoBuild", "True")
 		.WithProperty("PackageVersion", bld.SrcNugetVersion)
@@ -82,7 +82,7 @@ Task("Pack:src")
 		));
 
 Task("Build:demos")
-	.IsDependentOn("Test:src")
+	.IsDependentOn("Pack:src")
 	.Does(() => DoBuild(bld.DemosSln, bld.Configurations, settings =>
 		settings
 			.WithProperty("RestoreSources", $"{string.Join(";", bld.NugetDefaultSources)};{bld.ArtifactsPackagesAbsolute};{nugetFeed}")
