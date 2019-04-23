@@ -8,6 +8,8 @@
 build.ps1
 artifacts/
 
+packages.lock.json
+
 # User-specific files
 *.suo
 *.user
