@@ -59,6 +59,9 @@ Task("Version:src")
 		Information($"DxVersion: {bld.DxVersion}");
 	});
 
+
+Error($"{string.Join(";", bld.NugetDefaultSources)};");
+
 Task("Build:src")
 	.IsDependentOn("Clean")
 	.IsDependentOn("Version:src")
@@ -94,6 +97,7 @@ Task("Pack:src")
 		.WithProperty("PackageVersionPrefix", "")
 		.WithProperty("PackageVersionSuffix", "")
 		));
+
 
 Task("Build:demos")
 	.IsDependentOn("Pack:src")
