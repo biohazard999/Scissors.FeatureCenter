@@ -10,8 +10,8 @@ public class Bld
 	public string ArtifactsFolder = "./artifacts";
 	public string ArtifactsNugetFolder => $"{ArtifactsFolder}/nuget";
 	public string ArtifactsDemosFolder => $"{ArtifactsFolder}/demos";
+	public string ArtifactsNugetFolderAbsolute { get; set; }
 	public string ArtifactsPackages => $"{ArtifactsFolder}/packages";
-	public string ArtifactsPackagesAbsolute { get; set; }
 	public string ArtifactsTestResultsFolder => $"{ArtifactsFolder}/test-results";
 
 	public string[] CleanFilters => new []
@@ -55,4 +55,4 @@ if(!string.IsNullOrEmpty(nugetFeed))
 	bld.NugetDefaultSources.Add(nugetFeed);
 }
 bld.NugetDefaultSources.Add(bld.ArtifactsNugetFolder);
-bld.ArtifactsPackagesAbsolute = Directory(bld.ArtifactsPackages).Path.MakeAbsolute(Context.Environment).ToString().Replace("/", @"\");
+bld.ArtifactsNugetFolderAbsolute = Directory(bld.ArtifactsNugetFolder).Path.MakeAbsolute(Context.Environment).ToString().Replace("/", @"\");
