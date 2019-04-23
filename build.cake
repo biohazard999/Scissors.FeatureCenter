@@ -21,6 +21,8 @@ Task("Clean")
 
 		DoClean(bld.SrcSln, bld.Configurations);
 		DoClean(bld.DemosSln, bld.Configurations);
+		if(!DirectoryExists(bld.ArtifactsNugetFolder))
+			CreateDirectory(bld.ArtifactsNugetFolder);
 	});
 
 Task("Version:src")
@@ -69,7 +71,7 @@ Task("Test:src")
 	.IsDependentOn("Test:src:Integration");
 
 Task("Pack:src")
-	.IsDependentOn("Build:src")
+	.IsDependentOn("Test:src")
 	.Does(() => DoPack(bld.SrcSln, bld.ConfigurationRelease, (settings) => settings
 		.WithProperty("NoBuild", "True")
 		.WithProperty("PackageVersion", bld.SrcNugetVersion)
@@ -87,7 +89,17 @@ Task("Build:demos")
 			.WithProperty("FileVersion", bld.SrcAssemblyFileVersion)
 			.WithProperty("InformationalVersion", bld.SrcInformationalVersion)));
 
+Task("Copy:demos")
+	.IsDependentOn("Build:demos")
+	.Does(() =>
+	{
+		if(!DirectoryExists(bld.ArtifactsPackages))
+			CreateDirectory(bld.ArtifactsPackages);
+
+		CopyDirectory(bld.DemosPackageSource, bld.ArtifactsPackages);
+	});
+
 Task("Default")
-	.IsDependentOn("Build:demos");
+	.IsDependentOn("Copy:demos");
 
 RunTarget(target);

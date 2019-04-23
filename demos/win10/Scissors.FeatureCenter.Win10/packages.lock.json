@@ -297,52 +297,104 @@
           "DevExpress.ExpressApp": "18.2.2-beta"
         }
       },
+      "Scissors.ExpressApp.InlineEditForms.Contracts": {
+        "type": "Transitive",
+        "resolved": "18.2.1-topic-refactor-s0001",
+        "contentHash": "D5ldkBOsY1x/e6rcQKmXVM6xwWR1UxUoCRHk+LPVuEuIwHURJL1HsOF86eP7Q/cADIu+HosEuA06B0LVeEXxpA=="
+      },
+      "Scissors.ExpressApp.InlineEditForms.Win": {
+        "type": "Transitive",
+        "resolved": "18.2.1-topic-refactor-s0001",
+        "contentHash": "Odcz8OT/LLP8R287TuQMLPvnOg0+FdEtR6B2l7VRh6VmpriSuncnHzQv/V8fvIJPfRLneESw6mIj8fgwDrTHnw==",
+        "dependencies": {
+          "DevExpress.ExpressApp.Win": "18.2.2-beta",
+          "DevExpress.Persistent.Base": "18.2.2-beta",
+          "Scissors.ExpressApp": "18.2.1-topic-refactor-s0001",
+          "Scissors.ExpressApp.InlineEditForms.Contracts": "18.2.1-topic-refactor-s0001",
+          "Scissors.ExpressApp.Win": "18.2.1-topic-refactor-s0001"
+        }
+      },
+      "Scissors.ExpressApp.LabelEditor.Contracts": {
+        "type": "Transitive",
+        "resolved": "18.2.1-topic-refactor-s0001",
+        "contentHash": "R7vN31RAuLRqldUghlhEyIobaje7myOW1i2GK9Q5kh66+hxtV7wD+DI3mNHBFLIU+mkb8Y3X0vtYrUndKhQi5w=="
+      },
+      "Scissors.ExpressApp.LabelEditor.Win": {
+        "type": "Transitive",
+        "resolved": "18.2.1-topic-refactor-s0001",
+        "contentHash": "dQjhd69AF8/P+le8A3eWCPFRZeHCWJn78C+mL9KrQKkAZ4vP+8EQ5NniyE+BI+LP1OmFhSHJLwUZcraYBpgPgQ==",
+        "dependencies": {
+          "DevExpress.ExpressApp.Win": "18.2.2-beta",
+          "Scissors.ExpressApp": "18.2.1-topic-refactor-s0001",
+          "Scissors.ExpressApp.LabelEditor.Contracts": "18.2.1-topic-refactor-s0001",
+          "Scissors.ExpressApp.Win": "18.2.1-topic-refactor-s0001"
+        }
+      },
+      "Scissors.Utils": {
+        "type": "Transitive",
+        "resolved": "18.2.1-topic-refactor-s0001",
+        "contentHash": "k0EEU2jTt7XLig081WczeILDpwd8ByFAIf5DoQBUeZojiTgE9AcKmIIStikanrqcMGPgGHGTwPDLQIMPuVPK9Q=="
+      },
+      "Scissors.Xaf.CacheWarmup.Attributes": {
+        "type": "Transitive",
+        "resolved": "18.2.1-topic-refactor-s0001",
+        "contentHash": "H+qWJxU1uBZZZRI+w4/uSoad3j1FLJ0pTyqT4+FdLup8TN5vatIdvDTchAxV7BI8ITdf44KOZT6o1yIwLuYSdA=="
+      },
+      "Scissors.Xpo": {
+        "type": "Transitive",
+        "resolved": "18.2.1-topic-refactor-s0001",
+        "contentHash": "yB+/68XvdbPMk/mGzLzVNFyTSJ60Ef6PR+8/kO0KapdI4Je9uRQb05Lv3z8pI0dUMNmQeu5cUGk4Awzd582iAA==",
+        "dependencies": {
+          "DevExpress.Xpo": "18.2.2-beta",
+          "Scissors.Utils": "18.2.1-topic-refactor-s0001"
+        }
+      },
       "Scissors.FeatureCenter.Module": {
         "type": "Project",
         "dependencies": {
-          "DevExpress.Data": "(, )",
-          "DevExpress.ExpressApp": "(, )",
-          "Scissors.ExpressApp": "(, )",
-          "Scissors.FeatureCenter.Module.BusinessObjects": "1.0.0",
-          "Scissors.FeatureCenter.Module.Contracts": "1.0.0"
+          "DevExpress.Data": "18.2.7",
+          "DevExpress.ExpressApp": "18.2.7",
+          "Scissors.ExpressApp": "18.2.1-topic-refactor-s0001",
+          "Scissors.FeatureCenter.Module.BusinessObjects": "18.2.1",
+          "Scissors.FeatureCenter.Module.Contracts": "18.2.1"
         }
       },
       "Scissors.FeatureCenter.Module.BusinessObjects": {
         "type": "Project",
         "dependencies": {
-          "Scissors.Xpo": "(, )"
+          "Scissors.Xpo": "18.2.1-topic-refactor-s0001"
         }
       },
       "Scissors.FeatureCenter.Module.Contracts": {
         "type": "Project",
         "dependencies": {
-          "DevExpress.Data": "(, )",
-          "DevExpress.ExpressApp": "(, )",
-          "Scissors.FeatureCenter.Module.BusinessObjects": "1.0.0"
+          "DevExpress.Data": "18.2.7",
+          "DevExpress.ExpressApp": "18.2.7",
+          "Scissors.FeatureCenter.Module.BusinessObjects": "18.2.1"
         }
       },
       "Scissors.FeatureCenter.Module.Win": {
         "type": "Project",
         "dependencies": {
-          "DevExpress.Data": "(, )",
-          "DevExpress.ExpressApp.Win": "(, )",
-          "Scissors.ExpressApp.Win": "(, )",
-          "Scissors.FeatureCenter.Module": "1.0.0"
+          "DevExpress.Data": "18.2.7",
+          "DevExpress.ExpressApp.Win": "18.2.7",
+          "Scissors.ExpressApp.Win": "18.2.1-topic-refactor-s0001",
+          "Scissors.FeatureCenter.Module": "18.2.1"
         }
       },
       "Scissors.FeatureCenter.Win": {
         "type": "Project",
         "dependencies": {
-          "DevExpress.ExpressApp.Validation.Win": "(, )",
-          "DevExpress.ExpressApp.Win": "(, )",
-          "DevExpress.ExpressApp.Xpo": "(, )",
-          "Scissors.ExpressApp.InlineEditForms.Win": "(, )",
-          "Scissors.ExpressApp.LabelEditor.Win": "(, )",
-          "Scissors.ExpressApp.Win": "(, )",
-          "Scissors.FeatureCenter.Module": "1.0.0",
-          "Scissors.FeatureCenter.Module.Win": "1.0.0",
-          "Scissors.Xaf.CacheWarmup.Attributes": "(, )",
-          "Scissors.Xpo": "(, )"
+          "DevExpress.ExpressApp.Validation.Win": "18.2.7",
+          "DevExpress.ExpressApp.Win": "18.2.7",
+          "DevExpress.ExpressApp.Xpo": "18.2.7",
+          "Scissors.ExpressApp.InlineEditForms.Win": "18.2.1-topic-refactor-s0001",
+          "Scissors.ExpressApp.LabelEditor.Win": "18.2.1-topic-refactor-s0001",
+          "Scissors.ExpressApp.Win": "18.2.1-topic-refactor-s0001",
+          "Scissors.FeatureCenter.Module": "18.2.1",
+          "Scissors.FeatureCenter.Module.Win": "18.2.1",
+          "Scissors.Xaf.CacheWarmup.Attributes": "18.2.1-topic-refactor-s0001",
+          "Scissors.Xpo": "18.2.1-topic-refactor-s0001"
         }
       }
     },

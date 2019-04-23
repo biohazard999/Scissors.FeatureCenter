@@ -4,10 +4,11 @@ public class Bld
 {
 	public string RootFolder = "./";
 	public string SrcFolder = "./src";
-	public string DemosFolder = "./src";
+	public string DemosFolder = "./demos";
 	public string ArtifactsFolder = "./artifacts";
 	public string ArtifactsNugetFolder => $"{ArtifactsFolder}/nuget";
 	public string ArtifactsDemosFolder => $"{ArtifactsFolder}/demos";
+	public string ArtifactsPackages => $"{ArtifactsFolder}/packages";
 	public string ArtifactsTestResultsFolder => $"{ArtifactsFolder}/test-results";
 
 	public string[] CleanFilters => new []
@@ -41,6 +42,8 @@ public class Bld
 	public string SrcInformationalVersion { get; set; }
 	public string SrcNugetVersion { get; set; }
 	public string DxVersion { get; set; }
+
+	public string DemosPackageSource => $"{DemosFolder}/win10/Scissors.FeatureCenter.Package/AppPackages";
 }
 
 var bld = new Bld();

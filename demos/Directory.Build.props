@@ -5,9 +5,8 @@
 		<Authors>Manuel Grundner</Authors>
     <LangVersion>latest</LangVersion>
 		<DxVersion>18.2.7</DxVersion>
-		<ScissorsVersion>pre-18.2.1-pre-topic-refactor-s0001</ScissorsVersion>
+		<ScissorsVersion>18.2.1-*</ScissorsVersion>
 		<Deterministic>true</Deterministic>
 		<RestoreNoCache>True</RestoreNoCache>
-		<RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
 	</PropertyGroup>
 </Project>
