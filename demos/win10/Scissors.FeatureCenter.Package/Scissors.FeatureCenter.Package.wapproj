@@ -41,7 +41,7 @@
     <PackageCertificateKeyFile>Scissors.FeatureCenter.Package_StoreKey.pfx</PackageCertificateKeyFile>
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
     <AppxBundlePlatforms>neutral</AppxBundlePlatforms>
-    <PackageCertificateThumbprint>C65A2A48EE10DDBDE4EC459DFCC34EC26049A470</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>5155B218DB915C6224705819D65A4F398D9BDD12</PackageCertificateThumbprint>
     <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
     <AppInstallerUpdateFrequency>1</AppInstallerUpdateFrequency>
     <AppInstallerCheckForUpdateFrequency>OnApplicationRun</AppInstallerCheckForUpdateFrequency>
