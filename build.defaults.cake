@@ -1,5 +1,7 @@
 string nugetFeed = EnvironmentVariable("NUGET_FEED") ?? null;
 
+Information($"NUGET_FEED: {0}", nugetFeed);
+
 public class Bld
 {
 	public string RootFolder = "./";
