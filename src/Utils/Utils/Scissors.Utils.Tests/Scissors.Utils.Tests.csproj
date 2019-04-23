@@ -1,16 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="..\..\..\..\.global\Global.csproj" />
-  
+
   <PropertyGroup>
-    <TargetFramework>net462</TargetFramework>
   </PropertyGroup>
-  
-  <ItemGroup>
-    <None Remove="TestResources\TestEmbeddedResource.txt" />
-  </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="..\..\..\..\.global\GlobalSuppressionsForTests.cs" Link="Properties\GlobalSuppressionsForTests.cs" />
+    <None Remove="TestResources\TestEmbeddedResource.txt" />
   </ItemGroup>
 
   <ItemGroup>

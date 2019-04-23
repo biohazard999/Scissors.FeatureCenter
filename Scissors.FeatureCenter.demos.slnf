@@ -1,0 +1,14 @@
+{
+  "solution": {
+    "path": "Scissors.FeatureCenter.sln",
+    "projects": [
+      "demos\\Scissors.FeatureCenter.Module.BusinessObjects\\Scissors.FeatureCenter.Module.BusinessObjects.csproj",
+      "demos\\Scissors.FeatureCenter.Module.Contracts\\Scissors.FeatureCenter.Module.Contracts.csproj",
+      "demos\\Scissors.FeatureCenter.Module.Win\\Scissors.FeatureCenter.Module.Win.csproj",
+      "demos\\Scissors.FeatureCenter.Module\\Scissors.FeatureCenter.Module.csproj",
+      "demos\\Scissors.FeatureCenter.Package\\Scissors.FeatureCenter.Package.wapproj",
+      "demos\\Scissors.FeatureCenter.Win10\\Scissors.FeatureCenter.Win10.csproj",
+      "demos\\Scissors.FeatureCenter.Win\\Scissors.FeatureCenter.Win.csproj"
+    ]
+  }
+}

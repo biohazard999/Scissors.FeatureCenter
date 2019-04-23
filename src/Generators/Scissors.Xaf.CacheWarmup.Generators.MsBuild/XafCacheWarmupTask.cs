@@ -1,6 +1,8 @@
 using Microsoft.Build.Framework;
 using Microsoft.Build.Utilities;
 using System;
+using System.Diagnostics;
+using System.IO;
 
 namespace Scissors.Xaf.CacheWarmup.Generators.MsBuild
 {
@@ -8,6 +10,10 @@ namespace Scissors.Xaf.CacheWarmup.Generators.MsBuild
     {
         [Required]
         public string ApplicationPath { get; set; }
+
+        public string CliPath { get; set; }
+
+        public string Mode { get; set; } = "InProcess";
 
         [Output]
         public string DcAssembly { get; set; }
@@ -20,28 +26,57 @@ namespace Scissors.Xaf.CacheWarmup.Generators.MsBuild
 
         public override bool Execute()
         {
-            Console.WriteLine($"ApplicationPath: {ApplicationPath}");
+            Log.LogMessage($"ApplicationPath: {ApplicationPath}");
+            Log.LogMessage($"Mode: {Mode}");
 
-            var finder = new AttributeFinder();
-            var assemblyPath = ApplicationPath;
-            var foundType = finder.FindAttribute(assemblyPath);
+            // if (Mode == "InProcess")
+            // {
+            //     var finder = new AttributeFinder();
+            //     var assemblyPath = ApplicationPath;
+            //     var foundType = finder.FindAttribute(assemblyPath);
 
-            Console.WriteLine(foundType);
+            //     Console.WriteLine(foundType);
 
-            if (foundType != null)
+            //     if (foundType != null)
+            //     {
+            //         var cacheGenerator = new CacheWarmupGenerator();
+
+            //         var cacheResult = cacheGenerator.WarmupCache(assemblyPath, foundType.ApplicationType, foundType.FactoryType);
+            //         if (cacheResult != null)
+            //         {
+            //             DcAssembly = cacheResult.DcAssemblyFilePath;
+            //             ModelAssembly = cacheResult.ModelAssemblyFilePath;
+            //             ModelCache = cacheResult.ModelCacheFilePath;
+            //             ModulesVersionInfo = cacheResult.ModulesVersionInfoFilePath;
+
+            //             Console.WriteLine("Done");
+            //             return true;
+            //         }
+            //     }
+            // }
+
+            if (Mode == "OutOfProcess")
             {
-                var cacheGenerator = new CacheWarmupGenerator();
-
-                var cacheResult = cacheGenerator.WarmupCache(assemblyPath, foundType.ApplicationType, foundType.FactoryType);
-                if (cacheResult != null)
+                if (string.IsNullOrEmpty(CliPath))
                 {
-                    DcAssembly = cacheResult.DcAssemblyFilePath;
-                    ModelAssembly = cacheResult.ModelAssemblyFilePath;
-                    ModelCache = cacheResult.ModelCacheFilePath;
-                    ModulesVersionInfo = cacheResult.ModulesVersionInfoFilePath;
+                    CliPath = Path.Combine(Path.GetDirectoryName(ApplicationPath), "Scissors.Xaf.CacheWarmup.Generators.Cli");
+                }
 
-                    Console.WriteLine("Done");
-                    return true;
+                using (var process = new Process())
+                {
+                    process.StartInfo = new ProcessStartInfo(CliPath, ApplicationPath)
+                    {
+                        RedirectStandardOutput = true,
+                        CreateNoWindow = true,
+                        UseShellExecute = false,
+                        WorkingDirectory = Path.GetDirectoryName(ApplicationPath)
+                    };
+                    process.OutputDataReceived += (s, e) => Log.LogMessage(e.Data);
+                    if (process.Start())
+                    {
+                        process.WaitForExit(10000);
+                        return true;
+                    }
                 }
             }
 

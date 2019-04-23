@@ -1,0 +1,53 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <ApplicationIcon>Scissors.ico</ApplicationIcon>
+    <Description>FeatureCenter of the Scissors XAF Extentions</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Configuration">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model.xafml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="DevExpress.ExpressApp.Validation.Win" Version="$(DxVersion)" />
+    <PackageReference Include="DevExpress.ExpressApp.Win" Version="$(DxVersion)" />
+    <PackageReference Include="DevExpress.ExpressApp.Xpo" Version="$(DxVersion)" />
+    <PackageReference Include="Scissors.ExpressApp.InlineEditForms.Win" Version="$(ScissorsVersion)" />
+    <PackageReference Include="Scissors.ExpressApp.LabelEditor.Win" Version="$(ScissorsVersion)" />
+    <PackageReference Include="Scissors.ExpressApp.Win" Version="$(ScissorsVersion)" />
+    <PackageReference Include="Scissors.Xpo" Version="$(ScissorsVersion)" />
+    <PackageReference Include="Scissors.Xaf.CacheWarmup.Attributes" Version="$(ScissorsVersion)" />
+    <PackageReference Include="Scissors.Xaf.CacheWarmup.Generators.Cli" Version="$(ScissorsVersion)" PrivateAssets="All" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="WinApplication.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="WinApplication.Designer.cs">
+      <DependentUpon>WinApplication.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="WinApplication.resx">
+      <DependentUpon>WinApplication.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scissors.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Scissors.FeatureCenter.Module.Win\Scissors.FeatureCenter.Module.Win.csproj" />
+    <ProjectReference Include="..\Scissors.FeatureCenter.Module\Scissors.FeatureCenter.Module.csproj" />
+  </ItemGroup>
+</Project>

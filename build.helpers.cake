@@ -1,52 +1,69 @@
-void UpdateVersionInfo(string assemblyInfoFile, Func<Version, Version> callback = null)
+#tool "nuget:?package=xunit.runner.console&version=2.4.1"
+
+void DoBuild(string project, string[] configurations, Action<MSBuildSettings> configure = null)
 {
-    var assemblyInfo = ParseAssemblyInfo(assemblyInfoFile);
-    var assemblyVersion = Version.Parse(assemblyInfo.AssemblyVersion);
+	foreach(var configuration in configurations)
+	{
+		MSBuild(project, settings =>
+		{
+			settings.MaxCpuCount = 8;
+			settings.Verbosity = Verbosity.Normal;
+			settings.Configuration = configuration;
+			settings.PlatformTarget = PlatformTarget.MSIL;
+			settings.Restore = true;
 
-    if(callback != null) assemblyVersion = callback(assemblyVersion);
-    var gitVersion = GitVersion();
-    var sha = gitVersion.Sha;
-    var branch = gitVersion.BranchName;
-    Information($"Version: {assemblyVersion}");
-    Information($"Sha: {sha}");
-
-    CreateAssemblyInfo(assemblyInfoFile, new AssemblyInfoSettings
-    {
-        Configuration = assemblyInfo.Configuration,
-        Company = assemblyInfo.Company,
-        Description = assemblyInfo.Description,
-        Product = assemblyInfo.Product,
-        Copyright = assemblyInfo.Copyright,
-        Trademark = assemblyInfo.Trademark,
-
-        Version = assemblyVersion.ToString(),
-        FileVersion = assemblyVersion.ToString(),
-        InformationalVersion = $"{assemblyVersion}+{sha}+{branch}",
-    });
+			configure?.Invoke(settings);
+		});
+	}
 }
 
-void Build(string project, string configuration, Action<MSBuildSettings> configure = null)
+void DoClean(string project, string[] configurations, Action<MSBuildSettings> configure = null)
 {
-    MSBuild(project, settings =>
-    {
-        settings.MaxCpuCount = 8;
-        settings.Verbosity = Verbosity.Normal;
-        settings.Configuration = configuration;
-        settings.PlatformTarget = PlatformTarget.MSIL;
-
-        configure?.Invoke(settings);
-    });
-}
-
-void Clean(string project, string configuration = "Debug", Action<MSBuildSettings> configure = null)
-{
-    MSBuild(project, settings =>
-    {
-        settings.MaxCpuCount = 8;
-        settings.Verbosity = Verbosity.Minimal;
-        settings.Configuration = configuration;
-        settings.PlatformTarget = PlatformTarget.MSIL;
-        settings.WithTarget("Clean");
+	DoBuild(project, configurations, (settings) =>
+	{
+		settings.WithTarget("Clean");
+		settings.Restore = false;
 		configure?.Invoke(settings);
-    });
+	});
 }
+
+void DoPack(string slnFile, string configuration, Action<MSBuildSettings> configure = null)
+{
+	// foreach(var project in GetProjects(slnFile))
+		DoBuild(slnFile, new [] { configuration }, (settings) =>
+		{
+			settings.WithTarget("Pack");
+			settings.Restore = false;
+			configure?.Invoke(settings);
+		});
+}
+
+void DoTest(string testPattern, string reportType, string outputDirectory, Action<XUnit2Settings> configure = null)
+{
+	var settings = new XUnit2Settings
+	{
+		ReportName = $"TestResults_{reportType}",
+		Parallelism = ParallelismOption.Collections,
+		HtmlReport = true,
+		XmlReport = true,
+		OutputDirectory = outputDirectory
+	};
+
+	configure?.Invoke(settings);
+
+	XUnit2(testPattern, settings);
+}
+
+// IEnumerable<string> GetProjects(string slnFile)
+// {
+// 	var proc = StartAndReturnProcess("dotnet", new ProcessSettings
+// 	{
+// 		Arguments = ProcessArgumentBuilder.FromString($"sln {slnFile} list"),
+// 		RedirectStandardOutput = true
+// 	});
+
+// 	foreach(var proj in proc.GetStandardOutput().Where(s => s.ToLowerInvariant() != "project(s)" && s.ToLowerInvariant() != "----------"))
+// 		yield return proj;
+
+// 	proc.WaitForExit();
+// }

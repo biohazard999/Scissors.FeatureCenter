@@ -1,0 +1,31 @@
+{
+  "solution": {
+    "path": "Scissors.FeatureCenter.sln",
+    "projects": [
+      "demos\\Scissors.FeatureCenter.Module.BusinessObjects\\Scissors.FeatureCenter.Module.BusinessObjects.csproj",
+      "demos\\Scissors.FeatureCenter.Module.Contracts\\Scissors.FeatureCenter.Module.Contracts.csproj",
+      "demos\\Scissors.FeatureCenter.Module.Win\\Scissors.FeatureCenter.Module.Win.csproj",
+      "demos\\Scissors.FeatureCenter.Module\\Scissors.FeatureCenter.Module.csproj",
+      "demos\\Scissors.FeatureCenter.Package\\Scissors.FeatureCenter.Package.wapproj",
+      "demos\\Scissors.FeatureCenter.Win10\\Scissors.FeatureCenter.Win10.csproj",
+      "demos\\Scissors.FeatureCenter.Win\\Scissors.FeatureCenter.Win.csproj",
+      "src\\Generators\\Scissors.Xaf.CacheWarmup.Attributes\\Scissors.Xaf.CacheWarmup.Attributes.csproj",
+      "src\\Generators\\Scissors.Xaf.CacheWarmup.Generators.Cli\\Scissors.Xaf.CacheWarmup.Generators.Cli.csproj",
+      "src\\Generators\\Scissors.Xaf.CacheWarmup.Generators\\Scissors.Xaf.CacheWarmup.Generators.csproj",
+      "src\\Modules\\InlineEditForms\\Contracts\\Scissors.ExpressApp.InlineEditForms.Contracts.csproj",
+      "src\\Modules\\InlineEditForms\\UITests\\Scissors.ExpressApp.InlineEditForms.UITests.csproj",
+      "src\\Modules\\InlineEditForms\\Win\\Scissors.ExpressApp.InlineEditForms.Win.csproj",
+      "src\\Modules\\LabelEditor\\Contracts\\Scissors.ExpressApp.LabelEditor.Contracts.csproj",
+      "src\\Modules\\LabelEditor\\Win\\Scissors.ExpressApp.LabelEditor.Win.csproj",
+      "src\\Modules\\TokenEditor\\Scissors.ExpressApp.TokenEditor.Win\\Scissors.ExpressApp.TokenEditor.Win.csproj",
+      "src\\Scissors.ExpressApp.Win\\Scissors.ExpressApp.Win.csproj",
+      "src\\Scissors.ExpressApp\\Scissors.ExpressApp.csproj",
+      "src\\Scissors.Xpo\\Scissors.Xpo.csproj",
+      "src\\Utils\\Drawing\\Scissors.Utils.Drawing.Tests\\Scissors.Utils.Drawing.Tests.csproj",
+      "src\\Utils\\Drawing\\Scissors.Utils.Drawing\\Scissors.Utils.Drawing.csproj",
+      "src\\Utils\\Testing\\Scissors.Utils.Testing.XUnit\\Scissors.Utils.Testing.XUnit.csproj",
+      "src\\Utils\\Utils\\Scissors.Utils.Tests\\Scissors.Utils.Tests.csproj",
+      "src\\Utils\\Utils\\Scissors.Utils\\Scissors.Utils.csproj"
+    ]
+  }
+}

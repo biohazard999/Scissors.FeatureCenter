@@ -1,0 +1,20 @@
+<Project>
+	<PropertyGroup>
+	  <Product>Scissors</Product>
+    <Copyright>Copyright © Manuel Grundner $([System.DateTime]::Today.ToString('yyyy'))</Copyright>
+		<Authors>Manuel Grundner</Authors>
+    <TargetFramework>net462</TargetFramework>
+    <LangVersion>latest</LangVersion>
+		<DxVersion>18.2.7</DxVersion>
+		<PackageOutputPath>$(MSBuildThisFileDirectory)..\artifacts\nuget</PackageOutputPath>
+		<VersionPrefix>18.2.0</VersionPrefix>
+		<VersionSuffix>pre-$([System.DateTime]::Now.ToString('yyyyMMddHHmm'))</VersionSuffix>
+		<!-- Include PDB in package -->
+		<!-- <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder> -->
+		<!-- Create a seperate symbols package -->
+		<IncludeSource>True</IncludeSource>
+		<PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
+		<Deterministic>true</Deterministic>
+		<RestoreNoCache>True</RestoreNoCache>
+	</PropertyGroup>
+</Project>
