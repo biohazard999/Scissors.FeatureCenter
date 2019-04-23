@@ -1,12 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net462</TargetFramework>
-    <AssemblyTitle>Scissors.FeatureCenter.Module</AssemblyTitle>
-    <Product>Scissors.FeatureCenter</Product>
-    <Copyright>Copyright © Manuel Grundner 2019</Copyright>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Scissors.ExpressApp" Version="0.1.0" />
+    <PackageReference Include="Scissors.ExpressApp" Version="$(ScissorsVersion)" />
+    <PackageReference Include="DevExpress.Data" Version="$(DxVersion)" />
+		<PackageReference Include="DevExpress.ExpressApp" Version="$(DxVersion)" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Scissors.FeatureCenter.Module.BusinessObjects\Scissors.FeatureCenter.Module.BusinessObjects.csproj" />

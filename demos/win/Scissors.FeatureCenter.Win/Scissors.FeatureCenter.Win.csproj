@@ -1,12 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net472</TargetFramework>
     <OutputType>WinExe</OutputType>
     <ApplicationIcon>Scissors.ico</ApplicationIcon>
-    <LangVersion>latest</LangVersion>
     <Description>FeatureCenter of the Scissors XAF Extentions</Description>
-    <Copyright>Copyright 2018</Copyright>
-    <BuildDependsOn>$(BuildDependsOn);WarmupXafCaches</BuildDependsOn>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System.Configuration">
@@ -22,17 +18,15 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DevExpress.ExpressApp.Validation.Win" Version="18.2.7" />
-    <PackageReference Include="DevExpress.ExpressApp.Win" Version="18.2.7" />
-    <PackageReference Include="DevExpress.ExpressApp.Xpo" Version="18.2.7" />
-    <PackageReference Include="Scissors.ExpressApp.InlineEditForms.Win" Version="0.1.0" />
-    <PackageReference Include="Scissors.ExpressApp.LabelEditor.Win" Version="0.1.0" />
-    <PackageReference Include="Scissors.ExpressApp.TokenEditor.Win" Version="0.1.0" />
-    <PackageReference Include="Scissors.ExpressApp.Win" Version="0.1.0" />
-    <PackageReference Include="Scissors.Xpo" Version="0.1.0" />
-    <PackageReference Include="Scissors.Xaf.CacheWarmup.Attributes" Version="0.1.0" />
-    <PackageReference Include="Scissors.Xaf.CacheWarmup.Generators.Cli" Version="0.1.0" PrivateAssets="All" />
-    <!-- <PackageReference Include="Scissors.Xaf.CacheWarmup.Generators" Version="0.1.0-*" PrivateAssets="All" /> -->
+    <PackageReference Include="DevExpress.ExpressApp.Validation.Win" Version="$(DxVersion)" />
+    <PackageReference Include="DevExpress.ExpressApp.Win" Version="$(DxVersion)" />
+    <PackageReference Include="DevExpress.ExpressApp.Xpo" Version="$(DxVersion)" />
+    <PackageReference Include="Scissors.ExpressApp.InlineEditForms.Win" Version="$(ScissorsVersion)" />
+    <PackageReference Include="Scissors.ExpressApp.LabelEditor.Win" Version="$(ScissorsVersion)" />
+    <PackageReference Include="Scissors.ExpressApp.Win" Version="$(ScissorsVersion)" />
+    <PackageReference Include="Scissors.Xpo" Version="$(ScissorsVersion)" />
+    <PackageReference Include="Scissors.Xaf.CacheWarmup.Attributes" Version="$(ScissorsVersion)" />
+    <PackageReference Include="Scissors.Xaf.CacheWarmup.Generators.Cli" Version="$(ScissorsVersion)" PrivateAssets="All" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="WinApplication.cs">

@@ -34,19 +34,41 @@ Task("Clean")
 			});
 
 		DoClean(bld.SrcSln, bld.Configurations);
+		DoClean(bld.DemosSln, bld.Configurations);
+		if(!DirectoryExists(bld.ArtifactsNugetFolder))
+			CreateDirectory(bld.ArtifactsNugetFolder);
 	});
 
-Task("Restore")
-	.IsDependentOn("Clean")
-	.IsDependentOn("Version");
+Task("Version:src")
+	.Does(() =>
+	{
+		var version = GitVersion(new GitVersionSettings
+		{
+			UpdateAssemblyInfo = false,
+		});
+		bld.SrcAssemblyVersion = version.AssemblySemVer;
+		bld.SrcAssemblyFileVersion = version.AssemblySemFileVer;
+		bld.SrcInformationalVersion = version.InformationalVersion;
+		bld.SrcNugetVersion = version.NuGetVersionV2;
+		bld.DxVersion = $"{version.Major}.{version.Minor}.7";
+
+		Information($"SrcAssemblyVersion: {bld.SrcAssemblyVersion}");
+		Information($"SrcAssemblyFileVersion: {bld.SrcAssemblyFileVersion}");
+		Information($"SrcInformationalVersion: {bld.SrcInformationalVersion}");
+		Information($"SrcNugetVersion: {bld.SrcNugetVersion}");
+		Information($"DxVersion: {bld.DxVersion}");
+	});
 
 Task("Build:src")
-	.IsDependentOn("Restore")
+	.IsDependentOn("Clean")
+	.IsDependentOn("Version:src")
 	.Does(() => DoBuild(bld.SrcSln, bld.Configurations, settings =>
-	{
-		settings.Restore = true;
-		settings.WithProperty("DxVersion", $"{version.Major}.{version.Minor}.*");
-	}));
+		settings
+			.WithProperty("RestoreSources", $"{string.Join(";", bld.NugetDefaultSources)};{nugetFeed};")
+			.WithProperty("DxVersion", bld.DxVersion)
+			.WithProperty("Version", bld.SrcAssemblyVersion)
+			.WithProperty("FileVersion", bld.SrcAssemblyFileVersion)
+			.WithProperty("InformationalVersion", bld.SrcInformationalVersion)));
 
 Task("Test:src:Unit")
 	.IsDependentOn("Build:src")
@@ -64,9 +86,37 @@ Task("Test:src")
 	.IsDependentOn("Test:src:Integration");
 
 Task("Pack:src")
-	.IsDependentOn("Test:src");
+	.IsDependentOn("Test:src")
+	.Does(() => DoPack(bld.SrcSln, bld.ConfigurationRelease, (settings) => settings
+		.WithProperty("NoBuild", "True")
+		.WithProperty("PackageVersion", bld.SrcNugetVersion)
+		.WithProperty("PackageOutputPath", bld.ArtifactsPackagesAbsolute)
+		.WithProperty("PackageVersionPrefix", "")
+		.WithProperty("PackageVersionSuffix", "")
+		));
+
+Task("Build:demos")
+	.IsDependentOn("Pack:src")
+	.Does(() => DoBuild(bld.DemosSln, bld.Configurations, settings =>
+		settings
+			.WithProperty("RestoreSources", $"{string.Join(";", bld.NugetDefaultSources)};{bld.ArtifactsPackagesAbsolute};{nugetFeed}")
+			.WithProperty("DxVersion", bld.DxVersion)
+			.WithProperty("ScissorsVersion", bld.SrcNugetVersion)
+			.WithProperty("Version", bld.SrcAssemblyVersion)
+			.WithProperty("FileVersion", bld.SrcAssemblyFileVersion)
+			.WithProperty("InformationalVersion", bld.SrcInformationalVersion)));
+
+Task("Copy:demos")
+	.IsDependentOn("Build:demos")
+	.Does(() =>
+	{
+		if(!DirectoryExists(bld.ArtifactsPackages))
+			CreateDirectory(bld.ArtifactsPackages);
+
+		CopyDirectory(bld.DemosPackageSource, bld.ArtifactsPackages);
+	});
 
 Task("Default")
-	.IsDependentOn("Pack:src");
+	.IsDependentOn("Copy:demos");
 
-RunTarget("Default");
+RunTarget(target);

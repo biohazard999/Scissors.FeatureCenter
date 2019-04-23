@@ -1,12 +1,9 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net462</TargetFramework>
-    <AssemblyTitle>Scissors.FeatureCenter.Module.Contracts</AssemblyTitle>
-    <Product>Scissors.FeatureCenter</Product>
-    <Copyright>Copyright © Manuel Grundner 2019</Copyright>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="DevExpress.ExpressApp" Version="18.2.7" />
+    <PackageReference Include="DevExpress.ExpressApp" Version="$(DxVersion)" />
+    <PackageReference Include="DevExpress.Data" Version="$(DxVersion)" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Data.DataSetExtensions" />

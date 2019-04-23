@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Scissors.ExpressApp.Win" Version="$(ScissorsVersion)" />
+		<PackageReference Include="DevExpress.Data" Version="$(DxVersion)" />
+		<PackageReference Include="DevExpress.ExpressApp.Win" Version="$(DxVersion)" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Scissors.FeatureCenter.Module\Scissors.FeatureCenter.Module.csproj" />
+  </ItemGroup>
+</Project>
