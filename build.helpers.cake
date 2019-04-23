@@ -10,7 +10,7 @@ void DoBuild(string project, string[] configurations, Action<MSBuildSettings> co
 			settings.Verbosity = Verbosity.Normal;
 			settings.Configuration = configuration;
 			settings.PlatformTarget = PlatformTarget.MSIL;
-			settings.Restore = false;
+			settings.Restore = true;
 
 			configure?.Invoke(settings);
 		});
@@ -22,8 +22,20 @@ void DoClean(string project, string[] configurations, Action<MSBuildSettings> co
 	DoBuild(project, configurations, (settings) =>
 	{
 		settings.WithTarget("Clean");
+		settings.Restore = false;
 		configure?.Invoke(settings);
 	});
+}
+
+void DoPack(string slnFile, string configuration, Action<MSBuildSettings> configure = null)
+{
+	// foreach(var project in GetProjects(slnFile))
+		DoBuild(slnFile, new [] { configuration }, (settings) =>
+		{
+			settings.WithTarget("Pack");
+			settings.Restore = false;
+			configure?.Invoke(settings);
+		});
 }
 
 void DoTest(string testPattern, string reportType, string outputDirectory, Action<XUnit2Settings> configure = null)
@@ -41,3 +53,17 @@ void DoTest(string testPattern, string reportType, string outputDirectory, Actio
 
 	XUnit2(testPattern, settings);
 }
+
+// IEnumerable<string> GetProjects(string slnFile)
+// {
+// 	var proc = StartAndReturnProcess("dotnet", new ProcessSettings
+// 	{
+// 		Arguments = ProcessArgumentBuilder.FromString($"sln {slnFile} list"),
+// 		RedirectStandardOutput = true
+// 	});
+
+// 	foreach(var proj in proc.GetStandardOutput().Where(s => s.ToLowerInvariant() != "project(s)" && s.ToLowerInvariant() != "----------"))
+// 		yield return proj;
+
+// 	proc.WaitForExit();
+// }

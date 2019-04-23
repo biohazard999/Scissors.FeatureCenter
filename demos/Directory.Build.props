@@ -1,0 +1,12 @@
+<Project>
+	<PropertyGroup>
+	  <Product>Scissors.FeatureCenter</Product>
+    <Copyright>Copyright © Manuel Grundner $([System.DateTime]::Today.ToString('yyyy'))</Copyright>
+		<Authors>Manuel Grundner</Authors>
+    <TargetFramework>net462</TargetFramework>
+    <LangVersion>latest</LangVersion>
+		<DxVersion>18.2.7</DxVersion>
+		<ScissorsVersion>18.2.0</ScissorsVersion>
+		<Deterministic>true</Deterministic>
+	</PropertyGroup>
+</Project>

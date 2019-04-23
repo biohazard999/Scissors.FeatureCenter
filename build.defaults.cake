@@ -35,6 +35,12 @@ public class Bld
 	};
 
 	public string SrcTestFilter => $"{SrcFolder}/**/bin/**/*.*Tests*.dll";
+
+	public string SrcAssemblyVersion { get; set; }
+	public string SrcAssemblyFileVersion { get; set; }
+	public string SrcInformationalVersion { get; set; }
+	public string SrcNugetVersion { get; set; }
+	public string DxVersion { get; set; }
 }
 
 var bld = new Bld();

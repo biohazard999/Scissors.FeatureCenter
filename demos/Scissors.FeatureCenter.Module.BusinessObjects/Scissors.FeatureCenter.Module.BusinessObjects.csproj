@@ -1,12 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net462</TargetFramework>
-    <AssemblyTitle>Scissors.FeatureCenter.Module.BusinessObjects</AssemblyTitle>
-    <Product>Scissors.FeatureCenter</Product>
-    <Copyright>Copyright © Manuel Grundner 2019</Copyright>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Scissors.Xpo" Version="0.1.0" />
+    <PackageReference Include="Scissors.Xpo" Version="$(ScissorsVersion)" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Data.DataSetExtensions" />

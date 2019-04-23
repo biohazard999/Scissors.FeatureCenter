@@ -1,14 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net462</TargetFramework>
-    <AssemblyTitle>Scissors.FeatureCenter.Module.Win</AssemblyTitle>
-    <Product>Scissors.FeatureCenter</Product>
-    <Copyright>Copyright © Manuel Grundner 2019</Copyright>
-    <Features>IOperation</Features>
-    <AssemblySearchPaths>$(AssemblySearchPaths);{GAC}</AssemblySearchPaths>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Scissors.ExpressApp.Win" Version="0.1.0" />
+    <PackageReference Include="Scissors.ExpressApp.Win" Version="$(ScissorsVersion)" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Scissors.FeatureCenter.Module\Scissors.FeatureCenter.Module.csproj" />

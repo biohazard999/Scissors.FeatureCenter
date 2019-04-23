@@ -22,20 +22,34 @@ Task("Clean")
 		DoClean(bld.SrcSln, bld.Configurations);
 	});
 
-Task("Restore")
-	.IsDependentOn("Clean")
+Task("Version:src")
 	.Does(() =>
 	{
-		NuGetRestore(bld.SrcSln, new NuGetRestoreSettings
+		var version = GitVersion(new GitVersionSettings
 		{
-			Source = bld.NugetDefaultSources,
-			NoCache = true,
+			UpdateAssemblyInfo = false,
 		});
+		bld.SrcAssemblyVersion = version.AssemblySemVer;
+		bld.SrcAssemblyFileVersion = version.AssemblySemFileVer;
+		bld.SrcInformationalVersion = version.InformationalVersion;
+		bld.SrcNugetVersion = version.NuGetVersionV2;
+		bld.DxVersion = $"{version.Major}.{version.Minor}-*";
+
+		Information($"SrcAssemblyVersion: {bld.SrcAssemblyVersion}");
+		Information($"SrcAssemblyFileVersion: {bld.SrcAssemblyFileVersion}");
+		Information($"SrcInformationalVersion: {bld.SrcInformationalVersion}");
+		Information($"SrcNugetVersion: {bld.SrcNugetVersion}");
+		Information($"DxVersion: {bld.DxVersion}");
 	});
 
 Task("Build:src")
-	.IsDependentOn("Restore")
-	.Does(() => DoBuild(bld.SrcSln, bld.Configurations));
+	.IsDependentOn("Version:src")
+	.Does(() => DoBuild(bld.SrcSln, bld.Configurations, settings =>
+		settings
+			.WithProperty("DxVersion", bld.DxVersion)
+			.WithProperty("Version", bld.SrcAssemblyVersion)
+			.WithProperty("FileVersion", bld.SrcAssemblyFileVersion)
+			.WithProperty("InformationalVersion", bld.SrcInformationalVersion)));
 
 Task("Test:src:Unit")
 	.IsDependentOn("Build:src")
@@ -53,9 +67,25 @@ Task("Test:src")
 	.IsDependentOn("Test:src:Integration");
 
 Task("Pack:src")
-	.IsDependentOn("Test:src");
+	.IsDependentOn("Build:src")
+	.Does(() => DoPack(bld.SrcSln, bld.ConfigurationRelease, (settings) => settings
+		.WithProperty("NoBuild", "True")
+		.WithProperty("PackageVersion", bld.SrcNugetVersion)
+		.WithProperty("PackageVersionPrefix", "")
+		.WithProperty("PackageVersionSuffix", "")
+		));
+
+Task("Build:demos")
+	.IsDependentOn("Pack:src")
+	.Does(() => DoBuild(bld.DemosSln, bld.Configurations, settings =>
+		settings
+			.WithProperty("DxVersion", bld.DxVersion)
+			.WithProperty("ScissorsVersion", bld.SrcNugetVersion)
+			.WithProperty("Version", bld.SrcAssemblyVersion)
+			.WithProperty("FileVersion", bld.SrcAssemblyFileVersion)
+			.WithProperty("InformationalVersion", bld.SrcInformationalVersion)));
 
 Task("Default")
-	.IsDependentOn("Pack:src");
+	.IsDependentOn("Build:demos");
 
-RunTarget("Default");
+RunTarget(target);
