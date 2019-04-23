@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "dependencies": {
+    ".NETFramework,Version=v4.6.2": {
+      "ILMerge.Fody": {
+        "type": "Direct",
+        "requested": "[1.4.0, )",
+        "resolved": "1.4.0",
+        "contentHash": "1eBJRkkoQ2WCoE6DQlmr76u2f9hE2BUTsIm4YGM+wS0qG2kx97EjYwv9FpUHZ0yOfGoQhtD3jC7EFG3kQaSgUg==",
+        "dependencies": {
+          "Fody": "3.3.5"
+        }
+      },
+      "Fody": {
+        "type": "Transitive",
+        "resolved": "3.3.5",
+        "contentHash": "SsDAvO5IODB/8Xdx1hUynvylW+8lWtHQupeH3yNv0MVO5rDzBfW+W5HqdkYpeNjqDTJRIY/+9zD1rW+zz8i7ig=="
+      },
+      "Scissors.Xaf.CacheWarmup.Attributes": {
+        "type": "Project"
+      },
+      "Scissors.Xaf.CacheWarmup.Generators": {
+        "type": "Project",
+        "dependencies": {
+          "Scissors.Xaf.CacheWarmup.Attributes": "18.2.1"
+        }
+      }
+    },
+    ".NETFramework,Version=v4.6.2/win7-x86": {}
+  }
+}

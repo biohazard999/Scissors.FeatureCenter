@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "dependencies": {
+    ".NETFramework,Version=v4.6.2": {
+      "DevExpress.ExpressApp": {
+        "type": "Direct",
+        "requested": "[18.2.7, )",
+        "resolved": "18.2.7",
+        "contentHash": "lG6+w8Qej+ZRYbD1/MkI2FJNm8O/L2l+jckC7ikGMCPTGnGR/vrEdef1sVIHdXfokOb4LCg872BOWT/3ytb8lw==",
+        "dependencies": {
+          "DevExpress.Data": "[18.2.7]",
+          "DevExpress.Images": "[18.2.7]",
+          "DevExpress.Printing.Core": "[18.2.7]",
+          "DevExpress.Utils": "[18.2.7]"
+        }
+      },
+      "DevExpress.Data": {
+        "type": "Transitive",
+        "resolved": "18.2.7",
+        "contentHash": "vhD2yDXl5ish12l+m7wOtvLrWBGKw5gS8hW7uqg0mAyRC9EqTrcS4MzvonFH+1VGtuVqiL3KvkLzZnd2i9Dj5g=="
+      },
+      "DevExpress.Images": {
+        "type": "Transitive",
+        "resolved": "18.2.7",
+        "contentHash": "5Wy7KIq+qBX06zSk84pEUV9AurPnyOq3ioru6tbeTVB6XF+4G1svGS3+RYSBZP6hqXVpFWSeFhCLkx9Jxzj8Ug==",
+        "dependencies": {
+          "DevExpress.Data": "[18.2.7]"
+        }
+      },
+      "DevExpress.Pdf.Core": {
+        "type": "Transitive",
+        "resolved": "18.2.7",
+        "contentHash": "E9ro2ZhS3fryd6gg3nX/MUOZ2D7ro+p9CjkoXIh8xVpwGGzkS0kq1J7mhA4cdnlqiVZVOE1NmAXyYMt4KPo2zA==",
+        "dependencies": {
+          "DevExpress.Data": "[18.2.7]"
+        }
+      },
+      "DevExpress.Printing.Core": {
+        "type": "Transitive",
+        "resolved": "18.2.7",
+        "contentHash": "2Nzj9hYTlRH6PAhcEpXIa2qWMLgvNIJtk3jJOjnNSg/ZXVfr3sGrXfWRpPwVk1bYfZzaCnnJKt3fi/vUd1e5VQ==",
+        "dependencies": {
+          "DevExpress.Data": "[18.2.7]",
+          "DevExpress.Pdf.Core": "[18.2.7]"
+        }
+      },
+      "DevExpress.Utils": {
+        "type": "Transitive",
+        "resolved": "18.2.7",
+        "contentHash": "dZcC2qA4WrAQugvGvwanfxCFusuxVYHE1BF2koz2GHgxoPYW/y4XAbNWBv5MXzP8h8SGF4EiWKt3/+KNW0eSBg==",
+        "dependencies": {
+          "DevExpress.Data": "[18.2.7]",
+          "DevExpress.Printing.Core": "[18.2.7]"
+        }
+      }
+    }
+  }
+}

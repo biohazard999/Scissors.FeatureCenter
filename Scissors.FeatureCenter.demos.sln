@@ -13,19 +13,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".config", ".config", "{768E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "demos", "demos", "{01CD28D2-04F3-40AF-A112-797CDCC42E98}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.FeatureCenter.Module", "demos\Scissors.FeatureCenter.Module\Scissors.FeatureCenter.Module.csproj", "{6FE58F90-3B54-4716-8E6E-0127992461ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.FeatureCenter.Module", "demos\win\Scissors.FeatureCenter.Module\Scissors.FeatureCenter.Module.csproj", "{6FE58F90-3B54-4716-8E6E-0127992461ED}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.FeatureCenter.Module.Win", "demos\Scissors.FeatureCenter.Module.Win\Scissors.FeatureCenter.Module.Win.csproj", "{5238823C-67CD-41F6-BB81-B351F9DCD45F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.FeatureCenter.Module.Win", "demos\win\Scissors.FeatureCenter.Module.Win\Scissors.FeatureCenter.Module.Win.csproj", "{5238823C-67CD-41F6-BB81-B351F9DCD45F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.FeatureCenter.Win", "demos\Scissors.FeatureCenter.Win\Scissors.FeatureCenter.Win.csproj", "{D05D93DF-312D-4D4E-B980-726871EC7833}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.FeatureCenter.Win", "demos\win\Scissors.FeatureCenter.Win\Scissors.FeatureCenter.Win.csproj", "{D05D93DF-312D-4D4E-B980-726871EC7833}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.FeatureCenter.Win10", "demos\Scissors.FeatureCenter.Win10\Scissors.FeatureCenter.Win10.csproj", "{199C4A09-1369-4C80-A334-5A225FA8C780}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.FeatureCenter.Win10", "demos\win10\Scissors.FeatureCenter.Win10\Scissors.FeatureCenter.Win10.csproj", "{199C4A09-1369-4C80-A334-5A225FA8C780}"
 EndProject
-Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "Scissors.FeatureCenter.Package", "demos\Scissors.FeatureCenter.Package\Scissors.FeatureCenter.Package.wapproj", "{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}"
+Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "Scissors.FeatureCenter.Package", "demos\win10\Scissors.FeatureCenter.Package\Scissors.FeatureCenter.Package.wapproj", "{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.FeatureCenter.Module.BusinessObjects", "demos\Scissors.FeatureCenter.Module.BusinessObjects\Scissors.FeatureCenter.Module.BusinessObjects.csproj", "{CA22E6AE-9925-4306-84CB-5806302B7DCE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.FeatureCenter.Module.BusinessObjects", "demos\win\Scissors.FeatureCenter.Module.BusinessObjects\Scissors.FeatureCenter.Module.BusinessObjects.csproj", "{CA22E6AE-9925-4306-84CB-5806302B7DCE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.FeatureCenter.Module.Contracts", "demos\Scissors.FeatureCenter.Module.Contracts\Scissors.FeatureCenter.Module.Contracts.csproj", "{9F5C928A-1B97-41E3-8ACF-7F7245C6B055}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.FeatureCenter.Module.Contracts", "demos\win\Scissors.FeatureCenter.Module.Contracts\Scissors.FeatureCenter.Module.Contracts.csproj", "{9F5C928A-1B97-41E3-8ACF-7F7245C6B055}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "win", "win", "{E647D488-D9A5-41F4-8170-369EBC69F893}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "win10", "win10", "{0AF75C07-90F9-4A03-9CA7-2D65762440D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -180,13 +184,15 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{6FE58F90-3B54-4716-8E6E-0127992461ED} = {01CD28D2-04F3-40AF-A112-797CDCC42E98}
-		{5238823C-67CD-41F6-BB81-B351F9DCD45F} = {01CD28D2-04F3-40AF-A112-797CDCC42E98}
-		{D05D93DF-312D-4D4E-B980-726871EC7833} = {01CD28D2-04F3-40AF-A112-797CDCC42E98}
-		{199C4A09-1369-4C80-A334-5A225FA8C780} = {01CD28D2-04F3-40AF-A112-797CDCC42E98}
-		{3F762A44-57B6-4789-BE1C-1CFBF2838CE1} = {01CD28D2-04F3-40AF-A112-797CDCC42E98}
-		{CA22E6AE-9925-4306-84CB-5806302B7DCE} = {01CD28D2-04F3-40AF-A112-797CDCC42E98}
-		{9F5C928A-1B97-41E3-8ACF-7F7245C6B055} = {01CD28D2-04F3-40AF-A112-797CDCC42E98}
+		{6FE58F90-3B54-4716-8E6E-0127992461ED} = {E647D488-D9A5-41F4-8170-369EBC69F893}
+		{5238823C-67CD-41F6-BB81-B351F9DCD45F} = {E647D488-D9A5-41F4-8170-369EBC69F893}
+		{D05D93DF-312D-4D4E-B980-726871EC7833} = {E647D488-D9A5-41F4-8170-369EBC69F893}
+		{199C4A09-1369-4C80-A334-5A225FA8C780} = {0AF75C07-90F9-4A03-9CA7-2D65762440D2}
+		{3F762A44-57B6-4789-BE1C-1CFBF2838CE1} = {0AF75C07-90F9-4A03-9CA7-2D65762440D2}
+		{CA22E6AE-9925-4306-84CB-5806302B7DCE} = {E647D488-D9A5-41F4-8170-369EBC69F893}
+		{9F5C928A-1B97-41E3-8ACF-7F7245C6B055} = {E647D488-D9A5-41F4-8170-369EBC69F893}
+		{E647D488-D9A5-41F4-8170-369EBC69F893} = {01CD28D2-04F3-40AF-A112-797CDCC42E98}
+		{0AF75C07-90F9-4A03-9CA7-2D65762440D2} = {01CD28D2-04F3-40AF-A112-797CDCC42E98}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {469CE51B-ECDA-486F-AFCD-E4CB6A371CFE}

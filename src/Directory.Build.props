@@ -15,5 +15,7 @@
 		<IncludeSource>True</IncludeSource>
 		<PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
 		<Deterministic>true</Deterministic>
+		<RestoreNoCache>True</RestoreNoCache>
+		<RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
 	</PropertyGroup>
 </Project>

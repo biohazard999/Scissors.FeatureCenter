@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "dependencies": {
+    ".NETFramework,Version=v4.6.2": {
+      "DevExpress.Xpo": {
+        "type": "Direct",
+        "requested": "[18.2.7, )",
+        "resolved": "18.2.7",
+        "contentHash": "tBH0gh7edp/xfPf1hOnT4ci8+Xa50FwRhes7H6dujMBjBDIsKDgZcUuR2HwaFB2KpY7uQf6x1uuQ6MvgD7/rgA==",
+        "dependencies": {
+          "DevExpress.Data": "[18.2.7]"
+        }
+      },
+      "DevExpress.Data": {
+        "type": "Transitive",
+        "resolved": "18.2.7",
+        "contentHash": "vhD2yDXl5ish12l+m7wOtvLrWBGKw5gS8hW7uqg0mAyRC9EqTrcS4MzvonFH+1VGtuVqiL3KvkLzZnd2i9Dj5g=="
+      },
+      "Scissors.Utils": {
+        "type": "Project"
+      }
+    }
+  }
+}

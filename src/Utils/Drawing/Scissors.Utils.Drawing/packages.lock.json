@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "dependencies": {
+    ".NETFramework,Version=v4.6.2": {
+      "Scissors.Utils": {
+        "type": "Project"
+      }
+    }
+  }
+}

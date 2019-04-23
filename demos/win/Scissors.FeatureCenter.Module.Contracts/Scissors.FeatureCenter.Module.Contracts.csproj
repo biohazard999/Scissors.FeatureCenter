@@ -3,6 +3,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="DevExpress.ExpressApp" Version="$(DxVersion)" />
+    <PackageReference Include="DevExpress.Data" Version="$(DxVersion)" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Data.DataSetExtensions" />

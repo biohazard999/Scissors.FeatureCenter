@@ -20,6 +20,7 @@ Task("Clean")
 			});
 
 		DoClean(bld.SrcSln, bld.Configurations);
+		DoClean(bld.DemosSln, bld.Configurations);
 	});
 
 Task("Version:src")
@@ -33,7 +34,7 @@ Task("Version:src")
 		bld.SrcAssemblyFileVersion = version.AssemblySemFileVer;
 		bld.SrcInformationalVersion = version.InformationalVersion;
 		bld.SrcNugetVersion = version.NuGetVersionV2;
-		bld.DxVersion = $"{version.Major}.{version.Minor}-*";
+		bld.DxVersion = $"{version.Major}.{version.Minor}.7";
 
 		Information($"SrcAssemblyVersion: {bld.SrcAssemblyVersion}");
 		Information($"SrcAssemblyFileVersion: {bld.SrcAssemblyFileVersion}");
@@ -43,6 +44,7 @@ Task("Version:src")
 	});
 
 Task("Build:src")
+	.IsDependentOn("Clean")
 	.IsDependentOn("Version:src")
 	.Does(() => DoBuild(bld.SrcSln, bld.Configurations, settings =>
 		settings

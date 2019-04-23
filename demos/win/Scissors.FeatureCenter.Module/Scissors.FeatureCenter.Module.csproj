@@ -3,6 +3,8 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Scissors.ExpressApp" Version="$(ScissorsVersion)" />
+    <PackageReference Include="DevExpress.Data" Version="$(DxVersion)" />
+		<PackageReference Include="DevExpress.ExpressApp" Version="$(DxVersion)" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Scissors.FeatureCenter.Module.BusinessObjects\Scissors.FeatureCenter.Module.BusinessObjects.csproj" />
