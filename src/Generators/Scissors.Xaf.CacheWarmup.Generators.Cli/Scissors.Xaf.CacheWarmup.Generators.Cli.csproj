@@ -1,5 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+		<Description>Contains an MSBuild target to warmup caches for DevExpress ExpressApp winforms applications</Description>
     <OutputType>Exe</OutputType>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
 		<BuildOutputTargetFolder>tools</BuildOutputTargetFolder>

@@ -1,5 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+		<Description>Contains logic to warmup caches for DevExpress ExpressApp winforms applications</Description>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\Scissors.Xaf.CacheWarmup.Attributes\Scissors.Xaf.CacheWarmup.Attributes.csproj" />

@@ -1,5 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+		<Description>Contains attributes to mark DevExpress ExpressApp winforms applications for cache warmup</Description>
   </PropertyGroup>
   <ItemGroup>
   </ItemGroup>

@@ -1,5 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+		<Description>Scissors module to provide inline editing capabilities in a grid for the DevExpress ExpressApp Framework</Description>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="DevExpress.ExpressApp.Win" Version="$(DxVersion)" />

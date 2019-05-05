@@ -1,5 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+		<Description>Scissors drawing and image difference library</Description>
   </PropertyGroup>
 
   <ItemGroup>

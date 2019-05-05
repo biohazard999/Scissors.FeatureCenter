@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+		<Description>Scissors extentions for the DevExpress ExpressApp Framework</Description>
   </PropertyGroup>
 
   <ItemGroup>

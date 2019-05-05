@@ -1,4 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+		<Description>Scissors contracts for the inline editing module for the DevExpress ExpressApp Framework</Description>
   </PropertyGroup>
 </Project>
