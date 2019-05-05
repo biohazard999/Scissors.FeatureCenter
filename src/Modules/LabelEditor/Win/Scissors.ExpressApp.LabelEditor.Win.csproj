@@ -1,5 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+		<Description>Scissors label editors module for the DevExpress ExpressApp Framework</Description>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="DevExpress.ExpressApp.Win" Version="$(DxVersion)" />
@@ -10,6 +11,6 @@
     <ProjectReference Include="..\Contracts\Scissors.ExpressApp.LabelEditor.Contracts.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms" Private="True" />
   </ItemGroup>
 </Project>

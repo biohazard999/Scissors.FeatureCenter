@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-		<TargetFramework>net462</TargetFramework>
+		<Description>Contains attributes to mark DevExpress ExpressApp winforms applications for cache warmup</Description>
   </PropertyGroup>
   <ItemGroup>
   </ItemGroup>
