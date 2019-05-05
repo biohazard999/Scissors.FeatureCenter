@@ -4,8 +4,8 @@
     <Copyright>Copyright © Manuel Grundner $([System.DateTime]::Today.ToString('yyyy'))</Copyright>
 		<Authors>Manuel Grundner</Authors>
     <LangVersion>latest</LangVersion>
-		<DxVersion>18.2.7</DxVersion>
-		<ScissorsVersion>18.2.1-*</ScissorsVersion>
+		<DxVersion>19.1.2</DxVersion>
+		<ScissorsVersion>19.1.1-*</ScissorsVersion>
 		<Deterministic>true</Deterministic>
 		<RestoreNoCache>True</RestoreNoCache>
 	</PropertyGroup>
