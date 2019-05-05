@@ -11,6 +11,6 @@
     <ProjectReference Include="..\Contracts\Scissors.ExpressApp.InlineEditForms.Contracts.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms" Private="True"/>
   </ItemGroup>
 </Project>

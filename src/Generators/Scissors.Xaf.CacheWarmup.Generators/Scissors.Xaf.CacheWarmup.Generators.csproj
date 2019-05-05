@@ -1,6 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-		<TargetFramework>net462</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\Scissors.Xaf.CacheWarmup.Attributes\Scissors.Xaf.CacheWarmup.Attributes.csproj" />
