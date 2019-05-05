@@ -50,13 +50,17 @@ Task("Version:src")
 		bld.SrcAssemblyFileVersion = version.AssemblySemFileVer;
 		bld.SrcInformationalVersion = version.InformationalVersion;
 		bld.SrcNugetVersion = version.NuGetVersionV2;
-		bld.DxVersion = $"{version.Major}.{version.Minor}.7";
+		bld.DxVersion = $"{version.Major}.{version.Minor}.{bld.DxVersion}";
+		bld.DxVersionDemos = $"{version.Major}.{version.Minor}.{bld.DxVersionDemos}";
+        bld.DemosVersion = $"{version.Major}.{version.Minor}.{version.CommitsSinceVersionSource}.0";
 
 		Information($"SrcAssemblyVersion: {bld.SrcAssemblyVersion}");
 		Information($"SrcAssemblyFileVersion: {bld.SrcAssemblyFileVersion}");
 		Information($"SrcInformationalVersion: {bld.SrcInformationalVersion}");
 		Information($"SrcNugetVersion: {bld.SrcNugetVersion}");
 		Information($"DxVersion: {bld.DxVersion}");
+		Information($"DxVersionDemos: {bld.DxVersionDemos}");
+		Information($"DemosVersion: {bld.DemosVersion}");
 	});
 
 Task("Build:src")
@@ -95,13 +99,24 @@ Task("Pack:src")
 		.WithProperty("PackageVersionSuffix", "")
 		));
 
+Task("Version:demos")
+	.IsDependentOn("Version:src")
+	.Does(() =>
+	{
+        XmlPoke("./demos/win10/Scissors.FeatureCenter.Package/Package.appxmanifest", "/Package:Package/Package:Identity/@Version", bld.DemosVersion, new XmlPokeSettings
+        {
+            Namespaces = new Dictionary<string, string> {{ "Package", "http://schemas.microsoft.com/appx/manifest/foundation/windows10" }}
+        });
+		Information($"DemosVersion: {bld.DemosVersion}");
+	});
 
 Task("Build:demos")
 	.IsDependentOn("Pack:src")
+	.IsDependentOn("Version:demos")
 	.Does(() => DoBuild(bld.DemosSln, bld.Configurations, settings =>
 		settings
 			.WithProperty("RestoreSources", $"{bld.NugetSources}{bld.ArtifactsNugetFolderAbsolute};")
-			.WithProperty("DxVersion", bld.DxVersion)
+			.WithProperty("DxVersion", bld.DxVersionDemos)
 			.WithProperty("ScissorsVersion", bld.SrcNugetVersion)
 			.WithProperty("Version", bld.SrcAssemblyVersion)
 			.WithProperty("FileVersion", bld.SrcAssemblyFileVersion)
