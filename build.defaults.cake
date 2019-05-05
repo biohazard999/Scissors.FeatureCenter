@@ -44,8 +44,8 @@ public class Bld
 	public string SrcAssemblyFileVersion { get; set; }
 	public string SrcInformationalVersion { get; set; }
 	public string SrcNugetVersion { get; set; }
-	public string DxVersion { get; set; } = "7";
-	public string DxVersionDemos { get; set; } = "7";
+	public string DxVersion { get; set; } = "2";
+	public string DxVersionDemos { get; set; } = "2";
 	public string DemosVersion { get; set; }
 
 	public string DemosPackageSource => $"{DemosFolder}/win10/Scissors.FeatureCenter.Package/AppPackages";
