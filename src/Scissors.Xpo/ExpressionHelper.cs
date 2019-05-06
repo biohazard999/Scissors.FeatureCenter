@@ -21,10 +21,10 @@ namespace Scissors.Xpo
         public BinaryOperator IsType<TRet>(Expression<Func<TObj, TRet>> expr, Type t)
             => TypeOperand(expr) == t.FullName;
 
-        public static string GetPropertyPath<TRet>(Expression<Func<TObj, TRet>> expr)
+        private static string GetPropertyPath<TRet>(Expression<Func<TObj, TRet>> expr)
             => ExpressionHelper.GetPropertyPath(expr);
 
-        public static OperandProperty GetOperand<TRet>(Expression<Func<TObj, TRet>> expr)
+        private static OperandProperty GetOperand<TRet>(Expression<Func<TObj, TRet>> expr)
             => new OperandProperty(ExpressionHelper.GetPropertyPath(expr));
 
         public static BinaryOperator GetObjectTypeOperator<TRet>(Expression<Func<TObj, TRet>> expr, Type objectType)
