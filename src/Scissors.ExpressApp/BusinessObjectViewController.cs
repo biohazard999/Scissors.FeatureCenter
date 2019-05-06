@@ -36,16 +36,18 @@ namespace Scissors.ExpressApp
             base.OnDeactivated();
         }
 
-        private void SubscribeToViewEvents()
+        protected virtual void SubscribeToViewEvents()
         {
             if(View != null)
             {
+                View.QueryCanChangeCurrentObject -= View_QueryCanChangeCurrentObject;
                 View.QueryCanChangeCurrentObject += View_QueryCanChangeCurrentObject;
+                View.CurrentObjectChanged -= View_CurrentObjectChanged;
                 View.CurrentObjectChanged += View_CurrentObjectChanged;
             }
         }
 
-        private void UnsubscribeFromViewEvents()
+        protected virtual void UnsubscribeFromViewEvents()
         {
             if(View != null)
             {
