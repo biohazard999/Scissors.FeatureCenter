@@ -2,7 +2,7 @@
   <PropertyGroup>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Scissors.ExpressApp" Version="$(ScissorsVersion)" />
+    <PackageReference Include="Scissors.ExpressApp" Version="19.1.2" />
     <PackageReference Include="DevExpress.Data" Version="$(DxVersion)" />
 		<PackageReference Include="DevExpress.ExpressApp" Version="$(DxVersion)" />
   </ItemGroup>
