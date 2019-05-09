@@ -1,9 +1,6 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DevExpress.ExpressApp.DC;
 using FakeItEasy;
 using Scissors.ExpressApp.ModelBuilders;
@@ -14,6 +11,8 @@ namespace Scissors.ExpressApp.Tests.ModelBuilders
 {
     public class ModelBuilderTests
     {
+        public class EmptyCtorLessAttribute : Attribute { }
+
         protected (ModelBuilder<ModelBuilderTests>, ITypeInfo) CreateBuilder()
         {
             var typesInfo = A.Fake<ITypesInfo>();
@@ -88,13 +87,11 @@ namespace Scissors.ExpressApp.Tests.ModelBuilders
 
         public class AddAttribute : ModelBuilderTests
         {
-            public class EmptyCtorLessAttribute : Attribute {  }
-
             [Fact]
             public void ShouldAdd()
             {
                 var (builder, typeInfo) = CreateBuilder();
-                    
+
                 builder.WithAttribute<EmptyCtorLessAttribute>();
 
                 A.CallTo(() => typeInfo.AddAttribute(
@@ -102,6 +99,29 @@ namespace Scissors.ExpressApp.Tests.ModelBuilders
                         a => a.GetType() == typeof(EmptyCtorLessAttribute))
                     )
                 ).MustHaveHappened();
+            }
+        }
+
+        public class For : ModelBuilderTests
+        {
+            [Fact]
+            public void ShouldAddAttribute()
+            {
+                var (builder, typeInfo) = CreateBuilder();
+
+                var memberInfo = A.Fake<IMemberInfo>();
+                A.CallTo(() => typeInfo.FindMember(nameof(ListThing)))
+                    .Returns(memberInfo);
+
+                builder.For(m => m.ListThing)
+                    .WithAttribute<EmptyCtorLessAttribute>();
+
+                A.CallTo(() =>
+                    memberInfo.AddAttribute(
+                        A<Attribute>.That.Matches(a =>
+                            a.GetType() == typeof(EmptyCtorLessAttribute)
+                        )
+                )).MustHaveHappenedOnceExactly();
             }
         }
     }

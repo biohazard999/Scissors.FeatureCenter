@@ -3,10 +3,8 @@ using System.Linq;
 
 namespace Scissors.ExpressApp.ModelBuilders
 {
-    public interface IBuilderManager
+    public interface IBuilderManager : IBuilder
     {
         IBuilderManager AddBuilder(IBuilder builder);
-
-        void Build();
     }
 }

@@ -36,21 +36,6 @@ namespace Scissors.ExpressApp.ModelBuilders
 
         public ModelBuilder<T> WithAttribute(Attribute attribute)
         {
-            //var usage_array = attribute.GetType().GetCustomAttributes(typeof(AttributeUsageAttribute), false);
-            //if(usage_array.Length == 1 && !((AttributeUsageAttribute)usage_array[0]).AllowMultiple)
-            //    RemoveAttribute(attribute.GetType());
-
-            //if(attribute is LayoutAttribute layout)
-            //{
-            //    var existingAttribute = TypeInfo.FindAttributes<LayoutAttribute>().Where(a => a.DetailViewId == layout.DetailViewId).FirstOrDefault();
-            //    if(existingAttribute != null)
-            //    {
-            //        var logger = LogManager.Instance.TryGet("Unexpected");
-            //        logger?.LogInfo("LayoutAttribute mit gleicher DetailViewId ({0}) überschrieben in {1}", layout.DetailViewId, TypeInfo.FullName);
-            //        (TypeInfo as TypeInfo).RemoveAttribute(existingAttribute);
-            //    }
-            //}
-
             TypeInfo.AddAttribute(attribute);
             return this;
         }
@@ -81,7 +66,7 @@ namespace Scissors.ExpressApp.ModelBuilders
         }
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public ModelBuilder<T> RemoveAttribute<TAttr>(Func<TAttr, bool> predicate)
+        public ModelBuilder<T> RemoveAttribute<TAttr>(Func<TAttr, bool> predicate = null)
             where TAttr : Attribute
         {
             var attr = FindAttribute(predicate);
@@ -113,5 +98,13 @@ namespace Scissors.ExpressApp.ModelBuilders
             return this;
         }
 
+        public PropertyBuilder<TProp, T> For<TProp>(Expression<Func<T, TProp>> property)
+        {
+            var builder = PropertyBuilder.PropertyBuilderFor<TProp, T>(TypeInfo.FindMember(Exp.Property(property)));
+            
+            AddBuilder(builder);
+
+            return builder;
+        }
     }
 }
