@@ -1,7 +1,6 @@
+using Shouldly;
 using System;
 using Xunit;
-using Shouldly;
-using DevExpress.Data.Filtering;
 
 namespace Scissors.Data.Tests
 {
@@ -33,6 +32,6 @@ namespace Scissors.Data.Tests
             public void ShouldReflectPropertyName() =>
                 ExpressionHelperObj.Sut.Property(m => m.StringProperty)
                     .ShouldBe(nameof(ExpressionHelperObj.StringProperty));
-        }    
+        }
     }
 }
