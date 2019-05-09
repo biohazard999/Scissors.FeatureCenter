@@ -10,6 +10,7 @@ using Xunit;
 using Shouldly;
 using System.Threading;
 using OpenQA.Selenium.Interactions;
+using Scissors.Utils.Testing.XUnit;
 
 namespace Scissors.ExpressApp.InlineEditForms.UITests
 {
@@ -127,6 +128,7 @@ namespace Scissors.ExpressApp.InlineEditForms.UITests
         }
 
         [Fact]
+        [UITest]
         public void Success()
         {
             _Fixture.Session.FindElementByName("Text row 0")
@@ -155,6 +157,7 @@ namespace Scissors.ExpressApp.InlineEditForms.UITests
         }
 
         [Fact]
+        [UITest]
         public void Cancel()
         {
             _Fixture.Session.FindElementByName("Text row 0")
