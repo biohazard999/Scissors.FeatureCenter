@@ -1,16 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OpenQA.Selenium.Appium.Windows;
-using OpenQA.Selenium.Remote;
 using OpenQA.Selenium;
-using Xunit;
-using Shouldly;
-using System.Threading;
+using OpenQA.Selenium.Appium.Windows;
 using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Remote;
 using Scissors.Utils.Testing.XUnit;
+using Shouldly;
+using System;
+using System.Linq;
+using System.Threading;
+using Xunit;
 
 namespace Scissors.ExpressApp.InlineEditForms.UITests
 {
@@ -23,7 +20,6 @@ namespace Scissors.ExpressApp.InlineEditForms.UITests
 #else
         private const string featureCenterPath = @"C:\F\git\Scissors.FeatureCenter\Scissors.FeatureCenter.Win\bin\Release\Scissors.FeatureCenter.Win.exe";
 #endif
-        private const string featureCenterAppId = "Scissors.FeatureCenter.Win_ncze720tdpmp2!App";
 
         public WindowsDriver<WindowsElement> Session { get; private set; }
         public InlineEditFormsFixture()
@@ -67,7 +63,7 @@ namespace Scissors.ExpressApp.InlineEditForms.UITests
     public class InlineEditorFormsCollection : ICollectionFixture<InlineEditFormsFixture>
     {
     }
-    
+
     [Collection(nameof(InlineEditorFormsCollection))]
     public class InlineEditFormsUITests : IDisposable
     {
