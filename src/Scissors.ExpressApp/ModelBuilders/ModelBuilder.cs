@@ -20,18 +20,16 @@ namespace Scissors.ExpressApp.ModelBuilders
 
     public class ModelBuilder<T> : BuilderManager, ITypeInfoProvider
     {
-        public ITypeInfo TypeInfo { get; }
-
-        public readonly Type TargetType = typeof(T);
-
-        public readonly ExpressionHelper<T> Exp = new ExpressionHelper<T>();
-
-        protected virtual string DefaultDetailView => ModelNodeIdHelper.GetDetailViewId(typeof(T));
-        protected virtual string DefaultListView => ModelNodeIdHelper.GetListViewId(typeof(T));
-        protected virtual string DefaultLookupListView => ModelNodeIdHelper.GetLookupListViewId(typeof(T));
-
         public ModelBuilder(ITypeInfo typeInfo) => TypeInfo = typeInfo;
 
+        public ITypeInfo TypeInfo { get; }
+        public readonly Type TargetType = typeof(T);
+        [EditorBrowsable(EditorBrowsableState.Advanced)]
+        public readonly ExpressionHelper<T> Exp = new ExpressionHelper<T>();
+
+        public virtual string DefaultDetailView => ModelNodeIdHelper.GetDetailViewId(typeof(T));
+        public virtual string DefaultListView => ModelNodeIdHelper.GetListViewId(typeof(T));
+        public virtual string DefaultLookupListView => ModelNodeIdHelper.GetLookupListViewId(typeof(T));
         public virtual string NestedListViewId<TRet>(Expression<Func<T, TRet>> expr)
             where TRet : IEnumerable
                 => ModelNodeIdHelper.GetNestedListViewId(typeof(T), Exp.Property(expr));
