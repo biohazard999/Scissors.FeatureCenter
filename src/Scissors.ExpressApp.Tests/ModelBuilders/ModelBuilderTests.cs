@@ -14,11 +14,20 @@ namespace Scissors.ExpressApp.Tests.ModelBuilders
 {
     public class ModelBuilderTests
     {
+        protected (ModelBuilder<ModelBuilderTests>, ITypeInfo) CreateBuilder()
+        {
+            var typesInfo = A.Fake<ITypesInfo>();
+            var typeInfo = A.Fake<ITypeInfo>();
+            A.CallTo(() => typesInfo.FindTypeInfo(typeof(ModelBuilderTests))).Returns(typeInfo);
+            var builder = ModelBuilder.Create<ModelBuilderTests>(typesInfo);
+            return (builder, typeInfo);
+        }
+
         public IList ListThing { get; }
 
-        public class ModelBuilderFactory
+        public class ModelBuilderFactory : ModelBuilderTests
         {
-            public class Create
+            public class Create : ModelBuilderFactory
             {
                 [Fact]
                 public void ShouldBeInstanceOfModelBuilder()
@@ -30,16 +39,13 @@ namespace Scissors.ExpressApp.Tests.ModelBuilders
                 [Fact]
                 public void TypeInfoIsCorrect()
                 {
-                    var typesInfo = A.Fake<ITypesInfo>();
-                    var typeInfo = A.Fake<ITypeInfo>();
-                    A.CallTo(() => typesInfo.FindTypeInfo(typeof(ModelBuilderTests))).Returns(typeInfo);
-                    var builder = ModelBuilder.Create<ModelBuilderTests>(typesInfo);
+                    var (builder, typeInfo) = CreateBuilder();
                     builder.TypeInfo.ShouldBe(typeInfo);
                 }
             }
         }
 
-        public class Common
+        public class Common : ModelBuilderTests
         {
             [Fact]
             public void TypeIsCorrect()
@@ -49,7 +55,7 @@ namespace Scissors.ExpressApp.Tests.ModelBuilders
             }
         }
 
-        public class ViewIds
+        public class ViewIds : ModelBuilderTests
         {
             [Fact]
             public void DefaultDetailView()
@@ -77,6 +83,25 @@ namespace Scissors.ExpressApp.Tests.ModelBuilders
             {
                 var builder = ModelBuilder.Create<ModelBuilderTests>(A.Fake<ITypesInfo>());
                 builder.NestedListViewId(p => p.ListThing).ShouldBe("ModelBuilderTests_ListThing_ListView");
+            }
+        }
+
+        public class AddAttribute : ModelBuilderTests
+        {
+            public class EmptyCtorLessAttribute : Attribute {  }
+
+            [Fact]
+            public void ShouldAdd()
+            {
+                var (builder, typeInfo) = CreateBuilder();
+                    
+                builder.WithAttribute<EmptyCtorLessAttribute>();
+
+                A.CallTo(() => typeInfo.AddAttribute(
+                    A<Attribute>.That.Matches(
+                        a => a.GetType() == typeof(EmptyCtorLessAttribute))
+                    )
+                ).MustHaveHappened();
             }
         }
     }

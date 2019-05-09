@@ -88,7 +88,7 @@ namespace Scissors.ExpressApp.ModelBuilders
 
             if(attr != null && TypeInfo is TypeInfo)
             {
-                (TypeInfo as TypeInfo)?.RemoveAttribute(attr);
+                (TypeInfo as TypeInfo).RemoveAttribute(attr);
             }
 
             return this;
