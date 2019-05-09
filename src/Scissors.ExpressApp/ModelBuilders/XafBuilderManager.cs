@@ -1,4 +1,5 @@
-﻿using DevExpress.ExpressApp.DC;
+using System.Collections.Generic;
+using DevExpress.ExpressApp.DC;
 
 namespace Scissors.ExpressApp.ModelBuilders
 {
@@ -9,14 +10,18 @@ namespace Scissors.ExpressApp.ModelBuilders
         public XafBuilderManager(ITypesInfo typesInfo)
             => TypesInfo = typesInfo;
 
-        protected virtual void AddBuilders()
+        protected virtual IEnumerable<IBuilder> CreateBuilders()
         {
-
+            yield break;
         }
 
         public override void Build()
         {
-            AddBuilders();
+            foreach(var builder in CreateBuilders())
+            {
+                AddBuilder(builder);
+            }
+
             base.Build();
         }
 

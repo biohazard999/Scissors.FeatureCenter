@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DevExpress.ExpressApp.DC;
 using FakeItEasy;
 using Scissors.ExpressApp.ModelBuilders;
@@ -82,12 +80,11 @@ namespace Scissors.ExpressApp.Tests.ModelBuilders
                 public TestXafBuilderManager(ITypesInfo typesInfo) : base(typesInfo) { }
 
                 public IBuilder Builder = A.Fake<IBuilder>();
-                
-                protected override void AddBuilders()
+
+                protected override IEnumerable<IBuilder> CreateBuilders() => new[]
                 {
-                    base.AddBuilders();
-                    AddBuilder(Builder);
-                }
+                    Builder
+                };
             }
 
             [Fact]

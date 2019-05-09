@@ -1,15 +1,11 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.DC;
 using DevExpress.ExpressApp.Model.NodeGenerators;
 using Scissors.Data;
+using System;
+using System.Collections;
+using System.ComponentModel;
+using System.Linq;
+using System.Linq.Expressions;
 
 namespace Scissors.ExpressApp.ModelBuilders
 {
@@ -70,7 +66,7 @@ namespace Scissors.ExpressApp.ModelBuilders
         public ModelBuilder<T> WithAttribute<TAttribute>(Action<TAttribute> configureAction = null) where TAttribute : Attribute, new()
             => WithAttribute(new TAttribute(), configureAction);
 
-        [EditorBrowsable(EditorBrowsableState.Advanced)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public ModelBuilder<T> RemoveAttribute(Type attributeType)
         {
             if(TypeInfo is TypeInfo)
@@ -86,7 +82,7 @@ namespace Scissors.ExpressApp.ModelBuilders
             return this;
         }
 
-        [EditorBrowsable(EditorBrowsableState.Advanced)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public ModelBuilder<T> RemoveAttribute<TAttr>(Func<TAttr, bool> predicate)
             where TAttr : Attribute
         {
@@ -100,12 +96,12 @@ namespace Scissors.ExpressApp.ModelBuilders
             return this;
         }
 
-        [EditorBrowsable(EditorBrowsableState.Advanced)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public TAttr FindAttribute<TAttr>(Func<TAttr, bool> predicate = null)
             where TAttr : Attribute
-            => TypeInfo.Attributes.OfType<TAttr>().FirstOrDefault(predicate ?? (attr => true));
+                => TypeInfo.Attributes.OfType<TAttr>().FirstOrDefault(predicate ?? (attr => true));
 
-        [EditorBrowsable(EditorBrowsableState.Advanced)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public ModelBuilder<T> ConfigureAttribute<TAttr>(Action<TAttr> action, Func<TAttr, bool> predicate = null)
             where TAttr : Attribute
         {
