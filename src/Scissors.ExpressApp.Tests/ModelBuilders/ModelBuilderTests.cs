@@ -123,6 +123,21 @@ namespace Scissors.ExpressApp.Tests.ModelBuilders
                         )
                 )).MustHaveHappenedOnceExactly();
             }
+
+            [Fact]
+            public void PropertyNameIsCorrect()
+            {
+                var (builder, typeInfo) = CreateBuilder();
+
+                var memberInfo = A.Fake<IMemberInfo>();
+                A.CallTo(() => typeInfo.FindMember(nameof(ListThing)))
+                        .Returns(memberInfo);
+
+                A.CallTo(() => memberInfo.Name).Returns(nameof(ListThing));
+
+                builder.For(m => m.ListThing)
+                        .PropertyName.ShouldBe(nameof(ListThing));
+            }
         }
     }
 }
