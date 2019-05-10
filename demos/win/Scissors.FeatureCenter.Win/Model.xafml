@@ -1,27 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application Logo="ExpressAppLogo">
-  <BOModel>
-    <Class Name="Scissors.FeatureCenter.Modules.LabelEditorDemos.BusinessObjects.LabelDemoModel">
-      <OwnMembers>
-        <Member Name="Text" PropertyEditorType="Scissors.ExpressApp.LabelEditor.Win.Editors.LabelStringPropertyEditor" />
-      </OwnMembers>
-    </Class>
-  </BOModel>
-  <NavigationItems StartupNavigationItem="">
-    <Items>
-      <Item Id="LabelDemoModel" ViewId="LabelDemoModel_ListView" IsNewNode="True">
-        <Items IsNewNode="True">
-          <Item Id="LabelDemoModel_ListView" ViewId="LabelDemoModel_ListView" IsNewNode="True" />
-        </Items>
-      </Item>
-    </Items>
-  </NavigationItems>
-  <Options Skin="Office 2016 Colorful" UIType="TabbedMDI" FormStyle="Ribbon">
-    <RibbonOptions RibbonControlStyle="Office2013" />
+  <Options Skin="Office 2019 Colorful" UIType="TabbedMDI" FormStyle="Ribbon" EnableHtmlFormatting="True">
+    <RibbonOptions RibbonControlStyle="Office2019" />
   </Options>
   <SchemaModules>
-    <SchemaModule Name="SystemModule" Version="18.2.7.0" IsNewNode="True" />
-    <SchemaModule Name="SystemWindowsFormsModule" Version="18.2.7.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="19.1.2.0" IsNewNode="True" />
+    <SchemaModule Name="SystemWindowsFormsModule" Version="19.1.2.0" IsNewNode="True" />
   </SchemaModules>
   <Views>
     <DetailView Id="LabelDemoModel_DetailView" DefaultFocusedItem="Html">

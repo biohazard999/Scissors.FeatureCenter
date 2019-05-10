@@ -13,23 +13,23 @@ namespace Scissors.FeatureCenter.Modules.BusinessObjects.LabelDemos
 
         public LabelDemoModel(Session session) : base(session) { }
 
-        string _Text;
+        private string text;
         [Persistent]
         public string Text
         {
-            get => _Text;
-            set => SetPropertyValue(ref _Text, value);
+            get => text;
+            set => SetPropertyValue(ref text, value);
         }
 
-        string _Html;
+        private string html;
         public string Html
         {
-            get => _Html;
+            get => html;
             set
             {
-                if(SetPropertyValue(ref _Html, value))
+                if(SetPropertyValue(ref html, value))
                 {
-                    Text = _Html;
+                    Text = html;
                 }
             }
         }
