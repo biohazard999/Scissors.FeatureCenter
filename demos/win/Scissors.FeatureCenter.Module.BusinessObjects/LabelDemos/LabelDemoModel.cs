@@ -1,8 +1,7 @@
 using System;
 using System.Linq;
-using DevExpress.Data.Filtering;
 using DevExpress.Xpo;
-using Scissors.Xpo;
+using Scissors.Data;
 using Scissors.Xpo.Persistent;
 
 namespace Scissors.FeatureCenter.Modules.BusinessObjects.LabelDemos

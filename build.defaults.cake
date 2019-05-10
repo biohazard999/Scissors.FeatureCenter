@@ -1,6 +1,8 @@
 string nugetFeed = EnvironmentVariable("NUGET_FEED") ?? null;
+string storeDir = EnvironmentVariable("STORE_DIR") ?? null;
 
 Information("Nuget Feed: {0}", nugetFeed);
+Information("Store Dir: {0}", storeDir);
 
 public class Bld
 {
@@ -48,8 +50,9 @@ public class Bld
 	public string DxVersionDemos { get; set; } = "2";
 	public string DemosVersion { get; set; }
 
-	public string DemosPackageSource => $"{DemosFolder}/win10/Scissors.FeatureCenter.Package/AppPackages";
-
+	public string StoreFilesDir { get; set; }
+	public string DemosPackageFolder => $"{DemosFolder}/win10/Scissors.FeatureCenter.Package";
+	public string DemosPackageSource => $"{DemosPackageFolder}/AppPackages";
 	public string NugetSources => String.Join(";", NugetDefaultSources) + ";";
 }
 
@@ -57,5 +60,9 @@ var bld = new Bld();
 if(!string.IsNullOrEmpty(nugetFeed))
 {
 	bld.NugetDefaultSources.Add(nugetFeed);
+}
+if(!string.IsNullOrEmpty(storeDir))
+{
+	bld.StoreFilesDir = storeDir;
 }
 bld.ArtifactsNugetFolderAbsolute = Directory(bld.ArtifactsNugetFolder).Path.MakeAbsolute(Context.Environment).ToString().Replace("/", @"\");
