@@ -13,9 +13,6 @@ namespace Scissors.FeatureCenter.Module
 {
     public sealed class FeatureCenterModule : ScissorsBaseModule
     {
-        protected override ModuleTypeList GetRequiredModuleTypesCore() => base.GetRequiredModuleTypesCore()
-            .AndModuleTypes(typeof(SystemModule));
-        
         protected override IEnumerable<Type> GetDeclaredExportedTypes()
             => DemosBusinessObjects.Types;
 
