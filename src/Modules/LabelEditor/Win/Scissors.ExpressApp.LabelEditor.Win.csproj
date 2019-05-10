@@ -8,6 +8,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\Scissors.ExpressApp.Win\Scissors.ExpressApp.Win.csproj" />
     <ProjectReference Include="..\..\..\Scissors.ExpressApp\Scissors.ExpressApp.csproj" />
+    <ProjectReference Include="..\Base\Scissors.ExpressApp.LabelEditor.csproj" />
     <ProjectReference Include="..\Contracts\Scissors.ExpressApp.LabelEditor.Contracts.csproj" />
   </ItemGroup>
   <ItemGroup>

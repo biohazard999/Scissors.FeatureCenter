@@ -21,7 +21,7 @@ namespace Scissors.FeatureCenter.Module.ModelBuilders.LabelDemos
                 .HasNavigationItem("PropertyEditors");
 
             For(p => p.Text)
-                .UsingEditorAlias(LabelEditorAliases.LabelStringEditor);
+                .UsingLabelPropertyEditor();
 
             For(p => p.Html)
                 .ImmediatePostsData();

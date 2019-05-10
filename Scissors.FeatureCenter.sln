@@ -91,6 +91,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.ExpressApp.Xpo.Tes
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.Xpo.Tests", "src\Scissors.Xpo.Tests\Scissors.Xpo.Tests.csproj", "{54BAFA50-F171-4B00-8CC1-E3E2BFCFD548}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.ExpressApp.LabelEditor", "src\Modules\LabelEditor\Base\Scissors.ExpressApp.LabelEditor.csproj", "{32ED0D72-A796-4E37-A0D9-4937C1200203}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -617,6 +619,24 @@ Global
 		{54BAFA50-F171-4B00-8CC1-E3E2BFCFD548}.Release|x64.Build.0 = Release|Any CPU
 		{54BAFA50-F171-4B00-8CC1-E3E2BFCFD548}.Release|x86.ActiveCfg = Release|Any CPU
 		{54BAFA50-F171-4B00-8CC1-E3E2BFCFD548}.Release|x86.Build.0 = Release|Any CPU
+		{32ED0D72-A796-4E37-A0D9-4937C1200203}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32ED0D72-A796-4E37-A0D9-4937C1200203}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32ED0D72-A796-4E37-A0D9-4937C1200203}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{32ED0D72-A796-4E37-A0D9-4937C1200203}.Debug|x64.Build.0 = Debug|Any CPU
+		{32ED0D72-A796-4E37-A0D9-4937C1200203}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{32ED0D72-A796-4E37-A0D9-4937C1200203}.Debug|x86.Build.0 = Debug|Any CPU
+		{32ED0D72-A796-4E37-A0D9-4937C1200203}.EasyTest|Any CPU.ActiveCfg = Debug|Any CPU
+		{32ED0D72-A796-4E37-A0D9-4937C1200203}.EasyTest|Any CPU.Build.0 = Debug|Any CPU
+		{32ED0D72-A796-4E37-A0D9-4937C1200203}.EasyTest|x64.ActiveCfg = Debug|Any CPU
+		{32ED0D72-A796-4E37-A0D9-4937C1200203}.EasyTest|x64.Build.0 = Debug|Any CPU
+		{32ED0D72-A796-4E37-A0D9-4937C1200203}.EasyTest|x86.ActiveCfg = Debug|Any CPU
+		{32ED0D72-A796-4E37-A0D9-4937C1200203}.EasyTest|x86.Build.0 = Debug|Any CPU
+		{32ED0D72-A796-4E37-A0D9-4937C1200203}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32ED0D72-A796-4E37-A0D9-4937C1200203}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32ED0D72-A796-4E37-A0D9-4937C1200203}.Release|x64.ActiveCfg = Release|Any CPU
+		{32ED0D72-A796-4E37-A0D9-4937C1200203}.Release|x64.Build.0 = Release|Any CPU
+		{32ED0D72-A796-4E37-A0D9-4937C1200203}.Release|x86.ActiveCfg = Release|Any CPU
+		{32ED0D72-A796-4E37-A0D9-4937C1200203}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -660,6 +680,7 @@ Global
 		{49E0A180-C078-4B8A-BFA8-EB48465FFC70} = {1D7734E8-0F8A-4BEE-813D-05D4453A4783}
 		{3A44EB9E-ED77-499B-95DA-4E47A07AD900} = {1D7734E8-0F8A-4BEE-813D-05D4453A4783}
 		{54BAFA50-F171-4B00-8CC1-E3E2BFCFD548} = {1D7734E8-0F8A-4BEE-813D-05D4453A4783}
+		{32ED0D72-A796-4E37-A0D9-4937C1200203} = {1B3151BE-D295-4740-831A-B26CB2AD8712}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {469CE51B-ECDA-486F-AFCD-E4CB6A371CFE}
