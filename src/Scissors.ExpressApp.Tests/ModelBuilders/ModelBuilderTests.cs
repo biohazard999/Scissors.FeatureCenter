@@ -11,7 +11,10 @@ namespace Scissors.ExpressApp.Tests.ModelBuilders
 {
     public class ModelBuilderTests
     {
-        public class EmptyCtorLessAttribute : Attribute { }
+        public class EmptyCtorLessAttribute : Attribute
+        {
+            public string AttributeProperty { get; set; }
+        }
 
         protected (ModelBuilder<ModelBuilderTests>, ITypeInfo) CreateBuilder()
         {
@@ -99,6 +102,68 @@ namespace Scissors.ExpressApp.Tests.ModelBuilders
                         a => a.GetType() == typeof(EmptyCtorLessAttribute))
                     )
                 ).MustHaveHappened();
+            }
+        }
+
+        public class RemoveAttribute : ModelBuilderTests
+        {
+            [Fact]
+            public void ShouldRemoveOfT()
+            {
+                var typesInfo = new TypesInfo();
+                var typeInfo = typesInfo.FindTypeInfo(typeof(ModelBuilderTests));
+                var builder = ModelBuilder.Create<ModelBuilderTests>(typesInfo);
+
+                builder.WithAttribute<EmptyCtorLessAttribute>();
+
+                typeInfo
+                    .FindAttribute<EmptyCtorLessAttribute>()
+                    .ShouldNotBeNull();
+
+                builder.RemoveAttribute<EmptyCtorLessAttribute>();
+
+                typeInfo
+                    .FindAttribute<EmptyCtorLessAttribute>()
+                    .ShouldBeNull();
+            }
+
+            [Fact]
+            public void ShouldRemove()
+            {
+                var typesInfo = new TypesInfo();
+                var typeInfo = typesInfo.FindTypeInfo(typeof(ModelBuilderTests));
+                var builder = ModelBuilder.Create<ModelBuilderTests>(typesInfo);
+
+                builder.WithAttribute<EmptyCtorLessAttribute>();
+
+                typeInfo
+                    .FindAttribute<EmptyCtorLessAttribute>()
+                    .ShouldNotBeNull();
+
+                builder.RemoveAttribute(typeof(EmptyCtorLessAttribute));
+
+                typeInfo
+                    .FindAttribute<EmptyCtorLessAttribute>()
+                    .ShouldBeNull();
+            }
+        }
+
+        public class ConfigureAttribute : ModelBuilderTests
+        {
+            [Fact]
+            public void ShouldConfigure()
+            {
+                var typesInfo = new TypesInfo();
+                var typeInfo = typesInfo.FindTypeInfo(typeof(ModelBuilderTests));
+                var builder = ModelBuilder.Create<ModelBuilderTests>(typesInfo);
+
+                builder.WithAttribute<EmptyCtorLessAttribute>();
+
+                builder.ConfigureAttribute<EmptyCtorLessAttribute>(a => a.AttributeProperty = nameof(ConfigureAttribute));
+                
+                typeInfo
+                    .FindAttribute<EmptyCtorLessAttribute>()
+                    .AttributeProperty.ShouldBe(nameof(ConfigureAttribute));
             }
         }
 
