@@ -18,14 +18,35 @@ namespace Scissors.ExpressApp.ModelBuilders
             => new ModelBuilder<T>(typesInfo.FindTypeInfo<T>());
     }
 
-    public class ModelBuilder<T> : BuilderManager, ITypeInfoProvider
+    public interface IModelBuilder<T>
+    {
+        IModelBuilder<T> ConfigureAttribute<TAttr>(Action<TAttr> action, Func<TAttr, bool> predicate = null) where TAttr : Attribute;
+        TAttr FindAttribute<TAttr>(Func<TAttr, bool> predicate = null) where TAttr : Attribute;
+        PropertyBuilder<TProp, T> For<TProp>(Expression<Func<T, TProp>> property);
+        string NestedListViewId<TRet>(Expression<Func<T, TRet>> expr) where TRet : IEnumerable;
+        IModelBuilder<T> RemoveAttribute<TAttr>(Func<TAttr, bool> predicate = null) where TAttr : Attribute;
+        IModelBuilder<T> RemoveAttribute(Type attributeType);
+        IModelBuilder<T> WithAttribute<TAttribute>(Action<TAttribute> configureAction = null) where TAttribute : Attribute, new();
+        IModelBuilder<T> WithAttribute(Attribute attribute);
+        IModelBuilder<T> WithAttribute<TAttribute>(TAttribute attribute, Action<TAttribute> configureAction = null) where TAttribute : Attribute;
+
+        string DefaultDetailView { get; }
+        string DefaultListView { get; }
+        string DefaultLookupListView { get; }
+
+        ExpressionHelper<T> Exp { get; }
+        ITypeInfo TypeInfo { get; }
+        Type TargetType { get; }
+    }
+
+    public class ModelBuilder<T> : BuilderManager, ITypeInfoProvider, IModelBuilder<T>
     {
         public ModelBuilder(ITypeInfo typeInfo) => TypeInfo = typeInfo;
 
         public ITypeInfo TypeInfo { get; }
-        public readonly Type TargetType = typeof(T);
+        public Type TargetType { get; } = typeof(T);
         [EditorBrowsable(EditorBrowsableState.Advanced)]
-        public readonly ExpressionHelper<T> Exp = new ExpressionHelper<T>();
+        public ExpressionHelper<T> Exp { get; } = new ExpressionHelper<T>();
 
         public virtual string DefaultDetailView => ModelNodeIdHelper.GetDetailViewId(typeof(T));
         public virtual string DefaultListView => ModelNodeIdHelper.GetListViewId(typeof(T));
@@ -34,23 +55,23 @@ namespace Scissors.ExpressApp.ModelBuilders
             where TRet : IEnumerable
                 => ModelNodeIdHelper.GetNestedListViewId(typeof(T), Exp.Property(expr));
 
-        public ModelBuilder<T> WithAttribute(Attribute attribute)
+        public IModelBuilder<T> WithAttribute(Attribute attribute)
         {
             TypeInfo.AddAttribute(attribute);
             return this;
         }
 
-        public ModelBuilder<T> WithAttribute<TAttribute>(TAttribute attribute, Action<TAttribute> configureAction = null) where TAttribute : Attribute
+        public IModelBuilder<T> WithAttribute<TAttribute>(TAttribute attribute, Action<TAttribute> configureAction = null) where TAttribute : Attribute
         {
             configureAction?.Invoke(attribute);
             return WithAttribute((Attribute)attribute);
         }
 
-        public ModelBuilder<T> WithAttribute<TAttribute>(Action<TAttribute> configureAction = null) where TAttribute : Attribute, new()
+        public IModelBuilder<T> WithAttribute<TAttribute>(Action<TAttribute> configureAction = null) where TAttribute : Attribute, new()
             => WithAttribute(new TAttribute(), configureAction);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public ModelBuilder<T> RemoveAttribute(Type attributeType)
+        public IModelBuilder<T> RemoveAttribute(Type attributeType)
         {
             if(TypeInfo is TypeInfo)
             {
@@ -66,7 +87,7 @@ namespace Scissors.ExpressApp.ModelBuilders
         }
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public ModelBuilder<T> RemoveAttribute<TAttr>(Func<TAttr, bool> predicate = null)
+        public IModelBuilder<T> RemoveAttribute<TAttr>(Func<TAttr, bool> predicate = null)
             where TAttr : Attribute
         {
             var attr = FindAttribute(predicate);
@@ -85,7 +106,7 @@ namespace Scissors.ExpressApp.ModelBuilders
                 => TypeInfo.Attributes.OfType<TAttr>().FirstOrDefault(predicate ?? (attr => true));
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public ModelBuilder<T> ConfigureAttribute<TAttr>(Action<TAttr> action, Func<TAttr, bool> predicate = null)
+        public IModelBuilder<T> ConfigureAttribute<TAttr>(Action<TAttr> action, Func<TAttr, bool> predicate = null)
             where TAttr : Attribute
         {
             var attr = FindAttribute(predicate);
@@ -101,7 +122,7 @@ namespace Scissors.ExpressApp.ModelBuilders
         public PropertyBuilder<TProp, T> For<TProp>(Expression<Func<T, TProp>> property)
         {
             var builder = PropertyBuilder.PropertyBuilderFor<TProp, T>(TypeInfo.FindMember(Exp.Property(property)));
-            
+
             AddBuilder(builder);
 
             return builder;
