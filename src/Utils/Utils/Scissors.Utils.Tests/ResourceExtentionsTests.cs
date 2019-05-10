@@ -48,7 +48,7 @@ namespace Scissors.Utils.Tests
         [Fact]
         public void TypeGuardsAgainstNull()
         {
-            Type? t = null;
+            Type t = null;
             Should.Throw<ArgumentNullException>(() => t.GetResourceStream(null));
         }
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference or unconstrained type parameter.
@@ -57,7 +57,7 @@ namespace Scissors.Utils.Tests
         [Fact]
         public void ObjectGuardsAgainstNull()
         {
-            object? obj = null;
+            object obj = null;
             Should.Throw<ArgumentNullException>(() => obj.GetResourceStream(null));
         }
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference or unconstrained type parameter.

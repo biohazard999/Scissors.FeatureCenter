@@ -201,5 +201,7 @@ namespace Scissors.ExpressApp.Tests.ModelBuilders
                 .HasObjectCaptionFormat(p => p.Default)
                 .AssertAttribute<ObjectCaptionFormatAttribute>(a => a.FormatString == "{0:Default}");
         }
+
+    
     }
 }
