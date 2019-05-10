@@ -11,9 +11,9 @@ namespace Scissors.Utils.Tests
     {
         class TargetClass
         {
-            public TargetClass? A { get; set; }
-            public TargetClass? B { get; set; }
-            public TargetClass? C { get; set; }
+            public TargetClass A { get; set; }
+            public TargetClass B { get; set; }
+            public TargetClass C { get; set; }
         }
 
         string PropertyName<TRet>(Expression<Func<TargetClass, TRet>> expression)
