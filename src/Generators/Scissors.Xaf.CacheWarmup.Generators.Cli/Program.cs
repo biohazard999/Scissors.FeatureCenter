@@ -19,6 +19,18 @@ namespace Scissors.Xaf.CacheWarmup.Generators.Cli
             var assemblyDirectory = Path.GetDirectoryName(assemblyPath);
             Console.WriteLine($"AssemblyDirectory: '{assemblyDirectory}'");
 
+            Console.WriteLine("Clean All old asserts");
+
+            foreach(var file in Directory.EnumerateFiles(Path.GetDirectoryName(typeof(Program).Assembly.Location)))
+            {
+                if(file == typeof(Program).Assembly.Location)
+                {
+                    continue;
+                }
+                Console.WriteLine($"Deleting: {file}");
+                File.Delete(file);
+            }
+
             AppDomain.CurrentDomain.AssemblyResolve += (object sender, ResolveEventArgs e) =>
             {
                 Console.WriteLine($"AssemblyResolve: {e.Name}");

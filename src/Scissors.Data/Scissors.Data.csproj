@@ -1,8 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-  </PropertyGroup>
+		<Description>Scissors extentions for the DevExpress Data Library</Description>
+
+	</PropertyGroup>
 
 	<ItemGroup>
 		<PackageReference Include="DevExpress.Data" Version="$(DxVersion)" />

@@ -16,6 +16,10 @@ namespace Scissors.ExpressApp.ModelBuilders
 
         public static ModelBuilder<T> Create<T>(ITypesInfo typesInfo)
             => new ModelBuilder<T>(typesInfo.FindTypeInfo<T>());
+
+        public static TBuilder Create<TBuilder, T>(ITypesInfo typesInfo)
+            where TBuilder : IModelBuilder<T>
+           => (TBuilder)Activator.CreateInstance(typeof(TBuilder), typesInfo.FindTypeInfo<T>());
     }
 
     public interface IModelBuilder<T>
