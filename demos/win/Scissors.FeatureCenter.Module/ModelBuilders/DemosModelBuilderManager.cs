@@ -16,11 +16,7 @@ namespace Scissors.FeatureCenter.Module.ModelBuilders
 
         protected override IEnumerable<IBuilder> CreateBuilders() => new[]
         {
-            Create<LabelDemosModelBuilder, LabelDemoModel>(TypesInfo)
+            ModelBuilder.Create<LabelDemosModelBuilder, LabelDemoModel>(TypesInfo)
         };
-
-        public static TBuilder Create<TBuilder, T>(ITypesInfo typesInfo)
-           where TBuilder : IModelBuilder<T>
-                => (TBuilder)Activator.CreateInstance(typeof(TBuilder), typesInfo.FindTypeInfo<T>());
     }
 }

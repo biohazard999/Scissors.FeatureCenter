@@ -16,7 +16,7 @@ namespace Scissors.FeatureCenter.Module.ModelBuilders.LabelDemos
         public override void Build()
         {
             this
-                .HasCaption("Label-Property-Editor-Demos")
+                .HasCaption("LabelPropertyEditor")
                 .HasNavigationItem("PropertyEditors");
 
             base.Build();
