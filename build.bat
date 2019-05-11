@@ -2,4 +2,5 @@ if not exist tools\nuget.exe powershell -Command "Invoke-WebRequest https://dist
 
 if not exist build.ps1 powershell -Command "Invoke-WebRequest https://cakebuild.net/download/bootstrapper/windows -OutFile build.ps1"
 
+tools\cake\cake.exe build.cake --bootstrap
 tools\cake\cake.exe build.cake -target=%*
