@@ -92,7 +92,11 @@ Task("Test:src")
 	.IsDependentOn("Test:src:Integration");
 
 Task("Docs:src")
-	.Does(() => DocFxBuild(bld.SrcDocs));
+	.Does(() =>
+	{
+		CopyFiles($"{bld.ScriptsFolder}/*.*", bld.ArtifactsFolder);
+		DocFxBuild(bld.SrcDocs);
+	});
 
 Task("Pack:src")
 	.IsDependentOn("Test:src")
