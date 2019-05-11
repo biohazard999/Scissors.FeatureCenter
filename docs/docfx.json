@@ -66,6 +66,15 @@
     "noLangKeyword": false,
     "keepFileLink": false,
     "cleanupCacheHistory": false,
-    "disableGitFeatures": false
+		"disableGitFeatures": false,
+		"globalMetadata": {
+      "_appTitle": "Scissors Documentation",
+			"_enableSearch": true,
+			"_gitContribute": {
+        "repo": "https://github.com/biohazard999/Scissors.FeatureCenter",
+				"branch": "master",
+				"apiSpecFolder": "docs/apidoc"
+			}
+    }
   }
 }
