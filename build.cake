@@ -94,7 +94,9 @@ Task("Test:src")
 Task("Docs:src")
 	.Does(() =>
 	{
+		CreateDirectory(bld.ArtifactsFolder);
 		CopyFiles($"{bld.ScriptsFolder}/*.*", bld.ArtifactsFolder);
+		DocFxMetadata(bld.SrcDocs);
 		DocFxBuild(bld.SrcDocs);
 	});
 
