@@ -17,7 +17,6 @@ namespace Scissors.FeatureCenter.Module
         protected override ModuleTypeList GetRequiredModuleTypesCore()
             => base.GetRequiredModuleTypesCore()
                 .AndModuleTypes(
-                    typeof(FeatureCenterModule),
                     typeof(LabelEditorModule)
                 );
 
