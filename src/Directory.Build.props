@@ -11,6 +11,7 @@
 		<VersionPrefix>19.1.0</VersionPrefix>
 		<VersionSuffix>pre-$([System.DateTime]::Now.ToString('yyyyMMddHHmm'))</VersionSuffix>
 		<PackageIconUrl>https://blog.delegate.at/img/favicon.ico</PackageIconUrl>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<!-- Include PDB in package -->
 		<!-- <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder> -->
 		<!-- Create a seperate symbols package -->
