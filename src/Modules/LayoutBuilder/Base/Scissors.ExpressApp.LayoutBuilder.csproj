@@ -1,11 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net462</TargetFramework>
+		<Description>This is the Scissors.LayoutBuilder base Moddule</Description>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DevExpress.ExpressApp" Version="19.1.2" />
+    <PackageReference Include="DevExpress.ExpressApp" Version="$(DxVersion)" />
   </ItemGroup>
 
   <ItemGroup>

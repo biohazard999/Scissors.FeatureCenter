@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+		<Description>This contains the contracts for the Scissors LayoutBuilder Module</Description>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="DevExpress.ExpressApp" Version="$(DxVersion)" />
+	</ItemGroup>
+
+</Project>
