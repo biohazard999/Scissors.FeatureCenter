@@ -7,6 +7,7 @@ Information("Store Dir: {0}", storeDir);
 public class Bld
 {
 	public string RootFolder = "./";
+	public string ScriptsFolder = "./scripts";
 	public string SrcFolder = "./src";
 	public string DemosFolder = "./demos";
 	public string ArtifactsFolder = "./artifacts";
