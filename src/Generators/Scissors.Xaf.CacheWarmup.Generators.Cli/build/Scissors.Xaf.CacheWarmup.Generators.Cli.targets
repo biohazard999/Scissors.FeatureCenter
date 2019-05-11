@@ -8,7 +8,7 @@
 
   <!-- This will automatically produce a zip file will all contents of the publish directory. -->
   <Target Name="WarmupXafCaches" AfterTargets="Build">
-		<Message Importance="High" Text="Executing: $(_ToolAssembly) $(MSBuildProjectDirectory)\$(MSBuildProjectName).exe"/>
+		<Message Importance="High" Text="Executing: $(_ToolAssembly) $(TargetDir)$(TargetFileName)"/>
 		<Exec Command="$(_ToolAssembly) $(TargetDir)$(TargetFileName)"/>
   </Target>
 </Project>

@@ -5,6 +5,7 @@
 		<Authors>Manuel Grundner</Authors>
     <TargetFramework>net462</TargetFramework>
     <LangVersion>latest</LangVersion>
+		<!-- <NullableContextOptions>enable</NullableContextOptions> -->
 		<DxVersion>19.1.2</DxVersion>
 		<PackageOutputPath>$(MSBuildThisFileDirectory)..\artifacts\nuget</PackageOutputPath>
 		<VersionPrefix>19.1.0</VersionPrefix>

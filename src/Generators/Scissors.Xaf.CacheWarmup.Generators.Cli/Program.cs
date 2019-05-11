@@ -19,13 +19,28 @@ namespace Scissors.Xaf.CacheWarmup.Generators.Cli
             var assemblyDirectory = Path.GetDirectoryName(assemblyPath);
             Console.WriteLine($"AssemblyDirectory: '{assemblyDirectory}'");
 
+            Console.WriteLine("Clean All old asserts");
+
+            foreach(var file in Directory.EnumerateFiles(Path.GetDirectoryName(typeof(Program).Assembly.Location)))
+            {
+                if(file == typeof(Program).Assembly.Location)
+                {
+                    continue;
+                }
+                if(File.Exists(file))
+                {
+                    Console.WriteLine($"Deleting: {file}");
+                    File.Delete(file);
+                }
+            }
+
             AppDomain.CurrentDomain.AssemblyResolve += (object sender, ResolveEventArgs e) =>
             {
                 Console.WriteLine($"AssemblyResolve: {e.Name}");
                 var assemblyName = e.Name.Split(',').First();
                 var aPath = Path.Combine(assemblyDirectory, assemblyName + ".dll");
                 Console.WriteLine($"New AssemblyPath: '{aPath}'");
-                if (File.Exists(aPath))
+                if(File.Exists(aPath))
                 {
                     Console.WriteLine($"New AssemblyPath exists!: '{aPath}'");
                     var loadedAssembly = Assembly.LoadFile(aPath);
@@ -44,12 +59,12 @@ namespace Scissors.Xaf.CacheWarmup.Generators.Cli
             var foundType = finder.FindAttribute(assembly);
             Console.WriteLine($"Found-Type: '{foundType}'");
 
-            if (foundType != null)
+            if(foundType != null)
             {
                 var cacheGenerator = new CacheWarmupGenerator();
 
                 var cacheResult = cacheGenerator.WarmupCache(assembly, foundType.ApplicationType, foundType.FactoryType);
-                if (cacheResult != null)
+                if(cacheResult != null)
                 {
                     CopyFile(cacheResult.DcAssemblyFilePath, assemblyDirectory);
                     CopyFile(cacheResult.ModelAssemblyFilePath, assemblyDirectory);
@@ -63,12 +78,12 @@ namespace Scissors.Xaf.CacheWarmup.Generators.Cli
         private static void CopyFile(string sourceFile, string destFolder)
         {
             Console.WriteLine($"Copy from {sourceFile} to directory: {destFolder}");
-            if (File.Exists(sourceFile))
+            if(File.Exists(sourceFile))
             {
                 Console.WriteLine($"Copy from {sourceFile} to directory: {destFolder} exists.");
                 var newFile = Path.Combine(destFolder, Path.GetFileName(sourceFile));
                 Console.WriteLine($"Should copy from {sourceFile} to destination: {newFile}");
-                if (File.Exists(newFile))
+                if(File.Exists(newFile))
                 {
                     Console.WriteLine($"Destination exists. Deleting: {newFile}");
                     File.Delete(newFile);

@@ -2,7 +2,7 @@ using System;
 
 namespace Scissors.ExpressApp.LabelEditor.Contracts
 {
-    public static class EditorAliasesLabelEditor
+    public static class LabelEditorAliases
     {
         public static readonly string LabelStringEditor = Consts.LabelStringEditor;
 

@@ -4,6 +4,8 @@ using System.Linq;
 using Shouldly;
 using Xunit;
 
+#pragma warning disable xUnit1019 // MemberData must reference a member providing a valid data type
+
 namespace Scissors.Utils.Tests
 {
     public class ResourceExtentionsTests
@@ -18,6 +20,7 @@ namespace Scissors.Utils.Tests
             }
         }
 
+#pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference or unconstrained type parameter.
         [Theory]
         [MemberData(nameof(TestData))]
         public void ExistingResourceIsNotNullWithType(string path)
@@ -27,7 +30,9 @@ namespace Scissors.Utils.Tests
                 resourceStream.ShouldNotBe(null);
             }
         }
+#pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference or unconstrained type parameter.
 
+#pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference or unconstrained type parameter.
         [Theory]
         [MemberData(nameof(TestData))]
         public void ExistingResourceIsNotNullWithObject(string path)
@@ -37,29 +42,32 @@ namespace Scissors.Utils.Tests
                 resourceStream.ShouldNotBe(null);
             }
         }
+#pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference or unconstrained type parameter.
 
+#pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference or unconstrained type parameter.
         [Fact]
         public void TypeGuardsAgainstNull()
         {
             Type t = null;
             Should.Throw<ArgumentNullException>(() => t.GetResourceStream(null));
         }
+#pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference or unconstrained type parameter.
 
+#pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference or unconstrained type parameter.
         [Fact]
         public void ObjectGuardsAgainstNull()
         {
             object obj = null;
             Should.Throw<ArgumentNullException>(() => obj.GetResourceStream(null));
         }
+#pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference or unconstrained type parameter.
 
         [Theory]
         [InlineData(null)]
         [InlineData("")]
         public void TypeGuardsAgainstInvalidStrings(string invalidString)
-        {
-            Should.Throw<ArgumentException>(() => this.GetResourceStream(invalidString));
-        }
-
+            => Should.Throw<ArgumentException>(() => this.GetResourceStream(invalidString));
+        
         [Theory]
         [InlineData("Resource.Is.Not.Valid.xml")]
         [InlineData(" ")]

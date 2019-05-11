@@ -2,10 +2,15 @@
 
   <PropertyGroup>
 		<Description>Scissors extentions for the DevExpress ExpressApp Framework</Description>
+
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="DevExpress.ExpressApp" Version="$(DxVersion)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Scissors.Data\Scissors.Data.csproj" />
   </ItemGroup>
 
 </Project>

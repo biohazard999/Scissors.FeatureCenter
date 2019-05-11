@@ -4,6 +4,7 @@ using System.Linq.Expressions;
 using Shouldly;
 using Xunit;
 
+#pragma warning disable CS8602 // Possible dereference of a null reference.
 namespace Scissors.Utils.Tests
 {
     public class ExpressionHelperTests
@@ -33,7 +34,7 @@ namespace Scissors.Utils.Tests
         [Fact]
         public void ComplexPath1()
             => PropertyName(m => m.A.A.A.B.C.A).ShouldBe("A.A.A.B.C.A");
-        
+
         [Fact]
         public void ComplexPath2()
             => PropertyName(m => m.C.A.B).ShouldBe("C.A.B");

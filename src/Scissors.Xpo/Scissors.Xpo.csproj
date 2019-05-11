@@ -1,6 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
 		<Description>Scissors XPO Extentions</Description>
+		<TargetFramework>net462</TargetFramework>
+		<TargetFramework Condition="'$(NCrunch)' != '1'"></TargetFramework>
+		<TargetFrameworks>net462;netstandard2.0</TargetFrameworks>
   </PropertyGroup>
 
   <ItemGroup>
@@ -8,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Scissors.Data\Scissors.Data.csproj" />
     <ProjectReference Include="..\Utils\Utils\Scissors.Utils\Scissors.Utils.csproj" />
   </ItemGroup>
 

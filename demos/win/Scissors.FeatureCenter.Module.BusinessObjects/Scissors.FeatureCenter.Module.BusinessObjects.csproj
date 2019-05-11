@@ -3,6 +3,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Scissors.Xpo" Version="$(ScissorsVersion)" />
+    <PackageReference Include="Scissors.Data" Version="$(ScissorsVersion)" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Data.DataSetExtensions" />

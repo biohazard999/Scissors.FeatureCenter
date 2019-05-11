@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Scissors.Xaf.CacheWarmup.Generators.Cli": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\F\\git\\Scissors.FeatureCenter\\demos\\win\\Scissors.FeatureCenter.Win\\bin\\Debug\\net462\\Scissors.FeatureCenter.Win.exe"
+    }
+  }
+}

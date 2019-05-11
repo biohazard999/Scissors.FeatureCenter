@@ -109,10 +109,17 @@ Task("Version:demos")
         });
 		Information($"DemosVersion: {bld.DemosVersion}");
 	});
+Task("Prepare:demos")
+	.WithCriteria(() => !string.IsNullOrEmpty(bld.StoreFilesDir))
+	.Does(() =>
+	{
+		CopyFiles($"{bld.StoreFilesDir}/*.*", bld.DemosPackageFolder);
+	});
 
 Task("Build:demos")
 	.IsDependentOn("Pack:src")
 	.IsDependentOn("Version:demos")
+	.IsDependentOn("Prepare:demos")
 	.Does(() => DoBuild(bld.DemosSln, bld.Configurations, settings =>
 		settings
 			.WithProperty("RestoreSources", $"{bld.NugetSources}{bld.ArtifactsNugetFolderAbsolute};")

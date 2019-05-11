@@ -1,15 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OpenQA.Selenium.Appium.Windows;
-using OpenQA.Selenium.Remote;
 using OpenQA.Selenium;
-using Xunit;
-using Shouldly;
-using System.Threading;
+using OpenQA.Selenium.Appium;
+using OpenQA.Selenium.Appium.Windows;
 using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Remote;
+using Scissors.Utils.Testing.XUnit;
+using Shouldly;
+using System;
+using System.Linq;
+using System.Threading;
+using Xunit;
 
 namespace Scissors.ExpressApp.InlineEditForms.UITests
 {
@@ -22,14 +21,14 @@ namespace Scissors.ExpressApp.InlineEditForms.UITests
 #else
         private const string featureCenterPath = @"C:\F\git\Scissors.FeatureCenter\Scissors.FeatureCenter.Win\bin\Release\Scissors.FeatureCenter.Win.exe";
 #endif
-        private const string featureCenterAppId = "Scissors.FeatureCenter.Win_ncze720tdpmp2!App";
 
         public WindowsDriver<WindowsElement> Session { get; private set; }
         public InlineEditFormsFixture()
         {
-            var appCapabilities = new DesiredCapabilities();
-            appCapabilities.SetCapability("app", featureCenterPath);
+            var appCapabilities = new AppiumOptions();
+            appCapabilities.AddAdditionalCapability("app", featureCenterPath);
             Session = new WindowsDriver<WindowsElement>(new Uri(windowsApplicationDriverUrl), appCapabilities);
+            Session.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(180);
             Session.ShouldNotBeNull();
             Session.SessionId.ShouldNotBeNull();
 
@@ -66,41 +65,41 @@ namespace Scissors.ExpressApp.InlineEditForms.UITests
     public class InlineEditorFormsCollection : ICollectionFixture<InlineEditFormsFixture>
     {
     }
-    
+
     [Collection(nameof(InlineEditorFormsCollection))]
     public class InlineEditFormsUITests : IDisposable
     {
-        readonly InlineEditFormsFixture _Fixture;
+        readonly InlineEditFormsFixture fixture;
 
         public InlineEditFormsUITests(InlineEditFormsFixture fixture)
         {
-            _Fixture = fixture;
+            this.fixture = fixture;
             Setup();
         }
 
         void Setup()
         {
-            _Fixture.Session
+            fixture.Session
                 .FindElementsByName("Label Demo Model")
                 .FirstOrDefault(m => m.TagName == "ControlType.HyperLink").Click();
 
-            _Fixture.Session
+            fixture.Session
                 .FindElementsByName("Neu")
                 .FirstOrDefault(m => m.TagName == "ControlType.ToolBar").Click();
 
-            _Fixture.Session.FindElementByAccessibilityId("Html(5)")
+            fixture.Session.FindElementByAccessibilityId("Html(5)")
                 .SendKeys("<b>BOLD<");
 
-            new Actions(_Fixture.Session)
+            new Actions(fixture.Session)
                 .KeyDown(Keys.Shift)
                 .SendKeys("7")
                 .KeyUp(Keys.Shift)
                 .Build().Perform();
 
-            _Fixture.Session.FindElementByAccessibilityId("Html(5)")
+            fixture.Session.FindElementByAccessibilityId("Html(5)")
                 .SendKeys("b>");
 
-            new Actions(_Fixture.Session)
+            new Actions(fixture.Session)
                 .KeyDown(Keys.Control)
                 .SendKeys(Keys.Enter)
                 .KeyUp(Keys.Control)
@@ -109,76 +108,78 @@ namespace Scissors.ExpressApp.InlineEditForms.UITests
 
         public void Dispose()
         {
-            _Fixture.Session.FindElementByName("Text row 0")
+            fixture.Session.FindElementByName("Text row 0")
                   .SendKeys(Keys.Control + "a");
 
-            _Fixture.Session
+            fixture.Session
                 .FindElementsByName("Bearbeiten")
                 .FirstOrDefault(m => m.TagName == "ControlType.ToolBar")
                 .Click();
 
-            _Fixture.Session
+            fixture.Session
                 .FindElementByName("&Ja")
                 .Click();
 
-            _Fixture.Session
+            fixture.Session
                 .FindElementsByName("Schließen")
                 .FirstOrDefault(m => m.TagName == "ControlType.ToolBar").Click();
         }
 
         [Fact]
+        [UITest]
         public void Success()
         {
-            _Fixture.Session.FindElementByName("Text row 0")
+            fixture.Session.FindElementByName("Text row 0")
                 .Text.ShouldBe("BOLD");
 
-            _Fixture.Session.FindElementByName("Text row 0")
+            fixture.Session.FindElementByName("Text row 0")
                 .Click();
 
-            _Fixture.Session.FindElementByName("Text row 0")
+            fixture.Session.FindElementByName("Text row 0")
                 .SendKeys(Keys.F2);
 
-            _Fixture.Session.FindElementByName("Html:")
+            fixture.Session.FindElementByName("Html:")
                 .Click();
 
-            _Fixture.Session.FindElementByName("Html:")
+            fixture.Session.FindElementByName("Html:")
                 .SendKeys(Keys.Control + "a");
 
-            _Fixture.Session.FindElementByAccessibilityId("Html(5)")
+            fixture.Session.FindElementByAccessibilityId("Html(5)")
                 .SendKeys("THIS IS A TEST");
 
-            _Fixture.Session.FindElementByAccessibilityId("Html(5)")
+            fixture.Session.FindElementByAccessibilityId("Html(5)")
                 .SendKeys(Keys.Control + Keys.Enter);
 
-            _Fixture.Session.FindElementByName("Text row 0")
+            fixture.Session.FindElementByName("Text row 0")
                 .Text.ShouldBe("THIS IS A TEST");
         }
 
         [Fact]
+        [UITest]
         public void Cancel()
         {
-            _Fixture.Session.FindElementByName("Text row 0")
+            fixture.Session.FindElementByName("Text row 0")
                 .Text.ShouldBe("BOLD");
 
-            _Fixture.Session.FindElementByName("Text row 0")
+            fixture.Session.FindElementByName("Text row 0")
                 .Click();
 
-            _Fixture.Session.FindElementByName("Text row 0")
+            fixture.Session.FindElementByName("Text row 0")
                 .SendKeys(Keys.F2);
 
-            _Fixture.Session.FindElementByName("Html:")
+            fixture.Session.FindElementByName("Html:")
                 .Click();
 
-            _Fixture.Session.FindElementByName("Html:")
+            fixture.Session.FindElementByName("Html:")
                 .SendKeys(Keys.Control + "a");
 
-            _Fixture.Session.FindElementByAccessibilityId("Html(5)")
+            fixture.Session.FindElementByAccessibilityId("Html(5)")
                 .SendKeys("THIS IS A TEST");
 
-            _Fixture.Session.FindElementByAccessibilityId("Html(5)")
+            fixture.Session.FindElementByAccessibilityId("Html(5)")
                 .SendKeys(Keys.Escape);
 
-            _Fixture.Session.FindElementByName("Text row 0")
+            fixture.Session.FindElementByName("Text row 0")
                 .Text.ShouldBe("BOLD");
         }
     }
