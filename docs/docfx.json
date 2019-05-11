@@ -55,7 +55,7 @@
         ]
       }
     ],
-    "dest": "_site",
+    "dest": "../artifacts/docs",
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
     "template": [
