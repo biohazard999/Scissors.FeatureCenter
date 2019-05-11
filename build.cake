@@ -1,4 +1,6 @@
 #tool "nuget:?package=GitVersion.CommandLine&version=4.0.0"
+#addin "nuget:?package=Cake.DocFx&version=0.12.0"
+#tool "nuget:?package=docfx.console&version=2.42.2"
 
 #l "./build.defaults.cake"
 #l "./build.helpers.cake"
@@ -89,8 +91,12 @@ Task("Test:src")
 	.IsDependentOn("Test:src:Unit")
 	.IsDependentOn("Test:src:Integration");
 
+Task("Docs:src")
+	.Does(() => DocFxBuild(bld.SrcDocs));
+
 Task("Pack:src")
 	.IsDependentOn("Test:src")
+	.IsDependentOn("Docs:src")
 	.Does(() => DoPack(bld.SrcSln, bld.ConfigurationRelease, (settings) => settings
 		.WithProperty("NoBuild", "True")
 		.WithProperty("PackageVersion", bld.SrcNugetVersion)

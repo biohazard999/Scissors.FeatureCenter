@@ -46,6 +46,7 @@ public class Bld
 	public string SrcAssemblyFileVersion { get; set; }
 	public string SrcInformationalVersion { get; set; }
 	public string SrcNugetVersion { get; set; }
+	public string SrcDocs { get; set;} = "./docs/docfx.json";
 	public string DxVersion { get; set; } = "2";
 	public string DxVersionDemos { get; set; } = "2";
 	public string DemosVersion { get; set; }

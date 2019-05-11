@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Scissors.Data</name>
+    </assembly>
+    <members>
+        <member name="T:Scissors.Data.ExpressionHelper`1">
+            <summary>
+            Helper-Class to generate strongly typed [Operands](https://documentation.devexpress.com/CoreLibraries/DevExpress.Data.Filtering.OperandProperty.members) and PropertyPaths
+            </summary>
+            <typeparam name="TObj"></typeparam>
+        </member>
+        <member name="M:Scissors.Data.ExpressionHelper`1.Create">
+            <summary>
+            Static Factory method to create
+            </summary>
+        </member>
+        <member name="M:Scissors.Data.ExpressionHelper`1.Property``1(System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+            Returns a PropertyPath. Multiple nestings are allowed.
+            `Exp.Property(p => p.A.B.C)` returns `"A.B.C"`
+            </summary>
+        </member>
+    </members>
+</doc>
