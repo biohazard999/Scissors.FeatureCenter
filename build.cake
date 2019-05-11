@@ -1,3 +1,5 @@
+#module nuget:?package=Cake.BuildSystems.Module&version=0.3.1
+
 #tool "nuget:?package=GitVersion.CommandLine&version=4.0.0"
 #addin "nuget:?package=Cake.DocFx&version=0.12.0"
 #tool "nuget:?package=docfx.console&version=2.42.2"
