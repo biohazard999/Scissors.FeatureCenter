@@ -67,9 +67,25 @@ namespace Scissors.ExpressApp.Builders
                 DatabaseUpdateMode
                 ?? application.DatabaseUpdateMode;
 
+            application.DelayedViewItemsInitialization =
+                DelayedViewItemsInitialization
+                ?? application.DelayedViewItemsInitialization;
+
             application.IsDelayedDetailViewDataLoadingEnabled =
                 DelayedDetailViewDataLoadingEnabled
                 ?? application.IsDelayedDetailViewDataLoadingEnabled;
+
+            application.DefaultCollectionSourceMode =
+                DefaultCollectionSourceMode
+                ?? application.DefaultCollectionSourceMode;
+
+            application.MaxLogonAttemptCount =
+                MaxLogonAttemptCount
+                ?? application.MaxLogonAttemptCount;
+
+            application.EnableModelCache =
+                EnableModelCache
+                ?? application.EnableModelCache;
 
             return application;
         }
@@ -149,6 +165,49 @@ namespace Scissors.ExpressApp.Builders
             return This;
         }
 
+        /// <summary>
+        /// Defines the DefaultCollectionSourceMode for the application
+        /// </summary>
+        public CollectionSourceMode? DefaultCollectionSourceMode { get; set; }
+        /// <summary>
+        /// Defines the DefaultCollectionSourceMode for the application
+        /// </summary>
+        /// <param name="defaultCollectionSourceMode">the DefaultCollectionSourceMode to use</param>
+        /// <returns></returns>
+        public TBuilder WithDefaultCollectionSourceMode(CollectionSourceMode defaultCollectionSourceMode)
+        {
+            DefaultCollectionSourceMode = defaultCollectionSourceMode;
+            return This;
+        }
 
+        /// <summary>
+        /// Defines the MaxLogonAttemptCount for the application
+        /// </summary>
+        public int? MaxLogonAttemptCount { get; set; }
+        /// <summary>
+        /// Defines the MaxLogonAttemptCount for the application
+        /// </summary>
+        /// <param name="maxLogonAttemptCount">The MaxLogonAttemptCount to use</param>
+        /// <returns></returns>
+        public TBuilder WithMaxLogonAttemptCount(int maxLogonAttemptCount)
+        {
+            MaxLogonAttemptCount = maxLogonAttemptCount;
+            return This;
+        }
+
+        /// <summary>
+        /// Defines the UseModelCache for the application
+        /// </summary>
+        protected bool? EnableModelCache { get; set; }
+        /// <summary>
+        /// Defines the EnableModelCache for the application
+        /// </summary>
+        /// <param name="enableModelCache">The EnableModelCache to use</param>
+        /// <returns></returns>
+        public TBuilder WithEnableModelCache(bool enableModelCache)
+        {
+            EnableModelCache = enableModelCache;
+            return This;
+        }
     }
 }
