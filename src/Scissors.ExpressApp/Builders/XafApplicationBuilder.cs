@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -86,6 +87,27 @@ namespace Scissors.ExpressApp.Builders
             application.EnableModelCache =
                 EnableModelCache
                 ?? application.EnableModelCache;
+
+            application.CheckCompatibilityType =
+                CheckCompatibilityType
+                ?? application.CheckCompatibilityType;
+
+            application.Connection =
+                Connection
+                ?? application.Connection;
+
+            application.LinkNewObjectToParentImmediately =
+                LinkNewObjectToParentImmediately
+                ?? application.LinkNewObjectToParentImmediately;
+
+            application.OptimizedControllersCreation =
+                OptimizedControllersCreation
+                ?? application.OptimizedControllersCreation;
+
+            application.Title =
+                string.IsNullOrEmpty(Title)
+                ? application.Title
+                : Title;
 
             return application;
         }
@@ -209,5 +231,81 @@ namespace Scissors.ExpressApp.Builders
             EnableModelCache = enableModelCache;
             return This;
         }
+
+        /// <summary>
+        /// Defines the CheckCompatibilityType of the application
+        /// </summary>
+        protected CheckCompatibilityType? CheckCompatibilityType { get; set; }
+        /// <summary>
+        /// Defines the CheckCompatibilityType of the application
+        /// </summary>
+        /// <param name="checkCompatibilityType">The CheckCompatibilityType to use</param>
+        /// <returns></returns>
+        public TBuilder WithCheckCompatibilityType(CheckCompatibilityType checkCompatibilityType)
+        {
+            CheckCompatibilityType = checkCompatibilityType;
+            return This;
+        }
+
+        /// <summary>
+        /// Defines the Connection of the application
+        /// </summary>
+        protected IDbConnection Connection { get; set; }
+        /// <summary>
+        /// Defines the Connection of the application
+        /// </summary>
+        /// <param name="connection">The Connection to use</param>
+        /// <returns></returns>
+        public TBuilder WithConnection(IDbConnection connection)
+        {
+            Connection = connection;
+            return This;
+        }
+
+        /// <summary>
+        /// Defines the LinkNewObjectToParentImmediately of the application
+        /// </summary>
+        public bool? LinkNewObjectToParentImmediately { get; set; }
+        /// <summary>
+        /// Defines the LinkNewObjectToParentImmediately of the application
+        /// </summary>
+        /// <param name="linkNewObjectToParentImmediately">The LinkNewObjectToParentImmediately to use</param>
+        /// <returns></returns>
+        public TBuilder WithLinkNewObjectToParentImmediately(bool linkNewObjectToParentImmediately)
+        {
+            LinkNewObjectToParentImmediately = linkNewObjectToParentImmediately;
+            return This;
+        }
+
+        /// <summary>
+        /// Defines the OptimizedControllersCreation  of the application
+        /// </summary>
+        public bool? OptimizedControllersCreation { get; set; }
+        /// <summary>
+        /// Defines the OptimizedControllersCreation  of the application
+        /// </summary>
+        /// <param name="optimizedControllersCreation">The OptimizedControllersCreation to use</param>
+        /// <returns></returns>
+        public TBuilder WithOptimizedControllersCreation(bool optimizedControllersCreation)
+        {
+            OptimizedControllersCreation = optimizedControllersCreation;
+            return This;
+        }
+
+        /// <summary>
+        /// Defines the Title  of the application
+        /// </summary>
+        public string Title { get; set; }
+        /// <summary>
+        /// Defines the Title  of the application
+        /// </summary>
+        /// <param name="title">The Title to use</param>
+        /// <returns></returns>
+        public TBuilder WithTitle(string title)
+        {
+            Title = title;
+            return This;
+        }
+
     }
 }
