@@ -6,4 +6,4 @@ using System.Threading.Tasks;
 using Scissors.FeatureCenter.Win;
 using Scissors.Xaf.CacheWarmup.Attributes;
 
-[assembly: XafCacheWarmup(typeof(FeatureCenterWindowsFormsApplication), typeof(Program))]
+//[assembly: XafCacheWarmup(typeof(FeatureCenterWindowsFormsApplication), typeof(Program))]

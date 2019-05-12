@@ -7,7 +7,7 @@ void DoBuild(string project, string[] configurations, Action<MSBuildSettings> co
 		MSBuild(project, settings =>
 		{
 			settings.MaxCpuCount = 8;
-			settings.Verbosity = Verbosity.Normal;
+			settings.Verbosity = Verbosity.Minimal;
 			settings.Configuration = configuration;
 			settings.PlatformTarget = PlatformTarget.MSIL;
 			settings.Restore = true;
@@ -53,17 +53,3 @@ void DoTest(string testPattern, string reportType, string outputDirectory, Actio
 
 	XUnit2(testPattern, settings);
 }
-
-// IEnumerable<string> GetProjects(string slnFile)
-// {
-// 	var proc = StartAndReturnProcess("dotnet", new ProcessSettings
-// 	{
-// 		Arguments = ProcessArgumentBuilder.FromString($"sln {slnFile} list"),
-// 		RedirectStandardOutput = true
-// 	});
-
-// 	foreach(var proj in proc.GetStandardOutput().Where(s => s.ToLowerInvariant() != "project(s)" && s.ToLowerInvariant() != "----------"))
-// 		yield return proj;
-
-// 	proc.WaitForExit();
-// }

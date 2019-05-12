@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Scissors.ExpressApp\Scissors.ExpressApp.csproj" />
+    <ProjectReference Include="..\Contracts\Scissors.ExpressApp.LayoutBuilder.Contracts.csproj" />
   </ItemGroup>
 
 </Project>

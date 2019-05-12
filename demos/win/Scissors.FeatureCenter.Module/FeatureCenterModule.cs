@@ -6,6 +6,7 @@ using DevExpress.ExpressApp.DC;
 using DevExpress.ExpressApp.SystemModule;
 using Scissors.ExpressApp;
 using Scissors.ExpressApp.LabelEditor;
+using Scissors.ExpressApp.LayoutBuilder;
 using Scissors.FeatureCenter.Module.ModelBuilders;
 using Scissors.FeatureCenter.Modules;
 using Scissors.FeatureCenter.Modules.BusinessObjects;
@@ -17,6 +18,7 @@ namespace Scissors.FeatureCenter.Module
         protected override ModuleTypeList GetRequiredModuleTypesCore()
             => base.GetRequiredModuleTypesCore()
                 .AndModuleTypes(
+                    typeof(LayoutBuilderModule),
                     typeof(LabelEditorModule)
                 );
 

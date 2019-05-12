@@ -3,6 +3,7 @@ using System.Linq;
 using DevExpress.ExpressApp;
 using Scissors.ExpressApp;
 using Scissors.ExpressApp.LabelEditor.Win;
+using Scissors.ExpressApp.LayoutBuilder.Win;
 using Scissors.ExpressApp.Win;
 
 namespace Scissors.FeatureCenter.Module.Win
@@ -13,6 +14,7 @@ namespace Scissors.FeatureCenter.Module.Win
             => base.GetRequiredModuleTypesCore()
                 .AndModuleTypes(
                     typeof(FeatureCenterModule),
+                    typeof(LayoutBuilderWindowsFormsModule),
                     typeof(LabelEditorWindowsFormsModule)
                 );
     }

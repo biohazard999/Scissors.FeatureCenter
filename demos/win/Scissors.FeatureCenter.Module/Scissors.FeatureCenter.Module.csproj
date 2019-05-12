@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
   </PropertyGroup>
   <ItemGroup>
@@ -6,6 +6,7 @@
 		<PackageReference Include="DevExpress.ExpressApp" Version="$(DxVersion)" />
     <PackageReference Include="Scissors.ExpressApp" Version="$(ScissorsVersion)" />
     <PackageReference Include="Scissors.ExpressApp.LabelEditor" Version="$(ScissorsVersion)" />
+    <PackageReference Include="Scissors.ExpressApp.LayoutBuilder" Version="$(ScissorsVersion)" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Scissors.FeatureCenter.Module.BusinessObjects\Scissors.FeatureCenter.Module.BusinessObjects.csproj" />

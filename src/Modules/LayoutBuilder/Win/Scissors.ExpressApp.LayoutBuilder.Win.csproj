@@ -14,4 +14,8 @@
     <ProjectReference Include="..\Base\Scissors.ExpressApp.LayoutBuilder.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="GeneratorUpdaters\" />
+  </ItemGroup>
+
 </Project>

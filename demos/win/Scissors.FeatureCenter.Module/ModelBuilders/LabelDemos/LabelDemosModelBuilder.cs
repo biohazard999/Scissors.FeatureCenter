@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DevExpress.ExpressApp.DC;
 using Scissors.ExpressApp.LabelEditor.Contracts;
+using Scissors.ExpressApp.LayoutBuilder.Contracts;
 using Scissors.ExpressApp.ModelBuilders;
 using Scissors.FeatureCenter.Modules.BusinessObjects.LabelDemos;
 
@@ -25,6 +26,31 @@ namespace Scissors.FeatureCenter.Module.ModelBuilders.LabelDemos
 
             For(p => p.Html)
                 .ImmediatePostsData();
+
+
+            WithAttribute(new DetailViewLayoutBuilderAttribute(DefaultDetailView, new Layout
+            {
+                Main =
+                {
+                    Items =
+                    {
+                        new TabGroup("TG1")
+                        {
+                            Items =
+                            {
+                                new Tab("T1")
+                                {
+
+                                },
+                                new Tab("T2")
+                                {
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }));
 
             base.Build();
         }
