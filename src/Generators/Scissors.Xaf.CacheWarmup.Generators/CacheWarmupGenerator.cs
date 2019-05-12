@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -40,6 +40,8 @@ namespace Scissors.Xaf.CacheWarmup.Generators
                     xafApplication.SetPropertyValue("SplashScreen", null);
                     WriteLine($"Set DatabaseUpdateMode: 'Never'");
                     xafApplication.SetPropertyValue("DatabaseUpdateMode", 0);
+                    WriteLine($"Set EnableModelCache: 'true'");
+                    xafApplication.SetPropertyValue("EnableModelCache", true);
 
                     WriteLine($"Setting up application");
                     WriteLine($"Starting cache warmup");

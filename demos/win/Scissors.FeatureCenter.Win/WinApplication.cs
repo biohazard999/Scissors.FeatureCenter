@@ -20,7 +20,7 @@ namespace Scissors.FeatureCenter.Win
             LinkNewObjectToParentImmediately = false;
             OptimizedControllersCreation = true;
             UseLightStyle = true;
-            EnableModelCache = true;
+            EnableModelCache = false;
             ExecuteStartupLogicBeforeClosingLogonWindow = true;
         }
         
