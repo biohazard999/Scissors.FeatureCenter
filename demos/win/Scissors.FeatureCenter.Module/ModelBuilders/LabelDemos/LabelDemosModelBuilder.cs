@@ -40,11 +40,17 @@ namespace Scissors.FeatureCenter.Module.ModelBuilders.LabelDemos
                             {
                                 new Tab("T1")
                                 {
-
+                                    Items =
+                                    {
+                                        new ViewItem(Exp.Property(p => p.Html))
+                                    }
                                 },
                                 new Tab("T2")
                                 {
-
+                                    Items =
+                                    {
+                                        new ViewItem(Exp.Property(p => p.Text))
+                                    }
                                 }
                             }
                         }

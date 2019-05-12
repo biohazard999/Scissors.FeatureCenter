@@ -28,7 +28,7 @@ namespace Scissors.FeatureCenter.Win
         {
             DevExpress.ExpressApp.ModelCacheManager.UseMultithreadedLoading = true;
             DevExpress.ExpressApp.ModelCacheManager.SkipEmptyNodes = true;
-            DevExpress.ExpressApp.ModelCacheManager.UseCacheWhenDebuggerIsAttached = true;
+            DevExpress.ExpressApp.ModelCacheManager.UseCacheWhenDebuggerIsAttached = false;
             DevExpress.Persistent.Base.PasswordCryptographer.EnableRfc2898 = true;
             DevExpress.Persistent.Base.PasswordCryptographer.SupportLegacySha512 = false;
             DevExpress.ExpressApp.Utils.ImageLoader.Instance.UseSvgImages = true;

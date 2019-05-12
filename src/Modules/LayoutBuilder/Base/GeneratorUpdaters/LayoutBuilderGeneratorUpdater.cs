@@ -126,6 +126,12 @@ namespace Scissors.ExpressApp.LayoutBuilder.GeneratorUpdaters
                 return emptySpaceNode;
             }
 
+            if(item is LayoutGroup)
+            {
+                var groupNode = parentNode.AddNode<IModelLayoutGroup>(item.Id);
+                return groupNode;
+            }
+
             return null;
         }
     }

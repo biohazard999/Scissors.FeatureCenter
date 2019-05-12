@@ -77,6 +77,7 @@ Task("Build:src")
 	.IsDependentOn("Version:src")
 	.Does(() => DoBuild(bld.SrcSln, bld.Configurations, settings =>
 		settings
+			.WithProperty("PackOnBuild", "false")
 			.WithProperty("RestoreSources", $"{bld.NugetSources}")
 			.WithProperty("DxVersion", bld.DxVersion)
 			.WithProperty("Version", bld.SrcAssemblyVersion)

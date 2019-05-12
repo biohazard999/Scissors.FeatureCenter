@@ -8,8 +8,8 @@
 		<!-- <NullableContextOptions>enable</NullableContextOptions> -->
 		<DxVersion>19.1.2</DxVersion>
 		<PackageOutputPath>$(MSBuildThisFileDirectory)..\artifacts\nuget</PackageOutputPath>
-		<VersionPrefix>19.1.0</VersionPrefix>
-		<VersionSuffix>pre-$([System.DateTime]::Now.ToString('yyyyMMddHHmm'))</VersionSuffix>
+		<VersionPrefix>19.1.4</VersionPrefix>
+		<VersionSuffix>topic-layoutbui-$([System.DateTime]::Now.ToString('yyyyMMddHHmm'))</VersionSuffix>
 		<PackageIconUrl>https://blog.delegate.at/img/favicon.ico</PackageIconUrl>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<!-- Include PDB in package -->
@@ -20,6 +20,6 @@
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 		<PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
 		<Deterministic>true</Deterministic>
-		<RestoreNoCache>True</RestoreNoCache>
+		<RestoreNoCache>true</RestoreNoCache>
 	</PropertyGroup>
 </Project>

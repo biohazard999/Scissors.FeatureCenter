@@ -140,6 +140,12 @@ namespace Scissors.ExpressApp.LayoutBuilder.Contracts
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="id"></param>
+        public ViewItem(string id) : this(id, id) { }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public string ViewItemId { get; }
     }
 
