@@ -67,6 +67,10 @@ namespace Scissors.ExpressApp.Builders
                 DatabaseUpdateMode
                 ?? application.DatabaseUpdateMode;
 
+            application.IsDelayedDetailViewDataLoadingEnabled =
+                DelayedDetailViewDataLoadingEnabled
+                ?? application.IsDelayedDetailViewDataLoadingEnabled;
+
             return application;
         }
 
@@ -114,5 +118,37 @@ namespace Scissors.ExpressApp.Builders
             DatabaseUpdateMode = databaseUpdateMode;
             return This;
         }
+
+        /// <summary>
+        /// Defines the DelayedViewItemsInitialization for the application
+        /// </summary>
+        public bool? DelayedViewItemsInitialization { get; set; }
+        /// <summary>
+        /// Defines the DelayedViewItemsInitialization for the application
+        /// </summary>
+        /// <param name="delayedViewItemsInitialization">The DelayedViewItemsInitialization to use</param>
+        /// <returns></returns>
+        public TBuilder WithDelayedViewItemsInitialization(bool delayedViewItemsInitialization)
+        {
+            DelayedViewItemsInitialization = delayedViewItemsInitialization;
+            return This;
+        }
+
+        /// <summary>
+        /// Defines the IsDelayedDetailViewDataLoadingEnabled for the application
+        /// </summary>
+        public bool? DelayedDetailViewDataLoadingEnabled { get; set; }
+        /// <summary>
+        /// Defines the IsDelayedDetailViewDataLoadingEnabled for the application
+        /// </summary>
+        /// <param name="delayedDetailViewDataLoadingEnabled">The IsDelayedDetailViewDataLoadingEnabled to use</param>
+        /// <returns></returns>
+        public TBuilder WithDelayedDetailViewDataLoadingEnabled(bool delayedDetailViewDataLoadingEnabled)
+        {
+            DelayedDetailViewDataLoadingEnabled = delayedDetailViewDataLoadingEnabled;
+            return This;
+        }
+
+
     }
 }
