@@ -16,7 +16,7 @@ namespace Scissors.ExpressApp.LayoutBuilder.Tests.GeneratorUpdaters
         {
             var sut = new LayoutBuilderGeneratorUpdater();
 
-            sut.UpdateNode(node);
+            //sut.UpdateNode(node);
         }
     }
 }
