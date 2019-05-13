@@ -8,4 +8,8 @@
     <PackageReference Include="DevExpress.ExpressApp.Xpo" Version="$(DxVersion)" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Scissors.ExpressApp\Scissors.ExpressApp.csproj" />
+  </ItemGroup>
+
 </Project>
