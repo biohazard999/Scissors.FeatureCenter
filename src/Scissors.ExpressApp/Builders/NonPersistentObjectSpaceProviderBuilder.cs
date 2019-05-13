@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using DevExpress.ExpressApp;
+using DevExpress.ExpressApp.DC;
 
 namespace Scissors.ExpressApp.Builders
 {
