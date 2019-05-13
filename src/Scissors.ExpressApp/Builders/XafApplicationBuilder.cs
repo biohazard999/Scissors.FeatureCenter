@@ -14,7 +14,9 @@ namespace Scissors.ExpressApp.Builders
     /// </summary>
     /// <typeparam name="TApplication">Type of the application</typeparam>
     /// <typeparam name="TBuilder">The concrete type of the builder</typeparam>
-    public abstract class XafApplicationBuilder<TApplication, TBuilder> : IApplicationFactory, IApplicationFactory<TApplication>
+    public abstract class XafApplicationBuilder<TApplication, TBuilder>
+        : IApplicationFactory
+        , IApplicationFactory<TApplication>
         where TApplication : XafApplication
         where TBuilder : XafApplicationBuilder<TApplication, TBuilder>
     {
@@ -44,7 +46,7 @@ namespace Scissors.ExpressApp.Builders
         /// Creates an instance of the builder
         /// </summary>
         public XafApplicationBuilder()
-            => Application = new Lazy<TApplication>(() => Build());
+            => Application = new Lazy<TApplication>(Build);
 
         /// <summary>
         /// Builds up the application
@@ -109,8 +111,23 @@ namespace Scissors.ExpressApp.Builders
                 ? application.Title
                 : Title;
 
+            if(ObjectSpaceProviderFactories.Count > 0)
+            {
+                application.CreateCustomObjectSpaceProvider += CreateCustomObjectSpaceProvider;
+                void CreateCustomObjectSpaceProvider(object _, CreateCustomObjectSpaceProviderEventArgs args)
+                {
+                    foreach(var objectSpaceProviderFactory in ObjectSpaceProviderFactories)
+                    {
+                        args.ObjectSpaceProviders.Add(objectSpaceProviderFactory(args, application));
+                    }
+                    application.CreateCustomObjectSpaceProvider -= CreateCustomObjectSpaceProvider;
+                }
+            }
+
             return application;
         }
+
+        
 
         /// <summary>
         /// Defines the ConnectionString for the application
@@ -307,5 +324,26 @@ namespace Scissors.ExpressApp.Builders
             return This;
         }
 
+        /// <summary>
+        /// Defines a list of ObjectSpaceProviderFactories.
+        /// Used in the CustomCreateObjectSpaceEvent to populate the ObjectSpaceProviders
+        /// </summary>
+        protected IList<
+            Func<CreateCustomObjectSpaceProviderEventArgs, TApplication, IObjectSpaceProvider>>
+            ObjectSpaceProviderFactories { get; } = new List<
+                Func<CreateCustomObjectSpaceProviderEventArgs, TApplication, IObjectSpaceProvider>
+            >();
+
+        /// <summary>
+        /// Adds an ObjectSpaceProviderFactory to the application instance.
+        /// Multiple calls are allowed.
+        /// </summary>
+        /// <param name="factory">A function that accepts the CreateCustomObjectSpaceProviderEventArgs, TApplication parameters and returns an IObjectSpaceProvider</param>
+        /// <returns></returns>
+        public TBuilder WithObjectSpaceProviderFactory(Func<CreateCustomObjectSpaceProviderEventArgs, TApplication, IObjectSpaceProvider> factory)
+        {
+            ObjectSpaceProviderFactories.Add(factory);
+            return This;
+        }
     }
 }
