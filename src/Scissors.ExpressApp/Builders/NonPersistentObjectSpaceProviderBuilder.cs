@@ -22,10 +22,12 @@ namespace Scissors.ExpressApp.Builders
             {
                 return (TObjectSpaceProvider)new NonPersistentObjectSpaceProvider();
             }
+
             if(TypesInfo is TypesInfo && TypeInfoSource == null)
             {
                 return (TObjectSpaceProvider)new NonPersistentObjectSpaceProvider(TypesInfo, null);
             }
+
             return (TObjectSpaceProvider)new NonPersistentObjectSpaceProvider(TypesInfo, TypeInfoSource);
         }
 
