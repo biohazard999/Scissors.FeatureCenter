@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DevExpress.ExpressApp;
+using DevExpress.ExpressApp.DC;
 using Scissors.ExpressApp.Contracts;
 
 namespace Scissors.ExpressApp.Builders
@@ -52,7 +53,7 @@ namespace Scissors.ExpressApp.Builders
         /// Builds up the application
         /// </summary>
         /// <returns>The application to build</returns>
-        protected virtual TApplication Build()
+        public virtual TApplication Build()
         {
             var application = Create();
 
@@ -328,7 +329,7 @@ namespace Scissors.ExpressApp.Builders
         /// Defines a list of ObjectSpaceProviderFactories.
         /// Used in the CustomCreateObjectSpaceEvent to populate the ObjectSpaceProviders
         /// </summary>
-        protected IList<
+        protected List<
             Func<CreateCustomObjectSpaceProviderEventArgs, TApplication, IObjectSpaceProvider>>
             ObjectSpaceProviderFactories { get; } = new List<
                 Func<CreateCustomObjectSpaceProviderEventArgs, TApplication, IObjectSpaceProvider>
@@ -345,5 +346,59 @@ namespace Scissors.ExpressApp.Builders
             ObjectSpaceProviderFactories.Add(factory);
             return This;
         }
+
+        /// <summary>
+        /// The TypesInfo to be used
+        /// </summary>
+        protected ITypesInfo TypesInfo { get; set; }
+        /// <summary>
+        /// Specifies the TypesInfo to be used
+        /// </summary>
+        /// <remarks>
+        /// When used for testing, this should always be used.
+        /// If not side effects can happen.
+        /// </remarks>
+        /// <param name="typesInfo">The TypesInfo to be used</param>
+        /// <returns></returns>
+        public TBuilder WithTypesInfo(ITypesInfo typesInfo)
+        {
+            TypesInfo = typesInfo;
+            return This;
+        }
+
+        /// <summary>
+        /// Defines a list of ModuleFactories.
+        /// Used to populate the Modules collection
+        /// </summary>
+        protected List<Func<TApplication, ModuleBase>> ModuleFactories { get; } = new List<Func<TApplication, ModuleBase>>();
+
+        /// <summary>
+        /// Adds an ModuleFactory to the application instance.
+        /// Multiple calls are allowed.
+        /// </summary>
+        /// <param name="factory">A function that accepts the TApplication parameter and returns an instance of the Module</param>
+        /// <returns></returns>
+        public TBuilder WithModuleFactory(Func<TApplication, ModuleBase> factory)
+        {
+            ModuleFactories.Add(factory);
+            return This;
+        }
+
+        /// <summary>
+        /// Adds an Module to the application Modules collection.
+        /// </summary>
+        /// <param name="module"></param>
+        /// <returns></returns>
+        public TBuilder WithModule(ModuleBase module)
+            => WithModuleFactory((_) => module);
+
+        /// <summary>
+        /// Adds an Module to the application Modules collection.
+        /// </summary>
+        /// <typeparam name="TModule">Type of the Module</typeparam>
+        /// <returns></returns>
+        public TBuilder WithModule<TModule>()
+            where TModule : ModuleBase, new()
+            => WithModuleFactory((_) => Activator.CreateInstance<TModule>());
     }
 }
