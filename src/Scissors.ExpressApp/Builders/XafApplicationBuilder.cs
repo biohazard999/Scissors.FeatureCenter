@@ -112,6 +112,11 @@ namespace Scissors.ExpressApp.Builders
                 ? application.Title
                 : Title;
 
+            if(ModuleFactories.Count > 0)
+            {
+                application.Modules.AddRange(ModuleFactories.Select((factory) => factory(application)));
+            }
+
             if(ObjectSpaceProviderFactories.Count > 0)
             {
                 application.CreateCustomObjectSpaceProvider += CreateCustomObjectSpaceProvider;
