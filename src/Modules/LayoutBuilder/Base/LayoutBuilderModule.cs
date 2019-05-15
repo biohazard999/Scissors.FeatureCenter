@@ -18,7 +18,7 @@ namespace Scissors.ExpressApp.LayoutBuilder
         public override void AddGeneratorUpdaters(ModelNodesGeneratorUpdaters updaters)
         {
             base.AddGeneratorUpdaters(updaters);
-            updaters.Add(new LayoutBuilderGeneratorUpdater());
+            updaters.Add(new LayoutBuilderGeneratorUpdater(Application.TypesInfo));
         }
     }
 }

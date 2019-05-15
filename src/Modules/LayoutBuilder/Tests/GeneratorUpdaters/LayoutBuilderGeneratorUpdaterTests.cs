@@ -52,9 +52,8 @@ namespace Scissors.ExpressApp.LayoutBuilder.Tests.GeneratorUpdaters
         [Fact]
         public void ClearsLayoutWithAttribute()
         {
-            XafTypesInfo.Reset();
             var app = new HeadlessXafApplicationBuilder()
-                   //.WithTypesInfo()
+                   .WithTypesInfo(new TypesInfo())
                    .WithObjectSpaceProviderFactory((args, a) => new NonPersistentObjectSpaceProviderBuilder()
                    .WithTypeInfoSource(new NonPersistentTypeInfoSource(a.TypesInfo))
                    .Build())
