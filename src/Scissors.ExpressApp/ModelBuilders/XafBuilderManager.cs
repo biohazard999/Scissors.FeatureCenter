@@ -1,23 +1,31 @@
 using System.Collections.Generic;
+using System.Linq;
 using DevExpress.ExpressApp.DC;
 
 namespace Scissors.ExpressApp.ModelBuilders
 {
     public class XafBuilderManager : BuilderManager, ITypesInfoProvider
     {
+        public static IEnumerable<IBuilder> EmptyBuilders { get; } = new IBuilder[0];
         public ITypesInfo TypesInfo { get; }
+        public IEnumerable<IBuilder> Builders { get; }
 
-        public XafBuilderManager(ITypesInfo typesInfo)
-            => TypesInfo = typesInfo;
+        public XafBuilderManager(ITypesInfo typesInfo) : this(typesInfo, EmptyBuilders) { }
 
-        protected virtual IEnumerable<IBuilder> CreateBuilders()
+        public XafBuilderManager(ITypesInfo typesInfo, IEnumerable<IBuilder> builders)
         {
-            yield break;
+            TypesInfo = typesInfo;
+            Builders = builders;
         }
+
+        public static XafBuilderManager Create(ITypesInfo typesInfo, IEnumerable<IBuilder> builders)
+            => new XafBuilderManager(typesInfo, builders);
+
+        protected virtual IEnumerable<IBuilder> GetBuilders() => Builders;
 
         public override void Build()
         {
-            foreach(var builder in CreateBuilders())
+            foreach(var builder in GetBuilders())
             {
                 AddBuilder(builder);
             }
