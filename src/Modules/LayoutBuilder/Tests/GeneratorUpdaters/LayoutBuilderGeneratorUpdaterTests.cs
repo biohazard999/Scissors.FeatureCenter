@@ -16,9 +16,7 @@ using Shouldly;
 using Xunit;
 
 namespace Scissors.ExpressApp.LayoutBuilder.Tests.GeneratorUpdaters
-{ 
-  
-
+{
     public class LayoutBuilderGeneratorUpdaterTests
     {
         public class TestModule : ScissorsBaseModule
@@ -53,9 +51,8 @@ namespace Scissors.ExpressApp.LayoutBuilder.Tests.GeneratorUpdaters
         public void ClearsLayoutWithAttribute()
         {
             var app = new HeadlessXafApplicationBuilder()
-                   .WithTypesInfo(new TypesInfo())
                    .WithObjectSpaceProviderFactory((args, a) => new NonPersistentObjectSpaceProviderBuilder()
-                   .WithTypeInfoSource(new NonPersistentTypeInfoSource(a.TypesInfo))
+                   .WithTypeInfoSource(new NonPersistentTypeInfoSource())
                    .Build())
                    .WithModule<SystemModule>()
                    .WithModule<LayoutBuilderModule>()
