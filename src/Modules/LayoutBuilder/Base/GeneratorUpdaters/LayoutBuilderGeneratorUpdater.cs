@@ -17,8 +17,6 @@ namespace Scissors.ExpressApp.LayoutBuilder.GeneratorUpdaters
     /// </summary>
     public class LayoutBuilderGeneratorUpdater : ModelNodesGeneratorUpdater<ModelViewsNodesGenerator>
     {
-        readonly ITypesInfo typesInfo;
-        public LayoutBuilderGeneratorUpdater(ITypesInfo typesInfo) => this.typesInfo = typesInfo;
         /// <summary>
         /// 
         /// </summary>
@@ -27,7 +25,7 @@ namespace Scissors.ExpressApp.LayoutBuilder.GeneratorUpdaters
         {
             foreach(var detailViewNode in ((IModelViews)node).OfType<IModelDetailView>())
             {
-                var attribute = typesInfo.FindTypeInfo(detailViewNode.ModelClass.TypeInfo.Type).FindAttributes<DetailViewLayoutBuilderAttribute>()
+                var attribute =detailViewNode.ModelClass.TypeInfo.FindAttributes<DetailViewLayoutBuilderAttribute>()
                     .FirstOrDefault(attr => attr.DetailViewId == detailViewNode.Id);
 
                 if(attribute == null) { continue; }
