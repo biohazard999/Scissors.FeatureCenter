@@ -51,13 +51,14 @@ namespace Scissors.ExpressApp.LayoutBuilder.Tests.GeneratorUpdaters
         public void ClearsLayoutWithAttribute()
         {
             var app = new HeadlessXafApplicationBuilder()
-                   .WithObjectSpaceProviderFactory((args, a) => new NonPersistentObjectSpaceProviderBuilder()
+                .WithObjectSpaceProviderFactory((args, a) => new NonPersistentObjectSpaceProviderBuilder()
                    .WithTypeInfoSource(new NonPersistentTypeInfoSource())
-                   .Build())
-                   .WithModule<SystemModule>()
-                   .WithModule<LayoutBuilderModule>()
-                   .WithModule<TestModule>()
-                   .Build();
+                   .Build()
+                )
+                .WithModule<SystemModule>()
+                .WithModule<LayoutBuilderModule>()
+                .WithModule<TestModule>()
+                .Build();
 
             app.Setup();
 
