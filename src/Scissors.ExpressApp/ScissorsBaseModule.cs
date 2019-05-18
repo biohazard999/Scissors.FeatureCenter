@@ -9,21 +9,20 @@ using Scissors.ExpressApp.Model.Core;
 
 namespace Scissors.ExpressApp
 {
-    /// <inheritdoc />
     /// <summary>
     /// The base class for a Scissors module
     /// This is an empty module, so nothing will be loaded by reflection.
     /// Everything needs to be registered manually.
-    /// <seealso cref="ModuleBase" />
     /// </summary>
+    /// <seealso cref="ModuleBase" />
     public abstract class ScissorsBaseModule : ModuleBase
     {
-        /// <inheritdoc />
-        /// <summary></summary>
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ScissorsBaseModule"/> class.
+        /// </summary>
         public ScissorsBaseModule()
             => DiffsStore = new NullDiffsStore(GetType().Assembly);
 
-        /// <inheritdoc />
         /// <summary>
         /// returns empty updaters
         /// </summary>
@@ -33,7 +32,6 @@ namespace Scissors.ExpressApp
         public override IEnumerable<ModuleUpdater> GetModuleUpdaters(IObjectSpace objectSpace, Version versionFromDB)
             => ModuleUpdater.EmptyModuleUpdaters;
         
-        /// <inheritdoc />
         /// <summary>
         /// returns empty types
         /// </summary>
@@ -41,7 +39,6 @@ namespace Scissors.ExpressApp
         protected override IEnumerable<Type> GetDeclaredControllerTypes()
             => Type.EmptyTypes;
         
-        /// <inheritdoc />
         /// <summary>
         /// returns empty types
         /// </summary>
@@ -49,7 +46,6 @@ namespace Scissors.ExpressApp
         protected override IEnumerable<Type> GetDeclaredExportedTypes()
             => Type.EmptyTypes;
 
-        /// <inheritdoc />
         /// <summary>
         /// returns empty types
         /// </summary>
@@ -57,7 +53,6 @@ namespace Scissors.ExpressApp
         protected override IEnumerable<Type> GetRegularTypes()
             => Type.EmptyTypes;
 
-        /// <inheritdoc />
         /// <summary>
         /// Adds the DevExpress.ExpressApp.SystemModule.SystemModule to the collection
         /// </summary>
@@ -67,7 +62,10 @@ namespace Scissors.ExpressApp
                 typeof(SystemModule)
             );
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Registers the editor descriptors.
+        /// </summary>
+        /// <param name="editorDescriptorsFactory">The editor descriptors factory.</param>
         protected override void RegisterEditorDescriptors(EditorDescriptorsFactory editorDescriptorsFactory)
         {
         }

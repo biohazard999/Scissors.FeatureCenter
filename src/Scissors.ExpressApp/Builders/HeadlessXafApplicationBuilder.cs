@@ -16,6 +16,9 @@ namespace Scissors.ExpressApp.Builders
     /// Abstract Headless application builder.
     /// Useful for testing or service work.
     /// </summary>
+    /// <typeparam name="TApplication">The type of the application.</typeparam>
+    /// <typeparam name="TBuilder">The type of the builder.</typeparam>
+    /// <seealso cref="HeadlessXafApplicationBuilder{HeadlessXafApplication, HeadlessXafApplicationBuilder}" />
     public class HeadlessXafApplicationBuilder<TApplication, TBuilder> : XafApplicationBuilder<TApplication, TBuilder>
         where TApplication : HeadlessXafApplication
         where TBuilder : HeadlessXafApplicationBuilder<TApplication, TBuilder>

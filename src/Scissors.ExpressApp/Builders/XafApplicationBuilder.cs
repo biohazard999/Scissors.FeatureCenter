@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -133,7 +134,7 @@ namespace Scissors.ExpressApp.Builders
             return application;
         }
 
-        
+
 
         /// <summary>
         /// Defines the ConnectionString for the application
@@ -336,7 +337,8 @@ namespace Scissors.ExpressApp.Builders
         /// </summary>
         protected List<
             Func<CreateCustomObjectSpaceProviderEventArgs, TApplication, IObjectSpaceProvider>>
-            ObjectSpaceProviderFactories { get; } = new List<
+            ObjectSpaceProviderFactories
+        { get; } = new List<
                 Func<CreateCustomObjectSpaceProviderEventArgs, TApplication, IObjectSpaceProvider>
             >();
 
@@ -355,16 +357,20 @@ namespace Scissors.ExpressApp.Builders
         /// <summary>
         /// The TypesInfo to be used
         /// </summary>
+        /// <remarks>For internal use only</remarks>
+        [EditorBrowsable(EditorBrowsableState.Never)]
         protected ITypesInfo TypesInfo { get; set; }
         /// <summary>
         /// Specifies the TypesInfo to be used
         /// </summary>
-        /// <remarks>
-        /// When used for testing, this should always be used.
-        /// If not side effects can happen.
-        /// </remarks>
         /// <param name="typesInfo">The TypesInfo to be used</param>
         /// <returns></returns>
+        /// <remarks>
+        /// For internal use only
+        /// When used for testing make sure you understand the impacts, this should normally not be used.
+        /// If not side effects can happen.
+        /// </remarks>
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public TBuilder WithTypesInfo(ITypesInfo typesInfo)
         {
             TypesInfo = typesInfo;
@@ -375,6 +381,9 @@ namespace Scissors.ExpressApp.Builders
         /// Defines a list of ModuleFactories.
         /// Used to populate the Modules collection
         /// </summary>
+        /// <value>
+        /// The module factories.
+        /// </value>
         protected List<Func<TApplication, ModuleBase>> ModuleFactories { get; } = new List<Func<TApplication, ModuleBase>>();
 
         /// <summary>
@@ -392,7 +401,7 @@ namespace Scissors.ExpressApp.Builders
         /// <summary>
         /// Adds an Module to the application Modules collection.
         /// </summary>
-        /// <param name="module"></param>
+        /// <param name="module">The module to add.</param>
         /// <returns></returns>
         public TBuilder WithModule(ModuleBase module)
             => WithModuleFactory((_) => module);

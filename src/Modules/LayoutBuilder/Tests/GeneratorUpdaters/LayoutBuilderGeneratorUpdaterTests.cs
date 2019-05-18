@@ -28,6 +28,7 @@ namespace Scissors.ExpressApp.LayoutBuilder.Tests.GeneratorUpdaters
             {
                 typeof(TestClass),
             };
+
             public override void CustomizeTypesInfo(ITypesInfo typesInfo)
             {
                 base.CustomizeTypesInfo(typesInfo);

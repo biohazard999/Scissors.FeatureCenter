@@ -7,6 +7,9 @@ using Fasterflect;
 
 namespace Scissors.Xaf.CacheWarmup.Generators
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class CacheWarmupGenerator
     {
         private const string GetDcAssemblyFilePath = "GetDcAssemblyFilePath";
@@ -14,6 +17,13 @@ namespace Scissors.Xaf.CacheWarmup.Generators
         private const string GetModelCacheFileLocationPath = "GetModelCacheFileLocationPath";
         private const string GetModulesVersionInfoFilePath = "GetModulesVersionInfoFilePath";
 
+        /// <summary>
+        /// Warmups the cache.
+        /// </summary>
+        /// <param name="assembly">The assembly.</param>
+        /// <param name="xafApplicationTypeName">Name of the xaf application type.</param>
+        /// <param name="xafApplicationFactoryTypeName">Name of the xaf application factory type.</param>
+        /// <returns></returns>
         public CacheWarmupGeneratorResponse WarmupCache(Assembly assembly, string xafApplicationTypeName, string xafApplicationFactoryTypeName)
         {
             var applicationType = assembly.GetType(xafApplicationTypeName);
@@ -74,20 +84,68 @@ namespace Scissors.Xaf.CacheWarmup.Generators
             return null;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         [Serializable]
         public class CacheWarmupGeneratorRequest
         {
+            /// <summary>
+            /// Gets or sets the name of the xaf application type.
+            /// </summary>
+            /// <value>
+            /// The name of the xaf application type.
+            /// </value>
             public string XafApplicationTypeName { get; set; }
+            /// <summary>
+            /// Gets or sets the name of the xaf application factory type.
+            /// </summary>
+            /// <value>
+            /// The name of the xaf application factory type.
+            /// </value>
             public string XafApplicationFactoryTypeName { get; set; }
+            /// <summary>
+            /// Gets or sets the assembly path.
+            /// </summary>
+            /// <value>
+            /// The assembly path.
+            /// </value>
             public string AssemblyPath { get; set; }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         [Serializable]
         public class CacheWarmupGeneratorResponse
         {
+            /// <summary>
+            /// Gets or sets the dc assembly file path.
+            /// </summary>
+            /// <value>
+            /// The dc assembly file path.
+            /// </value>
             public string DcAssemblyFilePath { get; set; }
+            /// <summary>
+            /// Gets or sets the model assembly file path.
+            /// </summary>
+            /// <value>
+            /// The model assembly file path.
+            /// </value>
             public string ModelAssemblyFilePath { get; set; }
+            /// <summary>
+            /// Gets or sets the model cache file path.
+            /// </summary>
+            /// <value>
+            /// The model cache file path.
+            /// </value>
             public string ModelCacheFilePath { get; set; }
+            /// <summary>
+            /// Gets or sets the modules version information file path.
+            /// </summary>
+            /// <value>
+            /// The modules version information file path.
+            /// </value>
             public string ModulesVersionInfoFilePath { get; set; }
         }
     }

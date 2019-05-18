@@ -9,23 +9,37 @@ using DevExpress.XtraGrid.Views.Grid;
 
 namespace Scissors.ExpressApp.InlineEditForms.Win.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="DevExpress.XtraGrid.Views.Grid.EditFormUserControl" />
     public class ObjectSpaceEditFormUserControl : EditFormUserControl
     {
-        readonly IObjectSpace _ObjectSpace;
-        readonly Frame _Frame;
-        readonly DetailView _DetailView;
+        readonly IObjectSpace objectSpace;
+        readonly Frame frame;
+        readonly DetailView detailView;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ObjectSpaceEditFormUserControl"/> class.
+        /// </summary>
+        /// <param name="objectSpace">The object space.</param>
+        /// <param name="frame">The frame.</param>
+        /// <param name="detailView">The detail view.</param>
         public ObjectSpaceEditFormUserControl(IObjectSpace objectSpace, Frame frame, DetailView detailView)
         {
-            _ObjectSpace = objectSpace;
-            _Frame = frame;
-            _DetailView = detailView;
+            this.objectSpace = objectSpace;
+            this.frame = frame;
+            this.detailView = detailView;
         }
 
+        /// <summary>
+        /// Raises the <see cref="E:System.Windows.Forms.Control.VisibleChanged" /> event.
+        /// </summary>
+        /// <param name="e">An <see cref="T:System.EventArgs" /> object that contains the event data.</param>
         protected override void OnVisibleChanged(EventArgs e)
         {
             base.OnVisibleChanged(e);
-            var controller = _Frame.GetController<WinFocusDefaultDetailViewItemController>();
+            var controller = frame.GetController<WinFocusDefaultDetailViewItemController>();
             var method = controller.GetType().GetMethods(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic).FirstOrDefault(m => m.Name == "FocusDefaultItemControl");
             method?.Invoke(controller, null);
 
@@ -53,9 +67,9 @@ namespace Scissors.ExpressApp.InlineEditForms.Win.Controllers
         }
 
         private void OkBtn_Click(object sender, EventArgs e)
-            => _ObjectSpace.CommitChanges();
+            => objectSpace.CommitChanges();
 
         private void CancelBtn_Click(object sender, EventArgs e)
-            => _ObjectSpace.Rollback();
+            => objectSpace.Rollback();
     }
 }

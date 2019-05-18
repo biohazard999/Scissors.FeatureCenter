@@ -9,9 +9,7 @@ namespace Scissors.ExpressApp.Builders
     /// A concrete builder for an NonPersistentObjectSpaceProvider
     /// </summary>
     public class NonPersistentObjectSpaceProviderBuilder
-        : NonPersistentObjectSpaceProviderBuilder<
-            NonPersistentObjectSpaceProvider,
-            NonPersistentObjectSpaceProviderBuilder>
+        : NonPersistentObjectSpaceProviderBuilder<NonPersistentObjectSpaceProvider, NonPersistentObjectSpaceProviderBuilder>
     { }
 
     /// <summary>

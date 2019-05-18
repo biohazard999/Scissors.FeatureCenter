@@ -25,7 +25,18 @@ namespace Scissors.ExpressApp
         /// </summary>
         public HeadlessXafApplication() { }
 
+        /// <summary>
+        /// Creates the layout manager core.
+        /// </summary>
+        /// <param name="simple">if set to <c>true</c> [simple].</param>
+        /// <returns></returns>
         protected override LayoutManager CreateLayoutManagerCore(bool simple) => null;
+        /// <summary>
+        /// Creates the list editor core.
+        /// </summary>
+        /// <param name="modelListView">The model ListView.</param>
+        /// <param name="collectionSource">The collection source.</param>
+        /// <returns></returns>
         protected override ListEditor CreateListEditorCore(IModelListView modelListView, CollectionSourceBase collectionSource) => null;
 
         private bool isDelayedDetailViewDataLoadingEnabled;
