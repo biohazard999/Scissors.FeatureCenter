@@ -54,7 +54,7 @@ namespace Scissors.ExpressApp.Builders
         /// </remarks>
         /// <param name="typesInfo">The instance of the ITypesInfo to be used</param>
         /// <returns></returns>
-        protected TBuilder WithTypesInfo(ITypesInfo typesInfo)
+        public TBuilder WithTypesInfo(ITypesInfo typesInfo)
         {
             TypesInfo = typesInfo;
             return This;
