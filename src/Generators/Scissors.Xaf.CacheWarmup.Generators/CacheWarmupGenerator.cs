@@ -12,13 +12,13 @@ namespace Scissors.Xaf.CacheWarmup.Generators
     /// </summary>
     public class CacheWarmupGenerator
     {
-        private const string GetDcAssemblyFilePath = "GetDcAssemblyFilePath";
-        private const string GetModelAssemblyFilePath = "GetModelAssemblyFilePath";
-        private const string GetModelCacheFileLocationPath = "GetModelCacheFileLocationPath";
-        private const string GetModulesVersionInfoFilePath = "GetModulesVersionInfoFilePath";
+        private const string getDcAssemblyFilePath = "GetDcAssemblyFilePath";
+        private const string getModelAssemblyFilePath = "GetModelAssemblyFilePath";
+        private const string getModelCacheFileLocationPath = "GetModelCacheFileLocationPath";
+        private const string getModulesVersionInfoFilePath = "GetModulesVersionInfoFilePath";
 
         /// <summary>
-        /// Warmups the cache.
+        /// Warmup's the cache.
         /// </summary>
         /// <param name="assembly">The assembly.</param>
         /// <param name="xafApplicationTypeName">Name of the xaf application type.</param>
@@ -59,10 +59,10 @@ namespace Scissors.Xaf.CacheWarmup.Generators
                     WriteLine($"Setup application done.");
                     WriteLine($"Wormed up caches.");
 
-                    var dcAssemblyFilePath = (string)xafApplication.CallMethod(GetDcAssemblyFilePath);
-                    var modelAssemblyFilePath = (string)xafApplication.CallMethod(GetModelAssemblyFilePath);
-                    var modelCacheFileLocationPath = (string)xafApplication.CallMethod(GetModelCacheFileLocationPath);
-                    var modulesVersionInfoFilePath = (string)xafApplication.CallMethod(GetModulesVersionInfoFilePath);
+                    var dcAssemblyFilePath = (string)xafApplication.CallMethod(getDcAssemblyFilePath);
+                    var modelAssemblyFilePath = (string)xafApplication.CallMethod(getModelAssemblyFilePath);
+                    var modelCacheFileLocationPath = (string)xafApplication.CallMethod(getModelCacheFileLocationPath);
+                    var modulesVersionInfoFilePath = (string)xafApplication.CallMethod(getModulesVersionInfoFilePath);
 
                     var cacheResult = new CacheWarmupGeneratorResponse
                     {

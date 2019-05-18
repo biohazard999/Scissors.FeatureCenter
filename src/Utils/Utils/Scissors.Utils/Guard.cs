@@ -30,6 +30,14 @@ namespace Scissors.Utils
             public const string NoParameterName = "<no parameter name>";
         }
 
+        /// <summary>
+        /// Asserts the not null.
+        /// </summary>
+        /// <param name="param">The parameter.</param>
+        /// <param name="paramName">Name of the parameter.</param>
+        /// <param name="message">The message.</param>
+        /// <exception cref="ScissorsArgumentNullException">
+        /// </exception>
         [DebuggerStepThrough]
         public static void AssertNotNull(object param, string paramName, string message = null)
         {
@@ -46,6 +54,12 @@ namespace Scissors.Utils
             }
         }
 
+        /// <summary>
+        /// Asserts the not null.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="selector">The selector.</param>
+        /// <exception cref="ScissorsArgumentNullException"></exception>
         [DebuggerStepThrough]
         public static void AssertNotNull<T>(Expression<Func<T>> selector)
         {
@@ -60,6 +74,13 @@ namespace Scissors.Utils
             }
         }
 
+        /// <summary>
+        /// Asserts the not empty.
+        /// </summary>
+        /// <param name="param">The parameter.</param>
+        /// <param name="paramName">Name of the parameter.</param>
+        /// <exception cref="ScissorsArgumentNullException"></exception>
+        /// <exception cref="ScissorsArgumentException"></exception>
         [DebuggerStepThrough]
         public static void AssertNotEmpty(string param, string paramName)
         {
@@ -76,6 +97,12 @@ namespace Scissors.Utils
             }
         }
 
+        /// <summary>
+        /// Asserts the not empty.
+        /// </summary>
+        /// <param name="selector">The selector.</param>
+        /// <exception cref="ScissorsArgumentNullException"></exception>
+        /// <exception cref="ScissorsArgumentException">String must not be empty.</exception>
         [DebuggerStepThrough]
         public static void AssertNotEmpty(Expression<Func<string>> selector)
         {
@@ -96,6 +123,13 @@ namespace Scissors.Utils
             }
         }
 
+        /// <summary>
+        /// Asserts the not empty.
+        /// </summary>
+        /// <param name="param">The parameter.</param>
+        /// <param name="paramName">Name of the parameter.</param>
+        /// <exception cref="ScissorsArgumentNullException"></exception>
+        /// <exception cref="ScissorsArgumentException"></exception>
         [DebuggerStepThrough]
         public static void AssertNotEmpty(ICollection param, string paramName)
         {
@@ -112,6 +146,14 @@ namespace Scissors.Utils
             }
         }
 
+        /// <summary>
+        /// Asserts the not empty.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="param">The parameter.</param>
+        /// <param name="paramName">Name of the parameter.</param>
+        /// <exception cref="ScissorsArgumentNullException"></exception>
+        /// <exception cref="ScissorsArgumentException"></exception>
         [DebuggerStepThrough]
         public static void AssertNotEmpty<T>(ICollection<T> param, string paramName)
         {
@@ -128,6 +170,15 @@ namespace Scissors.Utils
             }
         }
 
+        /// <summary>
+        /// Asserts the in range.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="param">The parameter.</param>
+        /// <param name="paramName">Name of the parameter.</param>
+        /// <param name="min">The minimum.</param>
+        /// <param name="max">The maximum.</param>
+        /// <exception cref="ScissorsArgumentOutOfRangeException"></exception>
         [DebuggerStepThrough]
         public static void AssertInRange<T>(T param, string paramName, T min, T max) where T : IComparable
         {
@@ -144,6 +195,11 @@ namespace Scissors.Utils
             }
         }
 
+        /// <summary>
+        /// Asserts the file exists.
+        /// </summary>
+        /// <param name="filePath">The file path.</param>
+        /// <exception cref="FileNotFoundException">The '{filePath}</exception>
         [DebuggerStepThrough]
         public static void AssertFileExists(string filePath)
         {

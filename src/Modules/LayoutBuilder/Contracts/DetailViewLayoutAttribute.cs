@@ -180,7 +180,7 @@ namespace Scissors.ExpressApp.LayoutBuilder.Contracts
     /// <summary>
     /// 
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <seealso cref="IEnumerable{LayoutItem}" />
     public abstract class LayoutItem : IEnumerable<LayoutItem>
     {
         /// <summary>

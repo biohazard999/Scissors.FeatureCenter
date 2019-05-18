@@ -6,13 +6,26 @@ using Scissors.Utils.Drawing.ImageDiff.BoundingBoxes;
 
 namespace Scissors.Utils.Drawing.ImageDiff.BoundingBoxes
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Scissors.Utils.Drawing.ImageDiff.BoundingBoxes.IBoundingBoxIdentifier" />
     public class MultipleBoundingBoxIdentifier : IBoundingBoxIdentifier
     {
         private int Padding { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MultipleBoundingBoxIdentifier"/> class.
+        /// </summary>
+        /// <param name="padding">The padding.</param>
         public MultipleBoundingBoxIdentifier(int padding)
             => Padding = padding;
 
+        /// <summary>
+        /// Creates the bounding boxes.
+        /// </summary>
+        /// <param name="labelMap">The label map.</param>
+        /// <returns></returns>
         public IEnumerable<Rectangle> CreateBoundingBoxes(int[,] labelMap)
         {
             var boundedPoints = FindLabeledPointGroups(labelMap);
