@@ -7,22 +7,4 @@
     <SchemaModule Name="SystemModule" Version="19.1.2.0" IsNewNode="True" />
     <SchemaModule Name="SystemWindowsFormsModule" Version="19.1.2.0" IsNewNode="True" />
   </SchemaModules>
-  <Views>
-    <DetailView Id="LabelDemoModel_DetailView" DefaultFocusedItem="Html">
-      <Layout>
-        <LayoutGroup Id="Main" RelativeSize="100">
-          <LayoutGroup Id="SimpleEditors" RelativeSize="100">
-            <LayoutGroup Id="LabelDemoModel" RelativeSize="6.5628476084538372">
-              <LayoutItem Id="Text" RelativeSize="54.237288135593218" />
-              <LayoutItem Id="Html" RelativeSize="45.762711864406782" />
-            </LayoutGroup>
-            <LayoutGroup Id="ScissorsBaseObjectOid" RelativeSize="93.437152391546164" Caption="Oid">
-              <LayoutItem Id="Oid" RelativeSize="3.2142857142857144" />
-              <LayoutItem Id="Item1" Index="1" RelativeSize="96.785714285714292" IsNewNode="True" />
-            </LayoutGroup>
-          </LayoutGroup>
-        </LayoutGroup>
-      </Layout>
-    </DetailView>
-  </Views>
 </Application>

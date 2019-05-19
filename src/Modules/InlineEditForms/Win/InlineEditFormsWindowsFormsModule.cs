@@ -7,12 +7,19 @@ using Scissors.ExpressApp.Win;
 
 namespace Scissors.ExpressApp.InlineEditForms.Win
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Scissors.ExpressApp.Win.ScissorsBaseModuleWin" />
     public class InlineEditFormsWindowsFormsModule : ScissorsBaseModuleWin
     {
-        protected override IEnumerable<Type> GetDeclaredControllerTypes()
-            => new[]
-            {
-                typeof(InlineEditFormsGridListViewController)
-            };
+        /// <summary>
+        /// returns the declared controller types
+        /// </summary>
+        /// <returns></returns>
+        protected override IEnumerable<Type> GetDeclaredControllerTypes() => new[]
+        {
+            typeof(InlineEditFormsGridListViewController)
+        };
     }
 }

@@ -8,6 +8,10 @@
 #l "./build.helpers.cake"
 
 var target = string.IsNullOrEmpty(Argument("target", "Default")) ? "Default" : Argument("target", "Default");
+var skipClean = Argument("skip-clean", false);
+var skipTests = Argument("skip-tests", false);
+var skipDocs = Argument("skip-docs", false);
+
 GitVersion version = null;
 
 Task("Version:Git")
@@ -24,6 +28,7 @@ Task("Version")
 	.IsDependentOn("Version:Git");
 
 Task("Clean")
+	.WithCriteria(() => !skipClean)
 	.Description("Cleans all build artifacts")
 	.Does(() =>
 	{
@@ -72,6 +77,7 @@ Task("Build:src")
 	.IsDependentOn("Version:src")
 	.Does(() => DoBuild(bld.SrcSln, bld.Configurations, settings =>
 		settings
+			.WithProperty("PackOnBuild", "false")
 			.WithProperty("RestoreSources", $"{bld.NugetSources}")
 			.WithProperty("DxVersion", bld.DxVersion)
 			.WithProperty("Version", bld.SrcAssemblyVersion)
@@ -79,21 +85,25 @@ Task("Build:src")
 			.WithProperty("InformationalVersion", bld.SrcInformationalVersion)));
 
 Task("Test:src:Unit")
+	.WithCriteria(() => !skipTests)
 	.IsDependentOn("Build:src")
 	.Does(() => DoTest(bld.SrcTestFilter, "Unit", bld.ArtifactsTestResultsFolder, (settings) => settings
 		.ExcludeTrait("Category", "UITest")
         .ExcludeTrait("Category", "Integration")));
 
 Task("Test:src:Integration")
+	.WithCriteria(() => !skipTests)
 	.IsDependentOn("Build:src")
 	.Does(() => DoTest(bld.SrcTestFilter, "Integration", bld.ArtifactsTestResultsFolder, (settings) => settings
         .IncludeTrait("Category", "Integration")));
 
 Task("Test:src")
+	.WithCriteria(() => !skipTests)
 	.IsDependentOn("Test:src:Unit")
 	.IsDependentOn("Test:src:Integration");
 
 Task("Docs:src")
+	.WithCriteria(() => !skipDocs)
 	.Does(() =>
 	{
 		CreateDirectory(bld.ArtifactsFolder);
@@ -105,7 +115,7 @@ Task("Docs:src")
 Task("Pack:src")
 	.IsDependentOn("Test:src")
 	.IsDependentOn("Docs:src")
-	.Does(() => DoPack(bld.SrcSln, bld.ConfigurationRelease, (settings) => settings
+	.Does(() => DoPack(bld.SrcSln, bld.ConfigurationDebug, (settings) => settings
 		.WithProperty("NoBuild", "True")
 		.WithProperty("PackageVersion", bld.SrcNugetVersion)
 		.WithProperty("PackageOutputPath", bld.ArtifactsNugetFolderAbsolute)

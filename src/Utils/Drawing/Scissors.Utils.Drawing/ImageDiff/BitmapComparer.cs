@@ -8,6 +8,10 @@ using Scissors.Utils.Drawing.ImageDiff.Labelers;
 
 namespace Scissors.Utils.Drawing.ImageDiff
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="IImageComparer{Image}" />
     public class BitmapComparer : IImageComparer<Image>
     {
         private LabelerTypes LabelerType { get; set; }
@@ -22,6 +26,10 @@ namespace Scissors.Utils.Drawing.ImageDiff
         private IBoundingBoxIdentifier BoundingBoxIdentifier { get; set; }
         private IBitmapAnalyzer BitmapAnalyzer { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BitmapComparer"/> class.
+        /// </summary>
+        /// <param name="options">The options.</param>
         public BitmapComparer(CompareOptions options = null)
         {
             if (options == null)
@@ -56,6 +64,13 @@ namespace Scissors.Utils.Drawing.ImageDiff
             AnalyzerType = options.AnalyzerType;
         }
 
+        /// <summary>
+        /// Compares the specified first image.
+        /// </summary>
+        /// <param name="firstImage">The first image.</param>
+        /// <param name="secondImage">The second image.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException">Bitmaps must be the same size.</exception>
         public Image Compare(Image firstImage, Image secondImage)
         {
             Guard.AssertNotNull(firstImage, nameof(firstImage));
@@ -73,6 +88,12 @@ namespace Scissors.Utils.Drawing.ImageDiff
             return differenceBitmap;
         }
 
+        /// <summary>
+        /// Equals the specified first image.
+        /// </summary>
+        /// <param name="firstImage">The first image.</param>
+        /// <param name="secondImage">The second image.</param>
+        /// <returns></returns>
         public bool Equals(Image firstImage, Image secondImage)
         {
             if (firstImage == null && secondImage == null)
@@ -114,8 +135,7 @@ namespace Scissors.Utils.Drawing.ImageDiff
 
         private Image CreateImageWithBoundingBoxes(Image secondImage, IEnumerable<Rectangle> boundingBoxes)
         {
-            var differenceBitmap = secondImage.Clone() as Bitmap;
-            if (differenceBitmap == null)
+            if(!(secondImage.Clone() is Bitmap differenceBitmap))
             {
                 throw new Exception("Could not copy secondImage");
             }

@@ -1,22 +1,34 @@
-using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 
 namespace Scissors.Utils.Drawing.ImageDiff.Labelers
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Scissors.Utils.Drawing.ImageDiff.Labelers.IDifferenceLabeler" />
     public class ConnectedComponentLabeler : IDifferenceLabeler
     {
         private int Padding { get; set; }
         private int[,] Labels { get; set; }
         private Dictionary<int, List<int>> Linked { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ConnectedComponentLabeler"/> class.
+        /// </summary>
+        /// <param name="padding">The padding.</param>
         public ConnectedComponentLabeler(int padding)
         {
             Padding = padding;
             Linked = new Dictionary<int, List<int>>();
         }
 
+        /// <summary>
+        /// Labels the specified difference map.
+        /// </summary>
+        /// <param name="differenceMap">The difference map.</param>
+        /// <returns></returns>
         public int[,] Label(bool[,] differenceMap)
         {
             var width = differenceMap.GetLength(0);
@@ -25,14 +37,17 @@ namespace Scissors.Utils.Drawing.ImageDiff.Labelers
             Labels = new int[width, height];
 
             var nextLabel = 1;
-            for (var y = 0; y < height; y++)
+            for(var y = 0; y < height; y++)
             {
-                for (var x = 0; x < width; x++)
+                for(var x = 0; x < width; x++)
                 {
-                    if (differenceMap[x, y] == false) continue;
+                    if(differenceMap[x, y] == false)
+                    {
+                        continue;
+                    }
 
                     var neighbors = Neighbors(differenceMap, x, y);
-                    if (neighbors == null || neighbors.Count == 0)
+                    if(neighbors == null || neighbors.Count == 0)
                     {
                         Linked.Add(nextLabel, new List<int> { nextLabel });
                         Labels[x, y] = nextLabel;
@@ -42,7 +57,7 @@ namespace Scissors.Utils.Drawing.ImageDiff.Labelers
                     {
                         var neighborsLabels = NeighborsLabels(neighbors);
                         Labels[x, y] = neighborsLabels.Min();
-                        foreach (var label in neighborsLabels)
+                        foreach(var label in neighborsLabels)
                         {
                             Linked[label] = Linked[label].Union(neighborsLabels).ToList();
                         }
@@ -51,12 +66,15 @@ namespace Scissors.Utils.Drawing.ImageDiff.Labelers
             }
 
             // second pass
-            for (var y = 0; y < height; y++)
+            for(var y = 0; y < height; y++)
             {
-                for (var x = 0; x < width; x++)
+                for(var x = 0; x < width; x++)
                 {
                     var currentLabel = Labels[x, y];
-                    if (currentLabel == 0) continue;
+                    if(currentLabel == 0)
+                    {
+                        continue;
+                    }
 
                     Labels[x, y] = FindLowestEquivalentLabel(currentLabel);
                 }
@@ -84,22 +102,22 @@ namespace Scissors.Utils.Drawing.ImageDiff.Labelers
         {
             var points = new List<Point>();
             var counter = 0;
-            while (counter <= Padding)
+            while(counter <= Padding)
             {
                 var offset = counter + 1;
 
-                if (x > counter)
+                if(x > counter)
                 {
                     points.Add(new Point(x - offset, y));
-                    if (y > counter)
+                    if(y > counter)
                     {
                         points.Add(new Point(x - offset, y - offset));
                     }
                 }
-                if (y > counter)
+                if(y > counter)
                 {
                     points.Add(new Point(x, y - offset));
-                    if (x < (width - offset))
+                    if(x < (width - offset))
                     {
                         points.Add(new Point(x + offset, y - offset));
                     }

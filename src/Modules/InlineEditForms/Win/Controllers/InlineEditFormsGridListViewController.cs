@@ -8,10 +8,17 @@ using DevExpress.XtraGrid.Views.Grid;
 
 namespace Scissors.ExpressApp.InlineEditForms.Win.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="ViewController{ListView}" />
     public class InlineEditFormsGridListViewController : ViewController<ListView>
     {
         List<Action> deactivation = new List<Action>();
 
+        /// <summary>
+        /// Called when [activated].
+        /// </summary>
         protected override void OnActivated()
         {
             base.OnActivated();
@@ -66,7 +73,9 @@ namespace Scissors.ExpressApp.InlineEditForms.Win.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Called when [deactivated].
+        /// </summary>
         protected override void OnDeactivated()
         {
             foreach(var action in deactivation)

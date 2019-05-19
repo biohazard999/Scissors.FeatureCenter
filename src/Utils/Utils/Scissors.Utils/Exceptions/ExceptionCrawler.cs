@@ -3,8 +3,16 @@ using System.Text;
 
 namespace Scissors.Utils.Exceptions
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class ExceptionCrawler
     {
+        /// <summary>
+        /// Extracts the error messages.
+        /// </summary>
+        /// <param name="exception">The exception.</param>
+        /// <returns></returns>
         public static string ExtractErrorMessages(Exception exception)
         {
             Guard.AssertNotNull(exception, nameof(exception));

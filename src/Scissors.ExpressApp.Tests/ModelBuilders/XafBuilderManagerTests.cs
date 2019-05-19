@@ -45,7 +45,7 @@ namespace Scissors.ExpressApp.Tests.ModelBuilders
 
                 public IBuilder Builder = A.Fake<IBuilder>();
 
-                protected override IEnumerable<IBuilder> CreateBuilders() => new[]
+                protected override IEnumerable<IBuilder> GetBuilders() => new[]
                 {
                     Builder
                 };

@@ -4,8 +4,16 @@ using System.Text;
 
 namespace Scissors.Utils
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class ExpressionHelper
     {
+        /// <summary>
+        /// Gets the member expression.
+        /// </summary>
+        /// <param name="expression">The expression.</param>
+        /// <returns></returns>
         public static MemberExpression GetMemberExpression(Expression expression)
         {
             if(expression is MemberExpression)
@@ -29,6 +37,11 @@ namespace Scissors.Utils
             return null;
         }
 
+        /// <summary>
+        /// Gets the property path.
+        /// </summary>
+        /// <param name="expr">The expr.</param>
+        /// <returns></returns>
         public static string GetPropertyPath(Expression expr)
         {
             var path = new StringBuilder();

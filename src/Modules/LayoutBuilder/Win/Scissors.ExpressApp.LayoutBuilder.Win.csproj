@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net462</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DevExpress.ExpressApp.Win" Version="$(DxVersion)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Scissors.ExpressApp.Win\Scissors.ExpressApp.Win.csproj" />
+    <ProjectReference Include="..\Base\Scissors.ExpressApp.LayoutBuilder.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="GeneratorUpdaters\" />
+  </ItemGroup>
+
+</Project>
