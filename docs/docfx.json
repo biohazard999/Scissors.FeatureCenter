@@ -4,6 +4,22 @@
       "src": [
         {
           "files": [
+            "src/Scissors.Xpo/Scissors.Xpo.csproj"
+					],
+					"cwd": ".."
+        }
+      ],
+			"dest": "api",
+			"properties": {
+				"TargetFramework": "net462"
+			},
+      "disableGitFeatures": false,
+      "disableDefaultFilter": false
+    },
+		{
+      "src": [
+        {
+          "files": [
             "src/Scissors.Data/Scissors.Data.csproj"
 					],
 					"cwd": ".."
@@ -16,22 +32,6 @@
       "disableGitFeatures": false,
       "disableDefaultFilter": false
 		},
-		{
-      "src": [
-        {
-          "files": [
-            "src/Scissors.Xpo/Scissors.Xpo.csproj"
-					],
-					"cwd": ".."
-        }
-      ],
-			"dest": "api",
-			"properties": {
-				"TargetFramework": "netstandard2.0"
-			},
-      "disableGitFeatures": false,
-      "disableDefaultFilter": false
-    },
     {
       "src": [
         {
