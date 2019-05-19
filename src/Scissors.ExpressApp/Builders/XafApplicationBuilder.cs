@@ -337,8 +337,7 @@ namespace Scissors.ExpressApp.Builders
             Func<CreateCustomObjectSpaceProviderEventArgs, TApplication, IObjectSpaceProvider>>
             ObjectSpaceProviderFactories
         { get; } = new List<
-                Func<CreateCustomObjectSpaceProviderEventArgs, TApplication, IObjectSpaceProvider>
-            >();
+                Func<CreateCustomObjectSpaceProviderEventArgs, TApplication, IObjectSpaceProvider>>();
 
         /// <summary>
         /// Adds an ObjectSpaceProviderFactory to the application instance.

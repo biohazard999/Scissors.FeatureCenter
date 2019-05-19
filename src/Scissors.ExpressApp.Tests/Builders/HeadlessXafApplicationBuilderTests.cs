@@ -5,9 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DevExpress.ExpressApp;
+using DevExpress.ExpressApp.DC;
 using DevExpress.ExpressApp.SystemModule;
 using FakeItEasy;
 using Scissors.ExpressApp.Builders;
+using Scissors.Utils.Testing.XUnit;
 using Shouldly;
 using Xunit;
 
@@ -174,6 +176,26 @@ namespace Scissors.ExpressApp.Tests.Builders
                         .Title.ShouldBe(title);
         }
 
+        public class WithTypesInfo : HeadlessXafApplicationBuilderTests
+        {
+            [Fact]
+            public void ShouldUse()
+            {
+                var typesInfo = A.Dummy<ITypesInfo>();
+                CreateBuilder()
+                    .WithTypesInfo(typesInfo)
+                    .Build()
+                        .TypesInfo.ShouldBe(typesInfo);
+            }
+
+            [Fact]
+            public void ShouldUseXafTypesInfoInstance()
+                => CreateBuilder()
+                    .Build()
+                        .TypesInfo.ShouldBe(XafTypesInfo.Instance);
+
+        }
+
         public class WithModule : HeadlessXafApplicationBuilderTests
         {
             public class TestModule1 : ModuleBase { }
@@ -244,7 +266,7 @@ namespace Scissors.ExpressApp.Tests.Builders
             }
 
             [Fact]
-            public void ShouldPassApplication()
+            public void ShouldPassThroughAnApplication()
                => CreateBuilder()
                    .WithModuleFactory((app) =>
                    {
@@ -252,6 +274,28 @@ namespace Scissors.ExpressApp.Tests.Builders
                        return module1;
                    })
                    .Build();
+        }
+
+        public class WithObjectSpaceProviderBuilder : HeadlessXafApplicationBuilderTests
+        {
+            [Fact]
+            [Integration]
+            public void ShouldAddProvider()
+            {
+                var application = CreateBuilder()
+                    .WithTypesInfo(new TypesInfo())
+                    .WithObjectSpaceProviderFactory((args, app) => new NonPersistentObjectSpaceProviderBuilder()
+                    .WithTypesInfo(app.TypesInfo)
+                    .WithTypeInfoSource(new NonPersistentTypeInfoSource(app.TypesInfo))
+                    .Build())
+                 .Build();
+                application.Setup();
+
+                application.ObjectSpaceProviders.ShouldSatisfyAllConditions(
+                    () => application.ObjectSpaceProviders.Count.ShouldBe(1),
+                    () => application.ObjectSpaceProviders.First().ShouldBeOfType<NonPersistentObjectSpaceProvider>()
+                );
+            }
         }
     }
 }

@@ -40,6 +40,7 @@ namespace Scissors.ExpressApp.Win.Tests.Builders
 
                 A.CallTo(() => splash.Start()).MustHaveHappened()
                     .Then(A.CallTo(() => splash.Stop()).MustHaveHappened());
+
             }
         }
     }
