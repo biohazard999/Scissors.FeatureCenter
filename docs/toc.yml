@@ -3,3 +3,9 @@
 - name: Api Documentation
   href: api/
   homepage: api/index.md
+- name: XPO Api Documentation
+  href: api-xpo/
+  homepage: api-xpo/index.md
+- name: Data Api Documentation
+  href: api-data/
+  homepage: api-data/index.md

@@ -9,7 +9,7 @@
 					"cwd": ".."
         }
       ],
-			"dest": "api",
+			"dest": "api-xpo",
 			"properties": {
 				"TargetFramework": "net462"
 			},
@@ -25,7 +25,7 @@
 					"cwd": ".."
         }
       ],
-			"dest": "api",
+			"dest": "api-data",
 			"properties": {
 				"TargetFramework": "netstandard2.0"
 			},
@@ -62,7 +62,11 @@
       {
         "files": [
           "api/**.yml",
-          "api/index.md"
+					"api/index.md",
+          "api-xpo/**.yml",
+					"api-xpo/index.md",
+					"api-data/**.yml",
+          "api-data/index.md"
         ]
       },
       {
