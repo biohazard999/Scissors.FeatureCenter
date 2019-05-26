@@ -7,7 +7,7 @@
 <Project>
 
   <!-- This will automatically produce a zip file will all contents of the publish directory. -->
-  <Target Name="WarmupXafCaches" AfterTargets="Build">
+  <Target Name="WarmupXafCaches" AfterTargets="Build" Condition="'$(NCrunch)' != '1'">
 		<Message Importance="High" Text="Executing: $(_ToolAssembly) $(TargetDir)$(TargetFileName)"/>
 		<Exec Command="$(_ToolAssembly) $(TargetDir)$(TargetFileName)"/>
   </Target>
