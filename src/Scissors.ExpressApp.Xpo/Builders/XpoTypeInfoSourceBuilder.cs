@@ -56,19 +56,28 @@ namespace Scissors.ExpressApp.Xpo.Builders
                     Dictionary.CollectClassInfos(Assemblies.ToArray());
                 }
 
-                var xpoTypeInfoSource = new XpoTypeInfoSource(TypesInfo, Dictionary);
+                var xpoTypeInfoSource = (TXpoTypeInfoSource)new XpoTypeInfoSource(TypesInfo, Dictionary);
 
                 foreach(XPClassInfo classInfo in Dictionary.Classes)
                 {
                     xpoTypeInfoSource.RegisterEntity(classInfo.ClassType);
                 }
 
-                return (TXpoTypeInfoSource)xpoTypeInfoSource;
+                return xpoTypeInfoSource;
             }
 
             if(Types.Count > 0)
             {
-                return (TXpoTypeInfoSource)new XpoTypeInfoSource(TypesInfo, Types.ToArray());
+                var xpoTypeInfoSource = (TXpoTypeInfoSource)new XpoTypeInfoSource(TypesInfo, Types.ToArray());
+
+                TypesInfo.AddEntityStore(xpoTypeInfoSource);
+
+                foreach(var type in Types)
+                {
+                    TypesInfo.RegisterEntity(type);
+                }
+
+                return xpoTypeInfoSource;
             }
 
             return (TXpoTypeInfoSource)new XpoTypeInfoSource(TypesInfo);
@@ -174,6 +183,16 @@ namespace Scissors.ExpressApp.Xpo.Builders
             return This;
         }
 
+        /// <summary>
+        /// Specifies the Types to use.
+        /// Multiple calls are allowed.
+        /// </summary>
+        /// <remarks>Don't mix <see cref="WithDictionary(XPDictionary)"/> and <see cref="WithAssemblies(Assembly[])"/> or <see cref="WithAssembly(Assembly)"/> with <see cref="WithType(Type)"/> and <see cref="WithTypes(Type[])"/></remarks>
+        /// <param name="types">An array of Types to use</param>
+        /// <returns></returns>
+        public TBuilder WithTypes(IEnumerable<Type> types)
+            => WithTypes(types.ToArray());
+        
         void EnsureTypesInfo()
         {
             if(TypesInfo == null)
