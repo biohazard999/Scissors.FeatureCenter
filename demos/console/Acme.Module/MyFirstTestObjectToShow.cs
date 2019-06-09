@@ -1,4 +1,4 @@
-﻿using DevExpress.Persistent.Base;
+using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
 using System;
 using System.Collections.Generic;
@@ -13,12 +13,12 @@ namespace Acme.Module
         public MyFirstTestObjectToShow(Session session) : base(session) { }
 
         [Persistent("Oid"), Key(AutoGenerate = true)]
-        int _Oid;
-        [PersistentAlias(nameof(_Oid))]
-        public int Oid { get => _Oid; }
+        int oid;
+        [PersistentAlias(nameof(oid))]
+        public int Oid => oid;
 
-        private string _Name;
+        private string name;
         [Persistent("Name")]
-        public string Name { get => _Name; set => SetPropertyValue(nameof(Name), ref _Name, value); }
+        public string Name { get => name; set => SetPropertyValue(nameof(Name), ref name, value); }
     }
 }

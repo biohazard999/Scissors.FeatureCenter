@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="DevExpress.Data" Version="$(DxVersion)" />
     <PackageReference Include="DevExpress.ExpressApp" Version="$(DxVersion)" />
   </ItemGroup>
 

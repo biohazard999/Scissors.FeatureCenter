@@ -2,13 +2,19 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>net462</TargetFramework>
     <RootNamespace>Acme.ConsoleApp</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\DevExpress.ExpressApp.Xpo\DevExpress.ExpressApp.Xpo.csproj" />
+    <PackageReference Include="DevExpress.ExpressApp.Xpo" Version="$(DxVersion)" />
+    <PackageReference Include="Scissors.ExpressApp" Version="$(ScissorsVersion)" />
+    <PackageReference Include="Scissors.ExpressApp.Console" Version="$(ScissorsVersion)" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Acme.Module.Console\Acme.Module.Console.csproj" />
+    <ProjectReference Include="..\Acme.Module\Acme.Module.csproj" />
   </ItemGroup>
 
 </Project>

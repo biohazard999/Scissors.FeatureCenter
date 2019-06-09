@@ -1,4 +1,4 @@
-﻿using Acme.Module;
+using Acme.Module;
 using Acme.Module.ConsoleLib;
 using Scissors.ExpressApp.Console;
 using DevExpress.ExpressApp.Xpo;
