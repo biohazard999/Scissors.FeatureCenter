@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>library</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <RootNamespace>Acme.Module.ConsoleLib</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\DevExpress.ExpressApp.Console\DevExpress.ExpressApp.Console.csproj" />
+    <ProjectReference Include="..\Acme.Module\Acme.Module.csproj" />
+  </ItemGroup>
+
+</Project>
