@@ -167,20 +167,20 @@ Task("tools:slngen")
 	.Description("Regenerates the sln files")
 	.Does(() =>
 	{
-		if(FileExists(bld.SrcSln)) DeleteFile(bld.SrcSln);
-		if(FileExists(bld.DemosSln)) DeleteFile(bld.DemosSln);
-		if(FileExists(bld.Sln)) DeleteFile(bld.Sln);
+		// if(FileExists(bld.SrcSln)) DeleteFile(bld.SrcSln);
+		// if(FileExists(bld.DemosSln)) DeleteFile(bld.DemosSln);
+		// if(FileExists(bld.Sln)) DeleteFile(bld.Sln);
 
-		DotNetCoreTool($"new sln -n {File(bld.SrcSln).Path.GetFilenameWithoutExtension()}");
-		DotNetCoreTool($"new sln -n {File(bld.DemosSln).Path.GetFilenameWithoutExtension()}");
-		DotNetCoreTool($"new sln -n {File(bld.Sln).Path.GetFilenameWithoutExtension()}");
+		// DotNetCoreTool($"new sln -n {File(bld.SrcSln).Path.GetFilenameWithoutExtension()}");
+		// DotNetCoreTool($"new sln -n {File(bld.DemosSln).Path.GetFilenameWithoutExtension()}");
+		// DotNetCoreTool($"new sln -n {File(bld.Sln).Path.GetFilenameWithoutExtension()}");
 
-		// // foreach(var file in GetFiles(bld.SrcFolder + "/**/*.csproj")) DotNetCoreTool($"sln {bld.SrcSln} add {file}");
-		// // foreach(var file in GetFiles(bld.DemosFolder + "/**/*.csproj")) DotNetCoreTool($"sln {bld.DemosSln} add {file}");
+		foreach(var file in GetFiles(bld.SrcFolder + "/**/*.csproj")) DotNetCoreTool($"sln {bld.SrcSln} add {file}");
+		foreach(var file in GetFiles(bld.DemosFolder + "/**/*.csproj")) DotNetCoreTool($"sln {bld.DemosSln} add {file}");
 		// foreach(var file in GetFiles(bld.DemosFolder + "/**/*.wapproj")) DotNetCoreTool($"sln {bld.DemosSln} add {file}");
 
-		// // foreach(var file in GetFiles(bld.SrcFolder + "/**/*.csproj")) DotNetCoreTool($"sln {bld.Sln} add {file}");
-		// // foreach(var file in GetFiles(bld.DemosFolder + "/**/*.csproj")) DotNetCoreTool($"sln {bld.Sln} add {file}");
+		foreach(var file in GetFiles(bld.SrcFolder + "/**/*.csproj")) DotNetCoreTool($"sln {bld.Sln} add {file}");
+		foreach(var file in GetFiles(bld.DemosFolder + "/**/*.csproj")) DotNetCoreTool($"sln {bld.Sln} add {file}");
 		// foreach(var file in GetFiles(bld.DemosFolder + "/**/*.wapproj")) DotNetCoreTool($"sln {bld.Sln} add {file}");
 	});
 
