@@ -34,6 +34,7 @@
     <ProjectReference Include="..\..\..\src\Scissors.Xpo\Scissors.Xpo.csproj" />
     <ProjectReference Include="..\..\..\src\Scissors.ExpressApp.Win\Scissors.ExpressApp.Win.csproj" />
     <ProjectReference Include="..\..\..\src\Modules\LabelEditor\Win\Scissors.ExpressApp.LabelEditor.Win.csproj" />
+    <ProjectReference Include="..\..\..\src\Modules\InlineEditForms\Win\Scissors.ExpressApp.InlineEditForms.Win.csproj" />
     <ProjectReference Include="..\..\..\src\Modules\LayoutBuilder\Win\Scissors.ExpressApp.LayoutBuilder.Win.csproj" />
 	</ItemGroup>
 
