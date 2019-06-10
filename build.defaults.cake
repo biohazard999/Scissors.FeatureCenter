@@ -25,6 +25,7 @@ public class Bld
 		$"{DemosFolder}/**/obj/",
 	};
 
+	public string Sln => "./Scissors.FeatureCenter.sln";
 	public string SrcSln => "./Scissors.FeatureCenter.src.sln";
 	public string DemosSln => "./Scissors.FeatureCenter.demos.sln";
 
