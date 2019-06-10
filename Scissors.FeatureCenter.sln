@@ -5,111 +5,113 @@ VisualStudioVersion = 16.0.28917.182
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D825B014-C3F8-47B1-BA8C-A9CD466EC4EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.Data", "src\Scissors.Data\Scissors.Data.csproj", "{D5B77075-5FBE-47D3-BE8F-A1863A190B0B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.Data", "src\Scissors.Data\Scissors.Data.csproj", "{D5B77075-5FBE-47D3-BE8F-A1863A190B0B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.Data.Tests", "src\Scissors.Data.Tests\Scissors.Data.Tests.csproj", "{EB22D6BF-5CFA-40E5-BB97-48A1FB54B1AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.Data.Tests", "src\Scissors.Data.Tests\Scissors.Data.Tests.csproj", "{EB22D6BF-5CFA-40E5-BB97-48A1FB54B1AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.ExpressApp", "src\Scissors.ExpressApp\Scissors.ExpressApp.csproj", "{1A1A4685-1A41-4FA5-BE95-BD6339557AFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.ExpressApp", "src\Scissors.ExpressApp\Scissors.ExpressApp.csproj", "{1A1A4685-1A41-4FA5-BE95-BD6339557AFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.ExpressApp.Console", "src\Scissors.ExpressApp.Console\Scissors.ExpressApp.Console.csproj", "{1C7718EA-8A31-435A-89C7-4BA82BA9F59F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.ExpressApp.Console", "src\Scissors.ExpressApp.Console\Scissors.ExpressApp.Console.csproj", "{1C7718EA-8A31-435A-89C7-4BA82BA9F59F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.ExpressApp.Contracts", "src\Scissors.ExpressApp.Contracts\Scissors.ExpressApp.Contracts.csproj", "{B2E45BB0-89D6-4B6D-B53F-6B55EC7F6259}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.ExpressApp.Contracts", "src\Scissors.ExpressApp.Contracts\Scissors.ExpressApp.Contracts.csproj", "{B2E45BB0-89D6-4B6D-B53F-6B55EC7F6259}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.ExpressApp.Tests", "src\Scissors.ExpressApp.Tests\Scissors.ExpressApp.Tests.csproj", "{A4BB803D-F8A8-46C9-914B-4C5F7E64C23A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.ExpressApp.Tests", "src\Scissors.ExpressApp.Tests\Scissors.ExpressApp.Tests.csproj", "{A4BB803D-F8A8-46C9-914B-4C5F7E64C23A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.ExpressApp.Win", "src\Scissors.ExpressApp.Win\Scissors.ExpressApp.Win.csproj", "{CDA2224C-6835-4016-B357-5ED6C1F04AD8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.ExpressApp.Win", "src\Scissors.ExpressApp.Win\Scissors.ExpressApp.Win.csproj", "{CDA2224C-6835-4016-B357-5ED6C1F04AD8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.ExpressApp.Win.Tests", "src\Scissors.ExpressApp.Win.Tests\Scissors.ExpressApp.Win.Tests.csproj", "{A8035F1C-4166-404E-8158-F55BC1464548}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.ExpressApp.Win.Tests", "src\Scissors.ExpressApp.Win.Tests\Scissors.ExpressApp.Win.Tests.csproj", "{A8035F1C-4166-404E-8158-F55BC1464548}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.ExpressApp.Xpo", "src\Scissors.ExpressApp.Xpo\Scissors.ExpressApp.Xpo.csproj", "{5D81C677-4035-4F32-BB50-B5C5C12D466C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.ExpressApp.Xpo", "src\Scissors.ExpressApp.Xpo\Scissors.ExpressApp.Xpo.csproj", "{5D81C677-4035-4F32-BB50-B5C5C12D466C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.ExpressApp.Xpo.Tests", "src\Scissors.ExpressApp.Xpo.Tests\Scissors.ExpressApp.Xpo.Tests.csproj", "{59240C50-491C-4A58-80D4-8059EB080D6D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.ExpressApp.Xpo.Tests", "src\Scissors.ExpressApp.Xpo.Tests\Scissors.ExpressApp.Xpo.Tests.csproj", "{59240C50-491C-4A58-80D4-8059EB080D6D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.Xpo", "src\Scissors.Xpo\Scissors.Xpo.csproj", "{3347880F-482C-4D83-907A-4136A3366909}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.Xpo", "src\Scissors.Xpo\Scissors.Xpo.csproj", "{3347880F-482C-4D83-907A-4136A3366909}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.Xpo.Tests", "src\Scissors.Xpo.Tests\Scissors.Xpo.Tests.csproj", "{DD586F7A-B793-4F07-A99E-F9625287763D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.Xpo.Tests", "src\Scissors.Xpo.Tests\Scissors.Xpo.Tests.csproj", "{DD586F7A-B793-4F07-A99E-F9625287763D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Generators", "Generators", "{32BA8638-91D4-49FE-9F53-751BF77CDF48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.Xaf.CacheWarmup.Attributes", "src\Generators\Scissors.Xaf.CacheWarmup.Attributes\Scissors.Xaf.CacheWarmup.Attributes.csproj", "{90D8351E-4569-4C56-B87E-F67BDAC057E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.Xaf.CacheWarmup.Attributes", "src\Generators\Scissors.Xaf.CacheWarmup.Attributes\Scissors.Xaf.CacheWarmup.Attributes.csproj", "{90D8351E-4569-4C56-B87E-F67BDAC057E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.Xaf.CacheWarmup.Generators", "src\Generators\Scissors.Xaf.CacheWarmup.Generators\Scissors.Xaf.CacheWarmup.Generators.csproj", "{67A203EC-EAE9-4EF2-9B49-AB3B54A9F7B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.Xaf.CacheWarmup.Generators", "src\Generators\Scissors.Xaf.CacheWarmup.Generators\Scissors.Xaf.CacheWarmup.Generators.csproj", "{67A203EC-EAE9-4EF2-9B49-AB3B54A9F7B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.Xaf.CacheWarmup.Generators.Cli", "src\Generators\Scissors.Xaf.CacheWarmup.Generators.Cli\Scissors.Xaf.CacheWarmup.Generators.Cli.csproj", "{5EA82ED6-D6E7-4ADB-86C8-2DB74FDFA0CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.Xaf.CacheWarmup.Generators.Cli", "src\Generators\Scissors.Xaf.CacheWarmup.Generators.Cli\Scissors.Xaf.CacheWarmup.Generators.Cli.csproj", "{5EA82ED6-D6E7-4ADB-86C8-2DB74FDFA0CB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{7BD46334-0221-408A-A25E-76F11B02C28E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "InlineEditForms", "InlineEditForms", "{48A9C7E0-454C-4245-B560-B0B03B06A2DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.ExpressApp.InlineEditForms.Contracts", "src\Modules\InlineEditForms\Contracts\Scissors.ExpressApp.InlineEditForms.Contracts.csproj", "{C2964EAF-E79E-4C54-9767-7480961A8C7D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.ExpressApp.InlineEditForms.Contracts", "src\Modules\InlineEditForms\Contracts\Scissors.ExpressApp.InlineEditForms.Contracts.csproj", "{C2964EAF-E79E-4C54-9767-7480961A8C7D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.ExpressApp.InlineEditForms.UITests", "src\Modules\InlineEditForms\UITests\Scissors.ExpressApp.InlineEditForms.UITests.csproj", "{36804E04-7214-4499-B8AF-D7EF9E96F7CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.ExpressApp.InlineEditForms.UITests", "src\Modules\InlineEditForms\UITests\Scissors.ExpressApp.InlineEditForms.UITests.csproj", "{36804E04-7214-4499-B8AF-D7EF9E96F7CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.ExpressApp.InlineEditForms.Win", "src\Modules\InlineEditForms\Win\Scissors.ExpressApp.InlineEditForms.Win.csproj", "{F806E512-E759-4F22-AD11-FE74E0EE5F5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.ExpressApp.InlineEditForms.Win", "src\Modules\InlineEditForms\Win\Scissors.ExpressApp.InlineEditForms.Win.csproj", "{F806E512-E759-4F22-AD11-FE74E0EE5F5D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LabelEditor", "LabelEditor", "{4A7043C4-130C-4DB0-B584-BDDDF64D6CC6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.ExpressApp.LabelEditor", "src\Modules\LabelEditor\Base\Scissors.ExpressApp.LabelEditor.csproj", "{7D179EFF-F73D-4D5B-96BF-2150F1561BC8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.ExpressApp.LabelEditor", "src\Modules\LabelEditor\Base\Scissors.ExpressApp.LabelEditor.csproj", "{7D179EFF-F73D-4D5B-96BF-2150F1561BC8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.ExpressApp.LabelEditor.Contracts", "src\Modules\LabelEditor\Contracts\Scissors.ExpressApp.LabelEditor.Contracts.csproj", "{CF5B4320-E323-4972-A150-C2B8F9DA15A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.ExpressApp.LabelEditor.Contracts", "src\Modules\LabelEditor\Contracts\Scissors.ExpressApp.LabelEditor.Contracts.csproj", "{CF5B4320-E323-4972-A150-C2B8F9DA15A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.ExpressApp.LabelEditor.Win", "src\Modules\LabelEditor\Win\Scissors.ExpressApp.LabelEditor.Win.csproj", "{999AEA8E-2A30-4FBB-83CB-C6D79AF0EE1D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.ExpressApp.LabelEditor.Win", "src\Modules\LabelEditor\Win\Scissors.ExpressApp.LabelEditor.Win.csproj", "{999AEA8E-2A30-4FBB-83CB-C6D79AF0EE1D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LayoutBuilder", "LayoutBuilder", "{A4FE9632-590A-4880-944C-D8FBBD050757}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.ExpressApp.LayoutBuilder", "src\Modules\LayoutBuilder\Base\Scissors.ExpressApp.LayoutBuilder.csproj", "{B25A43DB-2F4F-4D4A-BF34-A837F59B7753}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.ExpressApp.LayoutBuilder", "src\Modules\LayoutBuilder\Base\Scissors.ExpressApp.LayoutBuilder.csproj", "{B25A43DB-2F4F-4D4A-BF34-A837F59B7753}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.ExpressApp.LayoutBuilder.Contracts", "src\Modules\LayoutBuilder\Contracts\Scissors.ExpressApp.LayoutBuilder.Contracts.csproj", "{AB58247C-0219-407A-8E30-F5D6D65F5EBA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.ExpressApp.LayoutBuilder.Contracts", "src\Modules\LayoutBuilder\Contracts\Scissors.ExpressApp.LayoutBuilder.Contracts.csproj", "{AB58247C-0219-407A-8E30-F5D6D65F5EBA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.ExpressApp.LayoutBuilder.Tests", "src\Modules\LayoutBuilder\Tests\Scissors.ExpressApp.LayoutBuilder.Tests.csproj", "{4B4C9075-BA15-4AF3-8F37-7CE99B0ADECD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.ExpressApp.LayoutBuilder.Tests", "src\Modules\LayoutBuilder\Tests\Scissors.ExpressApp.LayoutBuilder.Tests.csproj", "{4B4C9075-BA15-4AF3-8F37-7CE99B0ADECD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.ExpressApp.LayoutBuilder.Win.Tests", "src\Modules\LayoutBuilder\Tests.Win\Scissors.ExpressApp.LayoutBuilder.Win.Tests.csproj", "{914672D5-E820-430A-832A-D4948BA2D823}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.ExpressApp.LayoutBuilder.Win.Tests", "src\Modules\LayoutBuilder\Tests.Win\Scissors.ExpressApp.LayoutBuilder.Win.Tests.csproj", "{914672D5-E820-430A-832A-D4948BA2D823}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.ExpressApp.LayoutBuilder.Win", "src\Modules\LayoutBuilder\Win\Scissors.ExpressApp.LayoutBuilder.Win.csproj", "{AA6C0AFC-E678-4AD1-ACB0-B329A59851E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.ExpressApp.LayoutBuilder.Win", "src\Modules\LayoutBuilder\Win\Scissors.ExpressApp.LayoutBuilder.Win.csproj", "{AA6C0AFC-E678-4AD1-ACB0-B329A59851E2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utils", "Utils", "{697A534D-540A-481D-B6E2-8B6F4E0BD4CF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Drawing", "Drawing", "{B0F71394-B1C9-484C-83EF-59E7014968BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.Utils.Drawing", "src\Utils\Drawing\Scissors.Utils.Drawing\Scissors.Utils.Drawing.csproj", "{ED5B5300-436B-4B36-B6F8-CF58A048B8B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.Utils.Drawing", "src\Utils\Drawing\Scissors.Utils.Drawing\Scissors.Utils.Drawing.csproj", "{ED5B5300-436B-4B36-B6F8-CF58A048B8B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.Utils.Drawing.Tests", "src\Utils\Drawing\Scissors.Utils.Drawing.Tests\Scissors.Utils.Drawing.Tests.csproj", "{600E14EB-AEA9-423F-893C-009E3E646A38}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.Utils.Drawing.Tests", "src\Utils\Drawing\Scissors.Utils.Drawing.Tests\Scissors.Utils.Drawing.Tests.csproj", "{600E14EB-AEA9-423F-893C-009E3E646A38}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{DFC0F632-7296-4233-BEFB-DE327F983A4C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.Utils.Testing.XUnit", "src\Utils\Testing\Scissors.Utils.Testing.XUnit\Scissors.Utils.Testing.XUnit.csproj", "{E7CC8717-0C5F-429E-8CED-132ED03527C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.Utils.Testing.XUnit", "src\Utils\Testing\Scissors.Utils.Testing.XUnit\Scissors.Utils.Testing.XUnit.csproj", "{E7CC8717-0C5F-429E-8CED-132ED03527C6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utils", "Utils", "{02156322-79DB-4E10-A1FB-B93AB09A3140}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.Utils", "src\Utils\Utils\Scissors.Utils\Scissors.Utils.csproj", "{3CB8A20E-CF83-4EDA-8ECB-012051E4F735}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.Utils", "src\Utils\Utils\Scissors.Utils\Scissors.Utils.csproj", "{3CB8A20E-CF83-4EDA-8ECB-012051E4F735}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.Utils.Tests", "src\Utils\Utils\Scissors.Utils.Tests\Scissors.Utils.Tests.csproj", "{5427FD12-FFEC-4CE3-A89D-B277C81AF812}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.Utils.Tests", "src\Utils\Utils\Scissors.Utils.Tests\Scissors.Utils.Tests.csproj", "{5427FD12-FFEC-4CE3-A89D-B277C81AF812}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "demos", "demos", "{9D205BC7-0D7E-4FDC-B221-4DEFA74BB081}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "console", "console", "{6BE4487F-30F7-4F0B-A688-65E451DD8827}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme.Console", "demos\console\Acme.Console\Acme.Console.csproj", "{17EAB327-3293-4D16-AD00-B9F79231DABE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acme.Console", "demos\console\Acme.Console\Acme.Console.csproj", "{17EAB327-3293-4D16-AD00-B9F79231DABE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme.Module", "demos\console\Acme.Module\Acme.Module.csproj", "{6C48D0B2-13D0-4EEF-BF7A-03A45D78DF1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acme.Module", "demos\console\Acme.Module\Acme.Module.csproj", "{6C48D0B2-13D0-4EEF-BF7A-03A45D78DF1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme.Module.Console", "demos\console\Acme.Module.Console\Acme.Module.Console.csproj", "{5F125919-D686-4156-ADBE-D4DCCB9D3104}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acme.Module.Console", "demos\console\Acme.Module.Console\Acme.Module.Console.csproj", "{5F125919-D686-4156-ADBE-D4DCCB9D3104}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "win", "win", "{B6440733-26C6-4859-9A2E-CD353CFBF1C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.FeatureCenter.Module", "demos\win\Scissors.FeatureCenter.Module\Scissors.FeatureCenter.Module.csproj", "{3BCBE033-EB86-4504-96BD-5ACB65B17ADF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.FeatureCenter.Module", "demos\win\Scissors.FeatureCenter.Module\Scissors.FeatureCenter.Module.csproj", "{3BCBE033-EB86-4504-96BD-5ACB65B17ADF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.FeatureCenter.Module.BusinessObjects", "demos\win\Scissors.FeatureCenter.Module.BusinessObjects\Scissors.FeatureCenter.Module.BusinessObjects.csproj", "{1D3028A1-1724-4247-A8C6-AE519AE868E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.FeatureCenter.Module.BusinessObjects", "demos\win\Scissors.FeatureCenter.Module.BusinessObjects\Scissors.FeatureCenter.Module.BusinessObjects.csproj", "{1D3028A1-1724-4247-A8C6-AE519AE868E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.FeatureCenter.Module.Contracts", "demos\win\Scissors.FeatureCenter.Module.Contracts\Scissors.FeatureCenter.Module.Contracts.csproj", "{CD46D421-9A4B-4A32-8F90-8BDA0ED39116}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.FeatureCenter.Module.Contracts", "demos\win\Scissors.FeatureCenter.Module.Contracts\Scissors.FeatureCenter.Module.Contracts.csproj", "{CD46D421-9A4B-4A32-8F90-8BDA0ED39116}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.FeatureCenter.Module.Win", "demos\win\Scissors.FeatureCenter.Module.Win\Scissors.FeatureCenter.Module.Win.csproj", "{DF5F159A-E8ED-467D-8357-BBE1AADF5366}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.FeatureCenter.Module.Win", "demos\win\Scissors.FeatureCenter.Module.Win\Scissors.FeatureCenter.Module.Win.csproj", "{DF5F159A-E8ED-467D-8357-BBE1AADF5366}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.FeatureCenter.Win", "demos\win\Scissors.FeatureCenter.Win\Scissors.FeatureCenter.Win.csproj", "{ED98F246-345B-4934-A2DC-881656C3100B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.FeatureCenter.Win", "demos\win\Scissors.FeatureCenter.Win\Scissors.FeatureCenter.Win.csproj", "{ED98F246-345B-4934-A2DC-881656C3100B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "win10", "win10", "{E1C7E888-00DE-4FA8-9B17-A5C9C714B25C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.FeatureCenter.Win10", "demos\win10\Scissors.FeatureCenter.Win10\Scissors.FeatureCenter.Win10.csproj", "{199C4A09-1369-4C80-A334-5A225FA8C780}"
+EndProject
+Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "Scissors.FeatureCenter.Package", "demos\win10\Scissors.FeatureCenter.Package\Scissors.FeatureCenter.Package.wapproj", "{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -119,9 +121,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{D5B77075-5FBE-47D3-BE8F-A1863A190B0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -604,6 +603,27 @@ Global
 		{199C4A09-1369-4C80-A334-5A225FA8C780}.Release|x64.Build.0 = Debug|Any CPU
 		{199C4A09-1369-4C80-A334-5A225FA8C780}.Release|x86.ActiveCfg = Debug|Any CPU
 		{199C4A09-1369-4C80-A334-5A225FA8C780}.Release|x86.Build.0 = Debug|Any CPU
+		{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}.Debug|x64.ActiveCfg = Debug|x64
+		{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}.Debug|x64.Build.0 = Debug|x64
+		{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}.Debug|x64.Deploy.0 = Debug|x64
+		{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}.Debug|x86.ActiveCfg = Debug|x86
+		{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}.Debug|x86.Build.0 = Debug|x86
+		{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}.Debug|x86.Deploy.0 = Debug|x86
+		{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}.Release|x64.ActiveCfg = Release|x64
+		{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}.Release|x64.Build.0 = Release|x64
+		{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}.Release|x64.Deploy.0 = Release|x64
+		{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}.Release|x86.ActiveCfg = Release|x86
+		{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}.Release|x86.Build.0 = Release|x86
+		{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}.Release|x86.Deploy.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{D5B77075-5FBE-47D3-BE8F-A1863A190B0B} = {D825B014-C3F8-47B1-BA8C-A9CD466EC4EE}
@@ -658,5 +678,9 @@ Global
 		{ED98F246-345B-4934-A2DC-881656C3100B} = {B6440733-26C6-4859-9A2E-CD353CFBF1C2}
 		{E1C7E888-00DE-4FA8-9B17-A5C9C714B25C} = {9D205BC7-0D7E-4FDC-B221-4DEFA74BB081}
 		{199C4A09-1369-4C80-A334-5A225FA8C780} = {E1C7E888-00DE-4FA8-9B17-A5C9C714B25C}
+		{3F762A44-57B6-4789-BE1C-1CFBF2838CE1} = {E1C7E888-00DE-4FA8-9B17-A5C9C714B25C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F9D87F56-4915-40E3-9655-B236F00E4070}
 	EndGlobalSection
 EndGlobal

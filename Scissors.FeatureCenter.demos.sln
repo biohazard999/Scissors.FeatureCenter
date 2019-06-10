@@ -17,17 +17,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acme.Module", "demos\consol
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acme.Module.Console", "demos\console\Acme.Module.Console\Acme.Module.Console.csproj", "{FC07C9E9-B8C8-436F-B6AF-2CB064C041E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.FeatureCenter.Module", "demos\win\Scissors.FeatureCenter.Module\Scissors.FeatureCenter.Module.csproj", "{823171E1-11B4-4C07-AF8A-188572E27855}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.FeatureCenter.Module", "demos\win\Scissors.FeatureCenter.Module\Scissors.FeatureCenter.Module.csproj", "{823171E1-11B4-4C07-AF8A-188572E27855}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.FeatureCenter.Module.BusinessObjects", "demos\win\Scissors.FeatureCenter.Module.BusinessObjects\Scissors.FeatureCenter.Module.BusinessObjects.csproj", "{360916D7-86BD-4EAC-AFDD-717BD726872A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.FeatureCenter.Module.Contracts", "demos\win\Scissors.FeatureCenter.Module.Contracts\Scissors.FeatureCenter.Module.Contracts.csproj", "{FABF1402-B7C1-46E5-B733-46694AD1CB66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.FeatureCenter.Module.Contracts", "demos\win\Scissors.FeatureCenter.Module.Contracts\Scissors.FeatureCenter.Module.Contracts.csproj", "{FABF1402-B7C1-46E5-B733-46694AD1CB66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.FeatureCenter.Module.Win", "demos\win\Scissors.FeatureCenter.Module.Win\Scissors.FeatureCenter.Module.Win.csproj", "{16831B3D-7FDB-49AE-A77B-9E1AF434D23D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.FeatureCenter.Module.Win", "demos\win\Scissors.FeatureCenter.Module.Win\Scissors.FeatureCenter.Module.Win.csproj", "{16831B3D-7FDB-49AE-A77B-9E1AF434D23D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.FeatureCenter.Win", "demos\win\Scissors.FeatureCenter.Win\Scissors.FeatureCenter.Win.csproj", "{9ABE3794-8B61-40DF-BE3D-EB1A66C6792A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scissors.FeatureCenter.Win", "demos\win\Scissors.FeatureCenter.Win\Scissors.FeatureCenter.Win.csproj", "{9ABE3794-8B61-40DF-BE3D-EB1A66C6792A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.FeatureCenter.Win10", "demos\win10\Scissors.FeatureCenter.Win10\Scissors.FeatureCenter.Win10.csproj", "{199C4A09-1369-4C80-A334-5A225FA8C780}"
+EndProject
+Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "Scissors.FeatureCenter.Package", "demos\win10\Scissors.FeatureCenter.Package\Scissors.FeatureCenter.Package.wapproj", "{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -147,6 +149,24 @@ Global
 		{199C4A09-1369-4C80-A334-5A225FA8C780}.Release|x64.Build.0 = Debug|Any CPU
 		{199C4A09-1369-4C80-A334-5A225FA8C780}.Release|x86.ActiveCfg = Debug|Any CPU
 		{199C4A09-1369-4C80-A334-5A225FA8C780}.Release|x86.Build.0 = Debug|Any CPU
+		{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}.Debug|x64.ActiveCfg = Debug|x64
+		{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}.Debug|x64.Build.0 = Debug|x64
+		{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}.Debug|x64.Deploy.0 = Debug|x64
+		{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}.Debug|x86.ActiveCfg = Debug|x86
+		{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}.Debug|x86.Build.0 = Debug|x86
+		{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}.Debug|x86.Deploy.0 = Debug|x86
+		{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}.Release|x64.ActiveCfg = Release|x64
+		{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}.Release|x64.Build.0 = Release|x64
+		{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}.Release|x64.Deploy.0 = Release|x64
+		{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}.Release|x86.ActiveCfg = Release|x86
+		{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}.Release|x86.Build.0 = Release|x86
+		{3F762A44-57B6-4789-BE1C-1CFBF2838CE1}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -164,6 +184,7 @@ Global
 		{16831B3D-7FDB-49AE-A77B-9E1AF434D23D} = {0EE74E0D-4D65-4096-9E31-F1550443F24D}
 		{9ABE3794-8B61-40DF-BE3D-EB1A66C6792A} = {0EE74E0D-4D65-4096-9E31-F1550443F24D}
 		{199C4A09-1369-4C80-A334-5A225FA8C780} = {386C7FEF-2F82-4693-8B09-D1156A0B45C0}
+		{3F762A44-57B6-4789-BE1C-1CFBF2838CE1} = {386C7FEF-2F82-4693-8B09-D1156A0B45C0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {03AAFBF4-0B9D-460C-A4A0-FD81DA0102D3}
