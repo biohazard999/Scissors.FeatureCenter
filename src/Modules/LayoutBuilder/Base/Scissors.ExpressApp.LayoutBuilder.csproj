@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+		<TargetFramework>net462</TargetFramework>
 		<Description>This is the Scissors.LayoutBuilder base Moddule</Description>
   </PropertyGroup>
 

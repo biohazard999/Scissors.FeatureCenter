@@ -3,7 +3,6 @@
 	  <Product>Scissors</Product>
     <Copyright>Copyright © Manuel Grundner $([System.DateTime]::Today.ToString('yyyy'))</Copyright>
 		<Authors>Manuel Grundner</Authors>
-    <TargetFramework>net462</TargetFramework>
     <LangVersion>latest</LangVersion>
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
 		<!-- <NullableContextOptions>enable</NullableContextOptions> -->

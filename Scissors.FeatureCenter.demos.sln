@@ -7,13 +7,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "demos", "demos", "{A3E340B6
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "console", "console", "{92E32DEB-9C4D-4046-AF1F-2105C32208BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme.Console", "demos\console\Acme.Console\Acme.Console.csproj", "{9148CD8C-379A-43C9-A3A3-5635A6D47768}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme.Module", "demos\console\Acme.Module\Acme.Module.csproj", "{56AF4077-5604-4195-A56F-80FAF5758C04}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme.Module.Console", "demos\console\Acme.Module.Console\Acme.Module.Console.csproj", "{FC07C9E9-B8C8-436F-B6AF-2CB064C041E0}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "win", "win", "{0EE74E0D-4D65-4096-9E31-F1550443F24D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "win10", "win10", "{386C7FEF-2F82-4693-8B09-D1156A0B45C0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acme.Console", "demos\console\Acme.Console\Acme.Console.csproj", "{9148CD8C-379A-43C9-A3A3-5635A6D47768}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acme.Module", "demos\console\Acme.Module\Acme.Module.csproj", "{56AF4077-5604-4195-A56F-80FAF5758C04}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acme.Module.Console", "demos\console\Acme.Module.Console\Acme.Module.Console.csproj", "{FC07C9E9-B8C8-436F-B6AF-2CB064C041E0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.FeatureCenter.Module", "demos\win\Scissors.FeatureCenter.Module\Scissors.FeatureCenter.Module.csproj", "{823171E1-11B4-4C07-AF8A-188572E27855}"
 EndProject
@@ -25,8 +27,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.FeatureCenter.Modu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.FeatureCenter.Win", "demos\win\Scissors.FeatureCenter.Win\Scissors.FeatureCenter.Win.csproj", "{9ABE3794-8B61-40DF-BE3D-EB1A66C6792A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "win10", "win10", "{386C7FEF-2F82-4693-8B09-D1156A0B45C0}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scissors.FeatureCenter.Win10", "demos\win10\Scissors.FeatureCenter.Win10\Scissors.FeatureCenter.Win10.csproj", "{199C4A09-1369-4C80-A334-5A225FA8C780}"
 EndProject
 Global
@@ -37,9 +37,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{9148CD8C-379A-43C9-A3A3-5635A6D47768}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -151,18 +148,24 @@ Global
 		{199C4A09-1369-4C80-A334-5A225FA8C780}.Release|x86.ActiveCfg = Debug|Any CPU
 		{199C4A09-1369-4C80-A334-5A225FA8C780}.Release|x86.Build.0 = Debug|Any CPU
 	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{92E32DEB-9C4D-4046-AF1F-2105C32208BC} = {A3E340B6-6F2B-4FD0-8140-AC895537C416}
+		{0EE74E0D-4D65-4096-9E31-F1550443F24D} = {A3E340B6-6F2B-4FD0-8140-AC895537C416}
+		{386C7FEF-2F82-4693-8B09-D1156A0B45C0} = {A3E340B6-6F2B-4FD0-8140-AC895537C416}
 		{9148CD8C-379A-43C9-A3A3-5635A6D47768} = {92E32DEB-9C4D-4046-AF1F-2105C32208BC}
 		{56AF4077-5604-4195-A56F-80FAF5758C04} = {92E32DEB-9C4D-4046-AF1F-2105C32208BC}
 		{FC07C9E9-B8C8-436F-B6AF-2CB064C041E0} = {92E32DEB-9C4D-4046-AF1F-2105C32208BC}
-		{0EE74E0D-4D65-4096-9E31-F1550443F24D} = {A3E340B6-6F2B-4FD0-8140-AC895537C416}
 		{823171E1-11B4-4C07-AF8A-188572E27855} = {0EE74E0D-4D65-4096-9E31-F1550443F24D}
 		{360916D7-86BD-4EAC-AFDD-717BD726872A} = {0EE74E0D-4D65-4096-9E31-F1550443F24D}
 		{FABF1402-B7C1-46E5-B733-46694AD1CB66} = {0EE74E0D-4D65-4096-9E31-F1550443F24D}
 		{16831B3D-7FDB-49AE-A77B-9E1AF434D23D} = {0EE74E0D-4D65-4096-9E31-F1550443F24D}
 		{9ABE3794-8B61-40DF-BE3D-EB1A66C6792A} = {0EE74E0D-4D65-4096-9E31-F1550443F24D}
-		{386C7FEF-2F82-4693-8B09-D1156A0B45C0} = {A3E340B6-6F2B-4FD0-8140-AC895537C416}
 		{199C4A09-1369-4C80-A334-5A225FA8C780} = {386C7FEF-2F82-4693-8B09-D1156A0B45C0}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {03AAFBF4-0B9D-460C-A4A0-FD81DA0102D3}
 	EndGlobalSection
 EndGlobal

@@ -1,5 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+		<TargetFramework>net462</TargetFramework>
     <OutputType>WinExe</OutputType>
     <ApplicationIcon>Scissors.ico</ApplicationIcon>
     <Description>FeatureCenter of the Scissors XAF Extentions</Description>
