@@ -13,7 +13,9 @@ namespace Acme.Module
         public MyFirstTestObjectToShow(Session session) : base(session) { }
 
         [Persistent("Oid"), Key(AutoGenerate = true)]
+#pragma warning disable CS0649 //Field will be filled by reflection
         int oid;
+#pragma warning restore CS0649
         [PersistentAlias(nameof(oid))]
         public int Oid => oid;
 

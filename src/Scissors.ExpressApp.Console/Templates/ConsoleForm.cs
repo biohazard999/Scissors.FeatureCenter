@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Actions;
 using DevExpress.ExpressApp.Templates;
+using DevExpress.ExpressApp.Templates.ActionContainers;
 using DevExpress.ExpressApp.Templates.ActionControls;
 using NStack;
 using Scissors.ExpressApp.Console.Templates.ActionContainers;
@@ -100,13 +102,13 @@ namespace Scissors.ExpressApp.Console.Templates
         /// The menu bar.
         /// </value>
         public XafMenuBar MenuBar { get; }
-        /// <summary>
-        /// Gets the navigation.
-        /// </summary>
-        /// <value>
-        /// The navigation.
-        /// </value>
-        public NavBarActionContainer Navigation { get; }
+        ///// <summary>
+        ///// Gets the navigation.
+        ///// </summary>
+        ///// <value>
+        ///// The navigation.
+        ///// </value>
+        //public NavBarActionList Navigation { get; }
         /// <summary>
         /// Gets the action container exit.
         /// </summary>
@@ -145,19 +147,17 @@ namespace Scissors.ExpressApp.Console.Templates
             {
                 ActionCategory = "Exit"
             };
+
             MenuBar.ActionContainers.Add(ActionContainerExit);
 
-            Navigation = new ActionContainers.NavBarActionContainer
+            NavBarActionControlContainer = new NavBarActionControlContainer
             {
-                X = 0,
-                Y = 0,
-                Height = Dim.Percent(100),
-                Width = Dim.Percent(20),
+                ActionCategory = NavigationHelper.DefaultContainerId,
+                ParentView = ConsoleWindow,
             };
-
+            
             ConsoleWindow.Load += ConsoleWindow_Load;
 
-            ConsoleWindow.Add(Navigation);
             Add(MenuBar, ConsoleWindow);
         }
 
@@ -191,15 +191,45 @@ namespace Scissors.ExpressApp.Console.Templates
         /// </summary>
         public event EventHandler Closed;
 
-        ICollection<IActionContainer> IFrameTemplate.GetContainers() => new IActionContainer[] { Navigation };
+        ///// <summary>
+        ///// Provides access to a Template's Action Containers.
+        ///// </summary>
+        ///// <returns>
+        ///// An instance of the ICollection&lt;<see cref="T:DevExpress.ExpressApp.Templates.IActionContainer" />&gt; collection that contains the current Template's Action Containers.
+        ///// </returns>
+        //public ICollection<IActionContainer> GetContainers() => new IActionContainer[] { Navigation };
 
-        /// <summary>
-        /// Provides access to a Template's Action Container that contains the Actions with the <see cref="P:DevExpress.ExpressApp.Actions.ActionBase.Category" /> property set to Unspecified.
-        /// </summary>
-        /// <value>
-        /// An instance of the class that implement the <see cref="T:DevExpress.ExpressApp.Templates.IActionContainer" /> interface.
-        /// </value>
-        public IActionContainer DefaultContainer { get; }
+        ///// <summary>
+        ///// Provides access to a Template's Action Container that contains the Actions with the <see cref="P:DevExpress.ExpressApp.Actions.ActionBase.Category" /> property set to Unspecified.
+        ///// </summary>
+        ///// <value>
+        ///// An instance of the class that implement the <see cref="T:DevExpress.ExpressApp.Templates.IActionContainer" /> interface.
+        ///// </value>
+        ///// <exception cref="NotImplementedException"></exception>
+        //IActionControlContainer IActionControlsSite.DefaultContainer => NavBarActionControlContainer;
+
+        ///// <summary>
+        ///// Gets the action controls.
+        ///// </summary>
+        ///// <value>
+        ///// The action controls.
+        ///// </value>
+        //public IEnumerable<IActionControl> ActionControls => MenuBar.ActionControls;
+        ///// <summary>
+        ///// Gets the action containers.
+        ///// </summary>
+        ///// <value>
+        ///// The action containers.
+        ///// </value>
+        //public IEnumerable<IActionControlContainer> ActionContainers => MenuBar.ActionContainers;
+
+        ///// <summary>
+        ///// Provides access to a Template's Action Container that contains the Actions with the <see cref="P:DevExpress.ExpressApp.Actions.ActionBase.Category" /> property set to Unspecified.
+        ///// </summary>
+        ///// <value>
+        ///// An instance of the class that implement the <see cref="T:DevExpress.ExpressApp.Templates.IActionContainer" /> interface.
+        ///// </value>
+        //public IActionContainer DefaultContainer { get; }
         /// <summary>
         /// Sets the view.
         /// </summary>
@@ -224,6 +254,8 @@ namespace Scissors.ExpressApp.Console.Templates
         /// <param name="caption">A string value that represents a caption to be set to the current Window Template.</param>
         public void SetCaption(string caption) => ConsoleWindow.Title = caption;
 
+
+
         /// <summary>
         /// Gets or sets the title.
         /// </summary>
@@ -239,22 +271,24 @@ namespace Scissors.ExpressApp.Console.Templates
         /// true if the Template is resizable; otherwise, false.
         /// </value>
         public bool IsSizeable { get; set; } = false;
+        
+        /// <summary>
+        /// Gets or sets the nav bar action control container.
+        /// </summary>
+        /// <value>
+        /// The nav bar action control container.
+        /// </value>
+        public NavBarActionControlContainer NavBarActionControlContainer { get; set; }
 
-        /// <summary>
-        /// Gets the action controls.
-        /// </summary>
-        /// <value>
-        /// The action controls.
-        /// </value>
-        public IEnumerable<IActionControl> ActionControls => MenuBar.ActionControls;
-        /// <summary>
-        /// Gets the action containers.
-        /// </summary>
-        /// <value>
-        /// The action containers.
-        /// </value>
-        public IEnumerable<IActionControlContainer> ActionContainers => MenuBar.ActionContainers;
-        IActionControlContainer IActionControlsSite.DefaultContainer => null;
+        IEnumerable<IActionControl> IActionControlsSite.ActionControls => ActionContainerExit.GetActionControls();
+
+        IEnumerable<IActionControlContainer> IActionControlsSite.ActionContainers => new IActionControlContainer[] { ActionContainerExit, NavBarActionControlContainer };
+
+        IActionControlContainer IActionControlsSite.DefaultContainer => ActionContainerExit;
+
+        ICollection<IActionContainer> IFrameTemplate.GetContainers() => new IActionContainer[] {  };
+
+        IActionContainer IFrameTemplate.DefaultContainer => null;
     }
 
     /// <summary>

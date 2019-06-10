@@ -71,7 +71,11 @@ namespace Scissors.ExpressApp.Console
             }
         }
 
-        static ConsoleApplication() => ConsoleSimpleActionBinding.Register();
+        static ConsoleApplication()
+        {
+            ConsoleSimpleActionBinding.Register();
+            ConsoleSingleChoiceActionBinding.Register();
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ConsoleApplication"/> class.
@@ -567,7 +571,7 @@ namespace Scissors.ExpressApp.Console
             var result = MessageBox.ErrorQuery(width, height, string.IsNullOrEmpty(Title) ? "Error" : Title, e.Message, buttons);
             if(result == 1)
             {
-                MessageBoxEx.Query(Toplevel.Bounds.Width - 4, Toplevel.Bounds.Height - 4, "StackTrace", e.StackTrace, "Ok");
+                MessageBox.Query(Toplevel.Bounds.Width - 4, Toplevel.Bounds.Height - 4, "StackTrace", e.StackTrace, "Ok");
             }
         }
 
