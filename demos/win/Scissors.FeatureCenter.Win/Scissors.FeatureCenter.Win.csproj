@@ -12,21 +12,35 @@
       <Private>False</Private>
     </Reference>
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="Model.xafml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="DevExpress.ExpressApp.Validation.Win" Version="$(DxVersion)" />
     <PackageReference Include="DevExpress.ExpressApp.Win" Version="$(DxVersion)" />
     <PackageReference Include="DevExpress.ExpressApp.Xpo" Version="$(DxVersion)" />
-    <PackageReference Include="Scissors.ExpressApp.InlineEditForms.Win" Version="$(ScissorsVersion)" />
-    <PackageReference Include="Scissors.ExpressApp.LabelEditor.Win" Version="$(ScissorsVersion)" />
-    <PackageReference Include="Scissors.ExpressApp.Win" Version="$(ScissorsVersion)" />
-    <PackageReference Include="Scissors.Xpo" Version="$(ScissorsVersion)" />
-    <PackageReference Include="Scissors.Xaf.CacheWarmup.Attributes" Version="$(ScissorsVersion)" />
     <PackageReference Include="Scissors.Xaf.CacheWarmup.Generators.Cli" Version="$(ScissorsVersion)" PrivateAssets="All" />
+	</ItemGroup>
+
+  <ItemGroup Condition="$(Configuration) == 'Release'">
+    <PackageReference Include="Scissors.Xpo" Version="$(ScissorsVersion)" />
+    <PackageReference Include="Scissors.ExpressApp.Win" Version="$(ScissorsVersion)" />
+    <PackageReference Include="Scissors.ExpressApp.Xpo" Version="$(ScissorsVersion)" />
+    <PackageReference Include="Scissors.Xaf.CacheWarmup.Attributes" Version="$(ScissorsVersion)" />
+    <PackageReference Include="Scissors.ExpressApp.LabelEditor.Win" Version="$(ScissorsVersion)" />
+		<PackageReference Include="Scissors.ExpressApp.InlineEditForms.Win" Version="$(ScissorsVersion)" />
+	</ItemGroup>
+
+	<ItemGroup Condition="$(Configuration) == 'Debug'">
+    <ProjectReference Include="..\..\..\src\Generators\Scissors.Xaf.CacheWarmup.Attributes\Scissors.Xaf.CacheWarmup.Attributes.csproj" />
+    <ProjectReference Include="..\..\..\src\Scissors.Xpo\Scissors.Xpo.csproj" />
+    <ProjectReference Include="..\..\..\src\Scissors.ExpressApp.Win\Scissors.ExpressApp.Win.csproj" />
+    <ProjectReference Include="..\..\..\src\Modules\LabelEditor\Win\Scissors.ExpressApp.LabelEditor.Win.csproj" />
+    <ProjectReference Include="..\..\..\src\Modules\LayoutBuilder\Win\Scissors.ExpressApp.LayoutBuilder.Win.csproj" />
+	</ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Model.xafml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Update="WinApplication.cs">

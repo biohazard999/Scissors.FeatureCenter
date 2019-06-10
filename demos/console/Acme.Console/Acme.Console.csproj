@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -8,10 +8,18 @@
 
   <ItemGroup>
     <PackageReference Include="DevExpress.ExpressApp.Xpo" Version="$(DxVersion)" />
-    <PackageReference Include="Scissors.ExpressApp" Version="$(ScissorsVersion)" />
-    <PackageReference Include="Scissors.ExpressApp.Console" Version="$(ScissorsVersion)" />
   </ItemGroup>
-
+	
+	<ItemGroup Condition="$(Configuration) == 'Release'">
+		<PackageReference Include="Scissors.ExpressApp" Version="$(ScissorsVersion)" />
+		<PackageReference Include="Scissors.ExpressApp.Console" Version="$(ScissorsVersion)" />
+	</ItemGroup>
+	
+	<ItemGroup Condition="$(Configuration) == 'Debug'">
+		<ProjectReference Include="..\..\..\src\Scissors.ExpressApp\Scissors.ExpressApp.csproj" />
+		<ProjectReference Include="..\..\..\src\Scissors.ExpressApp.Console\Scissors.ExpressApp.Console.csproj" />
+	</ItemGroup>
+	
   <ItemGroup>
     <ProjectReference Include="..\Acme.Module.Console\Acme.Module.Console.csproj" />
     <ProjectReference Include="..\Acme.Module\Acme.Module.csproj" />

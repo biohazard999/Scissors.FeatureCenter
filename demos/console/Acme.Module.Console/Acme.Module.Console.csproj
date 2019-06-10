@@ -1,14 +1,23 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>library</OutputType>
     <TargetFramework>net462</TargetFramework>
     <RootNamespace>Acme.Module.ConsoleLib</RootNamespace>
   </PropertyGroup>
+	
 	<ItemGroup>
 		<PackageReference Include="DevExpress.Data" Version="$(DxVersion)" />
+	</ItemGroup>
+
+	<ItemGroup Condition="$(Configuration) == 'Release'">
 		<PackageReference Include="Scissors.ExpressApp.Console" Version="$(ScissorsVersion)" />
 	</ItemGroup>
+	
+	<ItemGroup Condition="$(Configuration) == 'Debug'">
+		<ProjectReference Include="..\..\..\src\Scissors.ExpressApp.Console\Scissors.ExpressApp.Console.csproj" />
+	</ItemGroup>
+	
   <ItemGroup>
     <ProjectReference Include="..\Acme.Module\Acme.Module.csproj" />
   </ItemGroup>

@@ -1,13 +1,22 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="DevExpress.Data" Version="$(DxVersion)" />
 		<PackageReference Include="DevExpress.ExpressApp" Version="$(DxVersion)" />
+  </ItemGroup>
+
+	<ItemGroup Condition="$(Configuration) == 'Release'">
     <PackageReference Include="Scissors.ExpressApp" Version="$(ScissorsVersion)" />
     <PackageReference Include="Scissors.ExpressApp.LabelEditor" Version="$(ScissorsVersion)" />
-    <PackageReference Include="Scissors.ExpressApp.LayoutBuilder" Version="$(ScissorsVersion)" />
-  </ItemGroup>
+    <PackageReference Include="Scissors.ExpressApp.LayoutBuilder" Version="$(ScissorsVersion)" />		
+	</ItemGroup>
+
+	<ItemGroup Condition="$(Configuration) == 'Debug'">		
+    <ProjectReference Include="..\..\..\src\Modules\LabelEditor\Base\Scissors.ExpressApp.LabelEditor.csproj" />
+    <ProjectReference Include="..\..\..\src\Modules\LayoutBuilder\Base\Scissors.ExpressApp.LayoutBuilder.csproj" />
+	</ItemGroup>
+	
   <ItemGroup>
     <ProjectReference Include="..\Scissors.FeatureCenter.Module.BusinessObjects\Scissors.FeatureCenter.Module.BusinessObjects.csproj" />
     <ProjectReference Include="..\Scissors.FeatureCenter.Module.Contracts\Scissors.FeatureCenter.Module.Contracts.csproj" />
