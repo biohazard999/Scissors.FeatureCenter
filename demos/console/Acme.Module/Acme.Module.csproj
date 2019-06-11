@@ -5,6 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Model.DesignedDiffs.xafml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Model.DesignedDiffs.xafml" />
+  </ItemGroup>
+
+  <ItemGroup>
 		<PackageReference Include="DevExpress.Xpo" Version="$(DxVersion)" />
 		<PackageReference Include="DevExpress.Data" Version="$(DxVersion)" />
   </ItemGroup>

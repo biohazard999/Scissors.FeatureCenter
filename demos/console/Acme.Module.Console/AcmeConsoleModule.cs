@@ -1,4 +1,4 @@
-﻿using DevExpress.ExpressApp;
+using DevExpress.ExpressApp;
 using Scissors.ExpressApp.Console.SystemModule;
 using DevExpress.ExpressApp.SystemModule;
 using System;
@@ -10,6 +10,6 @@ namespace Acme.Module.ConsoleLib
     public class AcmeConsoleModule : ModuleBase
     {
         protected override ModuleTypeList GetRequiredModuleTypesCore()
-            => new ModuleTypeList(typeof(SystemModule), typeof(SystemConsoleModule));
+            => new ModuleTypeList(typeof(SystemModule), typeof(SystemConsoleModule), typeof(AcmeModule));
     }
 }

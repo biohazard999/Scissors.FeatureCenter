@@ -21,7 +21,8 @@ namespace Scissors.ExpressApp
         /// Initializes a new instance of the <see cref="ScissorsBaseModule"/> class.
         /// </summary>
         public ScissorsBaseModule()
-            => DiffsStore = new NullDiffsStore(GetType().Assembly);
+        { }
+            //=> DiffsStore = new NullDiffsStore(GetType().Assembly);
 
         /// <summary>
         /// returns empty updaters

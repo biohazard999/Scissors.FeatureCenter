@@ -1,10 +1,7 @@
-using Scissors.ExpressApp.Console.Core;
-using DevExpress.ExpressApp.Editors;
-using DevExpress.ExpressApp.Templates.ActionControls.Binding;
-using DevExpress.ExpressApp.Updating;
 using System;
 using System.Collections.Generic;
-using System.Text;
+using DevExpress.ExpressApp.Editors;
+using Scissors.ExpressApp.Console.Editors;
 
 namespace Scissors.ExpressApp.Console.SystemModule
 {
@@ -22,5 +19,12 @@ namespace Scissors.ExpressApp.Console.SystemModule
         {
             typeof(ExitController)
         };
+
+        /// <summary>
+        /// Registers the editor descriptors.
+        /// </summary>
+        /// <param name="editorDescriptorsFactory">The editor descriptors factory.</param>
+        protected override void RegisterEditorDescriptors(EditorDescriptorsFactory editorDescriptorsFactory)
+            => editorDescriptorsFactory.RegisterListEditor(EditorAliases.GridListEditor, typeof(object), typeof(GridListEditor), true);
     }
 }
