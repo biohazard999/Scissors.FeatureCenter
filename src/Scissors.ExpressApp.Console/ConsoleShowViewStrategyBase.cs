@@ -96,7 +96,38 @@ namespace Scissors.ExpressApp.Console
         /// <param name="parameters">The parameters.</param>
         /// <param name="showViewSource">The show view source.</param>
         /// <exception cref="NotImplementedException"></exception>
-        protected override void ShowViewInCurrentWindow(ShowViewParameters parameters, ShowViewSource showViewSource) => throw new NotImplementedException();
+        protected override void ShowViewInCurrentWindow(ShowViewParameters parameters, ShowViewSource showViewSource)
+        {
+            AddAdditionalControllers(showViewSource.SourceFrame, parameters.Controllers);
+            showViewSource.SourceFrame.SetView(parameters.CreatedView, showViewSource.SourceFrame);
+        }
+
+        /// <summary>
+        /// Adds the additional controllers.
+        /// </summary>
+        /// <param name="frame">The frame.</param>
+        /// <param name="additionalControllers">The additional controllers.</param>
+        protected void AddAdditionalControllers(Frame frame, ICollection<Controller> additionalControllers)
+        {
+            if((frame != null) && (additionalControllers != null))
+            {
+                IDictionary<Type, Controller> controllers = frame.Controllers;
+                foreach(var additionalController in additionalControllers)
+                {
+                    foreach(var key in controllers.Keys)
+                    {
+                        if(key.IsAssignableFrom(additionalController.GetType()))
+                        {
+                            controllers.Remove(key);
+                        }
+                    }
+                }
+                foreach(var controller in additionalControllers)
+                {
+                    controllers.Add(controller.GetType(), controller);
+                }
+            }
+        }
 
         /// <summary>
         /// Shows the view in modal window.

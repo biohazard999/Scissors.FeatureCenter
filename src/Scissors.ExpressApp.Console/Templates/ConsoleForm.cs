@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Actions;
 using DevExpress.ExpressApp.Templates;
 using DevExpress.ExpressApp.Templates.ActionContainers;
@@ -86,8 +85,9 @@ namespace Scissors.ExpressApp.Console.Templates
     /// <seealso cref="DevExpress.ExpressApp.Templates.IFrameTemplate" />
     /// <seealso cref="DevExpress.ExpressApp.Templates.IWindowTemplate" />
     /// <seealso cref="DevExpress.ExpressApp.Templates.ActionControls.IActionControlsSite" />
-    public class ConsoleForm : Terminal.Gui.Toplevel, IFrameTemplate, IWindowTemplate, IActionControlsSite
+    public class ConsoleForm : Terminal.Gui.Toplevel, IFrameTemplate, IWindowTemplate, IActionControlsSite, IViewHolder, IViewSiteTemplate
     {
+        private readonly ViewSiteManager viewSiteManager;
         /// <summary>
         /// Gets the console window.
         /// </summary>
@@ -122,6 +122,7 @@ namespace Scissors.ExpressApp.Console.Templates
         /// </summary>
         public ConsoleForm() : base()
         {
+            viewSiteManager = new ViewSiteManager();
             Width = Dim.Percent(100);
             Height = Dim.Percent(100);
             X = 0;
@@ -155,8 +156,20 @@ namespace Scissors.ExpressApp.Console.Templates
                 ActionCategory = NavigationHelper.DefaultContainerId,
                 ParentView = ConsoleWindow,
             };
-            
+
             ConsoleWindow.Load += ConsoleWindow_Load;
+
+            var viewSiteControl = new View()
+            {
+                X = 20,
+                Y = 0,
+                Height = Dim.Percent(100),
+                Width = Dim.Percent(80)
+            };
+
+            viewSiteManager.ViewSiteControl = viewSiteControl;
+
+            ConsoleWindow.Add(viewSiteControl);
 
             Add(MenuBar, ConsoleWindow);
         }
@@ -234,10 +247,23 @@ namespace Scissors.ExpressApp.Console.Templates
         /// Sets the view.
         /// </summary>
         /// <param name="view">The view.</param>
-        public void SetView(DevExpress.ExpressApp.View view)
+		void IFrameTemplate.SetView(DevExpress.ExpressApp.View view)
         {
-
+            viewSiteManager.SetView(view);
+            RaiseViewChanged(view);
         }
+
+        /// <summary>
+        /// Raises the view changed.
+        /// </summary>
+        /// <param name="view">The view.</param>
+        protected virtual void RaiseViewChanged(DevExpress.ExpressApp.View view)
+            => ViewChanged?.Invoke(this, new TemplateViewChangedEventArgs(view));
+        
+        /// <summary>
+        /// Occurs when [view changed].
+        /// </summary>
+        public event EventHandler<TemplateViewChangedEventArgs> ViewChanged;
 
         /// <summary>
         /// Displays the specified status messages on a Template (e.g. in its status bar).
@@ -271,7 +297,7 @@ namespace Scissors.ExpressApp.Console.Templates
         /// true if the Template is resizable; otherwise, false.
         /// </value>
         public bool IsSizeable { get; set; } = false;
-        
+
         /// <summary>
         /// Gets or sets the nav bar action control container.
         /// </summary>
@@ -286,9 +312,12 @@ namespace Scissors.ExpressApp.Console.Templates
 
         IActionControlContainer IActionControlsSite.DefaultContainer => ActionContainerExit;
 
-        ICollection<IActionContainer> IFrameTemplate.GetContainers() => new IActionContainer[] {  };
+        ICollection<IActionContainer> IFrameTemplate.GetContainers() => new IActionContainer[] { };
 
         IActionContainer IFrameTemplate.DefaultContainer => null;
+
+        DevExpress.ExpressApp.View IViewHolder.View => viewSiteManager.View;
+        object IViewSiteTemplate.ViewSiteControl => viewSiteManager.ViewSiteControl;
     }
 
     /// <summary>

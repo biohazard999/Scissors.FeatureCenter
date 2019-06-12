@@ -11,6 +11,7 @@ using DevExpress.ExpressApp.Templates;
 using DevExpress.ExpressApp.Updating;
 using DevExpress.ExpressApp.Utils;
 using DevExpress.Persistent.Base;
+using Scissors.ExpressApp.Console.Layout;
 using Scissors.ExpressApp.Console.Templates;
 using Scissors.ExpressApp.Console.Templates.ActionControls.Binding;
 using Terminal.Gui;

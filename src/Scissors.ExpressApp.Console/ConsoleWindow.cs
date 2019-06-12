@@ -240,5 +240,22 @@ namespace Scissors.ExpressApp.Console
 
         private void OnWindowClosed()
             => Closed?.Invoke(this, EventArgs.Empty);
+
+        /// <summary>
+        /// Called when [view changed].
+        /// </summary>
+        /// <param name="sourceFrame">The source frame.</param>
+        protected override void OnViewChanged(Frame sourceFrame)
+        {
+            base.OnViewChanged(sourceFrame);
+            if(Form != null && (View != null) && View is DetailView)
+            {
+                //Form.Invalidate(true);
+                //Form.Update();
+                //Form.Cursor = Cursors.WaitCursor;
+                View.RaiseActivated();
+                //Form.Cursor = Cursors.Default;
+            }
+        }
     }
 }

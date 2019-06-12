@@ -96,6 +96,6 @@ namespace Scissors.ExpressApp.Console.Editors
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
         protected override object CreateControlsCore()
-            => throw new NotImplementedException();
+            => new Terminal.Gui.Label("Here comes the grid");
     }
 }
