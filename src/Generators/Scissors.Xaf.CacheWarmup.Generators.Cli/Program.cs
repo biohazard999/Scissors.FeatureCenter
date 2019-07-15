@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -85,16 +86,42 @@ namespace Scissors.Xaf.CacheWarmup.Generators.Cli
                 Console.WriteLine($"Should copy from {sourceFile} to destination: {newFile}");
                 if(File.Exists(newFile))
                 {
-                    Console.WriteLine($"Destination exists. Deleting: {newFile}");
-                    File.Delete(newFile);
+                    if(CompareFiles(sourceFile, newFile))
+                    {
+                        Console.WriteLine($"Files are equal. Nothing to do: {sourceFile} {newFile}");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Destination exists. Deleting: {newFile}");
+                        File.Delete(newFile);
+
+                        Console.WriteLine($"Try to copy from {sourceFile} to destination: {newFile}");
+                        File.Copy(sourceFile, newFile);
+                        Console.WriteLine($"Copied from {sourceFile} to destination: {newFile}.");
+                    }
                 }
-                Console.WriteLine($"Try to copy from {sourceFile} to destination: {newFile}");
-                File.Copy(sourceFile, newFile);
-                Console.WriteLine($"Copied from {sourceFile} to destination: {newFile}.");
+                else
+                {
+                    Console.WriteLine($"Try to copy from {sourceFile} to destination: {newFile}");
+                    File.Copy(sourceFile, newFile);
+                    Console.WriteLine($"Copied from {sourceFile} to destination: {newFile}.");
+                }
             }
             else
             {
                 Console.WriteLine($"Copy from {sourceFile} to directory: {destFolder} does not exist.");
+            }
+        }
+
+        private static bool CompareFiles(string source, string dest)
+        {
+            using(var md5 = MD5.Create())
+            {
+                using(var streamSource = File.OpenRead(source))
+                using(var streamDest = File.OpenRead(dest))
+                {
+                    return md5.ComputeHash(streamSource) == md5.ComputeHash(streamDest);
+                }
             }
         }
     }
