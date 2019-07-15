@@ -115,12 +115,21 @@ namespace Scissors.Xaf.CacheWarmup.Generators.Cli
 
         private static bool CompareFiles(string source, string dest)
         {
+            Console.WriteLine($"Comparing {source} and {dest}");
             using(var md5 = MD5.Create())
             {
                 using(var streamSource = File.OpenRead(source))
                 using(var streamDest = File.OpenRead(dest))
                 {
-                    return md5.ComputeHash(streamSource) == md5.ComputeHash(streamDest);
+                    var sourceHash = BitConverter.ToString(md5.ComputeHash(streamSource)).Replace("-", "").ToLowerInvariant();
+                    var destHash = BitConverter.ToString(md5.ComputeHash(streamDest)).Replace("-", "").ToLowerInvariant();
+                    Console.WriteLine($"SourceHash {sourceHash} for {source}");
+                    Console.WriteLine($"SourceHash {destHash} for {dest}");
+
+                    var filesAreEqual = sourceHash == destHash;
+                    Console.WriteLine($"Hashes are equal {filesAreEqual}");
+
+                    return filesAreEqual;
                 }
             }
         }
