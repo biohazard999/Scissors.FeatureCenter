@@ -86,7 +86,7 @@ namespace Scissors.Xaf.CacheWarmup.Generators.Cli
                 Console.WriteLine($"Should copy from {sourceFile} to destination: {newFile}");
                 if(File.Exists(newFile))
                 {
-                    Console.WriteLine($"New File exists: {newFile}")
+                    Console.WriteLine($"New File exists: {newFile}");
                     if(CompareFiles(sourceFile, newFile))
                     {
                         Console.WriteLine($"Files are equal. Nothing to do: {sourceFile} {newFile}");
