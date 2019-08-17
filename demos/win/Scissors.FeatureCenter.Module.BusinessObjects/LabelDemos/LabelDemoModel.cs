@@ -22,6 +22,7 @@ namespace Scissors.FeatureCenter.Modules.BusinessObjects.LabelDemos
         }
 
         private string html;
+        [Persistent]
         public string Html
         {
             get => html;

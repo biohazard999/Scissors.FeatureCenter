@@ -35,7 +35,7 @@ namespace Scissors.ExpressApp.LayoutBuilder.Tests.GeneratorUpdaters
                 var builder = ModelBuilder.Create<TestClass>(typesInfo);
                 builder.WithAttribute(new DetailViewLayoutBuilderAttribute(builder.DefaultDetailView, new Layout()
                 {
-
+                    
                 }));
 
                 XafBuilderManager.Create(typesInfo, new[] { builder }).Build();

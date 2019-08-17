@@ -26,7 +26,7 @@ namespace Scissors.ExpressApp.ModelBuilders
             => builder.WithAttribute(new ModelDefaultAttribute(propertyName, propertyValue));
 
         /// <summary>
-        /// Withes the model default.
+        /// Adds an ModelDefaultAttribute.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <typeparam name="TType">The type of the type.</typeparam>
