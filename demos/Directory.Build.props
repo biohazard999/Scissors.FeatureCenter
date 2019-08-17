@@ -5,7 +5,7 @@
 		<Authors>Manuel Grundner</Authors>
     	<LangVersion>latest</LangVersion>
 		<DxVersion>19.1.5</DxVersion>
-		<ScissorsVersion>19.1.5-topic*</ScissorsVersion>
+		<ScissorsVersion>19.1.4-topic*</ScissorsVersion>
 		<Deterministic>true</Deterministic>
 		<RestoreNoCache>True</RestoreNoCache>
 	</PropertyGroup>
