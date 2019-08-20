@@ -12,10 +12,11 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\Scissors.ExpressApp.Win\Scissors.ExpressApp.Win.csproj" />
     <ProjectReference Include="..\..\..\Scissors.ExpressApp\Scissors.ExpressApp.csproj" />
+    <ProjectReference Include="..\Base\Scissors.ExpressApp.InlineEditForms.csproj" />
     <ProjectReference Include="..\Contracts\Scissors.ExpressApp.InlineEditForms.Contracts.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="System.Windows.Forms" Private="True"/>
+    <Reference Include="System.Windows.Forms" Private="True" />
   </ItemGroup>
 </Project>

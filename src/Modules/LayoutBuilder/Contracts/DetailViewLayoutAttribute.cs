@@ -213,6 +213,24 @@ namespace Scissors.ExpressApp.LayoutBuilder.Contracts
         public IEnumerator<LayoutItem> GetEnumerator() => Items.OrderBy(item => item.Index).GetEnumerator();
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
-    }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="item"></param>
+        public void Add(LayoutItem item)
+            => Items.Add(item);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="items"></param>
+        public void Add(params LayoutItem[] items)
+        {
+            foreach(var item in items)
+            {
+                Add(item);
+            }
+        }
+    }
 }
