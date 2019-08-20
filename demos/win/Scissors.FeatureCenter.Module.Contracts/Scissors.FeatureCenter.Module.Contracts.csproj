@@ -1,15 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+		<TargetFramework>net462</TargetFramework>
   </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="DevExpress.ExpressApp" Version="$(DxVersion)" />
     <PackageReference Include="DevExpress.Data" Version="$(DxVersion)" />
   </ItemGroup>
+
   <ItemGroup>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Net.Http" />
   </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\Scissors.FeatureCenter.Module.BusinessObjects\Scissors.FeatureCenter.Module.BusinessObjects.csproj" />
   </ItemGroup>

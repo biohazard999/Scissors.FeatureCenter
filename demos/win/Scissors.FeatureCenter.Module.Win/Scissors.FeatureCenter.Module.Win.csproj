@@ -1,13 +1,27 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+		<TargetFramework>net462</TargetFramework>
   </PropertyGroup>
+
   <ItemGroup>
 		<PackageReference Include="DevExpress.Data" Version="$(DxVersion)" />
 		<PackageReference Include="DevExpress.ExpressApp.Win" Version="$(DxVersion)" />
+  </ItemGroup>
+
+	<ItemGroup Condition="$(Configuration) == 'Release'">
     <PackageReference Include="Scissors.ExpressApp.Win" Version="$(ScissorsVersion)" />
     <PackageReference Include="Scissors.ExpressApp.LabelEditor.Win" Version="$(ScissorsVersion)" />
     <PackageReference Include="Scissors.ExpressApp.LayoutBuilder.Win" Version="$(ScissorsVersion)" />
-  </ItemGroup>
+    <PackageReference Include="Scissors.ExpressApp.InlineEditForms.Win" Version="$(ScissorsVersion)" />
+	</ItemGroup>
+
+	<ItemGroup Condition="$(Configuration) == 'Debug'">
+    <ProjectReference Include="..\..\..\src\Scissors.ExpressApp.Win\Scissors.ExpressApp.Win.csproj" />
+    <ProjectReference Include="..\..\..\src\Modules\LabelEditor\Win\Scissors.ExpressApp.LabelEditor.Win.csproj" />
+    <ProjectReference Include="..\..\..\src\Modules\LayoutBuilder\Win\Scissors.ExpressApp.LayoutBuilder.Win.csproj" />
+    <ProjectReference Include="..\..\..\src\Modules\InlineEditForms\Win\Scissors.ExpressApp.InlineEditForms.Win.csproj" />
+	</ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\Scissors.FeatureCenter.Module\Scissors.FeatureCenter.Module.csproj" />
   </ItemGroup>

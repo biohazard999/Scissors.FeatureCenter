@@ -4,6 +4,7 @@ using DevExpress.ExpressApp.Utils;
 using DevExpress.ExpressApp.Validation;
 using DevExpress.ExpressApp.Validation.Win;
 using DevExpress.ExpressApp.Win;
+using DevExpress.ExpressApp.Win.Utils;
 using DevExpress.ExpressApp.Xpo;
 using Scissors.ExpressApp.InlineEditForms.Win;
 using System;
@@ -29,6 +30,7 @@ namespace Scissors.FeatureCenter.Win
         static FeatureCenterWindowsFormsApplication()
         {
             DevExpress.ExpressApp.ModelCacheManager.UseMultithreadedLoading = true;
+            DevExpress.ExpressApp.ModelCacheManager.CacheSharedModelDifferences = true;
             DevExpress.ExpressApp.ModelCacheManager.SkipEmptyNodes = true;
             DevExpress.ExpressApp.ModelCacheManager.UseCacheWhenDebuggerIsAttached = true;
             DevExpress.Persistent.Base.PasswordCryptographer.EnableRfc2898 = true;
@@ -40,6 +42,11 @@ namespace Scissors.FeatureCenter.Win
         {
             InitializeComponent();
             InitializeDefaults();
+            LinkNewObjectToParentImmediately = false;
+            OptimizedControllersCreation = true;
+            UseLightStyle = true;
+            SplashScreen = new DXSplashScreen(typeof(XafSplashScreen), new DefaultOverlayFormOptions());
+            ExecuteStartupLogicBeforeClosingLogonWindow = true;
             CreateCustomModelCacheManager += FeatureCenterWindowsFormsApplication_CreateCustomModelCacheManager;
         }
 

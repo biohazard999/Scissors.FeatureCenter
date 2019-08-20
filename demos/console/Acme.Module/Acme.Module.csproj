@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net462</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Model.DesignedDiffs.xafml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Model.DesignedDiffs.xafml" />
+  </ItemGroup>
+
+  <ItemGroup>
+		<PackageReference Include="DevExpress.Xpo" Version="$(DxVersion)" />
+		<PackageReference Include="DevExpress.Data" Version="$(DxVersion)" />
+  </ItemGroup>
+	
+	<ItemGroup Condition="$(Configuration) == 'Release'">
+		<PackageReference Include="Scissors.ExpressApp" Version="$(ScissorsVersion)" />
+	</ItemGroup>
+	
+	<ItemGroup Condition="$(Configuration) == 'Debug'">
+		<ProjectReference Include="..\..\..\src\Scissors.ExpressApp\Scissors.ExpressApp.csproj" />
+	</ItemGroup>
+
+</Project>

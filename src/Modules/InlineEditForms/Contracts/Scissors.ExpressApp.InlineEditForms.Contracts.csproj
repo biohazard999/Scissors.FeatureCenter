@@ -1,5 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+		<TargetFramework>net462</TargetFramework>
 		<Description>Scissors contracts for the inline editing module for the DevExpress ExpressApp Framework</Description>
   </PropertyGroup>
 </Project>

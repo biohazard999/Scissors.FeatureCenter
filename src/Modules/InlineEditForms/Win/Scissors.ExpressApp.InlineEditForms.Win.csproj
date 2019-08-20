@@ -1,17 +1,22 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+		<TargetFramework>net462</TargetFramework>
 		<Description>Scissors module to provide inline editing capabilities in a grid for the DevExpress ExpressApp Framework</Description>
   </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="DevExpress.ExpressApp.Win" Version="$(DxVersion)" />
     <PackageReference Include="DevExpress.Persistent.Base" Version="$(DxVersion)" />
   </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\..\..\Scissors.ExpressApp.Win\Scissors.ExpressApp.Win.csproj" />
     <ProjectReference Include="..\..\..\Scissors.ExpressApp\Scissors.ExpressApp.csproj" />
+    <ProjectReference Include="..\Base\Scissors.ExpressApp.InlineEditForms.csproj" />
     <ProjectReference Include="..\Contracts\Scissors.ExpressApp.InlineEditForms.Contracts.csproj" />
   </ItemGroup>
+
   <ItemGroup>
-    <Reference Include="System.Windows.Forms" Private="True"/>
+    <Reference Include="System.Windows.Forms" Private="True" />
   </ItemGroup>
 </Project>

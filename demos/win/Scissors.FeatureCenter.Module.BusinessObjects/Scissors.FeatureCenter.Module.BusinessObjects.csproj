@@ -1,10 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+		<TargetFramework>net462</TargetFramework>
   </PropertyGroup>
-  <ItemGroup>
+
+	<ItemGroup Condition="$(Configuration) == 'Release'">
     <PackageReference Include="Scissors.Xpo" Version="$(ScissorsVersion)" />
     <PackageReference Include="Scissors.Data" Version="$(ScissorsVersion)" />
   </ItemGroup>
+
+  <ItemGroup Condition="$(Configuration) == 'Debug'">
+    <ProjectReference Include="..\..\..\src\Scissors.Xpo\Scissors.Xpo.csproj" />
+    <ProjectReference Include="..\..\..\src\Scissors.Data\Scissors.Data.csproj" />
+  </ItemGroup>
+
   <ItemGroup>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />

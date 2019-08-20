@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net462</TargetFramework>
+    <RootNamespace>Acme.ConsoleApp</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Model.xafml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Model.xafml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DevExpress.ExpressApp.Xpo" Version="$(DxVersion)" />
+  </ItemGroup>
+	
+	<ItemGroup Condition="$(Configuration) == 'Release'">
+		<PackageReference Include="Scissors.ExpressApp" Version="$(ScissorsVersion)" />
+		<PackageReference Include="Scissors.ExpressApp.Console" Version="$(ScissorsVersion)" />
+	</ItemGroup>
+	
+	<ItemGroup Condition="$(Configuration) == 'Debug'">
+		<ProjectReference Include="..\..\..\src\Scissors.ExpressApp\Scissors.ExpressApp.csproj" />
+		<ProjectReference Include="..\..\..\src\Scissors.ExpressApp.Console\Scissors.ExpressApp.Console.csproj" />
+	</ItemGroup>
+	
+  <ItemGroup>
+    <ProjectReference Include="..\Acme.Module.Console\Acme.Module.Console.csproj" />
+    <ProjectReference Include="..\Acme.Module\Acme.Module.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,16 +1,20 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+		<TargetFramework>net462</TargetFramework>
 		<Description>Scissors label editors module for the DevExpress ExpressApp Framework</Description>
   </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="DevExpress.ExpressApp.Win" Version="$(DxVersion)" />
   </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\..\..\Scissors.ExpressApp.Win\Scissors.ExpressApp.Win.csproj" />
     <ProjectReference Include="..\..\..\Scissors.ExpressApp\Scissors.ExpressApp.csproj" />
     <ProjectReference Include="..\Base\Scissors.ExpressApp.LabelEditor.csproj" />
     <ProjectReference Include="..\Contracts\Scissors.ExpressApp.LabelEditor.Contracts.csproj" />
   </ItemGroup>
+
   <ItemGroup>
     <Reference Include="System.Windows.Forms" Private="True" />
   </ItemGroup>

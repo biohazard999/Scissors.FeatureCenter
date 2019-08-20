@@ -5,6 +5,7 @@ using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.DC;
 using DevExpress.ExpressApp.SystemModule;
 using Scissors.ExpressApp;
+using Scissors.ExpressApp.InlineEditForms;
 using Scissors.ExpressApp.LabelEditor;
 using Scissors.ExpressApp.LayoutBuilder;
 using Scissors.FeatureCenter.Module.ModelBuilders;
@@ -19,7 +20,8 @@ namespace Scissors.FeatureCenter.Module
             => base.GetRequiredModuleTypesCore()
                 .AndModuleTypes(
                     typeof(LayoutBuilderModule),
-                    typeof(LabelEditorModule)
+                    typeof(LabelEditorModule),
+                    typeof(InlineEditFormsModule)
                 );
 
         protected override IEnumerable<Type> GetDeclaredExportedTypes()

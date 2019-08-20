@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+		<TargetFramework>net462</TargetFramework>
 		<Description>This contains the contracts for the Scissors LayoutBuilder Module</Description>
   </PropertyGroup>
 

@@ -25,6 +25,7 @@ public class Bld
 		$"{DemosFolder}/**/obj/",
 	};
 
+	public string Sln => "./Scissors.FeatureCenter.sln";
 	public string SrcSln => "./Scissors.FeatureCenter.src.sln";
 	public string DemosSln => "./Scissors.FeatureCenter.demos.sln";
 
@@ -48,8 +49,8 @@ public class Bld
 	public string SrcInformationalVersion { get; set; }
 	public string SrcNugetVersion { get; set; }
 	public string SrcDocs { get; set;} = "./docs/docfx.json";
-	public string DxVersion { get; set; } = "2";
-	public string DxVersionDemos { get; set; } = "2";
+	public string DxVersion { get; set; } = "5";
+	public string DxVersionDemos { get; set; } = "5";
 	public string DemosVersion { get; set; }
 
 	public string StoreFilesDir { get; set; }

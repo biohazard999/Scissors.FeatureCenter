@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net462</TargetFramework>
+    <RootNamespace>Acme.Module.ConsoleLib</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Model.DesignedDiffs.xafml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Model.DesignedDiffs.xafml" />
+  </ItemGroup>
+	
+	<ItemGroup>
+		<PackageReference Include="DevExpress.Data" Version="$(DxVersion)" />
+	</ItemGroup>
+
+	<ItemGroup Condition="$(Configuration) == 'Release'">
+		<PackageReference Include="Scissors.ExpressApp.Console" Version="$(ScissorsVersion)" />
+	</ItemGroup>
+	
+	<ItemGroup Condition="$(Configuration) == 'Debug'">
+		<ProjectReference Include="..\..\..\src\Scissors.ExpressApp.Console\Scissors.ExpressApp.Console.csproj" />
+	</ItemGroup>
+	
+  <ItemGroup>
+    <ProjectReference Include="..\Acme.Module\Acme.Module.csproj" />
+  </ItemGroup>
+
+</Project>

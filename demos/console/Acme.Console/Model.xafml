@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Logo="ExpressAppLogo">
+  <Options Skin="Office 2019 Colorful" UIType="TabbedMDI" FormStyle="Ribbon" EnableHtmlFormatting="True">
+    <RibbonOptions RibbonControlStyle="Office2019" />
+  </Options>
+  <SchemaModules>
+    <SchemaModule Name="SystemModule" Version="19.1.2.0" IsNewNode="True" />
+    <SchemaModule Name="SystemWindowsFormsModule" Version="19.1.2.0" IsNewNode="True" />
+  </SchemaModules>
+</Application>
